@@ -1,0 +1,36 @@
+#!/bin/bash
+
+## directories
+PROJECT_HOME=$(pwd)/..
+ICC=$PROJECT_HOME/icc
+LIBS=$ICC/libs
+OUT=$ICC/out
+
+## subjects
+SUBJECTS=("ReadContacts" "org.smerty.zooborns")
+
+## clean-compile code 
+mkdir -p $OUT
+rm $OUT/*
+for x in `ls $LIBS/*.jar`
+do
+    CP=$CP:$x
+done
+javac -cp $CP -d out src/*.java
+
+## this script processes icc for different apps
+for x in "${SUBJECTS[@]}"
+do
+
+    echo "*** subject $x ***"
+    JAVA_FILES=$OUT/$x-javafiles.txt
+    SUBJECT_DIR=$PROJECT_HOME/$x
+    
+    ## our current analysis proccesses java source
+    (cd $SUBJECT_DIR;
+	find . -name "*.java"  
+	) > $JAVA_FILES
+
+    java -cp $CP:$OUT Main $JAVA_FILES $SUBJECT_DIR > $OUT/$x-graph-summary.txt
+    
+done

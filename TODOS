@@ -1,0 +1,13 @@
+general
+
+- avoid using "static" modifier in e KeysReader and Main; this should make construction of tests harder (let alone it is not a good programming practice).
+- update script run   
+
+test
+
+- please add more tests; I added two tests after fixing a bug but please contribute to strength regression suite
+
+design
+
+- break mutual dependency between KeysPrinter and Main
+- avoid unnecessary use of static 
