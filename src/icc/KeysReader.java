@@ -78,7 +78,8 @@ public class KeysReader {
          // check all methods to populate 'gets' and 'puts' with its arguments
          if (n != null && arguments != null) { 
             // get*Extra
-            if (name.contains("get") && name.contains("Extra")) {
+        	// a fix to avoid getExtras()
+            if (name.contains("get") && name.contains("Extra") && arguments.size() > 0) {
                if(arguments.get(0).toString().contains(".")) // this is to get just the content after the dot 
                {
                   int i = arguments.get(0).toString().indexOf('.');
@@ -90,8 +91,9 @@ public class KeysReader {
                }
 
             }
-            //putExtra
-            else if(name.contains("put") && name.contains("Extra") ){ 
+            // putExtra
+            // a fix to avoid putExtras method -Wei
+            else if (name.contains("put") && name.contains("Extra") && !name.contains("putExtras")){ 
                if(arguments.get(0).toString().contains("."))
                {
                   int i = arguments.get(0).toString().indexOf('.');
