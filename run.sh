@@ -9,7 +9,7 @@ OUT=$PROJECT_HOME/out
 
 if [ -z "$1" ]
     then
-        echo "You must the subject's path as input!"
+        echo "You must pass the subject's path as input!"
         exit 1
 fi
 SUBJECT_DIR=$1
