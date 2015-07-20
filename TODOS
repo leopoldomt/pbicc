@@ -1,3 +1,10 @@
+features (IMPORTANT: See email "discussion on rwsets-icc")
+
+- Handle non-literal constants
+- Handle communication through initializers (no intents)
+- Handle communication through delegate classes
+
+
 general
 
 - avoid using "static" modifier in e KeysReader and Main; this should make construction of tests harder (let alone it is not a good programming practice).
