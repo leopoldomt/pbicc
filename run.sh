@@ -9,7 +9,7 @@ OUT=$PROJECT_HOME/out
 
 if [ -z "$1" ]
     then
-        echo "You must pass the subject's path as input!"
+        echo "You must pass the subject's path as input!  For example $> ./run.sh test-data/zooborns/"
         exit 1
 fi
 SUBJECT_DIR=$1
@@ -30,3 +30,4 @@ JAVA_FILES=$OUT/$SUBJECT_NAME-javafiles.txt
 
 java -cp $CP:$OUT:$SRC icc.Main $JAVA_FILES $SUBJECT_DIR > $OUT/$SUBJECT_NAME-graph-summary.txt
 
+echo "check directory out for generated files.  For example, file zooborns-graph-summary.txt summarizes the contents of the ICC graph generated"
