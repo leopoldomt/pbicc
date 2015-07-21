@@ -1,0 +1,54 @@
+1) Component A starts another component B through startXXX (e.g.,
+startActivity).
+
+Two cases:
+
+1.1) Explicit Intents
+
+===
+ /* from component A */
+ Intent i=new Intent (this, component /* to component B */);
+ startActivity(i);
+===
+
+To handle this case it is necessary to analyze what are the possible
+class objects that object "component" can refer to and then declare
+communication.
+
+1.2) Implicit Intents
+
+===
+ /* from component A */
+ Intent i = new Intent (s);
+ startActivity(i);
+===
+
+To handle this case it is important to analyze what are the possible
+string objects that "s" can refer to and declare communication if
+there are match the intent filters in the manifest file (presumably
+there should be at least one matching component).  
+
+
+2) Component A start another component by other means...
+
+===
+Intent i = new Intent();
+...
+i.setComponent(componentName);
+...
+===
+
+or 
+
+===
+Intent i = new Intent();
+...
+i.setClass(c)
+...
+===
+
+To handle these additional cases we propose to use read-write sets
+algorithm at EXTRA keys.  
+
+Question: should we use same approach for ACTION?  Maybe non-standard
+actions?
