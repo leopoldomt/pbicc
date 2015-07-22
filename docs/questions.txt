@@ -12,7 +12,6 @@ Considering pattern 1, the cases below look a bit different then what
   I described but they do not seem hard.  How many particular cases
   such as these exist?
 
-Paulo's input: 
 ===
 Intent i = new Intent();
 ... 
@@ -36,16 +35,31 @@ find the strings?
 Paulo's input: I think that in both cases we will need a string
 analysis/constant propagation analysis. I consider both cases equally hard if we
 handle all possible methods.
+
+** Marcelo: Yes., do you know exactly the analysis used in the CF?  Is
+the CF collecting strings from use-def chains?  Is the CF using
+something available off-the-shelf like JSA?
+
 For explicit intents: There is also i.setClassName(packageName, className),
 which is a variation of setClass + setPackage. The packageName and className
 arguments are of type String, and can be constants.
 For implicit intents: The strings are not always part of a documented language.
 If you have a component in the manifest file, there you will be able to find the
-value of its intent filter, such as the action string. But there are also
+value of its intent filter, such as the action string. 
+But there are also
 dynamically registered BroadcastReceivers, which will required analyzing
 IntentFilter objects. You can this to learn more about dynamically registered
+
 BroadcastReceivers:
 http://androidallprograms.blogspot.com.br/2013/12/android-tutorial-dynamic-broadcast.html
+
+** Marcelo: Can the read-writes set complement the analysis for these cases?
+
+
 It is also important to note that in all cases the target (receiver) component
 can be in another Manifest/Application.
+
+** Marcelo: I assumed Epicc/IC3 would not be able to handle this case.
+
+
 
