@@ -5,10 +5,14 @@ Considering that all Android communication manifests with variations
 Is it because we are concerned that it is too hard to cover all
   special cases with one single approach?  
 
+Paulo's input: I think that we can discard the current analysis (look for
+putExtra/getExtra) if we are going to analyze the intent itself.
+
 Considering pattern 1, the cases below look a bit different then what
   I described but they do not seem hard.  How many particular cases
   such as these exist?
 
+Paulo's input: 
 ===
 Intent i = new Intent();
 ... 
@@ -28,3 +32,20 @@ Or you are concerned more with the pattern 2 as it can be challenging
 to infer action from strings.  If yes, are these strings part of a
 documented language?  In other words, can we find action if we can
 find the strings?
+
+Paulo's input: I think that in both cases we will need a string
+analysis/constant propagation analysis. I consider both cases equally hard if we
+handle all possible methods.
+For explicit intents: There is also i.setClassName(packageName, className),
+which is a variation of setClass + setPackage. The packageName and className
+arguments are of type String, and can be constants.
+For implicit intents: The strings are not always part of a documented language.
+If you have a component in the manifest file, there you will be able to find the
+value of its intent filter, such as the action string. But there are also
+dynamically registered BroadcastReceivers, which will required analyzing
+IntentFilter objects. You can this to learn more about dynamically registered
+BroadcastReceivers:
+http://androidallprograms.blogspot.com.br/2013/12/android-tutorial-dynamic-broadcast.html
+It is also important to note that in all cases the target (receiver) component
+can be in another Manifest/Application.
+
