@@ -1,0 +1,30 @@
+Considering that all Android communication manifests with variations
+  of these two patterns (patterns.txt), why should we care about our
+  current approach (read-write over extra data)?  
+
+Is it because we are concerned that it is too hard to cover all
+  special cases with one single approach?  
+
+Considering pattern 1, the cases below look a bit different then what
+  I described but they do not seem hard.  How many particular cases
+  such as these exist?
+
+===
+Intent i = new Intent();
+... 
+i.setComponent(componentName); // ComponentName object passed as parameter
+...
+===
+
+or this case:
+===
+Intent i = new Intent();
+...
+i.setClass(c)
+...
+===
+
+Or you are concerned more with the pattern 2 as it can be challenging
+to infer action from strings.  If yes, are these strings part of a
+documented language?  In other words, can we find action if we can
+find the strings?
