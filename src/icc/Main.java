@@ -84,7 +84,8 @@ public class Main {
       TopologicalOrderIterator<Integer, DefaultEdge> toi =
             new TopologicalOrderIterator<Integer, DefaultEdge>(g);
       while (toi.hasNext()) {
-         sb.append(toi.next());
+         String canonicalName = toi.next()+""; // Removing .java extension from topo order.
+         sb.append(canonicalName.substring(0, canonicalName.length()-5));
          sb.append("\n");
       }
       return sb.toString();
@@ -105,4 +106,4 @@ public class Main {
 
       return sb.toString();
    }
-}	
+}

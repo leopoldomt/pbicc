@@ -18,8 +18,8 @@ import java.util.List;
 public class KeysReader {
 
    static String classname;
-   
-   public static void main(String[] args) throws Exception { 
+
+   public static void main(String[] args) throws Exception {
       String fileName =  args[0];
       String filePath = args[1];
       KeysReader.processFileList(fileName, filePath);
@@ -29,28 +29,32 @@ public class KeysReader {
       try (BufferedReader br = new BufferedReader(new FileReader(name))) {
          String line;
          while ((line = br.readLine()) != null) {
-            String fileName = line.substring(1);
-            processJavaFile(pathRoot+fileName);
+            String fileName = line.substring(2);
+            processJavaFile(pathRoot, fileName);
          }
       }
    }
-   
+
    public static void processDir(String dirName) throws Exception {
       File dir = new File(dirName);
       for (File fileName : dir.listFiles()) {
-         processJavaFile(fileName.toString());
+          if (fileName.isDirectory()) {
+            processDir(dirName+fileName.getName());
+          } else {
+            processJavaFile(dirName, fileName.getName());
+          }
       }
    }
 
-   static void processJavaFile(String fullyQualifiedName)
+   static void processJavaFile(String pathRoot, String fullyQualifiedName)
          throws FileNotFoundException, ParseException, IOException {
-      
-      File file = new File(fullyQualifiedName);
-      
-      classname = file.getName();
 
-      
-      // creates an input stream for the file to be parse     
+      File file = new File(pathRoot, fullyQualifiedName);
+
+      classname = fullyQualifiedName.replaceAll("/", ".");
+
+
+      // creates an input stream for the file to be parse
       FileInputStream in = new FileInputStream(file);
       CompilationUnit cu;
 
@@ -69,31 +73,31 @@ public class KeysReader {
       Main.PutsAndGets putsAndGets = new Main.PutsAndGets();
       @Override
       public void visit(MethodCallExpr n, Object arg) {
-         
-         super.visit(n, arg);  // Paulo, please confirm this line was missing. -Marcelo 
+
+         super.visit(n, arg);
 
          String name = n.getName();
          List<Expression> arguments = n.getArgs();
 
          // check all methods to populate 'gets' and 'puts' with its arguments
-         if (n != null && arguments != null) { 
+         if (n != null && arguments != null) {
             // get*Extra
         	// a fix to avoid getExtras()
             if (name.contains("get") && name.contains("Extra") && arguments.size() > 0) {
-               if(arguments.get(0).toString().contains(".")) // this is to get just the content after the dot 
+               if(arguments.get(0).toString().contains(".")) // this is to get just the content after the dot
                {
                   int i = arguments.get(0).toString().indexOf('.');
                   putsAndGets.gets.add(arguments.get(0).toString().substring(i+1));
                }
                else
-               {   
-                  putsAndGets.gets.add(arguments.get(0).toString()); 
+               {
+                  putsAndGets.gets.add(arguments.get(0).toString());
                }
 
             }
             // putExtra
             // a fix to avoid putExtras method -Wei
-            else if (name.contains("put") && name.contains("Extra") && !name.contains("putExtras")){ 
+            else if (name.contains("put") && name.contains("Extra") && !name.contains("putExtras")){
                if(arguments.get(0).toString().contains("."))
                {
                   int i = arguments.get(0).toString().indexOf('.');
@@ -108,5 +112,5 @@ public class KeysReader {
 
          Main.entries.put(classname,putsAndGets);
       }
-   }   
+   }
 }
