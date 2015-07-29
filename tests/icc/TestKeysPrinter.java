@@ -13,7 +13,7 @@ public class TestKeysPrinter {
    @Test
    public void testZooBorn() throws Exception {
       String fullyQualifiedFileName = "ZooBorns.java";
-      String dirName = TEST_DATA_DIR + sep + "zooborns" + sep;
+      String dirName = TEST_DATA_DIR + sep + "zooborns" + sep + "src" + sep;
       KeysReader.processJavaFile(dirName, fullyQualifiedFileName);
       PutsAndGets putsAndGets = Main.entries.get(fullyQualifiedFileName);
       /**
