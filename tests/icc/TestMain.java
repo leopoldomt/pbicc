@@ -1,5 +1,7 @@
 package icc;
 
+import icc.visitors.FileProcessor;
+
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.junit.Assert;
@@ -12,7 +14,7 @@ public class TestMain {
 
    @Test
    public void testZooBorn() throws Exception {
-      IntentKeysReader.processDir(TEST_DATA_DIR + sep + "zooborns" + sep + "src");
+      FileProcessor.processDir(TEST_DATA_DIR + sep + "zooborns" + sep + "src");
       DirectedGraph<String, DefaultEdge> graph = Main.createDependencyGraph();
       /* FullScreenImage communicates with ZooBorns */
       Assert.assertTrue(graph.containsEdge("ZooBorns.java", "FullscreenImage.java"));

@@ -1,16 +1,16 @@
 package icc.visitors;
 
 import icc.Main;
+import icc.PutsAndGets;
+import japa.parser.ast.expr.Expression;
 import japa.parser.ast.expr.MethodCallExpr;
 import japa.parser.ast.visitor.VoidVisitorAdapter;
-import japa.parser.ast.expr.Expression;
 
 import java.util.List;
 
-// visitor implementation
 public class KeysVisitor extends VoidVisitorAdapter<Object> {
 
-  Main.PutsAndGets putsAndGets = new Main.PutsAndGets();
+  PutsAndGets putsAndGets = new PutsAndGets();
   String classname;
 
   public KeysVisitor(String classname) {

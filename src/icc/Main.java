@@ -1,7 +1,8 @@
 package icc;
 
+import icc.visitors.FileProcessor;
+
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import org.jgrapht.traverse.TopologicalOrderIterator;
 public class Main {
 
    public static void main(String[] args) throws Exception {
-      IntentKeysReader.processFileList(args[0]/*fileName*/, args[1]/*filePath*/);
+      FileProcessor.processFileList(args[0]/*fileName*/, args[1]/*filePath*/);
       DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
       System.out.println("INTENT KEYS");
       for (Map.Entry<String, PutsAndGets> entry : entries.entrySet()) {
@@ -27,29 +28,6 @@ public class Main {
 
    //TODO: this started as a script.  consider removing this "static" modifiers. -M
    public static Map<String/*classname*/, PutsAndGets> entries = new HashMap<String, PutsAndGets>();
-
-   public static class PutsAndGets {
-      public Set<String> gets = new HashSet<String>();
-      public Set<String> puts = new HashSet<String>();
-
-      public String toString() {
-         return String.format("\n  GETS %s\n  PUTS %s\n", gets.toString(), puts.toString());
-      }
-
-      /**
-       * returns true if
-       * pg.gets (read set) intersects with this.puts (write set)
-       */
-      public boolean isDep(PutsAndGets pg) {
-         for (String read : pg.gets) {
-            if (this.puts.contains(read)) {
-               return true;
-            }
-         }
-         return false;
-      }
-   }
-
 
    // create dependency graph
    static DirectedGraph<String, DefaultEdge> createDependencyGraph() {
