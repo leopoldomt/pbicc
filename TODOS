@@ -1,14 +1,9 @@
-features (IMPORTANT: See email "discussion on rwsets-icc")
+features
 
-- Handle non-literal constants
-- Handle communication through initializers (no intents)
-- Handle communication through delegate classes
-
-
-general
-
-- avoid using "static" modifier in e KeysReader and Main; this should make construction of tests harder (let alone it is not a good programming practice).
-- update script run   
+0. Compare results (time, precision, and recall) of Epicc and IC3 on a small (5-10) set of apps
+1. Handle communication without intents (first the basic cases)
+2. Handle communication through delegate classes
+3. Handle non-literal constants (both for explicit and implicit intents)
 
 test
 
