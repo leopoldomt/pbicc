@@ -13,7 +13,7 @@ import org.jgrapht.traverse.TopologicalOrderIterator;
 public class Main {
 
    public static void main(String[] args) throws Exception {
-      KeysReader.processFileList(args[0]/*fileName*/, args[1]/*filePath*/);
+      IntentKeysReader.processFileList(args[0]/*fileName*/, args[1]/*filePath*/);
       DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
       System.out.println("INTENT KEYS");
       for (Map.Entry<String, PutsAndGets> entry : entries.entrySet()) {

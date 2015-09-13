@@ -14,7 +14,7 @@ public class TestKeysPrinter {
    public void testZooBorn() throws Exception {
       String fullyQualifiedFileName = "ZooBorns.java";
       String dirName = TEST_DATA_DIR + sep + "zooborns" + sep + "src" + sep;
-      KeysReader.processJavaFile(dirName, fullyQualifiedFileName);
+      IntentKeysReader.processJavaFile(dirName, fullyQualifiedFileName);
       PutsAndGets putsAndGets = Main.entries.get(fullyQualifiedFileName);
       /**
        * a bug in the implementation of the visitor KeysReader (missing super.visit)

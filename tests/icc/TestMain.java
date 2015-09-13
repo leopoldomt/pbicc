@@ -12,7 +12,7 @@ public class TestMain {
 
    @Test
    public void testZooBorn() throws Exception {
-      KeysReader.processDir(TEST_DATA_DIR + sep + "zooborns" + sep + "src");
+      IntentKeysReader.processDir(TEST_DATA_DIR + sep + "zooborns" + sep + "src");
       DirectedGraph<String, DefaultEdge> graph = Main.createDependencyGraph();
       /* FullScreenImage communicates with ZooBorns */
       Assert.assertTrue(graph.containsEdge("ZooBorns.java", "FullscreenImage.java"));

@@ -22,7 +22,8 @@ for x in `ls $LIBS/*.jar`
 do
     CP=$CP:$x
 done
-javac -cp $CP $ICC/*.java
+find $ICC -name "*.java" | xargs javac -cp $CP 
+
 ## this script processes icc for a single app
 echo "*** subject $SUBJECT_NAME ***"
 JAVA_FILES=$OUT/$SUBJECT_NAME-javafiles.txt
