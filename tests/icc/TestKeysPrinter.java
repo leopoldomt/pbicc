@@ -2,6 +2,10 @@ package icc;
 
 import icc.visitors.FileProcessor;
 
+import java.util.Set;
+
+import org.jgrapht.DirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -23,6 +27,16 @@ public class TestKeysPrinter {
     Assert.assertTrue(putsAndGets.puts.contains("\"cachedImageList\""));
     Assert.assertTrue(putsAndGets.puts.contains("\"gallery\""));
     Assert.assertTrue(putsAndGets.puts.contains("\"currentImageIndex\""));
+  }
+  
+  @Test
+  public void testClasses() throws Exception {
+    FileProcessor.processFileList("out/zooborns-javafiles.txt", "test-data/zooborns//src/");
+    DirectedGraph<String, DefaultEdge> g = Main.createDependencyGraph();
+    Set<String> vertices = g.vertexSet();
+    Assert.assertTrue(vertices.contains("ZooBorns.java"));
+    // See "out/zooborns-javafiles.txt" and "out/zooborns-graph-summary.txt".  They should contain the same set of elements
+    Assert.assertTrue(vertices.contains("ZooBornsPhoto.java"));
   }
 
 }

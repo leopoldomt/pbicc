@@ -56,6 +56,6 @@ public class KeysVisitor extends VoidVisitorAdapter<Object> {
       }
     }
 
-    Main.entries.put(classname,putsAndGets);
+    Main.entries.put(classname, putsAndGets);
   }
 }

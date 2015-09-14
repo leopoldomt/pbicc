@@ -12,76 +12,90 @@ import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.traverse.TopologicalOrderIterator;
 
 public class Main {
+  
+  static boolean DEBUG_KEYS = false;
+  static boolean PRINT_DOT = false;
+  static boolean PRINT_TOPO_ORDER = false;
 
-   public static void main(String[] args) throws Exception {
-      FileProcessor.processFileList(args[0]/*fileName*/, args[1]/*filePath*/);
-      DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
+  //TODO: use commons cli to organize options: https://commons.apache.org/proper/commons-cli/ -M
+  public static void main(String[] args) throws Exception {
+    FileProcessor.processFileList(args[0]/*fileName*/, args[1]/*filePath*/);
+    DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
+
+    if (DEBUG_KEYS) {
       System.out.println("INTENT KEYS");
       for (Map.Entry<String, PutsAndGets> entry : entries.entrySet()) {
-         System.out.printf("COMP:%s, KEYS:%s", entry.getKey().toString(), entry.getValue().toString());
+        System.out.printf("COMP:%s, KEYS:%s", entry.getKey().toString(), entry.getValue().toString());
       }
-      System.out.println("GRAPH: ");
-      System.out.println(toString(g));
+    }
+    
+    if (PRINT_DOT) {
+      System.out.println(toDot(g));
+    }
+    
+    if (PRINT_TOPO_ORDER) {
       System.out.println("TOPO ORDER: ");
       System.out.println(getTopoOrder(g));
-   }
+    }
+  }
 
-   //TODO: this started as a script.  consider removing this "static" modifiers. -M
-   public static Map<String/*classname*/, PutsAndGets> entries = new HashMap<String, PutsAndGets>();
+  //TODO: this started as a script.  consider removing this "static" modifiers. -M
+  public static Map<String/*classname*/, PutsAndGets> entries = new HashMap<String, PutsAndGets>();
 
-   // create dependency graph
-   static DirectedGraph<String, DefaultEdge> createDependencyGraph() {
-      DirectedGraph<String, DefaultEdge> g =
-            new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
+  // create dependency graph
+  public static DirectedGraph<String, DefaultEdge> createDependencyGraph() {
+    DirectedGraph<String, DefaultEdge> g =
+        new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
-      // add vertices
-      for (String key : entries.keySet()) {
-         g.addVertex(key);
+    // add vertices
+    for (String key : entries.keySet()) {
+      g.addVertex(key);
+    }
+
+    // add edges
+    for (Map.Entry<String, PutsAndGets> entry1 : entries.entrySet()) {
+      PutsAndGets pg1 = entry1.getValue();
+
+      for (Map.Entry<String, PutsAndGets> entry2 : entries.entrySet()) {
+        PutsAndGets pg2 = entry2.getValue();
+
+        // TODO: only requires one equal key!  strange.
+        if (pg2.isDep(pg1)) {
+          g.addEdge(entry2.getKey(), entry1.getKey());
+        }
       }
+    }
 
-      // add edges
-      for (Map.Entry<String, PutsAndGets> entry1 : entries.entrySet()) {
-         PutsAndGets pg1 = entry1.getValue();
+    return g;
+  }
 
-         for (Map.Entry<String, PutsAndGets> entry2 : entries.entrySet()) {
-            PutsAndGets pg2 = entry2.getValue();
+  // dump topological order
+  static String getTopoOrder(@SuppressWarnings("rawtypes") DirectedGraph g) {
+    StringBuffer sb = new StringBuffer();
+    @SuppressWarnings("unchecked")
+    TopologicalOrderIterator<Integer, DefaultEdge> toi =
+    new TopologicalOrderIterator<Integer, DefaultEdge>(g);
+    while (toi.hasNext()) {
+      String canonicalName = toi.next()+""; // Removing .java extension from topo order.
+      sb.append(canonicalName.substring(0, canonicalName.length()-5));
+      sb.append("\n");
+    }
+    return sb.toString();
+  }
 
-            if (pg2.isDep(pg1)) {
-               g.addEdge(entry2.getKey(), entry1.getKey());
-            }
-         }
-      }
+  // dump string representation of the graph
+  private static String toDot(DirectedGraph<String, DefaultEdge> g) {
 
-      return g;
-   }
+    StringBuffer sb = new StringBuffer();
+    sb.append("Vertex set:");
+    sb.append(g.vertexSet());
 
-   // dump topological order
-   private static String getTopoOrder(@SuppressWarnings("rawtypes") DirectedGraph g) {
-      StringBuffer sb = new StringBuffer();
-      @SuppressWarnings("unchecked")
-      TopologicalOrderIterator<Integer, DefaultEdge> toi =
-            new TopologicalOrderIterator<Integer, DefaultEdge>(g);
-      while (toi.hasNext()) {
-         String canonicalName = toi.next()+""; // Removing .java extension from topo order.
-         sb.append(canonicalName.substring(0, canonicalName.length()-5));
-         sb.append("\n");
-      }
-      return sb.toString();
-   }
+    Set<DefaultEdge> edges = g.edgeSet();
+    sb.append("\nEdge set:");
+    for (DefaultEdge e: edges) {
+      sb.append(e);
+    }
 
-   // dump string representation of the graph
-   private static String toString(DirectedGraph<String, DefaultEdge> g) {
-
-      StringBuffer sb = new StringBuffer();
-      sb.append("Vertex set:");
-      sb.append(g.vertexSet());
-
-      Set<DefaultEdge> edges = g.edgeSet();
-      sb.append("\nEdge set:");
-      for (DefaultEdge e: edges) {
-         sb.append(e);
-      }
-
-      return sb.toString();
-   }
+    return sb.toString();
+  }
 }

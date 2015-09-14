@@ -13,16 +13,26 @@ public class PutsAndGets {
   }
 
   /**
-   * returns true if
-   * pg.gets (read set) intersects with this.puts (write set)
+   * true if there is a dependency across the two pg's 
    */
+  
+  enum HEURISTIC_MATCH {ONE, ALL}; // TODO: we should think about other options -M
+  static HEURISTIC_MATCH heuristic = HEURISTIC_MATCH.ONE;
+  
   public boolean isDep(PutsAndGets pg) {
-    for (String read : pg.gets) {
-      if (this.puts.contains(read)) {
-        return true;
+    switch (heuristic) {
+    case ONE: // one key match suffices
+      for (String read : pg.gets) {
+        if (this.puts.contains(read)) {
+          return true;
+        }
       }
-    }
-    return false;
+      return false;
+    case ALL: // all keys written (if exist) must be present 
+      return !pg.gets.isEmpty() && !puts.isEmpty() && pg.gets.containsAll(puts);
+    default:
+      throw new RuntimeException("don't know this heuristic");      
+    }    
   }
   
 }
