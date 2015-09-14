@@ -11,13 +11,13 @@ public class NameVisitor extends VoidVisitorAdapter<Object> {
   @Override
   public void visit(NameExpr n, Object arg) {
     super.visit(n, arg);
-    System.out.println(n);
+//    System.out.println(n);
   }
   
   @Override
   public void visit(QualifiedNameExpr n, Object arg) {
     super.visit(n, arg);
-    System.out.println(n);
+//    System.out.println(n);
   }
 
 
