@@ -1,4 +1,5 @@
-# rwsets-icc
-Read-Write Sets implementation for Android Inter-Component Communication (ICC)
+###
+# PB-ICC: pattern-based (lightweight) inter-component communication analysis
+###
 
 /*TODO: elaborate this...*/
