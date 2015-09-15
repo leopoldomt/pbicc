@@ -2,6 +2,8 @@ package icc;
 
 import icc.visitors.FileProcessor;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -13,13 +15,18 @@ import org.jgrapht.traverse.TopologicalOrderIterator;
 
 public class Main {
   
+  //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = false;
-  static boolean PRINT_DOT = false;
+  static boolean PRINT_DOT = true;
   static boolean PRINT_TOPO_ORDER = false;
+  
+  static String fileName;
+  static String filePath;
 
-  //TODO: use commons cli to organize options: https://commons.apache.org/proper/commons-cli/ -M
   public static void main(String[] args) throws Exception {
-    FileProcessor.processFileList(args[0]/*fileName*/, args[1]/*filePath*/);
+    fileName = args[0];
+    filePath = args[1];
+    FileProcessor.processFileList(fileName, filePath);
     DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
 
     if (DEBUG_KEYS) {
@@ -30,7 +37,12 @@ public class Main {
     }
     
     if (PRINT_DOT) {
-      System.out.println(toDot(g));
+      String dot = toDot(g);
+      String name = fileName.split("-")[0] + "-cdg.dot"; // component dependency graph
+      BufferedWriter bw = new BufferedWriter(new FileWriter(name));
+      bw.write(dot);
+      bw.flush();
+      bw.close();
     }
     
     if (PRINT_TOPO_ORDER) {
@@ -82,9 +94,13 @@ public class Main {
     }
     return sb.toString();
   }
+  
+  /**
+   * string graph representations
+   */
 
-  // dump string representation of the graph
-  private static String toDot(DirectedGraph<String, DefaultEdge> g) {
+  @SuppressWarnings("unused")
+  private static String toCustomRepr(DirectedGraph<String, DefaultEdge> g) {
 
     StringBuffer sb = new StringBuffer();
     sb.append("Vertex set:");
@@ -98,4 +114,23 @@ public class Main {
 
     return sb.toString();
   }
+
+  /**
+   * Dot is a popular graph visualization format.  See/Install Graphviz 
+   **/
+  private static String toDot(DirectedGraph<String, DefaultEdge> g) {
+
+    StringBuffer sb = new StringBuffer();
+    sb.append("digraph mygraph {\n ");
+    Set<DefaultEdge> edges = g.edgeSet();
+    for (DefaultEdge e: edges) {
+      sb.append(g.getEdgeSource(e)./*remove file extension*/split("\\.")[0]);
+      sb.append("->");
+      sb.append(g.getEdgeTarget(e)./*remove file extension*/split("\\.")[0]);
+      sb.append(";\n");
+    }
+    sb.append("}\n");
+    return sb.toString();
+  }
+
 }

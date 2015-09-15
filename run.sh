@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## consider writing this in python (not priority)
+
 ## directories
 PROJECT_HOME=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 SRC=$PROJECT_HOME/src
@@ -30,6 +32,12 @@ JAVA_FILES=$OUT/$SUBJECT_NAME-javafiles.txt
 ## our current analysis processes java source
 (cd $SUBJECT_SRC; find . -name "*.java" ) > $JAVA_FILES
 
-java -cp $CP:$OUT:$SRC icc.Main $JAVA_FILES $SUBJECT_SRC > $OUT/$SUBJECT_NAME-graph-summary.txt
+java -cp $CP:$OUT:$SRC icc.Main $JAVA_FILES $SUBJECT_SRC
 
 echo "check directory out for generated files.  For example, file zooborns-graph-summary.txt summarizes the contents of the ICC graph generated"
+
+echo "assuming you have graphviz installed"
+(cd $OUT;
+    dot -Tjpg ${SUBJECT_NAME}-cdg.dot > ${SUBJECT_NAME}-cdg.jpg
+    open ${SUBJECT_NAME}-cdg.jpg
+)
