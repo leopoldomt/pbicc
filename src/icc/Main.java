@@ -14,12 +14,12 @@ import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.traverse.TopologicalOrderIterator;
 
 public class Main {
-  
+
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
-  static boolean DEBUG_KEYS = false;
+  static boolean DEBUG_KEYS = true;
   static boolean PRINT_DOT = true;
   static boolean PRINT_TOPO_ORDER = false;
-  
+
   static String fileName;
   static String filePath;
 
@@ -35,7 +35,7 @@ public class Main {
         System.out.printf("COMP:%s, KEYS:%s", entry.getKey().toString(), entry.getValue().toString());
       }
     }
-    
+
     if (PRINT_DOT) {
       String dot = toDot(g);
       String name = fileName.split("-")[0] + "-cdg.dot"; // component dependency graph
@@ -44,7 +44,7 @@ public class Main {
       bw.flush();
       bw.close();
     }
-    
+
     if (PRINT_TOPO_ORDER) {
       System.out.println("TOPO ORDER: ");
       System.out.println(getTopoOrder(g));
@@ -94,7 +94,7 @@ public class Main {
     }
     return sb.toString();
   }
-  
+
   /**
    * string graph representations
    */

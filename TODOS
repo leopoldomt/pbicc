@@ -1,9 +1,10 @@
 features
 
-0. Compare results (time, precision, and recall) of Epicc and IC3 on a small (5-10) set of apps
-1. Handle communication without intents (first the basic cases)
-2. Handle communication through delegate classes
-3. Handle non-literal constants (both for explicit and implicit intents)
+1. Compare results (time, precision, and recall) of Epicc and IC3 on a small (5-10) set of apps
+2. Handle communication without intents (first the basic cases)
+3. Handle communication through delegate classes
+4. Handle non-literal constants (both for explicit and implicit intents).  May use constant-propagation from other project.
+5. (While/If constant-propagation on keys is not done) Handle cases where keys are of the form "X.Y.Z".  Problems can arise when keys are accessed from different modules.  
 
 test
 

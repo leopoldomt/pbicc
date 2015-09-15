@@ -15,10 +15,19 @@ public class PutsAndGets {
   /**
    * true if there is a dependency across the two pg's 
    */
-  
+  //TODO: see commons-cli related comment on Main.java
   enum HEURISTIC_MATCH {ONE, ALL}; // TODO: we should think about other options -M
-  static HEURISTIC_MATCH heuristic = HEURISTIC_MATCH.ONE;
+  static HEURISTIC_MATCH heuristic = HEURISTIC_MATCH.ALL;
+  static boolean IGNORE_EXTRA_KEYS = false;
   
+  // does it make sense to report confidence level based on some heuristics?
+  /**
+   * 
+   * @param pg
+   * @return true if there is a dependence from the component 
+   * characterized with THIS objects to the component characterized 
+   * with the parameter object
+   */
   public boolean isDep(PutsAndGets pg) {
     switch (heuristic) {
     case ONE: // one key match suffices
