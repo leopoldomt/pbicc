@@ -30,7 +30,7 @@ public class TestKeysPrinter {
   }
   
   @Test
-  public void testClasses() throws Exception {
+  public void testEmptyKeys() throws Exception {
     FileProcessor.processFileList("out/zooborns-javafiles.txt", "test-data/zooborns//src/");
     DirectedGraph<String, DefaultEdge> g = Main.createDependencyGraph();
     Set<String> vertices = g.vertexSet();
