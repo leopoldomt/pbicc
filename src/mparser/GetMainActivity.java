@@ -8,6 +8,11 @@ import java.io.IOException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+/**
+ * TODO: I guess this can be made more general; we will 
+ * need to access other info in addition to main activity. -M
+ * 
+ */
 public class GetMainActivity {
 
     static BufferedWriter bf;
