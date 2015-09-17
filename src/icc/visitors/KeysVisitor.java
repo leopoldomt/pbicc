@@ -1,6 +1,5 @@
 package icc.visitors;
 
-import icc.Main;
 import icc.PutsAndGets;
 import japa.parser.ast.expr.Expression;
 import japa.parser.ast.expr.MethodCallExpr;
@@ -11,10 +10,9 @@ import java.util.List;
 public class KeysVisitor extends VoidVisitorAdapter<Object> {
 
   PutsAndGets putsAndGets = new PutsAndGets();
-  String classname;
-
-  public KeysVisitor(String classname) {
-    this.classname = classname;
+  
+  public PutsAndGets getPGs() {
+    return putsAndGets;
   }
 
   @Override
@@ -54,8 +52,7 @@ public class KeysVisitor extends VoidVisitorAdapter<Object> {
           putsAndGets.puts.add(arguments.get(0).toString());
         }
       }
-    }
+    } // end if
 
-    Main.entries.put(classname, putsAndGets);
   }
 }

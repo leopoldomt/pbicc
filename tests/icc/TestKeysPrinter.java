@@ -1,7 +1,5 @@
 package icc;
 
-import icc.visitors.FileProcessor;
-
 import java.util.Set;
 
 import org.jgrapht.DirectedGraph;
@@ -18,8 +16,8 @@ public class TestKeysPrinter {
   public void testZooBorn() throws Exception {
     String fullyQualifiedFileName = "ZooBorns.java";
     String dirName = TEST_DATA_DIR + sep + "zooborns" + sep + "src" + sep;
-    FileProcessor.processJavaFile(dirName, fullyQualifiedFileName);
-    PutsAndGets putsAndGets = Main.entries.get(fullyQualifiedFileName);
+    Util.processJavaFile(dirName, fullyQualifiedFileName);
+    PutsAndGets putsAndGets = State.getInstance().pgMap().get(fullyQualifiedFileName);
     /**
      * a bug in the implementation of the visitor KeysReader (missing super.visit)
      * prevented us from finding these keys
@@ -31,7 +29,7 @@ public class TestKeysPrinter {
   
   @Test
   public void testEmptyKeys() throws Exception {
-    FileProcessor.processFileList("out/zooborns-javafiles.txt", "test-data/zooborns//src/");
+    Util.processFileList("out/zooborns-javafiles.txt", "test-data/zooborns//src/");
     DirectedGraph<String, DefaultEdge> g = Main.createDependencyGraph();
     Set<String> vertices = g.vertexSet();
     Assert.assertTrue(vertices.contains("ZooBorns.java"));

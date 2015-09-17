@@ -1,10 +1,7 @@
 package icc;
 
-import icc.visitors.FileProcessor;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,16 +19,16 @@ public class Main {
 
   static String fileName;
   static String filePath;
-
+  
   public static void main(String[] args) throws Exception {
     fileName = args[0];
     filePath = args[1];
-    FileProcessor.processFileList(fileName, filePath);
+    Util.processFileList(fileName, filePath);
+    
     DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
-
     if (DEBUG_KEYS) {
       System.out.println("INTENT KEYS");
-      for (Map.Entry<String, PutsAndGets> entry : entries.entrySet()) {
+      for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {
         System.out.printf("COMP:%s, KEYS:%s", entry.getKey().toString(), entry.getValue().toString());
       }
     }
@@ -51,27 +48,23 @@ public class Main {
     }
   }
 
-  //TODO: this started as a script.  consider removing this "static" modifiers. -M
-  public static Map<String/*classname*/, PutsAndGets> entries = new HashMap<String, PutsAndGets>();
-
   // create dependency graph
   public static DirectedGraph<String, DefaultEdge> createDependencyGraph() {
     DirectedGraph<String, DefaultEdge> g =
         new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
     // add vertices
-    for (String key : entries.keySet()) {
+    for (String key : State.getInstance().pgMap().keySet()) {
       g.addVertex(key);
     }
 
     // add edges
-    for (Map.Entry<String, PutsAndGets> entry1 : entries.entrySet()) {
+    for (Map.Entry<String, PutsAndGets> entry1 : State.getInstance().pgMap().entrySet()) {
       PutsAndGets pg1 = entry1.getValue();
 
-      for (Map.Entry<String, PutsAndGets> entry2 : entries.entrySet()) {
+      for (Map.Entry<String, PutsAndGets> entry2 : State.getInstance().pgMap().entrySet()) {
         PutsAndGets pg2 = entry2.getValue();
 
-        // TODO: only requires one equal key!  strange.
         if (pg2.isDep(pg1)) {
           g.addEdge(entry2.getKey(), entry1.getKey());
         }
