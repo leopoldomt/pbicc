@@ -1,6 +1,14 @@
 package icc;
 
+import icc.visitors.KeysVisitor;
+import japa.parser.JavaParser;
+import japa.parser.ast.CompilationUnit;
+
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Map;
 import java.util.Set;
@@ -17,15 +25,15 @@ public class Main {
   static boolean PRINT_DOT = true;
   static boolean PRINT_TOPO_ORDER = false;
 
-  static String fileName;
-  static String filePath;
+  static String fileListFile;
+  static String appSourceDir;
   
   public static void main(String[] args) throws Exception {
-    fileName = args[0];
-    filePath = args[1];
-    Util.processFileList(fileName, filePath);
+    
+    init(args[0], args[1]);
     
     DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
+    
     if (DEBUG_KEYS) {
       System.out.println("INTENT KEYS");
       for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {
@@ -35,7 +43,7 @@ public class Main {
 
     if (PRINT_DOT) {
       String dot = toDot(g);
-      String name = fileName.split("-")[0] + "-cdg.dot"; // component dependency graph
+      String name = fileListFile.split("-")[0] + "-cdg.dot"; // component dependency graph
       BufferedWriter bw = new BufferedWriter(new FileWriter(name));
       bw.write(dot);
       bw.flush();
@@ -46,6 +54,57 @@ public class Main {
       System.out.println("TOPO ORDER: ");
       System.out.println(getTopoOrder(g));
     }
+  }
+
+  public static void init(String fileListFile, String appSourceDir) throws Exception {
+    Main.fileListFile = fileListFile;
+    Main.appSourceDir = appSourceDir;
+    
+    // processFileList makes a pass in all ASTs: one pass for each compilation unit
+    processFileList(fileListFile, appSourceDir,
+        new CompUnitProcessable() {
+          @Override
+          public void process(String name, CompilationUnit cu) {
+            KeysVisitor kv = new KeysVisitor();
+            kv.visit(cu, null);
+            State.getInstance().pgMap().put(name.replaceAll("/", "."), kv.getPGs());
+          }
+        }
+    );
+    
+    //TODO: we need to implement component analysis
+//    processFileList(fileListFile, appSourceDir,
+//        new CompUnitProcessable() {
+//          DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
+//          { // initialize g (done once)
+//            for (String fileName : State.getInstance().pgMap().keySet()) {
+//              g.addVertex(fileName.split("\\.")[0]);
+//            }   
+//          }
+//          @Override
+//          public void process(String name, CompilationUnit cu) {
+//            String regex = String.join("|", State.getInstance().pgMap().keySet());
+//            cu.toString().matches(regex);
+//          }
+//        }
+//    );
+  }
+  
+  public static void processFileList(String fileListFile, String appSourceDir, CompUnitProcessable cup) throws Exception {
+    BufferedReader br = new BufferedReader(new FileReader(fileListFile));
+    String line;
+    while ((line = br.readLine()) != null) {
+      String fileName = line.substring(2);
+      File file = new File(appSourceDir, fileName);
+      // creates an input stream for the file to be parse
+      FileInputStream in = new FileInputStream(file);
+      CompilationUnit cu = JavaParser.parse(in);
+      if(cu != null){
+        cup.process(fileName, cu);
+      }
+      in.close();
+    }
+    br.close();
   }
 
   // create dependency graph
