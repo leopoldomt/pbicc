@@ -20,6 +20,7 @@ SUBJECT_SRC=$SUBJECT_DIR/src/
 SUBJECT_NAME=$(basename $SUBJECT_DIR)
 ## clean-compile code 
 mkdir -p $OUT
+mkdir -p $BIN
 rm -rf $OUT/*
 for x in `ls $LIBS/*.jar`
 do
