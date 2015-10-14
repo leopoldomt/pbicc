@@ -23,17 +23,17 @@ public class Main {
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = true;
   static boolean PRINT_DOT = true;
-  static boolean PRINT_TOPO_ORDER = false;
+  static boolean PRINT_TOPO_ORDER = true;
 
   static String fileListFile;
   static String appSourceDir;
-  
+
   public static void main(String[] args) throws Exception {
-    
+
     init(args[0], args[1]);
-    
+
     DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
-    
+
     if (DEBUG_KEYS) {
       System.out.println("INTENT KEYS");
       for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {
@@ -52,14 +52,20 @@ public class Main {
 
     if (PRINT_TOPO_ORDER) {
       System.out.println("TOPO ORDER: ");
-      System.out.println(getTopoOrder(g));
+      String topoOrder = getTopoOrder(g);
+      System.out.println(topoOrder);
+      String name = fileListFile.split("-")[0] + "-graph-summary.txt"; // component dependency graph
+      BufferedWriter bw = new BufferedWriter(new FileWriter(name));
+      bw.write(topoOrder);
+      bw.flush();
+      bw.close();
     }
   }
 
   public static void init(String fileListFile, String appSourceDir) throws Exception {
     Main.fileListFile = fileListFile;
     Main.appSourceDir = appSourceDir;
-    
+
     // processFileList makes a pass in all ASTs: one pass for each compilation unit
     processFileList(fileListFile, appSourceDir,
         new CompUnitProcessable() {
@@ -71,7 +77,7 @@ public class Main {
           }
         }
     );
-    
+
     //TODO: we need to implement component analysis
 //    processFileList(fileListFile, appSourceDir,
 //        new CompUnitProcessable() {
@@ -79,7 +85,7 @@ public class Main {
 //          { // initialize g (done once)
 //            for (String fileName : State.getInstance().pgMap().keySet()) {
 //              g.addVertex(fileName.split("\\.")[0]);
-//            }   
+//            }
 //          }
 //          @Override
 //          public void process(String name, CompilationUnit cu) {
@@ -89,7 +95,7 @@ public class Main {
 //        }
 //    );
   }
-  
+
   public static void processFileList(String fileListFile, String appSourceDir, CompUnitProcessable cup) throws Exception {
     BufferedReader br = new BufferedReader(new FileReader(fileListFile));
     String line;
@@ -168,7 +174,7 @@ public class Main {
   }
 
   /**
-   * Dot is a popular graph visualization format.  See/Install Graphviz 
+   * Dot is a popular graph visualization format.  See/Install Graphviz
    **/
   private static String toDot(DirectedGraph<String, DefaultEdge> g) {
 
