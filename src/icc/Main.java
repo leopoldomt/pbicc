@@ -1,6 +1,7 @@
 package icc;
 
 import icc.visitors.KeysVisitor;
+import icc.visitors.ExplicitIntentVisitor;
 import japa.parser.JavaParser;
 import japa.parser.ast.CompilationUnit;
 
@@ -10,6 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,6 +24,7 @@ public class Main {
 
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = true;
+  static boolean DEBUG_EXPLICIT = true;
   static boolean PRINT_DOT = true;
   static boolean PRINT_TOPO_ORDER = true;
 
@@ -39,6 +42,19 @@ public class Main {
       for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {
         System.out.printf("COMP:%s, KEYS:%s", entry.getKey().toString(), entry.getValue().toString());
       }
+    }
+
+    if (DEBUG_EXPLICIT)
+    {
+        System.out.println("LINKS FROM EXPLICIT INTENTS");
+
+        for (Map.Entry<String, List<String>> entry: State.getInstance().explicitMap().entrySet())
+        {
+            for (String activity_name : entry.getValue())
+            {
+                System.out.printf("ICC Link: File '%s' -> Activity '%s'\n", entry.getKey().toString(), activity_name);
+            }
+        }
     }
 
     if (PRINT_DOT) {
@@ -71,9 +87,19 @@ public class Main {
         new CompUnitProcessable() {
           @Override
           public void process(String name, CompilationUnit cu) {
+
+            String replacedFilename = name.replaceAll("/", ".");
+
+            // getting the get*extra/put*extra pairs
             KeysVisitor kv = new KeysVisitor();
             kv.visit(cu, null);
-            State.getInstance().pgMap().put(name.replaceAll("/", "."), kv.getPGs());
+            State.getInstance().pgMap().put(replacedFilename, kv.getPGs());
+
+            // getting the explicit intents
+            ExplicitIntentVisitor eiv = new ExplicitIntentVisitor();
+            eiv.visit(cu, null);
+
+            State.getInstance().explicitMap().put(replacedFilename, eiv.get_icc_links());
           }
         }
     );
