@@ -1,6 +1,7 @@
 package icc;
 
 import icc.visitors.KeysVisitor;
+import icc.data.ICCLinkInfo;
 import icc.visitors.ExplicitIntentVisitor;
 import japa.parser.JavaParser;
 import japa.parser.ast.CompilationUnit;
@@ -48,11 +49,11 @@ public class Main {
     {
         System.out.println("LINKS FROM EXPLICIT INTENTS");
 
-        for (Map.Entry<String, List<String>> entry: State.getInstance().explicitMap().entrySet())
+        for (Map.Entry<String, List<ICCLinkInfo<String>>> entry: State.getInstance().explicitMap().entrySet())
         {
-            for (String activity_name : entry.getValue())
+            for (ICCLinkInfo<String> link_info : entry.getValue())
             {
-                System.out.printf("ICC Link: File '%s' -> Activity '%s'\n", entry.getKey().toString(), activity_name);
+                System.out.printf("ICC Link: File '%s', method '%s' -> Component '%s'\n", link_info.getOriginFile(), link_info.getMethodName(), link_info.getTarget());
             }
         }
     }
@@ -99,6 +100,11 @@ public class Main {
             ExplicitIntentVisitor eiv = new ExplicitIntentVisitor();
             eiv.visit(cu, null);
 
+            for (ICCLinkInfo<String> link : eiv.get_icc_links())
+            {
+              link.setOriginFile(replacedFilename);
+            }
+            
             State.getInstance().explicitMap().put(replacedFilename, eiv.get_icc_links());
           }
         }

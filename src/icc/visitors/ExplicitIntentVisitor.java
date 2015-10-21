@@ -1,10 +1,8 @@
 package icc.visitors;
 
 import japa.parser.ast.expr.Expression;
-import japa.parser.ast.type.Type;
 import japa.parser.ast.expr.MethodCallExpr;
 import japa.parser.ast.expr.ObjectCreationExpr;
-import japa.parser.ast.body.ClassOrInterfaceDeclaration;
 import japa.parser.ast.visitor.VoidVisitorAdapter;
 
 import java.util.List;
@@ -12,19 +10,21 @@ import java.util.ArrayList;
 
 import java.util.regex.Pattern;
 
+import icc.data.ICCLinkInfo;
+
 public class ExplicitIntentVisitor extends VoidVisitorAdapter<Object>
 {
 
-    private List<String> icc_links;
+    private List<ICCLinkInfo<String>> icc_links;
 
     public ExplicitIntentVisitor()
     {
         super();
 
-        this.icc_links = new ArrayList<String>();
+        this.icc_links = new ArrayList<ICCLinkInfo<String>>();
     }
 
-    public List<String> get_icc_links()
+    public List<ICCLinkInfo<String>> get_icc_links()
     {
         return this.icc_links;
     }
@@ -41,7 +41,7 @@ public class ExplicitIntentVisitor extends VoidVisitorAdapter<Object>
             if (args != null)
             {
                 // the method being called is 'startActivity'
-                if (n.getName().equals("startActivity"))
+                if (n.getName().equals("startActivity") || n.getName().equals("startService"))
                 {
                     // 1 arg
                     if (args.size() == 1)
@@ -71,7 +71,7 @@ public class ExplicitIntentVisitor extends VoidVisitorAdapter<Object>
                                         String receiver_class = receiver_class_expr.split(Pattern.quote("."))[0];
 
                                         // adding this link to the List
-                                        this.icc_links.add(receiver_class);
+                                        this.icc_links.add(new ICCLinkInfo<String>(n.getName(), receiver_class));
                                     }
                                 }
                             }

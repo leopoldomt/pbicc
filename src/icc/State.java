@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import icc.data.ICCLinkInfo;
+
 /**
  * Singleton implementation of state
  *
@@ -18,7 +20,7 @@ public class State {
    * elements of state
    */
   private Map<String/*classname*/, PutsAndGets> pgMap = new HashMap<String, PutsAndGets>();
-  private Map<String/*classname*/, List<String>> explicitMap = new HashMap<String, List<String>>();
+  private Map<String/*classname*/, List<ICCLinkInfo<String>>> explicitMap = new HashMap<String, List<ICCLinkInfo<String>>>();
 
   /**
    * singleton implementation
@@ -40,7 +42,7 @@ public class State {
     return pgMap;
   }
 
-  public Map<String/*classname*/, List<String>> explicitMap()
+  public Map<String/*classname*/, List<ICCLinkInfo<String>>> explicitMap()
   {
     return explicitMap;
   }
