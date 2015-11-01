@@ -1,5 +1,6 @@
 package icc;
 
+import icc.data.IntentInfo;
 import icc.visitors.KeysVisitor;
 import japa.parser.JavaParser;
 import japa.parser.ast.CompilationUnit;
@@ -74,6 +75,14 @@ public class Main {
             KeysVisitor kv = new KeysVisitor();
             kv.visit(cu, null);
             State.getInstance().pgMap().put(name.replaceAll("/", "."), kv.getPGs());
+            
+            Map<String, IntentInfo> symbolTable = SymbolTable.build(cu);
+            
+            // outputing the data as a test
+            for (Map.Entry<String, IntentInfo> entry : symbolTable.entrySet())
+            {
+                System.out.println(String.format("%s:\n%s\n----------", entry.getKey(), entry.getValue()));
+            }
           }
         }
     );
