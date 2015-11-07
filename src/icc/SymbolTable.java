@@ -5,8 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import icc.data.IntentInfo;
-import icc.visitors.IntentDeclarationVisitor;
-import icc.visitors.IntentInfoVisitor;
+import icc.visitors.IntentVisitor;
 import japa.parser.ast.CompilationUnit;
 
 public class SymbolTable
@@ -15,13 +14,9 @@ public class SymbolTable
     {
       Map<String, IntentInfo> table = new HashMap<String, IntentInfo>();
       
-      // first visitor (get intent instances)
-      IntentDeclarationVisitor declarationVisitor = new IntentDeclarationVisitor(table);
-      declarationVisitor.visit(cu, null);
-      
       // second visitor (expande intent info)
-      IntentInfoVisitor intentInfoVisitor = new IntentInfoVisitor(table);
-      intentInfoVisitor.visit(cu, null);
+      IntentVisitor intentVisitor = new IntentVisitor(table);
+      intentVisitor.visit(cu, null);
       
       return table;
     }

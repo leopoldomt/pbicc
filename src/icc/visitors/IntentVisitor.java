@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import icc.data.IntentInfo;
+import japa.parser.ast.body.VariableDeclarator;
 import japa.parser.ast.expr.Expression;
 import japa.parser.ast.expr.MethodCallExpr;
 import japa.parser.ast.expr.ObjectCreationExpr;
 import japa.parser.ast.expr.ThisExpr;
+import japa.parser.ast.expr.VariableDeclarationExpr;
 
-public class IntentInfoVisitor extends ScopeAwareVisitor
+public class IntentVisitor extends ScopeAwareVisitor
 {
   // M stands for Method
   private final String M_SET_ACTION = "setAction";
@@ -27,9 +29,62 @@ public class IntentInfoVisitor extends ScopeAwareVisitor
 
   private Map<String, IntentInfo> table;
 
-  public IntentInfoVisitor(Map<String, IntentInfo> table)
+  public IntentVisitor(Map<String, IntentInfo> table)
   {
     this.table = table;
+  }
+
+  public void visit(VariableDeclarationExpr expr, Object arg)
+  {
+    super.visit(expr, arg);
+
+    if (expr.getType().toString().equals("Intent"))
+    {
+      for(VariableDeclarator var : expr.getVars())
+      {   
+        IntentInfo info = new IntentInfo();
+
+        if (var.getInit() instanceof ObjectCreationExpr)
+        {
+          ObjectCreationExpr objCreation = (ObjectCreationExpr) var.getInit();
+
+          List<Expression> args = objCreation.getArgs();
+
+          if (args != null)
+          {
+            if (args.size() == 1)
+            {
+              // TODO: check if the argument isn't another intent instead of an action
+              info.action = args.get(0).toString();
+            }
+            else if (args.size() == 2)
+            {
+
+              // TODO: improve the heuristic being used to determine if the argument
+              // is a Context or String object.
+
+              if (args.get(0) instanceof ThisExpr)
+              {
+                info.className = args.get(1).toString();
+              }
+              else
+              {
+                info.action = args.get(0).toString();
+                info.data = args.get(1).toString();
+              }
+            }
+            else if (args.size() == 4)
+            {
+              info.action = args.get(0).toString();
+              info.data = args.get(1).toString();
+              info.className = args.get(3).toString();
+            }
+          }
+        }
+
+        this.table.put(String.format("%s.%s", getScope(), var.getId().toString()), info);
+      }
+    }
   }
 
   @Override
@@ -54,7 +109,7 @@ public class IntentInfoVisitor extends ScopeAwareVisitor
         switch (name)
         {
         case M_SET_ACTION:
-          
+
           handleSetAction(args, info);
 
           break;
@@ -62,11 +117,11 @@ public class IntentInfoVisitor extends ScopeAwareVisitor
         case M_SET_CLASS:
 
           handleSetClass(args, info);
-          
+
           break;
 
         case M_SET_CLASS_NAME:
-          
+
           handleSetClassName(args, info);
 
           break;
@@ -74,35 +129,35 @@ public class IntentInfoVisitor extends ScopeAwareVisitor
         case M_SET_COMPONENT:
 
           handleSetComponent(args, info);
-          
+
           break;
 
         case M_SET_DATA:
 
           handleSetData(args, info);
-          
+
           break;
-          
+
         case M_SET_DATA_AND_NORMALIZE:
 
           handleSetDataAndNormalize(args, info);
-          
+
           break;
 
         case M_SET_DATA_AND_TYPE:
 
           handleSetDataAndType(args, info);          
-          
+
           break;
 
         case M_SET_DATA_AND_TYPE_AND_NORMALIZE:
 
           handleSetDataAndTypeAndNormalize(args, info);
-          
+
           break;
 
         case M_SET_PACKAGE:
-          
+
           handleSetPackage(args, info);
 
           break;
@@ -110,19 +165,19 @@ public class IntentInfoVisitor extends ScopeAwareVisitor
         case M_SET_TYPE:
 
           handleSetType(args, info);
-          
+
           break;
 
         case M_SET_TYPE_AND_NORMALIZE:
 
           handleSetTypeAndNormalize(args, info);
-          
+
           break;
 
         case M_PUT_EXTRA:
 
           handleSetPutExtra(args, info);
-          
+
           break;
         }
       }
@@ -131,74 +186,74 @@ public class IntentInfoVisitor extends ScopeAwareVisitor
 
   private void handleSetAction(List<Expression> args, IntentInfo info)
   {
-      info.action = args.get(0).toString();
+    info.action = args.get(0).toString();
   }
-  
+
   private void handleSetClass(List<Expression> args, IntentInfo info)
   {
-      info.className = args.get(1).toString().split("[.]")[0];
+    info.className = args.get(1).toString().split("[.]")[0];
   }
-  
+
   private void handleSetClassName(List<Expression> args, IntentInfo info)
   {
-      info.className = args.get(1).toString();
-      
-      // TODO: improve the heuristic being used to determine if the argument
-      // is a Context or String object.
-      
-      Expression firstArg = args.get(0);
-      
-      if (!(firstArg instanceof ThisExpr))
-      {
-        info.packageName = firstArg.toString();
-      }
+    info.className = args.get(1).toString();
+
+    // TODO: improve the heuristic being used to determine if the argument
+    // is a Context or String object.
+
+    Expression firstArg = args.get(0);
+
+    if (!(firstArg instanceof ThisExpr))
+    {
+      info.packageName = firstArg.toString();
+    }
   }
-  
+
   private void handleSetPackage(List<Expression> args, IntentInfo info)
   {
-      info.packageName = args.get(0).toString();
+    info.packageName = args.get(0).toString();
   }
-  
+
   private void handleSetComponent(List<Expression> args, IntentInfo info)
   {
     ObjectCreationExpr component = (ObjectCreationExpr) args.get(0);
-    
+
     info.packageName = component.getArgs().get(0).toString();
     info.className = component.getArgs().get(1).toString();
   }
-  
+
   private void handleSetData(List<Expression> args, IntentInfo info)
   {
-     info.data = args.get(0).toString();
+    info.data = args.get(0).toString();
   }
-  
+
   private void handleSetDataAndNormalize(List<Expression> args, IntentInfo info)
   {
     info.data = args.get(0).toString();
   }
-  
+
   private void handleSetDataAndType(List<Expression> args, IntentInfo info)
   {
     info.data = args.get(0).toString();
     info.type = args.get(1).toString();
   }
-  
+
   private void handleSetDataAndTypeAndNormalize(List<Expression> args, IntentInfo info)
   {
     info.data = args.get(0).toString();
     info.type = args.get(1).toString();
   }
-  
+
   private void handleSetType(List<Expression> args, IntentInfo info)
   {
     info.type = args.get(0).toString();
   }
-  
+
   private void handleSetTypeAndNormalize(List<Expression> args, IntentInfo info)
   {
     info.type = args.get(0).toString();
   }
-  
+
   private void handleSetPutExtra(List<Expression> args, IntentInfo info)
   {
     info.extras.put(args.get(0).toString(), args.get(1).toString());
