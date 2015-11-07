@@ -2,6 +2,8 @@ package icc;
 
 import icc.data.IntentInfo;
 import icc.visitors.KeysVisitor;
+import icc.data.ICCLinkInfo;
+import icc.visitors.ExplicitIntentVisitor;
 import japa.parser.JavaParser;
 import japa.parser.ast.CompilationUnit;
 
@@ -11,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,6 +26,7 @@ public class Main {
 
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = true;
+  static boolean DEBUG_EXPLICIT = true;
   static boolean PRINT_DOT = true;
   static boolean PRINT_TOPO_ORDER = true;
 
@@ -39,6 +43,19 @@ public class Main {
       System.out.println("INTENT KEYS");
       for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {
         System.out.printf("COMP:%s, KEYS:%s", entry.getKey().toString(), entry.getValue().toString());
+      }
+    }
+
+    if (DEBUG_EXPLICIT)
+    {
+      System.out.println("LINKS FROM EXPLICIT INTENTS");
+
+      for (Map.Entry<String, List<ICCLinkInfo<String>>> entry: State.getInstance().explicitMap().entrySet())
+      {
+        for (ICCLinkInfo<String> link_info : entry.getValue())
+        {
+          System.out.printf("ICC Link: File '%s', method '%s' -> Component '%s'\n", link_info.getOriginFile(), link_info.getMethodName(), link_info.getTarget());
+        }
       }
     }
 
@@ -70,39 +87,55 @@ public class Main {
     // processFileList makes a pass in all ASTs: one pass for each compilation unit
     processFileList(fileListFile, appSourceDir,
         new CompUnitProcessable() {
-          @Override
-          public void process(String name, CompilationUnit cu) {
-            KeysVisitor kv = new KeysVisitor();
-            kv.visit(cu, null);
-            State.getInstance().pgMap().put(name.replaceAll("/", "."), kv.getPGs());
-            
-            Map<String, IntentInfo> symbolTable = SymbolTable.build(cu);
-            
-            // outputing the data as a test
-            for (Map.Entry<String, IntentInfo> entry : symbolTable.entrySet())
-            {
-                System.out.println(String.format("%s:\n%s\n----------", entry.getKey(), entry.getValue()));
-            }
-          }
+      @Override
+      public void process(String name, CompilationUnit cu) {
+
+        String replacedFilename = name.replaceAll("/", ".");
+
+        // getting the get*extra/put*extra pairs
+        KeysVisitor kv = new KeysVisitor();
+        kv.visit(cu, null);
+
+        State.getInstance().pgMap().put(replacedFilename, kv.getPGs());
+
+        Map<String, IntentInfo> symbolTable = SymbolTable.build(cu);
+
+        // outputing the data as a test
+        for (Map.Entry<String, IntentInfo> entry : symbolTable.entrySet())
+        {
+          System.out.println(String.format("%s:\n%s\n----------", entry.getKey(), entry.getValue()));
         }
-    );
+
+        // getting the explicit intents
+        ExplicitIntentVisitor eiv = new ExplicitIntentVisitor();
+        eiv.visit(cu, null);
+
+        for (ICCLinkInfo<String> link : eiv.get_icc_links())
+        {
+          link.setOriginFile(replacedFilename);
+        }
+
+        State.getInstance().explicitMap().put(replacedFilename, eiv.get_icc_links());
+      }
+    }
+        );
 
     //TODO: we need to implement component analysis
-//    processFileList(fileListFile, appSourceDir,
-//        new CompUnitProcessable() {
-//          DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
-//          { // initialize g (done once)
-//            for (String fileName : State.getInstance().pgMap().keySet()) {
-//              g.addVertex(fileName.split("\\.")[0]);
-//            }
-//          }
-//          @Override
-//          public void process(String name, CompilationUnit cu) {
-//            String regex = String.join("|", State.getInstance().pgMap().keySet());
-//            cu.toString().matches(regex);
-//          }
-//        }
-//    );
+    //    processFileList(fileListFile, appSourceDir,
+    //        new CompUnitProcessable() {
+    //          DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
+    //          { // initialize g (done once)
+    //            for (String fileName : State.getInstance().pgMap().keySet()) {
+    //              g.addVertex(fileName.split("\\.")[0]);
+    //            }
+    //          }
+    //          @Override
+    //          public void process(String name, CompilationUnit cu) {
+    //            String regex = String.join("|", State.getInstance().pgMap().keySet());
+    //            cu.toString().matches(regex);
+    //          }
+    //        }
+    //    );
   }
 
   public static void processFileList(String fileListFile, String appSourceDir, CompUnitProcessable cup) throws Exception {
