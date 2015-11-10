@@ -1,9 +1,10 @@
 package icc;
 
 import icc.data.IntentInfo;
+import icc.data.SymbolTable;
 import icc.visitors.KeysVisitor;
+import icc.data.ICCLinkFindingResults;
 import icc.data.ICCLinkInfo;
-import icc.visitors.ExplicitIntentVisitor;
 import japa.parser.JavaParser;
 import japa.parser.ast.CompilationUnit;
 
@@ -25,10 +26,10 @@ import org.jgrapht.traverse.TopologicalOrderIterator;
 public class Main {
 
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
-  static boolean DEBUG_KEYS = true;
-  static boolean DEBUG_EXPLICIT = true;
-  static boolean PRINT_DOT = true;
-  static boolean PRINT_TOPO_ORDER = true;
+  static boolean DEBUG_KEYS = false;
+  static boolean DEBUG_ICC_LINKS = true;
+  static boolean PRINT_DOT = false;
+  static boolean PRINT_TOPO_ORDER = false;
 
   static String fileListFile;
   static String appSourceDir;
@@ -46,15 +47,28 @@ public class Main {
       }
     }
 
-    if (DEBUG_EXPLICIT)
+    if (DEBUG_ICC_LINKS)
     {
-      System.out.println("LINKS FROM EXPLICIT INTENTS");
-
-      for (Map.Entry<String, List<ICCLinkInfo<String>>> entry: State.getInstance().explicitMap().entrySet())
+      System.out.println("LINKS FROM INTENTS");
+      
+      for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet())
       {
-        for (ICCLinkInfo<String> link_info : entry.getValue())
+        System.out.println(String.format("File: %s", resultsEntry.getKey()));
+        
+        // printing the intents
+        Map<String, IntentInfo> intents = resultsEntry.getValue().intentsST.getMap();
+        
+        for(Map.Entry<String, IntentInfo> intentEntry : intents.entrySet())
         {
-          System.out.printf("ICC Link: File '%s', method '%s' -> Component '%s'\n", link_info.getOriginFile(), link_info.getMethodName(), link_info.getTarget());
+          System.out.println(String.format("%s:\n%s\n----------", intentEntry.getKey(), intentEntry.getValue()));
+        }
+        
+        // printing the links
+        List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
+        
+        for (ICCLinkInfo<IntentInfo> link : links)
+        {
+          System.out.println(link);
         }
       }
     }
@@ -98,24 +112,7 @@ public class Main {
 
         State.getInstance().pgMap().put(replacedFilename, kv.getPGs());
 
-        Map<String, IntentInfo> symbolTable = SymbolTable.build(cu);
-
-        // outputing the data as a test
-        for (Map.Entry<String, IntentInfo> entry : symbolTable.entrySet())
-        {
-          System.out.println(String.format("%s:\n%s\n----------", entry.getKey(), entry.getValue()));
-        }
-
-        // getting the explicit intents
-        ExplicitIntentVisitor eiv = new ExplicitIntentVisitor();
-        eiv.visit(cu, null);
-
-        for (ICCLinkInfo<String> link : eiv.get_icc_links())
-        {
-          link.setOriginFile(replacedFilename);
-        }
-
-        State.getInstance().explicitMap().put(replacedFilename, eiv.get_icc_links());
+        State.getInstance().resultsMap().put(replacedFilename, ICCLinkFinder.findICCLinks(cu));
       }
     }
         );

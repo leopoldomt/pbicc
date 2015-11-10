@@ -34,6 +34,8 @@ public class ScopeAwareVisitor extends VoidVisitorAdapter<Object>
     this.scope.remove(this.scope.size() - 1);
   }
 
+  // utils
+  
   protected String getScope()
   {
     StringBuilder builder = new StringBuilder();
@@ -49,5 +51,10 @@ public class ScopeAwareVisitor extends VoidVisitorAdapter<Object>
     }
 
     return builder.toString();
+  }
+  
+  private String getFullScopeName(String name)
+  {
+    return String.format("%s.%s", this.getScope(), name);
   }
 }
