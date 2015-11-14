@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ICCLinkFindingResults
 {
-  public SymbolTable<String> varsST;
+  public SymbolTable<VarInfo> varsST;
   public SymbolTable<IntentInfo> intentsST;
   public List<ICCLinkInfo<IntentInfo>> iccLinks;
   
@@ -18,7 +18,7 @@ public class ICCLinkFindingResults
   {
     if (init)
     {
-      this.varsST = new SymbolTable<String>();
+      this.varsST = new SymbolTable<VarInfo>();
       this.intentsST = new SymbolTable<IntentInfo>();
       this.iccLinks = new ArrayList<ICCLinkInfo<IntentInfo>>();
     }

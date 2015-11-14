@@ -1,7 +1,7 @@
 package icc;
 
 import icc.data.IntentInfo;
-import icc.data.SymbolTable;
+import icc.data.VarInfo;
 import icc.visitors.KeysVisitor;
 import icc.data.ICCLinkFindingResults;
 import icc.data.ICCLinkInfo;
@@ -28,6 +28,10 @@ public class Main {
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = false;
   static boolean DEBUG_ICC_LINKS = true;
+  static boolean ICC_SHOW_EXPLICIT_INTENTS = true;
+  static boolean ICC_SHOW_IMPLICIT_INTENTS = true;
+  static boolean ICC_SHOW_VARS = false;
+  static boolean ICC_SHOW_LINKS = false;
   static boolean PRINT_DOT = false;
   static boolean PRINT_TOPO_ORDER = false;
 
@@ -50,25 +54,49 @@ public class Main {
     if (DEBUG_ICC_LINKS)
     {
       System.out.println("LINKS FROM INTENTS");
-      
+
       for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet())
       {
-        System.out.println(String.format("File: %s", resultsEntry.getKey()));
-        
+        System.out.println(String.format("### File: %s", resultsEntry.getKey()));
+
         // printing the intents
         Map<String, IntentInfo> intents = resultsEntry.getValue().intentsST.getMap();
-        
+        IntentInfo info = null;
+
         for(Map.Entry<String, IntentInfo> intentEntry : intents.entrySet())
         {
-          System.out.println(String.format("%s:\n%s\n----------", intentEntry.getKey(), intentEntry.getValue()));
+          info = intentEntry.getValue();
+
+          if ((info.isExplicit() && ICC_SHOW_EXPLICIT_INTENTS) ||
+              (!info.isExplicit() && ICC_SHOW_IMPLICIT_INTENTS))
+          {
+            System.out.println(String.format("%s:\n%s\n----------", intentEntry.getKey(), intentEntry.getValue()));
+          }
         }
-        
-        // printing the links
-        List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
-        
-        for (ICCLinkInfo<IntentInfo> link : links)
+
+        // printing the vars
+        if (ICC_SHOW_VARS)
         {
-          System.out.println(link);
+          Map<String, VarInfo> vars = resultsEntry.getValue().varsST.getMap();
+
+          for(Map.Entry<String, VarInfo> varEntry : vars.entrySet())
+          {
+            String name = varEntry.getKey();
+            VarInfo varInfo = varEntry.getValue();
+
+            System.out.printf("%s %s = %s\n", info.type, name, varInfo.value);
+          }
+        }
+
+        // printing the links
+        if (ICC_SHOW_LINKS)
+        {
+          List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
+
+          for (ICCLinkInfo<IntentInfo> link : links)
+          {
+            System.out.println(link);
+          }
         }
       }
     }

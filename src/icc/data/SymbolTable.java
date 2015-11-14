@@ -34,6 +34,15 @@ public class SymbolTable<T>
 
     return result;
   }
+  
+  public String getClosestVar(String var)
+  {
+    String result = null;
+    
+    // ...
+    
+    return result;
+  }
 
   // utils
 

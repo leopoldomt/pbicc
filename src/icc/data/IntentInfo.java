@@ -24,25 +24,7 @@ public class IntentInfo
             
         builder.append(String.format("Category: %s\n", category));
         
-        String component = null;
-        
-        if (className != null && packageName != null)
-        {
-           component = String.format("%s.%s", packageName, className);
-        }
-        else if (className != null)
-        {
-           component = className;
-        }
-        else if (packageName != null)
-        {
-           component = String.format("%s.?", packageName);
-        }
-        
-        if (component != null)
-        {
-           component = component.replace("\"", "");
-        }
+        String component = getComponent();
           
         builder.append(String.format("Component: %s\n", component));
         
@@ -58,5 +40,35 @@ public class IntentInfo
         }
         
         return builder.toString();
+    }
+    
+    public String getComponent()
+    {
+      String component = null;
+      
+      if (className != null && packageName != null)
+      {
+         component = String.format("%s.%s", packageName, className);
+      }
+      else if (className != null)
+      {
+         component = className;
+      }
+      else if (packageName != null)
+      {
+         component = String.format("%s.?", packageName);
+      }
+      
+      if (component != null)
+      {
+         component = component.replace("\"", "");
+      }
+      
+      return component;
+    }
+    
+    public boolean isExplicit()
+    {
+      return packageName != null || className != null;
     }
 }
