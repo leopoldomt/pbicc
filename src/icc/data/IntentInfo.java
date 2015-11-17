@@ -5,12 +5,14 @@ import java.util.Map;
 
 public class IntentInfo
 {
-    public String category = null;
-    public String className = null;
-    public String packageName = null;
-    public String type = null;
-    public String action = null;
-    public String data = null;
+    public final String NOT_SET = "#NOT SET#";
+  
+    public String category = NOT_SET;
+    public String className = NOT_SET;
+    public String packageName = NOT_SET;
+    public String type = NOT_SET;
+    public String action = NOT_SET;
+    public String data = NOT_SET;
     public Map<String, String> extras;
     
     public IntentInfo()
@@ -44,22 +46,22 @@ public class IntentInfo
     
     public String getComponent()
     {
-      String component = null;
+      String component = NOT_SET;
       
-      if (className != null && packageName != null)
+      if (!className.equals(NOT_SET) && !packageName.equals(NOT_SET))
       {
          component = String.format("%s.%s", packageName, className);
       }
-      else if (className != null)
+      else if (!className.equals(NOT_SET))
       {
          component = className;
       }
-      else if (packageName != null)
+      else if (!packageName.equals(NOT_SET))
       {
          component = String.format("%s.?", packageName);
       }
       
-      if (component != null)
+      if (!component.equals(NOT_SET))
       {
          component = component.replace("\"", "");
       }
@@ -69,6 +71,6 @@ public class IntentInfo
     
     public boolean isExplicit()
     {
-      return packageName != null || className != null;
+      return !className.equals(NOT_SET) || !packageName.equals(NOT_SET);
     }
 }

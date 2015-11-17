@@ -42,11 +42,11 @@ public class IntentVisitor extends ScopeAwareVisitor
       Pattern.compile("([\\w]+\\.)?this")}));
 
   private List<String> VAR_TYPES = Arrays.asList(new String[] {"bool", "Boolean", "char", "Character",
-                                                              "float", "Float", "byte", "Byte",
-                                                              "double", "Double", "int", "Integer",
-                                                              "short", "Short", "long", "Long",
-                                                              "String"});
-  
+      "float", "Float", "byte", "Byte",
+      "double", "Double", "int", "Integer",
+      "short", "Short", "long", "Long",
+  "String"});
+
   // attrs
   private ICCLinkFindingResults data;
 
@@ -61,7 +61,7 @@ public class IntentVisitor extends ScopeAwareVisitor
     super.visit(expr, arg);
 
     String varType = expr.getType().toString();
-    
+
     if (varType.equals("Intent"))
     {
       for(VariableDeclarator var : expr.getVars())
@@ -112,14 +112,14 @@ public class IntentVisitor extends ScopeAwareVisitor
       }
     }
   }
-  
+
   @Override
   public void visit(FieldDeclaration expr, Object arg)
   {
     super.visit(expr, arg);
 
     String varType = expr.getType().toString();
-    
+
     if (varType.equals("Intent"))
     {
       for(VariableDeclarator var : expr.getVariables())
@@ -146,17 +146,9 @@ public class IntentVisitor extends ScopeAwareVisitor
           {
             info = existingInfo;
           }
-
-          // TODO: handle other cases
         }
 
-        // TODO: handle other cases
-        // Example: method calls
-
-        if (info != null)
-        {        
-          this.data.intentsST.put(getFullScopeName(var.getId().toString()), info);
-        }
+        this.data.intentsST.put(getFullScopeName(var.getId().toString()), info);
       }
     }
     else
@@ -220,7 +212,7 @@ public class IntentVisitor extends ScopeAwareVisitor
       // other var
       else if (varInfo != null)
       {
-        
+
         handleVarAssignment(varInfo, fullName, expr);
       }
     }
@@ -494,71 +486,79 @@ public class IntentVisitor extends ScopeAwareVisitor
     Expression init = declarator.getInit();
     String varName = getFullScopeName(declarator.getId().toString());
 
-    if (init instanceof NameExpr)
+    if (init == null)
     {
-      NameExpr nameExpr = (NameExpr) init;
+      this.data.varsST.put(varName, new VarInfo(varType, "null"));
+    }
+    else
+    {
+      if (init instanceof NameExpr)
+      {
+        NameExpr nameExpr = (NameExpr) init;
 
-      String fullExistingName = getFullScopeName(nameExpr.getName());
-      VarInfo varInfo = this.data.varsST.get(fullExistingName);    
+        String fullExistingName = getFullScopeName(nameExpr.getName());
+        VarInfo varInfo = this.data.varsST.get(fullExistingName);    
 
-      if (varInfo != null)
-      { 
-        this.data.varsST.put(varName, varInfo);
+        if (varInfo != null)
+        { 
+          this.data.varsST.put(varName, varInfo);
+        }
+      }
+      else if (init instanceof ObjectCreationExpr)
+      {
+        ObjectCreationExpr objCreation = (ObjectCreationExpr) init;
+        String value = null;
+
+        if (isBooleanVar(varType))
+        {
+          value = handleBooleanObjectCreation(varName, objCreation);
+        }
+        else if(isCharVar(varType))
+        {
+          value = handleCharObjectCreation(varName, objCreation);
+        }
+        else if(isShortVar(varType))
+        {
+          value = handleShortObjectCreation(varName, objCreation);
+        }
+        else if(isFloatVar(varType))
+        {
+          value = handleFloatObjectCreation(varName, objCreation);
+        }
+        else if(isDoubleVar(varType))
+        {
+          value = handleDoubleObjectCreation(varName, objCreation);
+        }
+        else if(isIntVar(varType))
+        {
+          value = handleIntObjectCreation(varName, objCreation);
+        }
+        else if(isByteVar(varType))
+        {
+          value = handleByteObjectCreation(varName, objCreation);
+        }
+        else if(isStringVar(varType))
+        {
+          value = handleStringObjectCreation(varName, objCreation);
+        }
+        else if(isLongVar(varType))
+        {
+          value = handleLongObjectCreation(varName, objCreation);
+        }
+
+        this.data.varsST.put(varName, new VarInfo(varType, value));
+      }
+      else if (init instanceof LiteralExpr)
+      {
+        LiteralExpr literalExpr = (LiteralExpr) init;
+
+        this.data.varsST.put(varName, new VarInfo(varType, literalExpr.toString()));
+      }
+      else
+      {
+        this.data.varsST.put(varName, new VarInfo(varType, init.toString()));
       }
     }
-    else if (init instanceof ObjectCreationExpr)
-    {
-      ObjectCreationExpr objCreation = (ObjectCreationExpr) init;
-      String value = null;
-
-      if (isBooleanVar(varType))
-      {
-        value = handleBooleanObjectCreation(varName, objCreation);
-      }
-      else if(isCharVar(varType))
-      {
-        value = handleCharObjectCreation(varName, objCreation);
-      }
-      else if(isShortVar(varType))
-      {
-        value = handleShortObjectCreation(varName, objCreation);
-      }
-      else if(isFloatVar(varType))
-      {
-        value = handleFloatObjectCreation(varName, objCreation);
-      }
-      else if(isDoubleVar(varType))
-      {
-        value = handleDoubleObjectCreation(varName, objCreation);
-      }
-      else if(isIntVar(varType))
-      {
-        value = handleIntObjectCreation(varName, objCreation);
-      }
-      else if(isByteVar(varType))
-      {
-        value = handleByteObjectCreation(varName, objCreation);
-      }
-      else if(isStringVar(varType))
-      {
-        value = handleStringObjectCreation(varName, objCreation);
-      }
-      else if(isLongVar(varType))
-      {
-        value = handleLongObjectCreation(varName, objCreation);
-      }
-
-      this.data.varsST.put(varName, new VarInfo(varType, value));
-    }
-    else if (init instanceof LiteralExpr)
-    {
-      LiteralExpr literalExpr = (LiteralExpr) init;
-
-      this.data.varsST.put(varName, new VarInfo(varType, literalExpr.toString()));
-    }
-
-    // TODO: handle other cases
-    // Example: method calls
   }
 
   private void handleVarAssignment(VarInfo varInfo, String targetFullName, AssignExpr expr)
@@ -622,15 +622,10 @@ public class IntentVisitor extends ScopeAwareVisitor
 
       varInfo.value = creationValue;
     } 
-    else if (value instanceof LiteralExpr)
+    else
     {
-      LiteralExpr literalExpr = (LiteralExpr) value;
-
-      varInfo.value = literalExpr.toString();
+      varInfo.value = value.toString();
     }
-
-    // TODO: handle other cases
-    // Example: method calls
   }
 
   // utils
@@ -752,36 +747,40 @@ public class IntentVisitor extends ScopeAwareVisitor
     String result = null;
 
     List<Expression> args = expr.getArgs();
-    
+
     if (args.size() == 0)
     {
       result = "";
     }
     else
     {
-      result = String.format("new String(%s)", Arrays.toString(args.toArray()));
+      result = expr.toString();
     }
 
     return result;
   }
-  
+
   private String getVarValue(Expression expr)
   {
     // if there's no var, return the original result
     String result = expr.toString();
-    
+
     if (expr instanceof NameExpr)
     {
       NameExpr nameExpr = (NameExpr) expr;
-      
+
       VarInfo info = this.data.varsST.get(getFullScopeName(nameExpr.getName()));
-      
+
       if (info != null)
       {
-        result = info.value;
+        result = info.value; 
+      }
+      else
+      {
+        result = String.format("could not retrieve var '%s'", result);
       }
     }
-   
+
     return result;
   }
 }

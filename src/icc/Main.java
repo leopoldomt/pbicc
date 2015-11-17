@@ -1,6 +1,7 @@
 package icc;
 
 import icc.data.IntentInfo;
+import icc.data.IntentStats;
 import icc.data.VarInfo;
 import icc.visitors.KeysVisitor;
 import icc.data.ICCLinkFindingResults;
@@ -28,10 +29,12 @@ public class Main {
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = false;
   static boolean DEBUG_ICC_LINKS = true;
-  static boolean ICC_SHOW_EXPLICIT_INTENTS = true;
-  static boolean ICC_SHOW_IMPLICIT_INTENTS = true;
+  static boolean ICC_SHOW_EXPLICIT_INTENTS = false;
+  static boolean ICC_SHOW_IMPLICIT_INTENTS = false;
   static boolean ICC_SHOW_VARS = false;
   static boolean ICC_SHOW_LINKS = false;
+  static boolean ICC_SHOW_STATS_PER_FILE = false;
+  static boolean ICC_SHOW_FINAL_STATS = true;
   static boolean PRINT_DOT = false;
   static boolean PRINT_TOPO_ORDER = false;
 
@@ -53,8 +56,8 @@ public class Main {
 
     if (DEBUG_ICC_LINKS)
     {
-      System.out.println("LINKS FROM INTENTS");
-
+      IntentStats appIntentStats = new IntentStats();
+      
       for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet())
       {
         System.out.println(String.format("### File: %s", resultsEntry.getKey()));
@@ -98,6 +101,22 @@ public class Main {
             System.out.println(link);
           }
         }
+        
+        IntentStats stats = resultsEntry.getValue().stats;
+        
+        appIntentStats.add(stats);
+        
+        if (ICC_SHOW_STATS_PER_FILE)
+        {
+          System.out.println(resultsEntry.getValue().stats);
+        }
+      }
+      
+      if (ICC_SHOW_FINAL_STATS)
+      {
+        System.out.println("### App Intent Stats");
+        System.out.println(appIntentStats);
+        System.out.println(appIntentStats.getExtendedAnalysis());
       }
     }
 

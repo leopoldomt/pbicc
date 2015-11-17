@@ -13,6 +13,8 @@ public class ICCLinkFinder
     IntentVisitor visitor = new IntentVisitor(results);
     visitor.visit(cu, null);
     
+    results.accessStats();
+    
     return results;
   }
 }
