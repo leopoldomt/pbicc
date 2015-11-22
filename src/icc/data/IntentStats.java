@@ -20,6 +20,8 @@ public class IntentStats
   public Stat iccLinks = new Stat("ICC Links");
   public Stat explicitICCLinks = new Stat("ICC links (using explicit intents)");
   public Stat implicitICCLinks = new Stat("ICC links (using implicit intents)");
+  public Stat startActivityCount = new Stat("'startActivity' calls");
+  public Stat startServiceCount = new Stat("'startService' calls");
   
   public String toString()
   {
@@ -31,8 +33,20 @@ public class IntentStats
     builder.append(String.format("%s: %d\n", iccLinks.name, iccLinks.value));
     builder.append(String.format("%s: %d\n", explicitICCLinks.name, explicitICCLinks.value));
     builder.append(String.format("%s: %d\n", implicitICCLinks.name, implicitICCLinks.value));
+    builder.append(String.format("%s: %d\n", startActivityCount.name, startActivityCount.value));
+    builder.append(String.format("%s: %d\n", startServiceCount.name, startServiceCount.value));
     
     return builder.toString();
+  }
+  
+  public void addStartActivity()
+  {
+    this.startActivityCount.value += 1;
+  }
+  
+  public void addStartService()
+  {
+    this.startServiceCount.value += 1;
   }
   
   public void add(IntentStats otherStats)
@@ -43,6 +57,8 @@ public class IntentStats
     this.iccLinks.value += otherStats.iccLinks.value;
     this.explicitICCLinks.value += otherStats.explicitICCLinks.value;
     this.implicitICCLinks.value += otherStats.implicitICCLinks.value;
+    this.startActivityCount.value += otherStats.startActivityCount.value;
+    this.startServiceCount.value += otherStats.startServiceCount.value;
   }
   
   public String getExtendedAnalysis()

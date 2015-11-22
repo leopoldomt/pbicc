@@ -28,11 +28,10 @@ public class Main {
 
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = false;
-  static boolean DEBUG_ICC_LINKS = true;
-  static boolean ICC_SHOW_EXPLICIT_INTENTS = false;
-  static boolean ICC_SHOW_IMPLICIT_INTENTS = false;
+  static boolean ICC_SHOW_EXPLICIT_INTENTS = true;
+  static boolean ICC_SHOW_IMPLICIT_INTENTS = true;
   static boolean ICC_SHOW_VARS = false;
-  static boolean ICC_SHOW_LINKS = false;
+  static boolean ICC_SHOW_LINKS = true;
   static boolean ICC_SHOW_STATS_PER_FILE = false;
   static boolean ICC_SHOW_FINAL_STATS = true;
   static boolean PRINT_DOT = false;
@@ -54,70 +53,67 @@ public class Main {
       }
     }
 
-    if (DEBUG_ICC_LINKS)
+    IntentStats appIntentStats = new IntentStats();
+
+    for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet())
     {
-      IntentStats appIntentStats = new IntentStats();
-      
-      for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet())
+      System.out.println(String.format("### File: %s", resultsEntry.getKey()));
+
+      // printing the intents
+      Map<String, IntentInfo> intents = resultsEntry.getValue().intentsST.getMap();
+      IntentInfo info = null;
+
+      for(Map.Entry<String, IntentInfo> intentEntry : intents.entrySet())
       {
-        System.out.println(String.format("### File: %s", resultsEntry.getKey()));
+        info = intentEntry.getValue();
 
-        // printing the intents
-        Map<String, IntentInfo> intents = resultsEntry.getValue().intentsST.getMap();
-        IntentInfo info = null;
-
-        for(Map.Entry<String, IntentInfo> intentEntry : intents.entrySet())
+        if ((info.isExplicit() && ICC_SHOW_EXPLICIT_INTENTS) ||
+            (!info.isExplicit() && ICC_SHOW_IMPLICIT_INTENTS))
         {
-          info = intentEntry.getValue();
-
-          if ((info.isExplicit() && ICC_SHOW_EXPLICIT_INTENTS) ||
-              (!info.isExplicit() && ICC_SHOW_IMPLICIT_INTENTS))
-          {
-            System.out.println(String.format("%s:\n%s\n----------", intentEntry.getKey(), intentEntry.getValue()));
-          }
-        }
-
-        // printing the vars
-        if (ICC_SHOW_VARS)
-        {
-          Map<String, VarInfo> vars = resultsEntry.getValue().varsST.getMap();
-
-          for(Map.Entry<String, VarInfo> varEntry : vars.entrySet())
-          {
-            String name = varEntry.getKey();
-            VarInfo varInfo = varEntry.getValue();
-
-            System.out.printf("%s %s = %s\n", info.type, name, varInfo.value);
-          }
-        }
-
-        // printing the links
-        if (ICC_SHOW_LINKS)
-        {
-          List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
-
-          for (ICCLinkInfo<IntentInfo> link : links)
-          {
-            System.out.println(link);
-          }
-        }
-        
-        IntentStats stats = resultsEntry.getValue().stats;
-        
-        appIntentStats.add(stats);
-        
-        if (ICC_SHOW_STATS_PER_FILE)
-        {
-          System.out.println(resultsEntry.getValue().stats);
+          System.out.println(String.format("%s:\n%s\n----------", intentEntry.getKey(), intentEntry.getValue()));
         }
       }
-      
-      if (ICC_SHOW_FINAL_STATS)
+
+      // printing the vars
+      if (ICC_SHOW_VARS)
       {
-        System.out.println("### App Intent Stats");
-        System.out.println(appIntentStats);
-        System.out.println(appIntentStats.getExtendedAnalysis());
+        Map<String, VarInfo> vars = resultsEntry.getValue().varsST.getMap();
+
+        for(Map.Entry<String, VarInfo> varEntry : vars.entrySet())
+        {
+          String name = varEntry.getKey();
+          VarInfo varInfo = varEntry.getValue();
+
+          System.out.printf("%s %s = %s\n", info.type, name, varInfo.value);
+        }
       }
+
+      // printing the links
+      if (ICC_SHOW_LINKS)
+      {
+        List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
+
+        for (ICCLinkInfo<IntentInfo> link : links)
+        {
+          System.out.println(link);
+        }
+      }
+
+      IntentStats stats = resultsEntry.getValue().stats;
+
+      appIntentStats.add(stats);
+
+      if (ICC_SHOW_STATS_PER_FILE)
+      {
+        System.out.println(resultsEntry.getValue().stats);
+      }
+    }
+
+    if (ICC_SHOW_FINAL_STATS)
+    {
+      System.out.println("### App Intent Stats");
+      System.out.println(appIntentStats);
+      System.out.println(appIntentStats.getExtendedAnalysis());
     }
 
     if (PRINT_DOT) {

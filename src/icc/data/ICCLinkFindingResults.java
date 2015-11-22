@@ -23,13 +23,12 @@ public class ICCLinkFindingResults
       this.varsST = new SymbolTable<VarInfo>();
       this.intentsST = new SymbolTable<IntentInfo>();
       this.iccLinks = new ArrayList<ICCLinkInfo<IntentInfo>>();
+      this.stats = new IntentStats();
     }
   }
 
   public void accessStats()
   {
-    this.stats = new IntentStats();
-
     stats.iccLinks.value = iccLinks.size();
     stats.intentCount.value = intentsST.getMap().size() + getAnonymousIntentsCount();
     stats.explicitICCLinks.value = getExplicitLinksCount();

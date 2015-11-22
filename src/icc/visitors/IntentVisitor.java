@@ -44,8 +44,7 @@ public class IntentVisitor extends ScopeAwareVisitor
   private List<String> VAR_TYPES = Arrays.asList(new String[] {"bool", "Boolean", "char", "Character",
       "float", "Float", "byte", "Byte",
       "double", "Double", "int", "Integer",
-      "short", "Short", "long", "Long",
-  "String"});
+      "short", "Short", "long", "Long", "String"});
 
   // attrs
   private ICCLinkFindingResults data;
@@ -229,12 +228,21 @@ public class IntentVisitor extends ScopeAwareVisitor
 
     // startActivity | startService
     if (name.equals(M_START_ACTIVITY) || name.equals(M_START_SERVICE))
-    {
-      // 1 arg
-      if (args.size() == 1)
+    {      
+      if (name.equals(M_START_ACTIVITY))
+      {
+        this.data.stats.addStartActivity();
+      }
+      else if (name.equals(M_START_SERVICE))
+      {
+        this.data.stats.addStartService();
+      }
+      
+      // 1 or more args
+      if (args.size() >= 1)
       {
         Expression argExpr = args.get(0);
-
+        
         // object creation
         if (argExpr instanceof ObjectCreationExpr)
         {
@@ -264,6 +272,13 @@ public class IntentVisitor extends ScopeAwareVisitor
             System.out.println(String.format("Intent instance '%s' is not on the symbol data.intentsST!",
                 intentVar.getName()));
           }
+        }
+        else
+        {
+          System.out.println("@@@ ESCAPED @@@");
+          System.out.println(name);
+          System.out.println(argExpr.getClass().getCanonicalName());
+          System.out.println(argExpr.toString());
         }
 
         // TODO: handle other cases
@@ -394,10 +409,19 @@ public class IntentVisitor extends ScopeAwareVisitor
 
   private void handleSetComponent(List<Expression> args, IntentInfo info)
   {
-    ObjectCreationExpr component = (ObjectCreationExpr) args.get(0);
+    Expression firstArg = args.get(0);
+    
+    if (firstArg instanceof ObjectCreationExpr)
+    {
+      ObjectCreationExpr component = (ObjectCreationExpr) firstArg;
 
-    info.packageName = getVarValue(component.getArgs().get(0));
-    info.className = getVarValue(component.getArgs().get(1));
+      info.packageName = getVarValue(component.getArgs().get(0));
+      info.className = getVarValue(component.getArgs().get(1));
+    }
+    else
+    {
+      // TODO: handle component objects
+    }
   }
 
   private void handleSetData(List<Expression> args, IntentInfo info)
@@ -748,7 +772,7 @@ public class IntentVisitor extends ScopeAwareVisitor
 
     List<Expression> args = expr.getArgs();
 
-    if (args.size() == 0)
+    if (args != null && args.size() == 0)
     {
       result = "";
     }
