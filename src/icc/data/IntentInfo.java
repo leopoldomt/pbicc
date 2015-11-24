@@ -15,6 +15,8 @@ public class IntentInfo
     public String data = NOT_SET;
     public Map<String, String> extras;
     
+    public IntentInfo target = null;
+    
     public IntentInfo()
     {
         extras = new HashMap<String, String>();
@@ -72,5 +74,10 @@ public class IntentInfo
     public boolean isExplicit()
     {
       return !className.equals(NOT_SET) || !packageName.equals(NOT_SET);
+    }
+    
+    public boolean isChooser()
+    {
+      return this.target != null;
     }
 }

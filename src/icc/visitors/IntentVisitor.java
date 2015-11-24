@@ -22,6 +22,8 @@ import japa.parser.ast.expr.VariableDeclarationExpr;
 public class IntentVisitor extends ScopeAwareVisitor
 {
   //constants
+  private final String CHOOSER_ACTION = "ACTION_CHOOSER";
+
   private final String M_SET_ACTION = "setAction";
   private final String M_SET_CLASS = "setClass";
   private final String M_SET_CLASS_NAME = "setClassName";
@@ -36,6 +38,7 @@ public class IntentVisitor extends ScopeAwareVisitor
   private final String M_PUT_EXTRA = "putExtra";
   private final String M_START_ACTIVITY = "startActivity";
   private final String M_START_SERVICE = "startService";
+  private final String M_CREATE_CHOOSER = "createChooser";
 
   private final List<Pattern> CONTEXT_STRINGS = new ArrayList<Pattern>(Arrays.asList(new Pattern[]{Pattern.compile("activity"),
       Pattern.compile("context"),
@@ -90,9 +93,24 @@ public class IntentVisitor extends ScopeAwareVisitor
 
           // TODO: handle other cases
         }
+        else if (var.getInit() instanceof MethodCallExpr)
+        {
+          MethodCallExpr callExpr = (MethodCallExpr) var.getInit();
 
-        // TODO: handle other cases
-        // Example: method calls
+          if (callExpr.getName().equals(M_CREATE_CHOOSER))
+          {
+            info = handleCreateChooser(callExpr);
+          }
+          else
+          {
+            // TODO: handle other cases
+          }
+        }
+        else
+        {
+          // TODO: handle other cases
+        }
+
 
         if (info != null)
         {        
@@ -145,6 +163,23 @@ public class IntentVisitor extends ScopeAwareVisitor
           {
             info = existingInfo;
           }
+        }
+        else if (var.getInit() instanceof MethodCallExpr)
+        {
+          MethodCallExpr callExpr = (MethodCallExpr) var.getInit();
+
+          if (callExpr.getName().equals(M_CREATE_CHOOSER))
+          {
+            info = handleCreateChooser(callExpr);
+          }
+          else
+          {
+            // TODO: handle other cases
+          }
+        }
+        else
+        {
+          // TODO: handle other cases
         }
 
         this.data.intentsST.put(getFullScopeName(var.getId().toString()), info);
@@ -201,12 +236,30 @@ public class IntentVisitor extends ScopeAwareVisitor
           {
             this.data.intentsST.put(fullName, existingInfo);
           }
-
-          // TODO: handle other cases
         }
+        else if (value instanceof MethodCallExpr)
+        {
+          MethodCallExpr callExpr = (MethodCallExpr) value;
 
-        // TODO: handle other cases
-        // Example: method calls
+          if (callExpr.getName().equals(M_CREATE_CHOOSER))
+          {
+            IntentInfo info = handleCreateChooser(callExpr);
+
+            if (info != null)
+            {
+              this.data.intentsST.put(fullName, info);
+            }
+          }
+          else
+          {
+            // TODO: handle other cases
+          }
+        }
+        else
+        {
+          // TODO: handle other cases
+          // Example: method calls
+        }
       }
       // other var
       else if (varInfo != null)
@@ -237,12 +290,12 @@ public class IntentVisitor extends ScopeAwareVisitor
       {
         this.data.stats.addStartService();
       }
-      
+
       // 1 or more args
       if (args.size() >= 1)
       {
         Expression argExpr = args.get(0);
-        
+
         // object creation
         if (argExpr instanceof ObjectCreationExpr)
         {
@@ -271,6 +324,30 @@ public class IntentVisitor extends ScopeAwareVisitor
           {
             System.out.println(String.format("Intent instance '%s' is not on the symbol data.intentsST!",
                 intentVar.getName()));
+          }
+        }
+        else if (argExpr instanceof MethodCallExpr)
+        {
+          MethodCallExpr callExpr = (MethodCallExpr) argExpr;
+
+          System.out.println(callExpr.getName());
+
+          if (callExpr.getName().equals(M_CREATE_CHOOSER))
+          {
+            IntentInfo info = handleCreateChooser(callExpr);
+
+            if (info != null)
+            {
+              this.data.iccLinks.add(new ICCLinkInfo<IntentInfo>(this.getScope(), name, info));
+            }
+          }
+          else
+          {
+            // TODO: handle other cases
+            System.out.println("@@@ ESCAPED @@@");
+            System.out.println(name);
+            System.out.println(argExpr.getClass().getCanonicalName());
+            System.out.println(argExpr.toString());
           }
         }
         else
@@ -410,7 +487,7 @@ public class IntentVisitor extends ScopeAwareVisitor
   private void handleSetComponent(List<Expression> args, IntentInfo info)
   {
     Expression firstArg = args.get(0);
-    
+
     if (firstArg instanceof ObjectCreationExpr)
     {
       ObjectCreationExpr component = (ObjectCreationExpr) firstArg;
@@ -459,6 +536,42 @@ public class IntentVisitor extends ScopeAwareVisitor
   private void handleSetPutExtra(List<Expression> args, IntentInfo info)
   {
     info.extras.put(getVarValue(args.get(0)), getVarValue(args.get(1)));
+  }
+
+  private IntentInfo handleCreateChooser(MethodCallExpr callExpr)
+  {
+    IntentInfo info = null;
+
+    Expression intentExpr = callExpr.getArgs().get(0);
+
+    if (intentExpr instanceof ObjectCreationExpr)
+    {
+      info = handleIntentCreation((ObjectCreationExpr) intentExpr);
+    }
+    else if (intentExpr instanceof NameExpr)
+    {
+      String existingVar = getFullScopeName(((NameExpr) intentExpr).getName());
+
+      IntentInfo existingIntentInfo = this.data.intentsST.get(existingVar);
+
+      if (existingIntentInfo != null)
+      {
+        info = new IntentInfo();
+
+        info.action = CHOOSER_ACTION;
+        info.target = existingIntentInfo;
+      }
+      else
+      {
+        // TODO: Fix tool limitation
+      }
+    }
+    else
+    {
+      // TODO: handle other cases
+    }
+
+    return info;
   }
 
   private IntentInfo handleIntentCreation(ObjectCreationExpr expr)
