@@ -3,21 +3,28 @@ package icc;
 import icc.data.IntentInfo;
 import icc.data.IntentStats;
 import icc.data.VarInfo;
+import icc.parsing.AndroidManifestParser;
 import icc.visitors.KeysVisitor;
 import icc.data.ICCLinkFindingResults;
 import icc.data.ICCLinkInfo;
+import icc.data.IntentFilter;
 import japa.parser.JavaParser;
 import japa.parser.ast.CompilationUnit;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.tools.JavaCompiler;
+import javax.tools.JavaFileObject;
+import javax.tools.StandardJavaFileManager;
+import javax.tools.ToolProvider;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultDirectedGraph;
@@ -28,12 +35,13 @@ public class Main {
 
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = false;
-  static boolean ICC_SHOW_EXPLICIT_INTENTS = true;
-  static boolean ICC_SHOW_IMPLICIT_INTENTS = true;
+  static boolean ICC_SHOW_EXPLICIT_INTENTS = false;
+  static boolean ICC_SHOW_IMPLICIT_INTENTS = false;
   static boolean ICC_SHOW_VARS = false;
-  static boolean ICC_SHOW_LINKS = true;
+  static boolean ICC_SHOW_LINKS = false;
   static boolean ICC_SHOW_STATS_PER_FILE = false;
-  static boolean ICC_SHOW_FINAL_STATS = true;
+  static boolean ICC_SHOW_FINAL_STATS = false;
+  static boolean ICC_SHOW_INTENT_FILTERS = true;
   static boolean PRINT_DOT = false;
   static boolean PRINT_TOPO_ORDER = false;
 
@@ -44,8 +52,26 @@ public class Main {
 
     init(args[0], args[1]);
 
+    State.getInstance().setManifestParser(new AndroidManifestParser(args[2]));
+    
     DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
 
+    if (ICC_SHOW_INTENT_FILTERS)
+    {
+      for (String component : State.getInstance().getManifestParser().intentFilters.keySet())
+      {
+        System.out.println("###");
+        System.out.println("Component: " + component);
+        System.out.println("Filters:");
+
+        for (IntentFilter filter : State.getInstance().getManifestParser().intentFilters.get(component))
+        {
+          System.out.println("---");
+          System.out.println(filter);
+        }
+      }
+    }
+    
     if (DEBUG_KEYS) {
       System.out.println("INTENT KEYS");
       for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {

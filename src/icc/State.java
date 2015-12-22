@@ -9,6 +9,7 @@ import java.util.Set;
 import icc.data.ICCLinkFindingResults;
 import icc.data.ICCLinkInfo;
 import icc.data.IntentInfo;
+import icc.parsing.AndroidManifestParser;
 
 /**
  * Singleton implementation of state
@@ -23,6 +24,8 @@ public class State {
    */
   private Map<String/*classname*/, PutsAndGets> pgMap = new HashMap<String, PutsAndGets>();
   private Map<String/*filename*/, ICCLinkFindingResults> resultsMap = new HashMap<String, ICCLinkFindingResults>();
+  private AndroidManifestParser manifestParser;
+  
   /**
    * singleton implementation
    */
@@ -50,5 +53,11 @@ public class State {
   
   public Set<String> getFiles() {
     return Collections.unmodifiableSet(pgMap.keySet());
+  }
+  public AndroidManifestParser getManifestParser() {
+    return manifestParser;
+  }
+  public void setManifestParser(AndroidManifestParser manifestParser) {
+    this.manifestParser = manifestParser;
   }
 }

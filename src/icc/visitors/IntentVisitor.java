@@ -37,6 +37,7 @@ public class IntentVisitor extends ScopeAwareVisitor
   private final String M_SET_TYPE_AND_NORMALIZE = "setTypeAndNormalize";
   private final String M_PUT_EXTRA = "putExtra";
   private final String M_START_ACTIVITY = "startActivity";
+  private final String M_START_ACTIVITY_FOR_RESULT = "startActivityForResult";
   private final String M_START_SERVICE = "startService";
   private final String M_CREATE_CHOOSER = "createChooser";
 
@@ -103,12 +104,14 @@ public class IntentVisitor extends ScopeAwareVisitor
           }
           else
           {
-            // TODO: handle other cases
+            // TODO: Improve this heuristic
+            info = new IntentInfo();
           }
         }
         else
         {
-          // TODO: handle other cases
+          // TODO: Improve this heuristic
+          info = new IntentInfo();
         }
 
 
@@ -174,12 +177,14 @@ public class IntentVisitor extends ScopeAwareVisitor
           }
           else
           {
-            // TODO: handle other cases
+            // TODO: Improve this heuristic
+            info = new IntentInfo();
           }
         }
         else
         {
-          // TODO: handle other cases
+          // TODO: Improve this heuristic
+          info = new IntentInfo();
         }
 
         this.data.intentsST.put(getFullScopeName(var.getId().toString()), info);
@@ -252,13 +257,14 @@ public class IntentVisitor extends ScopeAwareVisitor
           }
           else
           {
-            // TODO: handle other cases
+            // TODO: Improve this heuristic
+            this.data.intentsST.put(fullName, new IntentInfo());
           }
         }
         else
         {
-          // TODO: handle other cases
-          // Example: method calls
+          // TODO: Improve this heuristic
+          this.data.intentsST.put(fullName, new IntentInfo());
         }
       }
       // other var
@@ -280,7 +286,7 @@ public class IntentVisitor extends ScopeAwareVisitor
     List<Expression> args = expr.getArgs();
 
     // startActivity | startService
-    if (name.equals(M_START_ACTIVITY) || name.equals(M_START_SERVICE))
+    if (name.equals(M_START_ACTIVITY) || name.equals(M_START_SERVICE) || name.equals(M_START_ACTIVITY_FOR_RESULT))
     {      
       if (name.equals(M_START_ACTIVITY))
       {
@@ -292,7 +298,7 @@ public class IntentVisitor extends ScopeAwareVisitor
       }
 
       // 1 or more args
-      if (args.size() >= 1)
+      if (args != null && args.size() >= 1)
       {
         Expression argExpr = args.get(0);
 
@@ -343,23 +349,25 @@ public class IntentVisitor extends ScopeAwareVisitor
           }
           else
           {
-            // TODO: handle other cases
-            System.out.println("@@@ ESCAPED @@@");
-            System.out.println(name);
-            System.out.println(argExpr.getClass().getCanonicalName());
-            System.out.println(argExpr.toString());
+//            System.out.println("@@@ ESCAPED @@@");
+//            System.out.println(name);
+//            System.out.println(argExpr.getClass().getCanonicalName());
+//            System.out.println(argExpr.toString());
+
+            // TODO: improve this heuristic (empty implicit intent)
+            this.data.iccLinks.add(new ICCLinkInfo<IntentInfo>(this.getScope(), name, new IntentInfo()));
           }
         }
         else
         {
-          System.out.println("@@@ ESCAPED @@@");
-          System.out.println(name);
-          System.out.println(argExpr.getClass().getCanonicalName());
-          System.out.println(argExpr.toString());
-        }
+//          System.out.println("@@@ ESCAPED @@@");
+//          System.out.println(name);
+//          System.out.println(argExpr.getClass().getCanonicalName());
+//          System.out.println(argExpr.toString());
 
-        // TODO: handle other cases
-        // Example: method calls
+          // TODO: improve this heuristic (empty implicit intent)
+          this.data.iccLinks.add(new ICCLinkInfo<IntentInfo>(this.getScope(), name, new IntentInfo()));
+        }
       }
     }
     // possible intent method call
@@ -564,11 +572,15 @@ public class IntentVisitor extends ScopeAwareVisitor
       else
       {
         // TODO: Fix tool limitation
+        info.action = CHOOSER_ACTION;
+        info.target = new IntentInfo();
       }
     }
     else
     {
-      // TODO: handle other cases
+      // TODO: Fix tool limitation
+      info.action = CHOOSER_ACTION;
+      info.target = new IntentInfo();
     }
 
     return info;

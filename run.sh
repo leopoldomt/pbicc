@@ -34,7 +34,7 @@ JAVA_FILES=$OUT/$SUBJECT_NAME-javafiles.txt
 ## our current analysis processes java source
 (cd $SUBJECT_SRC; find . -name "*.java" ) > $JAVA_FILES
 CP=$BIN:$CP
-java -cp $CP:$OUT:$SRC icc.Main $JAVA_FILES $SUBJECT_SRC
+java -cp $CP:$OUT:$SRC icc.Main $JAVA_FILES $SUBJECT_SRC $(find $SUBJECT_DIR -name AndroidManifest.xml)
 
 echo "check directory out for generated files.  For example, file zooborns-graph-summary.txt summarizes the contents of the ICC graph generated"
 
