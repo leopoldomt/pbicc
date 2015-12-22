@@ -2,7 +2,11 @@
 
 Quickly explain what is ICC and give an example of intent and communication between Android components
 
-Go over existing solutions and explain why they are so expensive. Is this dependent on the size of the program, or in the number of ICC points?
+Go over existing solutions and explain why they are so
+expensive\marcelo{I would call this section ``Epicc and IC3'' or ``Existing
+  Solutions for ICC Discovery''.  If this is short (say, half a
+  column) I would present this in intro very early on, even before
+  presenting our approach.}. Is this dependent on the size of the program, or in the number of ICC points?
 \begin{itemize}
  \item epicc: build the call graph amounts to large part of the time, \emph{still getting the grasp of the paper, but the problem seems to be that they model the entire application (therefore causing the graph to be too big), while we are mainly interested on specific points of communication}
  \item ic3: builds on top of epicc, including the constraint propagation solver for resolving strings and URIs. Therefore, it can only be as fast as epicc is, but not faster; depending on the intent values it will also spend some time resolving the strings

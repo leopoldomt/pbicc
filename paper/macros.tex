@@ -1,0 +1,39 @@
+%% helpers
+\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\etal}{\emph{et al.\/}}
+\newcommand{\tname}{TNAME}
+\newcommand{\Comment}[1]{}
+
+%% annotations
+\newif\ifdraftmode
+%% Comment or uncomment the \draftmodetrue line.
+\draftmodetrue
+\ifdraftmode
+ \newcommand{\Fix}[1]{\textbf{[[}{\color{red} #1}\textbf{]]}}
+ \newcommand{\marcelo}[1]{\textbf{[[Marcelo: }{\color{magenta} #1}\textbf{]]}}
+ \newcommand{\paulo}[1]{\textbf{[[Paulo: }{\color{blue} #1}\textbf{]]}}
+ \newcommand{\note}[1]{\todo[inline,color=red!30,caption={}]{#1}}
+\else
+ \newcommand{\Fix}[1]{\relax}
+ \newcommand{\marcelo}[1]{\relax}
+ \newcommand{\paulo}[1]{\relax}
+ \newcommand{\note}[1]{\relax}
+\fi
+
+% For submitted version only.
+\pagenumbering{arabic}
+
+% Uncomment this if you need more space
+%% \makeatletter
+%% \def\@copyrightspace{\enlargethispage{-10pt}\relax}
+%% \makeatother
+
+\newcommand{\codesize}{\smaller}
+\newcommand{\CodeIn}[1]{\codeid{#1}}
+% \|name| or \mathid{name} denotes identifiers and slots in formulas
+\def\|#1|{\mathid{#1}}
+\newcommand{\mathid}[1]{\ensuremath{\mathit{#1}}}
+% \<name> or \codeid{name} denotes computer code identifiers
+\def\<#1>{\codeid{#1}}
+\newcommand{\codeid}[1]{\ifmmode{\mbox{\codesize\ttfamily{#1}}}\else{\codesize\ttfamily #1}\fi}

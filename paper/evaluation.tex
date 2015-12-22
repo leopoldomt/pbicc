@@ -1,6 +1,12 @@
 \section{Evaluation (4 pages)}
 
+\marcelo{I suggest to think about the questions you want to respond
+  first.  There can be multiple experiments to the same question.}
+
 \subsection{Experimental Setup}
+
+\marcelo{The setup/methodology should go together with the experiment,
+not separate.}
 
 Explicitly detail the environment in which we performed all of the analysis detailed below
 
@@ -10,13 +16,28 @@ Discuss in which
 
 Analysis on precision/recall of the specifications. 
 
-\emph{Epicc evaluation consists of inferring specifications automatically, and if there is only ``one'' possible specification, they consider it precise. One way would be to adopt the same strategy for considering our precision/recall. }
+\emph{Epicc evaluation consists of inferring specifications
+  automatically, and if there is only ``one'' possible specification,
+  they consider it precise. One way would be to adopt the same
+  strategy for considering our precision/recall. }\marcelo{I don't
+  understand what is the specification here.  Is it the set of
+  ground-truth component-to-component flows?  What is really important
+  is to understand how did they compute this set?  I can only imagine
+  they did that manually but that would only work for small apps.  But
+  if recall is not taken into account then the problem is much easier.
+  As the set of flows our analysis reports may not be outrageous, then
+  it is even possible to inspect the output to measure precision (not
+  recall).  In summary, there are two alternatives: (1) model set of
+  flows for every app (to enable computation of precision and recall)
+  and (2) inspect output of tool (to measure precision).  }
 
 \emph{I am going through FlowDroid~\cite{flowdroid} and Atanas' GATOR paper~\cite{analysis-callbacks-android}, to understand how they considered the ground truth.}
 
 \subsection{Comparison with existing ICC tools}
 
-Compare deltas with Epicc~\cite{epicc}, IC3~\cite{ic3-icse15}, ComDroid~\cite{comdroid}
+Compare deltas with Epicc~\cite{epicc}, IC3~\cite{ic3-icse15},
+ComDroid~\cite{comdroid}\marcelo{is this another ICC tool? If so, also
+explain in the beginning.}
 
 \subsection{Application to Vulnerabilities}
 
