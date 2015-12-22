@@ -1,0 +1,34 @@
+\section{Solution (1-2 pages)}
+
+Explain the idea of patterns using 1-2 concrete examples. (1 from motivation and maybe other here)
+
+The intuition is that patterns can often occur together, therefore we might calculate the intersection and give a precise answer over the ICC specification in most of the program points. 
+
+\subsection{Explicit ICC}
+
+\begin{itemize}
+ \item Intent creation with class name (anonymous object)
+ \item Use setComponent/setClass on Intent object
+\end{itemize}
+
+Both patterns can be specialized when the class name is in a local variable, static class attribute, and so on... Explain this.
+
+\subsection{Implicit ICC}
+
+\begin{itemize}
+ \item Intent with get/put extras
+ \item Intent with Action, Data, and Category fields
+\end{itemize}
+
+\subsection{Dynamic Broadcast Receivers}
+
+Still working on which patterns we can establish for this case.
+
+
+\subsection{Implementation}
+
+Explain the overall implementation, we collect the information based on the patterns established above. 
+
+Then we have to perform a ``join'' of this information, to make it more precise
+
+This results in a number of ICC specifications, or interfaces. Explain the idea using the 1-2 examples given before.

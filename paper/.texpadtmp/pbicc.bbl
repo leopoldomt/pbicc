@@ -1,0 +1,26 @@
+\begin{thebibliography}{1}
+
+\bibitem{comdroid}
+E.~Chin, A.~P. Felt, K.~Greenwood, and D.~Wagner.
+\newblock Analyzing inter-application communication in android.
+\newblock In {\em Proceedings of the 9th International Conference on Mobile
+  Systems, Applications, and Services}, MobiSys '11, pages 239--252, New York,
+  NY, USA, 2011. ACM.
+
+\bibitem{iccta}
+L.~Li, A.~Bartel, T.~F. Bissyand{\'e}, J.~Klein, Y.~Le~Traon, S.~Arzt,
+  S.~Rasthofer, E.~Bodden, D.~Octeau, and P.~McDaniel.
+\newblock Iccta: Detecting inter-component privacy leaks in android apps.
+\newblock In {\em Proceedings of the 37th International Conference on Software
+  Engineering - Volume 1}, ICSE '15, pages 280--291, Piscataway, NJ, USA, 2015.
+  IEEE Press.
+
+\bibitem{epicc}
+D.~Octeau, P.~McDaniel, S.~Jha, A.~Bartel, E.~Bodden, J.~Klein, and
+  Y.~Le~Traon.
+\newblock Effective inter-component communication mapping in android with
+  epicc: An essential step towards holistic security analysis.
+\newblock In {\em Proceedings of the 22Nd USENIX Conference on Security},
+  SEC'13, pages 543--558, Berkeley, CA, USA, 2013. USENIX Association.
+
+\end{thebibliography}

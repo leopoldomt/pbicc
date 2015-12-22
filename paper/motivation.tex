@@ -1,0 +1,14 @@
+\section{Motivation (1-2 pages)}
+
+Quickly explain what is ICC and give an example of intent and communication between Android components
+
+Go over existing solutions and explain why they are so expensive. Is this dependent on the size of the program, or in the number of ICC points?
+\begin{itemize}
+ \item epicc: build the call graph amounts to large part of the time, \emph{still getting the grasp of the paper, but the problem seems to be that they model the entire application (therefore causing the graph to be too big), while we are mainly interested on specific points of communication}
+ \item ic3: builds on top of epicc, including the constraint propagation solver for resolving strings and URIs. Therefore, it can only be as fast as epicc is, but not faster; depending on the intent values it will also spend some time resolving the strings
+ \item gator (atanas rountev): still working through the ICSE paper and have also downloaded the tool to figure it out
+\end{itemize}
+
+Characterize patterns for creating intents and establishing ICC. Gather the data collected by Vinicius and present here, that in general, half of the ICCs are explicit, and we can infer such information without sophisticated analysis. (\emph{challenge seems to be implicit intents})
+
+\textbf{A explicacao e apresentacao de padroes se daria aqui ou na proxima secao?}
