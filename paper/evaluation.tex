@@ -1,12 +1,19 @@
 \section{Evaluation (4 pages)}
 
-\marcelo{I suggest to think about the questions you want to respond
-  first.  There can be multiple experiments to the same question.}
+\marcelo{I suggest to think about the questions we want to answer
+  first: I think it is a good idea to show purpose.  How the technique
+  (name) performs in term of precision, recall, and efficiency?  What
+  is the practical effect of the technique in a client analysis? (When
+  there is loss, how relevant is it?  if not, why?)  The interesting
+  question here seems to be: if this is for security, do attackers
+  typically care about creating hard-to-find communication patterns?
+  Would they care after reading our paper?  Btw., are there client
+  analysis other than security (e.g., tainting)?}
 
 \subsection{Experimental Setup}
 
 \marcelo{The setup/methodology should go together with the experiment,
-not separate.}
+not separate.  Don't need to necessarily show independent/dependent variables etc. }
 
 Explicitly detail the environment in which we performed all of the analysis detailed below
 
@@ -20,11 +27,11 @@ Analysis on precision/recall of the specifications.
   automatically, and if there is only ``one'' possible specification,
   they consider it precise. One way would be to adopt the same
   strategy for considering our precision/recall. }\marcelo{I don't
-  understand what is the specification here.  Is it the set of
-  ground-truth component-to-component flows?  What is really important
-  is to understand how did they compute this set?  I can only imagine
+  understand what exactly ``specification'' means here.  Is it the set of
+  ground-truth component-to-component flows?  Even more 
+  is to understand how they computed/obtained this set.  I can only imagine
   they did that manually but that would only work for small apps.  But
-  if recall is not taken into account then the problem is much easier.
+  if the metric recall is not taken into account then the problem is much easier.
   As the set of flows our analysis reports may not be outrageous, then
   it is even possible to inspect the output to measure precision (not
   recall).  In summary, there are two alternatives: (1) model set of
