@@ -71,7 +71,7 @@
 \isbn{123-4567-24-567/08/06}
 
 %Conference
-\conferenceinfo{FSE '16}{June 16--19, 2013, Seattle, WA, USA}
+\conferenceinfo{FSE '16}{Seattle, WA, USA}
 
 \acmPrice{\$15.00}
 
@@ -176,30 +176,18 @@ Leopoldo Teixeira\\
 % number that will appear in the \additionalauthors section.
 
 \maketitle
+
 \begin{abstract}
-A number of program analysis\marcelo{gator itself is not icc.} have been proposed to
-identify inter-component communication (ICC) between Android
-applications\marcelo{ICC is important even for analyzing the
-  application itself, specially in non-security contexts.}. These
-analysis are often designed to account for every possible way
-(\emph{flow? context?}) of setting up such
-communications\marcelo{$\leftarrow$Don't understand this sentence.  I think you want to say
-that existing analyses are expensive.  But I would suggest to not
-mention these issues up there.  In the summary of
-evaluation below you can say something like ``Although our analysis does not
-assure soundness (no false negatives) or completeness (no false
-positives) by definition, our results provide
-strong evidence that it is competitive to others in terms of precision
-and recall.  Considering efficiency, however, our analysis outperforms
-existing analysis by XXX.}. In this paper, we explore the fact that
-such communications often follow some patterns. Therefore, we propose
-a lightweight, pattern-based approach for detecting ICC. We apply this
-analysis to $XX$ applications from the Play store\marcelo{which one?
-  there are many.  Google Play?}, identifying $YY\%$
-of ICC specifications. Compared to the state-of-the-art, we reduce in
-$ZZ\%$ the precision (\emph{or recall}), while, on the other hand, we
-take $TT\%$ of the time to perform our analysis. These results show
-that our analysis, although imprecise, can be integrated
+Android applications are built based on a variety of components. 
+Therefore, to analyze such applications, one usually has to identify inter-component communication (ICC). 
+In this paper, we explore the fact that such communications often follow some patterns. 
+Therefore, we propose a lightweight, pattern-based approach for detecting ICC. 
+We apply this analysis to $XX$ applications from the Google Play store, identifying $YY\%$
+of ICC specifications. 
+Although our analysis does not assure soundness (no false negatives) or completeness (no false
+positives) by definition, our results provide strong evidence that it is competitive to others in terms of precision
+and recall. Considering efficiency, however, our analysis outperforms existing analysis by XXX.
+These results show that our approach can be useful for integration into other program analysis tools for Android.
 \end{abstract}
 
 %

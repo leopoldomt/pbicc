@@ -1,11 +1,26 @@
 \begin{thebibliography}{1}
 
+\bibitem{flowdroid}
+S.~Arzt, S.~Rasthofer, C.~Fritz, E.~Bodden, A.~Bartel, J.~Klein, Y.~Le~Traon,
+  D.~Octeau, and P.~McDaniel.
+\newblock Flowdroid: Precise context, flow, field, object-sensitive and
+  lifecycle-aware taint analysis for android apps.
+\newblock In {\em Proceedings of the 35th ACM SIGPLAN Conference on Programming
+  Language Design and Implementation}, PLDI '14, pages 259--269, New York, NY,
+  USA, 2014. ACM.
+
 \bibitem{comdroid}
 E.~Chin, A.~P. Felt, K.~Greenwood, and D.~Wagner.
 \newblock Analyzing inter-application communication in android.
 \newblock In {\em Proceedings of the 9th International Conference on Mobile
   Systems, Applications, and Services}, MobiSys '11, pages 239--252, New York,
   NY, USA, 2011. ACM.
+
+\bibitem{android-security}
+W.~Enck, D.~Octeau, P.~McDaniel, and S.~Chaudhuri.
+\newblock A study of android application security.
+\newblock In {\em Proceedings of the 20th USENIX Conference on Security},
+  SEC'11, pages 21--21, Berkeley, CA, USA, 2011. USENIX Association.
 
 \bibitem{iccta}
 L.~Li, A.~Bartel, T.~F. Bissyand{\'e}, J.~Klein, Y.~Le~Traon, S.~Arzt,
@@ -15,6 +30,20 @@ L.~Li, A.~Bartel, T.~F. Bissyand{\'e}, J.~Klein, Y.~Le~Traon, S.~Arzt,
   Engineering - Volume 1}, ICSE '15, pages 280--291, Piscataway, NJ, USA, 2015.
   IEEE Press.
 
+\bibitem{soundiness-manifesto}
+B.~Livshits, M.~Sridharan, Y.~Smaragdakis, O.~Lhot\'{a}k, J.~N. Amaral,
+  B.-Y.~E. Chang, S.~Z. Guyer, U.~P. Khedker, A.~M{\o}ller, and D.~Vardoulakis.
+\newblock In defense of soundiness: A manifesto.
+\newblock {\em Commun. ACM}, 58(2):44--46, Jan. 2015.
+
+\bibitem{ic3-icse15}
+D.~Octeau, D.~Luchaup, M.~Dering, S.~Jha, and P.~McDaniel.
+\newblock Composite constant propagation: Application to android
+  inter-component communication analysis.
+\newblock In {\em Proceedings of the 37th International Conference on Software
+  Engineering - Volume 1}, ICSE '15, pages 77--88, Piscataway, NJ, USA, 2015.
+  IEEE Press.
+
 \bibitem{epicc}
 D.~Octeau, P.~McDaniel, S.~Jha, A.~Bartel, E.~Bodden, J.~Klein, and
   Y.~Le~Traon.
@@ -22,5 +51,13 @@ D.~Octeau, P.~McDaniel, S.~Jha, A.~Bartel, E.~Bodden, J.~Klein, and
   epicc: An essential step towards holistic security analysis.
 \newblock In {\em Proceedings of the 22Nd USENIX Conference on Security},
   SEC'13, pages 543--558, Berkeley, CA, USA, 2013. USENIX Association.
+
+\bibitem{analysis-callbacks-android}
+S.~Yang, D.~Yan, H.~Wu, Y.~Wang, and A.~Rountev.
+\newblock Static control-flow analysis of user-driven callbacks in android
+  applications.
+\newblock In {\em Proceedings of the 37th International Conference on Software
+  Engineering - Volume 1}, ICSE '15, pages 89--99, Piscataway, NJ, USA, 2015.
+  IEEE Press.
 
 \end{thebibliography}

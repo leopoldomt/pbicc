@@ -1,18 +1,22 @@
-\section{Motivation (1-2 pages)}
+\section{Background (1-2 pages)}
 
-Quickly explain what is ICC\marcelo{remember to define terms before using them.} and give an example of intent and communication between Android components
+Quickly explain architecture of Android applications, built around components. Explain that components communicate with each other through Intents, defining what is inter-component communication (ICC). Give an example of intent and communication between Android components. 
+
+
+\section{Existing Solutions for ICC discovery}
+
+Use numbers on entry/exit points from the Epicc paper~\cite{epicc}: ``\emph{About 92\% of exit points had a single Intent specification}''. \leopoldo{This provides the intuition that a simpler analysis might suffice in the vast majority of cases}
 
 Go over existing solutions and explain why they are so
-expensive\marcelo{I would call this section ``Epicc and IC3'' or ``Existing
-  Solutions for ICC Discovery''.  If this is short (say, half a
+expensive 
+\marcelo{If this is short (say, half a
   column) I would present this in intro very early on, even before
-  presenting our approach.}. Is this dependent on the size of the program, or in the number of ICC points?
+  presenting our approach.}. 
+Is this dependent on the size of the program, or in the number of ICC points?
 \begin{itemize}
  \item epicc: build the call graph amounts to large part of the time, \emph{still getting the grasp of the paper, but the problem seems to be that they model the entire application (therefore causing the graph to be too big), while we are mainly interested on specific points of communication}
  \item ic3: builds on top of epicc, including the constraint propagation solver for resolving strings and URIs. Therefore, it can only be as fast as epicc is, but not faster; depending on the intent values it will also spend some time resolving the strings
  \item gator (atanas rountev): still working through the ICSE paper and have also downloaded the tool to figure it out
 \end{itemize}
 
-Characterize patterns for creating intents and establishing ICC. Gather the data collected by Vinicius and present here, that in general, half of the ICCs are explicit, and we can infer such information without sophisticated analysis. (\emph{challenge seems to be implicit intents})
-
-\textbf{A explicacao e apresentacao de padroes se daria aqui ou na proxima secao?}
+Characterize patterns for creating intents and establishing ICC. Gather the data collected by Vinicius and present here, that in general, half of the ICCs are explicit, and we can infer such information without sophisticated analysis. 
