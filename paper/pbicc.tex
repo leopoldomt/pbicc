@@ -82,7 +82,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{Pattern-based Inter-Component Communication Discovery for
+\title{Pattern-based Inter-Component Communication Discovery\Fix{Analysis?} for
   Android Applications\marcelo{consider changing title to stress
     what it achieves as opposed to how it achieves.}}
 %\subtitle{An Empirical Study on Soundiness}
@@ -178,16 +178,36 @@ Leopoldo Teixeira\\
 \maketitle
 
 \begin{abstract}
-Android applications are built based on a variety of components. 
-Therefore, to analyze such applications, one usually has to identify inter-component communication (ICC). 
-In this paper, we explore the fact that such communications often follow some patterns. 
-Therefore, we propose a lightweight, pattern-based approach for detecting ICC. 
-We apply this analysis to $XX$ applications from the Google Play store, identifying $YY\%$
-of ICC specifications. 
-Although our analysis does not assure soundness (no false negatives) or completeness (no false
-positives) by definition, our results provide strong evidence that it is competitive to others in terms of precision
-and recall. Considering efficiency, however, our analysis outperforms existing analysis by XXX.
-These results show that our approach can be useful for integration into other program analysis tools for Android.
+\Comment{Android applications are built based on a variety of components. 
+Therefore, to analyze such applications, one usually has to identify
+inter-component communication (ICC).}
+%% PROBLEM
+\sloppy{}Inter-Component Communication (ICC) is a common input to a
+variety of program analyses for Android\Fix{such as X, Y, and
+  Z}.\marcelo{Explain what is an ICC in one sentence.}  \marcelo{Need
+  to explain why we care about this
+  problem.$\rightarrow$}Unfortunately, existing approaches although
+very precise do not scale\marcelo{any other problem? can we be make a
+  more-specific statement (e.g., only scale for small apps in terms
+  of number of components/activities/code)?}
+
+%% SOLUTION
+This paper builds on the observation that ICCs are substantiated
+through a small set of patterns and often one ICC
+uses\Fix{implements?} more than one of these patterns.  Based on this
+observation we propose \tname{}~a pattern-based ICC analysis that is
+both lightweight and \Fix{almost as?} precise.
+
+%% EVIDENCE
+\marcelo{Don't need to polish this now.}We apply this analysis to
+$XX$ applications from the Google Play store, identifying $YY\%$ of
+ICC specifications.  Although our analysis does not assure soundness
+(no false negatives) or completeness (no false positives) by
+definition, our results provide strong evidence that it is competitive
+to others in terms of precision and recall. Considering efficiency,
+however, our analysis outperforms existing analysis by XXX.  These
+results show that our approach can be useful for integration into
+other program analysis tools for Android.
 \end{abstract}
 
 %
