@@ -10,41 +10,25 @@
   Would they care after reading our paper?  Btw., are there client
   analysis other than security (e.g., tainting)?}
 
-\subsection{Experimental Setup}
+\leopoldo{I thought only of taint analysis at first, but I don't know whether we could plug this into other client analysis.}
 
-\marcelo{The setup/methodology should go together with the experiment,
-not separate.  Don't need to necessarily show independent/dependent variables etc. }
+This section presents the evaluation of \tname{}, our proposed approach for identifying ICC in Android applications. Similar to previous works~\cite{epicc}, we first evaluate our approach in terms of precision of the generated ICC specifications. Moreover, we also compare our results with the results from existing tools, showing how our approach compares in terms of precision, recall, and efficiency. Finally, we investigate the the practical effect of using the technique in a client\leopoldo{To be defined} analysis tool that uses ICC information to compute \emph{something}. \leopoldo{a particular candidate is IccTA, since we have seen that it is relatively easy to integrate}
 
-Explicitly detail the environment in which we performed all of the analysis detailed below
+We have collected \totalapps{}~applications from the Google Play store, extracting the most popular free applications from each category in the store. We performed all of this analysis in a\ldots \leopoldo{detail the environment}
 
-Discuss in which 
+\subsection{Precision of ICC Specifications}
 
-\subsection{Quantitative Analysis}
+Analysis on precision of the specifications. 
 
-Analysis on precision/recall of the specifications. 
+What Epicc did was: for each ICC point in the program \leopoldo{such as startActivity(), for example}, they compute a specification. The idea is that if some startActivity() was called, the specification consists of the values contained in the intent that was passed to this method. They consider a specification ambiguous if there is only one possible value for each of the fields. Therefore, what they measured in terms of precision is whether they generate specifications without ambiguity. \leopoldo{In my opinion, this does not guarantee that the unambiguous specification is correct, but that was the approach they took}
 
-\emph{Epicc evaluation consists of inferring specifications
-  automatically, and if there is only ``one'' possible specification,
-  they consider it precise. One way would be to adopt the same
-  strategy for considering our precision/recall. }\marcelo{I don't
-  understand what exactly ``specification'' means here.  Is it the set of
-  ground-truth component-to-component flows?  Even more 
-  is to understand how they computed/obtained this set.  I can only imagine
-  they did that manually but that would only work for small apps.  But
-  if the metric recall is not taken into account then the problem is much easier.
-  As the set of flows our analysis reports may not be outrageous, then
-  it is even possible to inspect the output to measure precision (not
-  recall).  In summary, there are two alternatives: (1) model set of
-  flows for every app (to enable computation of precision and recall)
-  and (2) inspect output of tool (to measure precision).  }
-
-\emph{I am going through FlowDroid~\cite{flowdroid} and Atanas' GATOR paper~\cite{analysis-callbacks-android}, to understand how they considered the ground truth.}
+My suggestion is that we adopt the same approach. 
 
 \subsection{Comparison with existing ICC tools}
 
-Compare deltas with Epicc~\cite{epicc}, IC3~\cite{ic3-icse15},
-ComDroid~\cite{comdroid}\marcelo{is this another ICC tool? If so, also
-explain in the beginning.}
+Compare with Epicc~\cite{epicc}, IC3~\cite{ic3-icse15}, and any other we might find that deals specifically with ICC discovery. 
+
+The idea here would be to run these other tools in the same set of apps and compare the outputs in terms of precision (using the idea of the previous section), efficiency, and also comparing the deltas of our results with theirs so we can discuss what are our strengths/weaknesses compared to them. 
 
 \subsection{Application to Vulnerabilities}
 
