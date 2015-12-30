@@ -20,15 +20,39 @@ We have collected \totalapps{}~applications from the Google Play store, extracti
 
 Analysis on precision of the specifications. 
 
-What Epicc did was: for each ICC point in the program \leopoldo{such as startActivity(), for example}, they compute a specification. The idea is that if some startActivity() was called, the specification consists of the values contained in the intent that was passed to this method. They consider a specification ambiguous if there is only one possible value for each of the fields. Therefore, what they measured in terms of precision is whether they generate specifications without ambiguity. \leopoldo{In my opinion, this does not guarantee that the unambiguous specification is correct, but that was the approach they took}
+What Epicc did was: for each ICC point in the program \leopoldo{such
+  as startActivity(), for example}, they compute a specification. The
+idea is that if some startActivity() was called, the specification
+consists of the values contained in the intent that was passed to this
+method. They consider a specification ambiguous if there is only one
+possible value for each of the fields. Therefore, what they measured
+in terms of precision is whether they generate specifications without
+ambiguity. \leopoldo{In my opinion, this does not guarantee that the
+  unambiguous specification is correct, but that was the approach they
+  took}\marcelo{If that is not a strong metric, maybe we should not
+  report it.}
 
-My suggestion is that we adopt the same approach. 
+My suggestion is that we adopt the same approach. \marcelo{It is still
+  not clear to me.  What do they/you mean by specification?  Is it
+  something a human wrote with inspection that specifies target
+  components?  If yes, how many apps could they handle?  Also, I don't
+  understand what you mean by values and fields.  Are you referring to
+  extra(s) fields?}
 
 \subsection{Comparison with existing ICC tools}
 
 Compare with Epicc~\cite{epicc}, IC3~\cite{ic3-icse15}, and any other we might find that deals specifically with ICC discovery. 
 
-The idea here would be to run these other tools in the same set of apps and compare the outputs in terms of precision (using the idea of the previous section), efficiency, and also comparing the deltas of our results with theirs so we can discuss what are our strengths/weaknesses compared to them. 
+The idea here would be to run these other tools in the same set of
+apps and compare the outputs in terms of precision (using the idea of
+the previous section), efficiency, and also comparing the deltas of
+our results with theirs so we can discuss what are our
+strengths/weaknesses compared to them.
+
+\marcelo{Consider picking 2/3 small, 2/3 medium, and 2/3 large apps
+  that we could extract the spec manually, inspecting the code.  For
+  such small set you could compute precision, recall, and F-measure
+  precisely as you would have ground truth.}
 
 \subsection{Application to Vulnerabilities}
 
