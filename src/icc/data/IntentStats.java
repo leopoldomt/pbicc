@@ -22,6 +22,7 @@ public class IntentStats
   public Stat implicitICCLinks = new Stat("ICC links (using implicit intents)");
   public Stat startActivityCount = new Stat("'startActivity' calls");
   public Stat startServiceCount = new Stat("'startService' calls");
+  public Stat sendBroadcastCount = new Stat("'sendBroadcast' calls");
   
   public String toString()
   {
@@ -47,6 +48,11 @@ public class IntentStats
   public void addStartService()
   {
     this.startServiceCount.value += 1;
+  }
+  
+  public void addSendBroadcast()
+  {
+    this.sendBroadcastCount.value += 1;
   }
   
   public void add(IntentStats otherStats)

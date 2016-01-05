@@ -19,6 +19,9 @@ import japa.parser.ast.expr.NameExpr;
 import japa.parser.ast.expr.ObjectCreationExpr;
 import japa.parser.ast.expr.VariableDeclarationExpr;
 
+//TODO: consider breaking this visitor in several visitors, one for each kind of component
+//TODO: separate symbol table construction from usage
+
 public class IntentVisitor extends ScopeAwareVisitor
 {
   //constants
@@ -39,6 +42,7 @@ public class IntentVisitor extends ScopeAwareVisitor
   private final String M_START_ACTIVITY = "startActivity";
   private final String M_START_ACTIVITY_FOR_RESULT = "startActivityForResult";
   private final String M_START_SERVICE = "startService";
+  private final String M_SEND_BROADCAST = "sendBroadcast";
   private final String M_CREATE_CHOOSER = "createChooser";
 
   private final List<Pattern> CONTEXT_STRINGS = new ArrayList<Pattern>(Arrays.asList(new Pattern[]{Pattern.compile("activity"),
@@ -286,7 +290,7 @@ public class IntentVisitor extends ScopeAwareVisitor
     List<Expression> args = expr.getArgs();
 
     // startActivity | startService
-    if (name.equals(M_START_ACTIVITY) || name.equals(M_START_SERVICE) || name.equals(M_START_ACTIVITY_FOR_RESULT))
+    if (name.equals(M_START_ACTIVITY) || name.equals(M_START_SERVICE) || name.equals(M_START_ACTIVITY_FOR_RESULT)  || name.equals(M_SEND_BROADCAST))
     {      
       if (name.equals(M_START_ACTIVITY))
       {
@@ -295,6 +299,10 @@ public class IntentVisitor extends ScopeAwareVisitor
       else if (name.equals(M_START_SERVICE))
       {
         this.data.stats.addStartService();
+      }
+      else if (name.equals(M_SEND_BROADCAST))
+      {
+        this.data.stats.addSendBroadcast();
       }
 
       // 1 or more args
