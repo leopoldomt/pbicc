@@ -1,9 +1,14 @@
 package icc.parsing;
 
+import icc.data.Component;
+import icc.data.ComponentType;
+import icc.data.IntentFilter;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,18 +19,18 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import icc.data.IntentFilter;
-
 public class AndroidManifestParser extends DefaultHandler
 {
   static final String MANIFEST_TAG = "manifest";
   static final String ACTIVITY_TAG = "activity";
   static final String SERVICE_TAG = "service";
+  static final String PROVIDER_TAG = "provider";
   static final String RECEIVER_TAG = "receiver";
   static final String INTENT_FILTER_TAG = "intent-filter";
   static final String ACTION_TAG = "action";
   static final String CATEGORY_TAG = "category";
   static final String DATA_TAG = "data";
+  static final String USES_PERMISSIONS_TAG = "uses-permission";
 
   static final String DATA_SCHEME_ATTR = "android:scheme";
   static final String DATA_HOST_ATTR = "android:host";
@@ -36,12 +41,20 @@ public class AndroidManifestParser extends DefaultHandler
   static final String DATA_MIME_TYPE_ATTR = "android:mimeType";
 
   public String appPackage;
+  public List<Component> components;
+  public List<String> permissions;
+  
+  //TODO: remove the following 2 lines once we fix the remaining of the implementation
   public Map<String, List<IntentFilter>> intentFilters;
   String currentComponent;
+  
+  Component currComponent;
   IntentFilter currentIntentFilter;
 
   public AndroidManifestParser(String manifestPath) throws Exception
   {
+    this.permissions = new LinkedList<String>();
+    this.components = new LinkedList<Component>();
     this.intentFilters = new HashMap<String, List<IntentFilter>>();
 
     SAXParser parser = SAXParserFactory.newInstance().newSAXParser();    
@@ -62,18 +75,100 @@ public class AndroidManifestParser extends DefaultHandler
 
       break;
 
+    case USES_PERMISSIONS_TAG:
+      if (attributes != null) {
+        this.permissions.add(attributes.getValue("android:name"));
+      }
+      break;       
+      
     case ACTIVITY_TAG:
+      if (attributes != null)
+      {
+        Component c = new Component();
+        //TODO: maybe checking if getValue == null so we do not set label and other attributes to null?
+        c.label = attributes.getValue("android:label");
+        c.name = attributes.getValue("android:name");
+        if (attributes.getValue("android:exported") == "true") {
+          c.exported = true;
+        }
+        c.type = ComponentType.ACTIVITY;
+        this.currComponent = c;
+        this.components.add(c);
+        
+        //TODO: remove the following line once we finish working on the rest of implementation
+        this.currentComponent = attributes.getValue("android:name");
+        this.intentFilters.put(this.currentComponent, new ArrayList<IntentFilter>());
+      }
+
+      break;
+      
     case SERVICE_TAG:
+      if (attributes != null)
+      {
+        Component c = new Component();
+        //TODO: maybe checking if getValue == null so we do not set label and other attributes to null?
+        c.label = attributes.getValue("android:label");
+        c.name = attributes.getValue("android:name");
+        if (attributes.getValue("android:exported") == "true") {
+          c.exported = true;
+        }
+        c.type = ComponentType.SERVICE;
+        this.currComponent = c;
+        this.components.add(c);
+        
+        //TODO: remove the following line once we finish working on the rest of implementation
+        this.currentComponent = attributes.getValue("android:name");
+        this.intentFilters.put(this.currentComponent, new ArrayList<IntentFilter>());
+      }
+
+      break;
+      
+    //TODO: capture dynamically registered broadcast receiver       
     case RECEIVER_TAG:
 
       if (attributes != null)
       {
+        Component c = new Component();
+        //TODO: maybe checking if getValue == null so we do not set label and other attributes to null?
+        c.label = attributes.getValue("android:label");
+        c.name = attributes.getValue("android:name");
+        if (attributes.getValue("android:exported") == "true") {
+          c.exported = true;
+        }
+        c.type = ComponentType.BROADCAST_RECEIVER;
+        this.currComponent = c;
+        this.components.add(c);
+        
+        //TODO: remove the following line once we finish working on the rest of implementation
         this.currentComponent = attributes.getValue("android:name");
         this.intentFilters.put(this.currentComponent, new ArrayList<IntentFilter>());
       }
 
       break;
 
+    //TODO: capture specific content provider information
+    case PROVIDER_TAG:
+
+      if (attributes != null)
+      {
+        Component c = new Component();
+        //TODO: maybe checking if getValue == null so we do not set label and other attributes to null?
+        c.label = attributes.getValue("android:label");
+        c.name = attributes.getValue("android:name");
+        if (attributes.getValue("android:exported") == "true") {
+          c.exported = true;
+        }
+        c.type = ComponentType.CONTENT_PROVIDER;
+        this.currComponent = c;
+        this.components.add(c);
+        
+        //TODO: remove the following line once we finish working on the rest of implementation
+        this.currentComponent = attributes.getValue("android:name");
+        this.intentFilters.put(this.currentComponent, new ArrayList<IntentFilter>());
+      }
+
+      break;
+      
     case INTENT_FILTER_TAG:
 
       if (attributes != null)
@@ -163,15 +258,18 @@ public class AndroidManifestParser extends DefaultHandler
     if (qName.equals(INTENT_FILTER_TAG))
     {
       ((ArrayList<IntentFilter>) this.intentFilters.get(this.currentComponent)).add(this.currentIntentFilter);
+      this.currComponent.intentFilters.add(this.currentIntentFilter);
     }
   }
 
   public static void main(String[] args) throws Exception {
 
-    String manifestPath = "/home/vinicius/Coding/Monografia/main-tools/source_code/pbicc/presentation_study/src/android-chess/app/src/main/AndroidManifest.xml";
-
+    //String manifestPath = "/home/vinicius/Coding/Monografia/main-tools/source_code/pbicc/presentation_study/src/android-chess/app/src/main/AndroidManifest.xml";
+    //String manifestPath = "/Users/leopoldomt/Documents/cin/pbicc/test-data/zooborns/AndroidManifest.xml";
+    String manifestPath = "/Users/leopoldomt/Documents/cin/pbicc/test-data/k9/AndroidManifest.xml";
+    
     AndroidManifestParser manifestParser = new AndroidManifestParser(manifestPath);
-
+/*
     for (String component : manifestParser.intentFilters.keySet())
     {
       System.out.println("###");
@@ -184,5 +282,20 @@ public class AndroidManifestParser extends DefaultHandler
         System.out.println(filter);
       }
     }
+    
+    System.out.println("---");
+    for (String permission : manifestParser.permissions) {
+      System.out.println("Permission: " + permission);
+    }
+    System.out.println("---");
+/**/
+    System.out.println("---");
+    for (Component c : manifestParser.components) {
+      System.out.println("Component: ");
+      System.out.println(c);
+    }
+    System.out.println("---");
   }
+  
+
 }

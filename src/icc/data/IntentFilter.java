@@ -16,13 +16,13 @@ public class IntentFilter
     {
       StringBuilder builder = new StringBuilder();
       
-      System.out.println(String.format("%s: %s\n", "scheme", scheme));
-      System.out.println(String.format("%s: %s\n", "host", host));
-      System.out.println(String.format("%s: %s\n", "port", port));
-      System.out.println(String.format("%s: %s\n", "path", path));
-      System.out.println(String.format("%s: %s\n", "pathPattern", pathPattern));
-      System.out.println(String.format("%s: %s\n", "pathPrefix", pathPrefix));
-      System.out.println(String.format("%s: %s\n", "mimeType", mimeType));
+      builder.append(String.format("%s: %s\n", "scheme", scheme));
+      builder.append(String.format("%s: %s\n", "host", host));
+      builder.append(String.format("%s: %s\n", "port", port));
+      builder.append(String.format("%s: %s\n", "path", path));
+      builder.append(String.format("%s: %s\n", "pathPattern", pathPattern));
+      builder.append(String.format("%s: %s\n", "pathPrefix", pathPrefix));
+      builder.append(String.format("%s: %s\n", "mimeType", mimeType));
       
       return builder.toString();
     }
@@ -36,10 +36,10 @@ public class IntentFilter
   {
     StringBuilder builder = new StringBuilder();
     
-    System.out.println(String.format("%s: %s\n", "Action", action));
-    System.out.println(String.format("%s: %s\n", "Category",category));
-    System.out.println("Data:");
-    System.out.println(String.format("%s\n", data));
+    builder.append(String.format("%s: %s\n", "Action", action));
+    builder.append(String.format("%s: %s\n", "Category",category));
+    builder.append("Data:");
+    builder.append(String.format("%s\n", data));
     
     return builder.toString();
   }
