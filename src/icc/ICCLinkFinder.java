@@ -1,7 +1,8 @@
 package icc;
 
 import icc.data.ICCLinkFindingResults;
-import icc.visitors.IntentVisitor;
+import icc.visitors.ActivityVisitor;
+import icc.visitors.SymbolTableVisitor;
 import japa.parser.ast.CompilationUnit;
 
 public class ICCLinkFinder
@@ -10,8 +11,11 @@ public class ICCLinkFinder
   {
     ICCLinkFindingResults results = new ICCLinkFindingResults();
     
-    IntentVisitor visitor = new IntentVisitor(results);
-    visitor.visit(cu, null);
+    SymbolTableVisitor sTVisitor = new SymbolTableVisitor(results);
+    sTVisitor.visit(cu, null);
+    
+    ActivityVisitor activityVisitor = new ActivityVisitor(results);
+    activityVisitor.visit(cu, null);
     
     results.accessStats();
     

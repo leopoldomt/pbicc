@@ -23,6 +23,7 @@ public class IntentStats
   public Stat startActivityCount = new Stat("'startActivity' calls");
   public Stat startServiceCount = new Stat("'startService' calls");
   public Stat sendBroadcastCount = new Stat("'sendBroadcast' calls");
+  public Stat providerCount = new Stat("ContentProvider-related calls");
   
   public String toString()
   {
@@ -36,6 +37,8 @@ public class IntentStats
     builder.append(String.format("%s: %d\n", implicitICCLinks.name, implicitICCLinks.value));
     builder.append(String.format("%s: %d\n", startActivityCount.name, startActivityCount.value));
     builder.append(String.format("%s: %d\n", startServiceCount.name, startServiceCount.value));
+    builder.append(String.format("%s: %d\n", sendBroadcastCount.name, sendBroadcastCount.value));
+    builder.append(String.format("%s: %d\n", providerCount.name, providerCount.value));
     
     return builder.toString();
   }
@@ -54,6 +57,11 @@ public class IntentStats
   {
     this.sendBroadcastCount.value += 1;
   }
+
+  public void addProvider()
+  {
+    this.providerCount.value += 1;
+  }
   
   public void add(IntentStats otherStats)
   {
@@ -65,6 +73,8 @@ public class IntentStats
     this.implicitICCLinks.value += otherStats.implicitICCLinks.value;
     this.startActivityCount.value += otherStats.startActivityCount.value;
     this.startServiceCount.value += otherStats.startServiceCount.value;
+    this.sendBroadcastCount.value += otherStats.sendBroadcastCount.value;
+    this.providerCount.value += otherStats.providerCount.value;
   }
   
   public String getExtendedAnalysis()

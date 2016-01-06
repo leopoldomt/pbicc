@@ -7,7 +7,7 @@ import japa.parser.ast.body.ClassOrInterfaceDeclaration;
 import japa.parser.ast.body.MethodDeclaration;
 import japa.parser.ast.visitor.VoidVisitorAdapter;
 
-public class ScopeAwareVisitor extends VoidVisitorAdapter<Object>
+public abstract class ScopeAwareVisitor extends VoidVisitorAdapter<Object>
 {
   protected List<String> scope;
 
