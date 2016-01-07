@@ -1,0 +1,59 @@
+\section{Evaluation (4 pages)}
+
+\marcelo{I suggest to think about the questions we want to answer
+  first: I think it is a good idea to show purpose.  How the technique
+  (name) performs in term of precision, recall, and efficiency?  What
+  is the practical effect of the technique in a client analysis? (When
+  there is loss, how relevant is it?  if not, why?)  The interesting
+  question here seems to be: if this is for security, do attackers
+  typically care about creating hard-to-find communication patterns?
+  Would they care after reading our paper?  Btw., are there client
+  analysis other than security (e.g., tainting)?}
+
+\leopoldo{I thought only of taint analysis at first, but I don't know whether we could plug this into other client analysis.}
+
+This section presents the evaluation of \tname{}, our proposed approach for identifying ICC in Android applications. Similar to previous works~\cite{epicc}, we first evaluate our approach in terms of precision of the generated ICC specifications. Moreover, we also compare our results with the results from existing tools, showing how our approach compares in terms of precision, recall, and efficiency. Finally, we investigate the the practical effect of using the technique in a client\leopoldo{To be defined} analysis tool that uses ICC information to compute \emph{something}. \leopoldo{a particular candidate is IccTA, since we have seen that it is relatively easy to integrate}
+
+We have collected \totalapps{}~applications from the Google Play store, extracting the most popular free applications from each category in the store. We performed all of this analysis in a\ldots \leopoldo{detail the environment}
+
+\subsection{Precision of ICC Specifications}
+
+Analysis on precision of the specifications. 
+
+What Epicc did was: for each ICC point in the program \leopoldo{such
+  as startActivity(), for example}, they compute a specification. The
+idea is that if some startActivity() was called, the specification
+consists of the values contained in the intent that was passed to this
+method. They consider a specification ambiguous if there is only one
+possible value for each of the fields. Therefore, what they measured
+in terms of precision is whether they generate specifications without
+ambiguity. \leopoldo{In my opinion, this does not guarantee that the
+  unambiguous specification is correct, but that was the approach they
+  took}\marcelo{If that is not a strong metric, maybe we should not
+  report it.}
+
+My suggestion is that we adopt the same approach. \marcelo{It is still
+  not clear to me.  What do they/you mean by specification?  Is it
+  something a human wrote with inspection that specifies target
+  components?  If yes, how many apps could they handle?  Also, I don't
+  understand what you mean by values and fields.  Are you referring to
+  extra(s) fields?}
+
+\subsection{Comparison with existing ICC tools}
+
+Compare with Epicc~\cite{epicc}, IC3~\cite{ic3-icse15}, and any other we might find that deals specifically with ICC discovery. 
+
+The idea here would be to run these other tools in the same set of
+apps and compare the outputs in terms of precision (using the idea of
+the previous section), efficiency, and also comparing the deltas of
+our results with theirs so we can discuss what are our
+strengths/weaknesses compared to them.
+
+\marcelo{Consider picking 2/3 small, 2/3 medium, and 2/3 large apps
+  that we could extract the spec manually, inspecting the code.  For
+  such small set you could compute precision, recall, and F-measure
+  precisely as you would have ground truth.}
+
+\subsection{Application to Vulnerabilities}
+
+Use IccTA~\cite{iccta} with our ICC information and compare performance and analysis results. 

@@ -1,17 +1,30 @@
 package icc;
 
+import icc.data.IntentInfo;
+import icc.data.IntentStats;
+import icc.data.VarInfo;
+import icc.parsing.AndroidManifestParser;
 import icc.visitors.KeysVisitor;
+import icc.data.ICCLinkFindingResults;
+import icc.data.ICCLinkInfo;
+import icc.data.IntentFilter;
 import japa.parser.JavaParser;
 import japa.parser.ast.CompilationUnit;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.tools.JavaCompiler;
+import javax.tools.JavaFileObject;
+import javax.tools.StandardJavaFileManager;
+import javax.tools.ToolProvider;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultDirectedGraph;
@@ -21,9 +34,16 @@ import org.jgrapht.traverse.TopologicalOrderIterator;
 public class Main {
 
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
-  static boolean DEBUG_KEYS = true;
-  static boolean PRINT_DOT = true;
-  static boolean PRINT_TOPO_ORDER = true;
+  static boolean DEBUG_KEYS = false;
+  static boolean ICC_SHOW_EXPLICIT_INTENTS = false;
+  static boolean ICC_SHOW_IMPLICIT_INTENTS = false;
+  static boolean ICC_SHOW_VARS = false;
+  static boolean ICC_SHOW_LINKS = false;
+  static boolean ICC_SHOW_STATS_PER_FILE = false;
+  static boolean ICC_SHOW_FINAL_STATS = false;
+  static boolean ICC_SHOW_INTENT_FILTERS = true;
+  static boolean PRINT_DOT = false;
+  static boolean PRINT_TOPO_ORDER = false;
 
   static String fileListFile;
   static String appSourceDir;
@@ -32,13 +52,94 @@ public class Main {
 
     init(args[0], args[1]);
 
+    State.getInstance().setManifestParser(new AndroidManifestParser(args[2]));
+    
     DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
 
+    if (ICC_SHOW_INTENT_FILTERS)
+    {
+      for (String component : State.getInstance().getManifestParser().intentFilters.keySet())
+      {
+        System.out.println("###");
+        System.out.println("Component: " + component);
+        System.out.println("Filters:");
+
+        for (IntentFilter filter : State.getInstance().getManifestParser().intentFilters.get(component))
+        {
+          System.out.println("---");
+          System.out.println(filter);
+        }
+      }
+    }
+    
     if (DEBUG_KEYS) {
       System.out.println("INTENT KEYS");
       for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {
         System.out.printf("COMP:%s, KEYS:%s", entry.getKey().toString(), entry.getValue().toString());
       }
+    }
+
+    IntentStats appIntentStats = new IntentStats();
+
+    for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet())
+    {
+      System.out.println(String.format("### File: %s", resultsEntry.getKey()));
+
+      // printing the intents
+      Map<String, IntentInfo> intents = resultsEntry.getValue().intentsST.getMap();
+      IntentInfo info = null;
+
+      for(Map.Entry<String, IntentInfo> intentEntry : intents.entrySet())
+      {
+        info = intentEntry.getValue();
+
+        if ((info.isExplicit() && ICC_SHOW_EXPLICIT_INTENTS) ||
+            (!info.isExplicit() && ICC_SHOW_IMPLICIT_INTENTS))
+        {
+          System.out.println(String.format("%s:\n%s\n----------", intentEntry.getKey(), intentEntry.getValue()));
+        }
+      }
+
+      // printing the vars
+      if (ICC_SHOW_VARS)
+      {
+        Map<String, VarInfo> vars = resultsEntry.getValue().varsST.getMap();
+
+        for(Map.Entry<String, VarInfo> varEntry : vars.entrySet())
+        {
+          String name = varEntry.getKey();
+          VarInfo varInfo = varEntry.getValue();
+
+          System.out.printf("%s %s = %s\n", info.type, name, varInfo.value);
+        }
+      }
+
+      // printing the links
+      if (ICC_SHOW_LINKS)
+      {
+        List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
+
+        for (ICCLinkInfo<IntentInfo> link : links)
+        {
+          System.out.println(link);
+        }
+      }
+
+      IntentStats stats = resultsEntry.getValue().stats;
+
+      appIntentStats.add(stats);
+
+      if (ICC_SHOW_STATS_PER_FILE)
+      {
+        System.out.println(resultsEntry.getValue().stats);
+      }
+    }
+
+    if (ICC_SHOW_FINAL_STATS)
+    {
+      System.out.println("### App Intent Stats");
+      System.out.println(appIntentStats);
+      System.out.println(appIntentStats.getExtendedAnalysis());
     }
 
     if (PRINT_DOT) {
@@ -69,31 +170,38 @@ public class Main {
     // processFileList makes a pass in all ASTs: one pass for each compilation unit
     processFileList(fileListFile, appSourceDir,
         new CompUnitProcessable() {
-          @Override
-          public void process(String name, CompilationUnit cu) {
-            KeysVisitor kv = new KeysVisitor();
-            kv.visit(cu, null);
-            State.getInstance().pgMap().put(name.replaceAll("/", "."), kv.getPGs());
-          }
-        }
-    );
+      @Override
+      public void process(String name, CompilationUnit cu) {
+
+        String replacedFilename = name.replaceAll("/", ".");
+
+        // getting the get*extra/put*extra pairs
+        KeysVisitor kv = new KeysVisitor();
+        kv.visit(cu, null);
+
+        State.getInstance().pgMap().put(replacedFilename, kv.getPGs());
+
+        State.getInstance().resultsMap().put(replacedFilename, ICCLinkFinder.findICCLinks(cu));
+      }
+    }
+        );
 
     //TODO: we need to implement component analysis
-//    processFileList(fileListFile, appSourceDir,
-//        new CompUnitProcessable() {
-//          DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
-//          { // initialize g (done once)
-//            for (String fileName : State.getInstance().pgMap().keySet()) {
-//              g.addVertex(fileName.split("\\.")[0]);
-//            }
-//          }
-//          @Override
-//          public void process(String name, CompilationUnit cu) {
-//            String regex = String.join("|", State.getInstance().pgMap().keySet());
-//            cu.toString().matches(regex);
-//          }
-//        }
-//    );
+    //    processFileList(fileListFile, appSourceDir,
+    //        new CompUnitProcessable() {
+    //          DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
+    //          { // initialize g (done once)
+    //            for (String fileName : State.getInstance().pgMap().keySet()) {
+    //              g.addVertex(fileName.split("\\.")[0]);
+    //            }
+    //          }
+    //          @Override
+    //          public void process(String name, CompilationUnit cu) {
+    //            String regex = String.join("|", State.getInstance().pgMap().keySet());
+    //            cu.toString().matches(regex);
+    //          }
+    //        }
+    //    );
   }
 
   public static void processFileList(String fileListFile, String appSourceDir, CompUnitProcessable cup) throws Exception {
