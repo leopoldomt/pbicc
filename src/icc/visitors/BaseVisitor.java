@@ -34,9 +34,14 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
   protected final String M_PUT_EXTRA = "putExtra";
   protected final String M_CREATE_CHOOSER = "createChooser";
 
-  protected final List<Pattern> CONTEXT_STRINGS = new ArrayList<Pattern>(Arrays.asList(new Pattern[]{Pattern.compile("activity"),
-      Pattern.compile("context"),
-      Pattern.compile("([\\w]+\\.)?this")}));
+  protected final List<Pattern> CONTEXT_STRINGS = new ArrayList<Pattern>(Arrays.asList(
+      new Pattern[]{
+          Pattern.compile("activity"),
+          Pattern.compile("getApplicationContext"),
+          Pattern.compile("context"),
+          Pattern.compile("([\\w]+\\.)?this")
+      }
+  ));
 
   protected List<String> VAR_TYPES = Arrays.asList(new String[] {"bool", "Boolean", "char", "Character",
       "float", "Float", "byte", "Byte",
@@ -399,7 +404,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
   {
     for (Pattern p : CONTEXT_STRINGS)
     {
-      if (p.matcher(candidate).matches())
+      if (p.matcher(candidate).find())
       {
         return true;
       }
