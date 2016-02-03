@@ -8,8 +8,8 @@ import icc.visitors.KeysVisitor;
 import icc.data.ICCLinkFindingResults;
 import icc.data.ICCLinkInfo;
 import icc.data.IntentFilter;
-import japa.parser.JavaParser;
-import japa.parser.ast.CompilationUnit;
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -35,12 +35,12 @@ public class Main {
 
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = false;
-  static boolean ICC_SHOW_EXPLICIT_INTENTS = false;
-  static boolean ICC_SHOW_IMPLICIT_INTENTS = false;
-  static boolean ICC_SHOW_VARS = false;
-  static boolean ICC_SHOW_LINKS = false;
-  static boolean ICC_SHOW_STATS_PER_FILE = false;
-  static boolean ICC_SHOW_FINAL_STATS = false;
+  static boolean ICC_SHOW_EXPLICIT_INTENTS = true;
+  static boolean ICC_SHOW_IMPLICIT_INTENTS = true;
+  static boolean ICC_SHOW_VARS = true;
+  static boolean ICC_SHOW_LINKS = true;
+  static boolean ICC_SHOW_STATS_PER_FILE = true;
+  static boolean ICC_SHOW_FINAL_STATS = true;
   static boolean ICC_SHOW_INTENT_FILTERS = true;
   static boolean PRINT_DOT = false;
   static boolean PRINT_TOPO_ORDER = false;

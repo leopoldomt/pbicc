@@ -2,10 +2,9 @@ package icc.visitors;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import japa.parser.ast.body.ClassOrInterfaceDeclaration;
-import japa.parser.ast.body.MethodDeclaration;
-import japa.parser.ast.visitor.VoidVisitorAdapter;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
 
 public abstract class ScopeAwareVisitor extends VoidVisitorAdapter<Object>
 {

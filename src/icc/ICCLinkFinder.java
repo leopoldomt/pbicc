@@ -4,7 +4,7 @@ import icc.data.ICCLinkFindingResults;
 import icc.visitors.ActivityVisitor;
 import icc.visitors.ServiceVisitor;
 import icc.visitors.SymbolTableVisitor;
-import japa.parser.ast.CompilationUnit;
+import com.github.javaparser.ast.CompilationUnit;
 
 public class ICCLinkFinder
 {

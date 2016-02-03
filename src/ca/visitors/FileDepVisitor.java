@@ -1,8 +1,8 @@
 package ca.visitors;
 
-import japa.parser.ast.expr.NameExpr;
-import japa.parser.ast.expr.QualifiedNameExpr;
-import japa.parser.ast.visitor.VoidVisitorAdapter;
+import com.github.javaparser.ast.expr.NameExpr;
+import com.github.javaparser.ast.expr.QualifiedNameExpr;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultEdge;

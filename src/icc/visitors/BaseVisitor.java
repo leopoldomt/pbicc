@@ -8,13 +8,13 @@ import java.util.regex.Pattern;
 import icc.data.ICCLinkFindingResults;
 import icc.data.IntentInfo;
 import icc.data.VarInfo;
-import japa.parser.ast.body.VariableDeclarator;
-import japa.parser.ast.expr.AssignExpr;
-import japa.parser.ast.expr.Expression;
-import japa.parser.ast.expr.LiteralExpr;
-import japa.parser.ast.expr.MethodCallExpr;
-import japa.parser.ast.expr.NameExpr;
-import japa.parser.ast.expr.ObjectCreationExpr;
+import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.expr.AssignExpr;
+import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.LiteralExpr;
+import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.expr.NameExpr;
+import com.github.javaparser.ast.expr.ObjectCreationExpr;
 
 public abstract class BaseVisitor extends ScopeAwareVisitor
 {

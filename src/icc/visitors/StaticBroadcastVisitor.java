@@ -7,10 +7,10 @@ import java.util.List;
 import icc.data.ICCLinkFindingResults;
 import icc.data.ICCLinkInfo;
 import icc.data.IntentInfo;
-import japa.parser.ast.expr.Expression;
-import japa.parser.ast.expr.MethodCallExpr;
-import japa.parser.ast.expr.NameExpr;
-import japa.parser.ast.expr.ObjectCreationExpr;
+import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.expr.NameExpr;
+import com.github.javaparser.ast.expr.ObjectCreationExpr;
 
 public class StaticBroadcastVisitor extends BaseVisitor
 { 

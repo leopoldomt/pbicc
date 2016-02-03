@@ -38,8 +38,8 @@ java -cp $CP:$OUT:$SRC icc.Main $JAVA_FILES $SUBJECT_SRC $(find $SUBJECT_DIR -na
 
 echo "check directory out for generated files.  For example, file zooborns-graph-summary.txt summarizes the contents of the ICC graph generated"
 
-echo "assuming you have graphviz installed"
-(cd $OUT;
-    dot -Tjpg ${SUBJECT_NAME}-cdg.dot > ${SUBJECT_NAME}-cdg.jpg
-    open ${SUBJECT_NAME}-cdg.jpg
-)
+##echo "assuming you have graphviz installed"
+##(cd $OUT;
+##    dot -Tjpg ${SUBJECT_NAME}-cdg.dot > ${SUBJECT_NAME}-cdg.jpg
+##    open ${SUBJECT_NAME}-cdg.jpg
+##)

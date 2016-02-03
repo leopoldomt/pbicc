@@ -1,9 +1,9 @@
 package icc.visitors;
 
 import icc.PutsAndGets;
-import japa.parser.ast.expr.Expression;
-import japa.parser.ast.expr.MethodCallExpr;
-import japa.parser.ast.visitor.VoidVisitorAdapter;
+import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import java.util.List;
 

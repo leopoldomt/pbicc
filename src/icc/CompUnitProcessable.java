@@ -1,6 +1,6 @@
 package icc;
 
-import japa.parser.ast.CompilationUnit;
+import com.github.javaparser.ast.CompilationUnit;
 
 public interface CompUnitProcessable {
   void process(String fullyQualifiedName, CompilationUnit cu);
