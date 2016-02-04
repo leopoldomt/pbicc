@@ -1,20 +1,23 @@
 package icc.visitors;
 
+import icc.data.ICCLinkFindingResults;
+import icc.data.IntentInfo;
+import icc.data.VarInfo;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import icc.data.ICCLinkFindingResults;
-import icc.data.IntentInfo;
-import icc.data.VarInfo;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AssignExpr;
+import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.LiteralExpr;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.NameExpr;
 import com.github.javaparser.ast.expr.ObjectCreationExpr;
+import com.github.javaparser.ast.expr.StringLiteralExpr;
 
 public abstract class BaseVisitor extends ScopeAwareVisitor
 {
@@ -46,7 +49,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
   protected List<String> VAR_TYPES = Arrays.asList(new String[] {"bool", "Boolean", "char", "Character",
       "float", "Float", "byte", "Byte",
       "double", "Double", "int", "Integer",
-      "short", "Short", "long", "Long", "String"});
+      "short", "Short", "long", "Long", "String", "Uri"});
   
   protected ICCLinkFindingResults data;
   
@@ -316,7 +319,6 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         {
           value = handleLongObjectCreation(varName, objCreation);
         }
-
         this.data.varsST.put(varName, new VarInfo(varType, value));
       }
       else if (init instanceof LiteralExpr)
@@ -324,6 +326,35 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         LiteralExpr literalExpr = (LiteralExpr) init;
 
         this.data.varsST.put(varName, new VarInfo(varType, literalExpr.toString()));
+      }
+      else if (init instanceof MethodCallExpr) {
+        MethodCallExpr mCall = (MethodCallExpr) init;
+        String value = init.toString();
+        if(isUriVar(varType)) {
+          if (mCall.getName().equals("parse")) {
+            System.out.println("entrou aqui no else if");
+            List<Expression> args = mCall.getArgs();
+            for (Expression a: args)  {
+              if (a instanceof StringLiteralExpr) {
+                StringLiteralExpr s = (StringLiteralExpr) a;
+                value = s.getValue();
+              }
+              else if (a instanceof BinaryExpr) {
+                BinaryExpr b = (BinaryExpr) a;
+                if (b.getLeft() instanceof StringLiteralExpr ) {
+                  StringLiteralExpr s = (StringLiteralExpr) b.getLeft();
+                  value = s.getValue();
+                }
+                else if (b.getLeft() instanceof NameExpr ) {
+                  NameExpr s = (NameExpr) b.getLeft();
+                  value = getVarValue(s);
+                }
+              }
+            }            
+          }
+        }
+        this.data.varsST.put(varName, new VarInfo(varType, value));
+        
       }
       else
       {
@@ -414,6 +445,11 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
   }
 
   // variable handling
+  protected boolean isUriVar(String varType)
+  {
+    return varType.equals("Uri");
+  }
+
   protected boolean isBooleanVar(String varType)
   {
     return varType.equals("Boolean") || varType.equals("boolean");

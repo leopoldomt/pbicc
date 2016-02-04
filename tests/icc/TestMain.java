@@ -12,6 +12,7 @@ public class TestMain {
   @Test
   public void testZooBorn() throws Exception {
     Main.init("out/zooborns-javafiles.txt", "test-data/zooborns//src/");
+    Main.getExtraPutExtraPairs();
     PutsAndGets putsAndGets = State.getInstance().pgMap().get("ZooBorns.java");
     Assert.assertTrue(putsAndGets.puts.contains("\"cachedImageList\""));
     Assert.assertTrue(putsAndGets.puts.contains("\"gallery\""));
@@ -21,6 +22,7 @@ public class TestMain {
   @Test
   public void testEmptyKeys() throws Exception {
     Main.init("out/zooborns-javafiles.txt", "test-data/zooborns//src/");
+    Main.getExtraPutExtraPairs();
     DirectedGraph<String, DefaultEdge> g = Main.createDependencyGraph();
     Set<String> vertices = g.vertexSet();
     Assert.assertTrue(vertices.contains("ZooBorns.java"));
@@ -31,6 +33,7 @@ public class TestMain {
   @Test
   public void testFileDependency() throws Exception {
     Main.init("out/zooborns-javafiles.txt", "test-data/zooborns//src/");
+    Main.getExtraPutExtraPairs();
 //    State.getInstance().
   }
 

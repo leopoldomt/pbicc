@@ -35,13 +35,13 @@ public class Main {
 
   //TODO: use commons CLI to organize options: https://commons.apache.org/proper/commons-cli/ -M
   static boolean DEBUG_KEYS = false;
-  static boolean ICC_SHOW_EXPLICIT_INTENTS = true;
-  static boolean ICC_SHOW_IMPLICIT_INTENTS = true;
+  static boolean ICC_SHOW_EXPLICIT_INTENTS = false;
+  static boolean ICC_SHOW_IMPLICIT_INTENTS = false;
   static boolean ICC_SHOW_VARS = true;
   static boolean ICC_SHOW_LINKS = true;
-  static boolean ICC_SHOW_STATS_PER_FILE = true;
-  static boolean ICC_SHOW_FINAL_STATS = true;
-  static boolean ICC_SHOW_INTENT_FILTERS = true;
+  static boolean ICC_SHOW_STATS_PER_FILE = false;
+  static boolean ICC_SHOW_FINAL_STATS = false;
+  static boolean ICC_SHOW_INTENT_FILTERS = false;
   static boolean PRINT_DOT = false;
   static boolean PRINT_TOPO_ORDER = false;
 
@@ -51,6 +51,7 @@ public class Main {
   public static void main(String[] args) throws Exception {
 
     init(args[0], args[1]);
+    getICCLinkResults();
 
     State.getInstance().setManifestParser(new AndroidManifestParser(args[2]));
     
@@ -174,14 +175,7 @@ public class Main {
       public void process(String name, CompilationUnit cu) {
 
         String replacedFilename = name.replaceAll("/", ".");
-
-        // getting the get*extra/put*extra pairs
-        KeysVisitor kv = new KeysVisitor();
-        kv.visit(cu, null);
-
-        State.getInstance().pgMap().put(replacedFilename, kv.getPGs());
-
-        State.getInstance().resultsMap().put(replacedFilename, ICCLinkFinder.findICCLinks(cu));
+        State.getInstance().astMap().put(replacedFilename, cu);
       }
     }
         );
@@ -203,6 +197,22 @@ public class Main {
     //        }
     //    );
   }
+  
+  public static void getExtraPutExtraPairs() {
+    Map<String,CompilationUnit> asts = State.getInstance().astMap();
+    for (Map.Entry<String, CompilationUnit> entry : asts.entrySet()) {
+      KeysVisitor kv = new KeysVisitor();
+      kv.visit(entry.getValue(), null);
+      State.getInstance().pgMap().put(entry.getKey(), kv.getPGs());
+    }
+  }
+
+  public static void getICCLinkResults() {
+    Map<String,CompilationUnit> asts = State.getInstance().astMap();
+    for (Map.Entry<String, CompilationUnit> entry : asts.entrySet()) {
+      State.getInstance().resultsMap().put(entry.getKey(), ICCLinkFinder.findICCLinks(entry.getValue()));
+    }
+  }
 
   public static void processFileList(String fileListFile, String appSourceDir, CompUnitProcessable cup) throws Exception {
     BufferedReader br = new BufferedReader(new FileReader(fileListFile));
@@ -213,6 +223,7 @@ public class Main {
       // creates an input stream for the file to be parse
       FileInputStream in = new FileInputStream(file);
       CompilationUnit cu = JavaParser.parse(in);
+      
       if(cu != null){
         cup.process(fileName, cu);
       }

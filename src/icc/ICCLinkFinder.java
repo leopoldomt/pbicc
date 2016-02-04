@@ -3,7 +3,9 @@ package icc;
 import icc.data.ICCLinkFindingResults;
 import icc.visitors.ActivityVisitor;
 import icc.visitors.ServiceVisitor;
+import icc.visitors.StaticBroadcastVisitor;
 import icc.visitors.SymbolTableVisitor;
+
 import com.github.javaparser.ast.CompilationUnit;
 
 public class ICCLinkFinder
@@ -20,6 +22,9 @@ public class ICCLinkFinder
     
     ServiceVisitor serviceVisitor = new ServiceVisitor(results);
     serviceVisitor.visit(cu, null);
+
+    StaticBroadcastVisitor staticBroadcastVisitor = new StaticBroadcastVisitor(results);
+    staticBroadcastVisitor.visit(cu, null);
     
     results.accessStats();
     

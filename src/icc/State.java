@@ -1,15 +1,14 @@
 package icc;
 
+import icc.data.ICCLinkFindingResults;
+import icc.parsing.AndroidManifestParser;
+
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import icc.data.ICCLinkFindingResults;
-import icc.data.ICCLinkInfo;
-import icc.data.IntentInfo;
-import icc.parsing.AndroidManifestParser;
+import com.github.javaparser.ast.CompilationUnit;
 
 /**
  * Singleton implementation of state
@@ -23,6 +22,7 @@ public class State {
    * elements of state
    */
   private Map<String/*classname*/, PutsAndGets> pgMap = new HashMap<String, PutsAndGets>();
+  private Map<String/*filename*/, CompilationUnit> astMap = new HashMap<String, CompilationUnit>();
   private Map<String/*filename*/, ICCLinkFindingResults> resultsMap = new HashMap<String, ICCLinkFindingResults>();
   private AndroidManifestParser manifestParser;
   
@@ -49,6 +49,11 @@ public class State {
   public Map<String, ICCLinkFindingResults> resultsMap()
   {
     return resultsMap;
+  }
+  
+  public Map<String, CompilationUnit> astMap()
+  {
+    return astMap;
   }
   
   public Set<String> getFiles() {
