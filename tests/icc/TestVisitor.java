@@ -2,6 +2,8 @@ package icc;
 
 import icc.data.ICCLinkFindingResults;
 import icc.visitors.ActivityVisitor;
+import icc.visitors.ServiceVisitor;
+import icc.visitors.StaticBroadcastVisitor;
 import icc.visitors.SymbolTableVisitor;
 
 import java.io.File;
@@ -20,9 +22,13 @@ public class TestVisitor {
   public static void main(String[] args) {
     String baseDir = "/Users/leopoldomt/Documents/";
     String appSourceDir = "";
-    appSourceDir = baseDir + "workspaces/android/OlaFulano/src/br/ufpe/cin/olafulano"; 
-    //appSourceDir = baseDir + "cin/pbicc/test-data/implicit_gmaps/src/br/ufpe/cin/olagooglemaps";
-    String fileName = "TelaInicial.java";
+    appSourceDir = baseDir + "workspaces/android/OlaFulano/src/br/ufpe/cin/olafulano";
+    appSourceDir = baseDir + "workspaces/android/DownloadService/src/br/ufpe/cin/if1001/downloadservice";
+    appSourceDir = baseDir + "cin/pbicc/test-data/implicit_gmaps/src/br/ufpe/cin/olagooglemaps";
+    appSourceDir = "/Users/leopoldomt/AndroidStudioProjects/BcastRecSinBcastStatReg/app/src/main/java/course/examples/BroadcastReceiver/singleBroadcastStaticRegistration";
+    String fileName = "DownloadActivity.java";
+    fileName = "MainActivity.java";
+    fileName = "SimpleBroadcast.java";
     File file = new File(appSourceDir, fileName);
     // creates an input stream for the file to be parsed
     FileInputStream in;
@@ -37,6 +43,10 @@ public class TestVisitor {
         
         ActivityVisitor activityVisitor = new ActivityVisitor(results);
         activityVisitor.visit(cu, null);
+        ServiceVisitor serviceVisitor = new ServiceVisitor(results);
+        serviceVisitor.visit(cu, null);
+        StaticBroadcastVisitor staticBroadcastVisitor = new StaticBroadcastVisitor(results);
+        staticBroadcastVisitor.visit(cu, null);
         results.accessStats();
         System.out.println(results.iccLinks);
       }

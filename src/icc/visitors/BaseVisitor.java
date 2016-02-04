@@ -136,7 +136,17 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 
   protected void handleSetData(List<Expression> args, IntentInfo info)
   {
-    info.data = getVarValue(args.get(0));
+    if (args.get(0) instanceof NameExpr) {
+      info.data = getVarValue(args.get(0));
+    }
+    else if (args.get(0) instanceof MethodCallExpr) {
+      MethodCallExpr mCall = (MethodCallExpr) args.get(0);
+      if (mCall.getName().equals("parse")) {
+        info.data = handleParseCall(mCall);
+      }
+      
+
+    }
   }
 
   protected void handleSetDataAndNormalize(List<Expression> args, IntentInfo info)
@@ -227,7 +237,13 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
       if (args.size() == 1)
       {
         // TODO: check if the argument isn't another intent instead of an action
-        info.action = args.get(0).toString();
+        Expression e = args.get(0);
+        String value = e.toString();
+        if (e instanceof NameExpr) {
+          NameExpr n = (NameExpr) e;
+          value = getVarValue(n);
+        }
+        info.action = value;
       }
       else if (args.size() == 2)
       {
@@ -332,25 +348,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         String value = init.toString();
         if(isUriVar(varType)) {
           if (mCall.getName().equals("parse")) {
-            System.out.println("entrou aqui no else if");
-            List<Expression> args = mCall.getArgs();
-            for (Expression a: args)  {
-              if (a instanceof StringLiteralExpr) {
-                StringLiteralExpr s = (StringLiteralExpr) a;
-                value = s.getValue();
-              }
-              else if (a instanceof BinaryExpr) {
-                BinaryExpr b = (BinaryExpr) a;
-                if (b.getLeft() instanceof StringLiteralExpr ) {
-                  StringLiteralExpr s = (StringLiteralExpr) b.getLeft();
-                  value = s.getValue();
-                }
-                else if (b.getLeft() instanceof NameExpr ) {
-                  NameExpr s = (NameExpr) b.getLeft();
-                  value = getVarValue(s);
-                }
-              }
-            }            
+            value = handleParseCall(mCall);            
           }
         }
         this.data.varsST.put(varName, new VarInfo(varType, value));
@@ -361,6 +359,35 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         this.data.varsST.put(varName, new VarInfo(varType, init.toString()));
       }
     }
+  }
+  
+  protected String handleParseCall(MethodCallExpr call) {
+    Expression arg = call.getArgs().get(0);
+    return handleParseArgs(arg);
+  }
+  
+  protected String handleParseArgs(Expression e) {
+    String value = null;
+    if (e instanceof StringLiteralExpr) {
+      StringLiteralExpr s = (StringLiteralExpr) e;
+      value = s.getValue();
+    }
+    else if (e instanceof NameExpr) {
+      NameExpr n = (NameExpr) e;
+      value = getVarValue(n);
+    }
+    else if (e instanceof BinaryExpr) {
+      BinaryExpr b = (BinaryExpr) e;
+      if (b.getLeft() instanceof StringLiteralExpr ) {
+        StringLiteralExpr s = (StringLiteralExpr) b.getLeft();
+        value = s.getValue();
+      }
+      else if (b.getLeft() instanceof NameExpr ) {
+        NameExpr n = (NameExpr) b.getLeft();
+        value = getVarValue(n);
+      }
+    }
+    return value;
   }
 
   protected void handleVarAssignment(VarInfo varInfo, String targetFullName, AssignExpr expr)
