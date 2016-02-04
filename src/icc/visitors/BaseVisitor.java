@@ -414,7 +414,6 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
   }
 
   // variable handling
-
   protected boolean isBooleanVar(String varType)
   {
     return varType.equals("Boolean") || varType.equals("boolean");
