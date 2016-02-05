@@ -1,6 +1,5 @@
 package icc.data;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,12 +7,12 @@ public class IntentInfo
 {
     public final String NOT_SET = "#NOT SET#";
   
-    public ArrayList<String> category = new ArrayList<String>();
-    public ArrayList<String> className = new ArrayList<String>();
-    public ArrayList<String> packageName = new ArrayList<String>();
-    public ArrayList<String> type = new ArrayList<String>();
-    public ArrayList<String> action = new ArrayList<String>();
-    public ArrayList<String> data = new ArrayList<String>();
+    public FieldList category = new FieldList();
+    public FieldList className = new FieldList();
+    public FieldList packageName = new FieldList();
+    public FieldList type = new FieldList();
+    public FieldList action = new FieldList();
+    public FieldList data = new FieldList();
     public Map<String, String> extras;
     
     public IntentInfo target = null;
@@ -21,6 +20,21 @@ public class IntentInfo
     public IntentInfo()
     {
         extras = new HashMap<String, String>();
+    }
+    
+    //TODO: fix implementation when we have more than one possibility for a field   
+    public String toCSV() {
+      StringBuilder builder = new StringBuilder();
+      builder.append(String.format("%s,", category));
+      String component = getComponent();
+      builder.append(String.format("%s,", component));
+      builder.append(String.format("%s,", type));
+      builder.append(String.format("%s,", action));
+      builder.append(String.format("%s,", data));
+      for (Map.Entry<String, String> entry : extras.entrySet()) {
+          builder.append(String.format("%s: %s; ", entry.getKey(), entry.getValue()));
+      }
+      return builder.toString();
     }
     
     public String toString()

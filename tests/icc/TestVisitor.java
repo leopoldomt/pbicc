@@ -1,6 +1,8 @@
 package icc;
 
 import icc.data.ICCLinkFindingResults;
+import icc.data.ICCLinkInfo;
+import icc.data.IntentInfo;
 import icc.visitors.ActivityVisitor;
 import icc.visitors.ServiceVisitor;
 import icc.visitors.StaticBroadcastVisitor;
@@ -52,6 +54,11 @@ public class TestVisitor {
         staticBroadcastVisitor.visit(cu, null);
         results.accessStats();
         System.out.println(results.iccLinks);
+        System.out.println("CSV");
+        System.out.println("---------------");
+        for (ICCLinkInfo<IntentInfo> icclink: results.iccLinks) {
+          System.out.println(icclink.toCSV());
+        }
       }
       in.close();
     } catch (FileNotFoundException e) {

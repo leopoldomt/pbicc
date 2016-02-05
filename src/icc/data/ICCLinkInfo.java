@@ -15,10 +15,29 @@ public class ICCLinkInfo <T>
   
   public String toString()
   {
-    return String.format("Scope: %s\nLink {\n---Start:\n\t%s\n---End:\n\t%s\n}",
+    return String.format("\nScope: %s\nLink {\n---Start:\n\t%s\n---End:\n\t%s\n}\n",
                          scope,
                          methodName,
                          target.toString().replace("\n", "\n\t"));
+  }
+  
+  public String toCSV() {
+    String csv = "";
+    if (target instanceof IntentInfo) {
+      IntentInfo i = (IntentInfo) target;      
+      csv = String.format("%s,%s,%s",
+          scope,
+          methodName,
+          i.toCSV());
+    }
+    else {
+      csv = String.format("%s,%s,%s",
+          scope,
+          methodName,
+          target.toString());
+    }
+    
+    return csv;
   }
 
   public String getMethodName() {
