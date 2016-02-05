@@ -1,5 +1,6 @@
 package icc.data;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,12 +8,12 @@ public class IntentInfo
 {
     public final String NOT_SET = "#NOT SET#";
   
-    public String category = NOT_SET;
-    public String className = NOT_SET;
-    public String packageName = NOT_SET;
-    public String type = NOT_SET;
-    public String action = NOT_SET;
-    public String data = NOT_SET;
+    public ArrayList<String> category = new ArrayList<String>();
+    public ArrayList<String> className = new ArrayList<String>();
+    public ArrayList<String> packageName = new ArrayList<String>();
+    public ArrayList<String> type = new ArrayList<String>();
+    public ArrayList<String> action = new ArrayList<String>();
+    public ArrayList<String> data = new ArrayList<String>();
     public Map<String, String> extras;
     
     public IntentInfo target = null;
@@ -50,17 +51,33 @@ public class IntentInfo
     {
       String component = NOT_SET;
       
-      if (!className.equals(NOT_SET) && !packageName.equals(NOT_SET))
+      if (!className.isEmpty() && !packageName.isEmpty())
       {
-         component = String.format("%s.%s", packageName, className);
+        int numC = className.size();
+        int numP = packageName.size();
+        if (numC == numP) {
+          component = "";
+          for (int i = 0; i < numC; i++) {
+            component+= String.format("%s.%s", packageName.get(i), className.get(i));
+          }
+        }
+        else {
+          throw new RuntimeException("Mismatch between size of packageName and className elements");
+        }
       }
-      else if (!className.equals(NOT_SET))
+      else if (!className.isEmpty())
       {
-         component = className;
+        component = "";
+        for (String c: className) {
+          component+= c+ "; " ;
+        }
       }
       else if (!packageName.equals(NOT_SET))
       {
-         component = String.format("%s.?", packageName);
+        component = "";
+        for (String c: packageName) {
+          component+= String.format("%s.?", c) + "; ";
+        }
       }
       
       if (!component.equals(NOT_SET))
@@ -69,11 +86,11 @@ public class IntentInfo
       }
       
       return component;
-    }
+    }   
     
     public boolean isExplicit()
     {
-      return !className.equals(NOT_SET) || !packageName.equals(NOT_SET);
+      return !className.isEmpty() || !packageName.isEmpty();
     }
     
     public boolean isChooser()

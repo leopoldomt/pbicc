@@ -89,17 +89,17 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
   
   protected void handleSetAction(List<Expression> args, IntentInfo info)
   {
-    info.action = getVarValue(args.get(0));
+    info.action.add(getVarValue(args.get(0)));
   }
 
   protected void handleSetClass(List<Expression> args, IntentInfo info)
   {
-    info.className = getVarValue(args.get(1));
+    info.className.add(getVarValue(args.get(1)));
   }
 
   protected void handleSetClassName(List<Expression> args, IntentInfo info)
   {
-    info.className = getVarValue(args.get(1));
+    info.className.add(getVarValue(args.get(1)));
 
     // TODO: improve the heuristic being used to determine if the argument
     // is a Context or String object.
@@ -108,13 +108,13 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 
     if (!(matchesContextString(firstArg.toString())))
     {
-      info.packageName = getVarValue(firstArg);
+      info.packageName.add(getVarValue(firstArg));
     }
   }
 
   protected void handleSetPackage(List<Expression> args, IntentInfo info)
   {
-    info.packageName = getVarValue(args.get(0));
+    info.packageName.add(getVarValue(args.get(0)));
   }
 
   protected void handleSetComponent(List<Expression> args, IntentInfo info)
@@ -125,8 +125,8 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     {
       ObjectCreationExpr component = (ObjectCreationExpr) firstArg;
 
-      info.packageName = getVarValue(component.getArgs().get(0));
-      info.className = getVarValue(component.getArgs().get(1));
+      info.packageName.add(getVarValue(component.getArgs().get(0)));
+      info.className.add(getVarValue(component.getArgs().get(1)));
     }
     else
     {
@@ -137,12 +137,12 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
   protected void handleSetData(List<Expression> args, IntentInfo info)
   {
     if (args.get(0) instanceof NameExpr) {
-      info.data = getVarValue(args.get(0));
+      info.data.add(getVarValue(args.get(0)));
     }
     else if (args.get(0) instanceof MethodCallExpr) {
       MethodCallExpr mCall = (MethodCallExpr) args.get(0);
       if (mCall.getName().equals("parse")) {
-        info.data = handleParseCall(mCall);
+        info.data.add(handleParseCall(mCall));
       }
       
 
@@ -151,29 +151,29 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 
   protected void handleSetDataAndNormalize(List<Expression> args, IntentInfo info)
   {
-    info.data = getVarValue(args.get(0));
+    info.data.add(getVarValue(args.get(0)));
   }
 
   protected void handleSetDataAndType(List<Expression> args, IntentInfo info)
   {
-    info.data = getVarValue(args.get(0));
-    info.type = getVarValue(args.get(1));
+    info.data.add(getVarValue(args.get(0)));
+    info.type.add(getVarValue(args.get(1)));
   }
 
   protected void handleSetDataAndTypeAndNormalize(List<Expression> args, IntentInfo info)
   {
-    info.data = getVarValue(args.get(0));
-    info.type = getVarValue(args.get(1));
+    info.data.add(getVarValue(args.get(0)));
+    info.type.add(getVarValue(args.get(1)));
   }
 
   protected void handleSetType(List<Expression> args, IntentInfo info)
   {
-    info.type = getVarValue(args.get(0));
+    info.type.add(getVarValue(args.get(0)));
   }
 
   protected void handleSetTypeAndNormalize(List<Expression> args, IntentInfo info)
   {
-    info.type = getVarValue(args.get(0));
+    info.type.add(getVarValue(args.get(0)));
   }
 
   protected void handleSetPutExtra(List<Expression> args, IntentInfo info)
@@ -201,20 +201,20 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
       {
         info = new IntentInfo();
 
-        info.action = CHOOSER_ACTION;
+        info.action.add(CHOOSER_ACTION);
         info.target = existingIntentInfo;
       }
       else
       {
         // TODO: Fix tool limitation
-        info.action = CHOOSER_ACTION;
+        info.action.add(CHOOSER_ACTION);
         info.target = new IntentInfo();
       }
     }
     else
     {
       // TODO: Fix tool limitation
-      info.action = CHOOSER_ACTION;
+      info.action.add(CHOOSER_ACTION);
       info.target = new IntentInfo();
     }
 
@@ -243,7 +243,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
           NameExpr n = (NameExpr) e;
           value = getVarValue(n);
         }
-        info.action = value;
+        info.action.add(value);
       }
       else if (args.size() == 2)
       {
@@ -252,19 +252,19 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 
         if (matchesContextString(args.get(0).toString()))
         {
-          info.className = args.get(1).toString();
+          info.className.add(args.get(1).toString());
         }
         else
         {
-          info.action = args.get(0).toString();
-          info.data = args.get(1).toString();
+          info.action.add(args.get(0).toString());
+          info.data.add(args.get(1).toString());
         }
       }
       else if (args.size() == 4)
       {
-        info.action = args.get(0).toString();
-        info.data = args.get(1).toString();
-        info.className = args.get(3).toString();
+        info.action.add(args.get(0).toString());
+        info.data.add(args.get(1).toString());
+        info.className.add(args.get(3).toString());
       }
     }
 

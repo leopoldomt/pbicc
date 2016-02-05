@@ -24,14 +24,14 @@ public class TestVisitor {
     String appSourceDir = "";
     appSourceDir = baseDir + "workspaces/android/OlaFulano/src/br/ufpe/cin/olafulano";
     appSourceDir = baseDir + "workspaces/android/DownloadService/src/br/ufpe/cin/if1001/downloadservice";
-    appSourceDir = baseDir + "cin/pbicc/test-data/implicit_gmaps/src/br/ufpe/cin/olagooglemaps";
-    appSourceDir = "/Users/leopoldomt/AndroidStudioProjects/BcastRecSinBcastStatReg/app/src/main/java/course/examples/BroadcastReceiver/singleBroadcastStaticRegistration";
-    appSourceDir = "/Users/leopoldomt/AndroidStudioProjects/BcastRecSinBcastDynReg/app/src/main/java/course/examples/BroadcastReceiver/SingleBroadcastDynamicRegistration";
+    //appSourceDir = baseDir + "cin/pbicc/test-data/implicit_gmaps/src/br/ufpe/cin/olagooglemaps";
+    //appSourceDir = "/Users/leopoldomt/AndroidStudioProjects/BcastRecSinBcastStatReg/app/src/main/java/course/examples/BroadcastReceiver/singleBroadcastStaticRegistration";
+    //appSourceDir = "/Users/leopoldomt/AndroidStudioProjects/BcastRecSinBcastDynReg/app/src/main/java/course/examples/BroadcastReceiver/SingleBroadcastDynamicRegistration";
 
     String fileName = "DownloadActivity.java";
-    fileName = "MainActivity.java";
-    fileName = "SimpleBroadcast.java";
-    fileName = "SingleBroadcast.java";
+    //fileName = "MainActivity.java";
+    //fileName = "SimpleBroadcast.java";
+    //fileName = "SingleBroadcast.java";
     File file = new File(appSourceDir, fileName);
     // creates an input stream for the file to be parsed
     FileInputStream in;
