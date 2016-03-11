@@ -18,6 +18,11 @@ public class TestMain {
     Assert.assertTrue(putsAndGets.puts.contains("\"gallery\""));
     Assert.assertTrue(putsAndGets.puts.contains("\"currentImageIndex\""));
   }
+
+  @Test
+  public void testZooBornMain() throws Exception {
+    Main.main(new String[] {"out/zooborns-javafiles.txt", "test-data/zooborns//src/", "test-data/zooborns/AndroidManifest.xml"});
+  }
   
   @Test
   public void testEmptyKeys() throws Exception {
