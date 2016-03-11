@@ -1,35 +1,31 @@
 package icc;
 
-import icc.data.IntentInfo;
-import icc.data.IntentStats;
-import icc.data.VarInfo;
-import icc.parsing.AndroidManifestParser;
-import icc.visitors.KeysVisitor;
-import icc.data.ICCLinkFindingResults;
-import icc.data.ICCLinkInfo;
-import icc.data.IntentFilter;
-import com.github.javaparser.JavaParser;
-import com.github.javaparser.ast.CompilationUnit;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileObject;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.ToolProvider;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.traverse.TopologicalOrderIterator;
+
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
+
+import icc.data.ICCLinkFindingResults;
+import icc.data.ICCLinkInfo;
+import icc.data.IntentFilter;
+import icc.data.IntentInfo;
+import icc.data.IntentStats;
+import icc.data.VarInfo;
+import icc.parsing.AndroidManifestParser;
+import icc.visitors.KeysVisitor;
 
 public class Main {
 
