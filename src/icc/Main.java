@@ -33,7 +33,7 @@ public class Main {
   static boolean DEBUG_KEYS = false;
   static boolean ICC_SHOW_EXPLICIT_INTENTS = false;
   static boolean ICC_SHOW_IMPLICIT_INTENTS = false;
-  static boolean ICC_SHOW_VARS = true;
+  static boolean ICC_SHOW_VARS = false;
   static boolean ICC_SHOW_LINKS = true;
   static boolean ICC_SHOW_STATS_PER_FILE = false;
   static boolean ICC_SHOW_FINAL_STATS = false;
