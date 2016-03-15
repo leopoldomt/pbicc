@@ -145,7 +145,7 @@ public class JavaCompilerAST {
     JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, null, null, null, sources);
 
     // invoke processor (to do whatever with ASTs).  for this case, only print method name 
-    Iterable<Processor> processors = Arrays.asList(new CodeAnalyzerProcessor());
+    Iterable<? extends Processor> processors = Arrays.asList(new CodeAnalyzerProcessor());
     task.setProcessors(processors);;
     task.call();
   }

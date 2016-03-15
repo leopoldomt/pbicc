@@ -13,3 +13,7 @@
 hs_err_pid*
 /bin/
 out/
+/target/
+
+# Ignoring unnecessary Eclipse files
+.settings/
