@@ -1,33 +1,46 @@
 package icc;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import com.github.javaparser.ast.CompilationUnit;
+
 import icc.data.ICCLinkFindingResults;
 import icc.visitors.ActivityVisitor;
+import icc.visitors.ContentResolverVisitor;
+import icc.visitors.ScopeAwareVisitor;
 import icc.visitors.ServiceVisitor;
 import icc.visitors.StaticBroadcastVisitor;
 import icc.visitors.SymbolTableVisitor;
 
-import com.github.javaparser.ast.CompilationUnit;
+/**
+ * This entity is the main entry-point for the ICC analysis. It is responsible
+ * for detecting ICC links according to a given compilation unit and a set of
+ * visitors.
+ */
+public class ICCLinkFinder {
+	/**
+	 * Finds inter-component communication links for a compilation unit.
+	 *
+	 * @param cu
+	 *            The given compilation unit
+	 * @return Analysis results represented as a {@link ICCLinkFindingResults}
+	 */
+	public static ICCLinkFindingResults findICCLinks(CompilationUnit cu) {
+		ICCLinkFindingResults results = new ICCLinkFindingResults();
 
-public class ICCLinkFinder
-{
-  public static ICCLinkFindingResults findICCLinks(CompilationUnit cu)
-  {
-    ICCLinkFindingResults results = new ICCLinkFindingResults();
-    
-    SymbolTableVisitor sTVisitor = new SymbolTableVisitor(results);
-    sTVisitor.visit(cu, null);
-    
-    ActivityVisitor activityVisitor = new ActivityVisitor(results);
-    activityVisitor.visit(cu, null);
-    
-    ServiceVisitor serviceVisitor = new ServiceVisitor(results);
-    serviceVisitor.visit(cu, null);
+		Set<ScopeAwareVisitor> visitors = new HashSet<>();
+		visitors.add(new SymbolTableVisitor(results));
+		visitors.add(new ActivityVisitor(results));
+		visitors.add(new ServiceVisitor(results));
+		visitors.add(new StaticBroadcastVisitor(results));
+		visitors.add(new ContentResolverVisitor(results));
 
-    StaticBroadcastVisitor staticBroadcastVisitor = new StaticBroadcastVisitor(results);
-    staticBroadcastVisitor.visit(cu, null);
-    
-    results.accessStats();
-    
-    return results;
-  }
+		for (ScopeAwareVisitor visitor : visitors) {
+			visitor.visit(cu, null);
+		}
+		results.accessStats();
+
+		return results;
+	}
 }
