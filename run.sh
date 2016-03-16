@@ -13,7 +13,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 if [ ! -f "target/pb-icc.jar" ]; then
-    echo "Main jar file not found. Run \"mvn clean install\" and try again"
+    echo -e "\n * Main jar file not found!\n * On Eclipse, execute the file \033[1m\"Build.launch\"\033[0m and try again.\n"
     exit 1
 fi
 
