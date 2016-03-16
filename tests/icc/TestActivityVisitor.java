@@ -11,8 +11,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestActivityVisitor {
-	// TODO fix this to your path
-	String pathComputer = "/Users/leopoldomt/Documents/cin/pbicc/";
+	
+	// running from inside Eclipse only needs relative path
+	// TODO: provide user path if running from outside
+	
+	String pathComputer = ""; 
 	String pathApp = "test-data/explicit_intent_test/";
 	String file = pathComputer + pathApp + "list.txt";
 	
