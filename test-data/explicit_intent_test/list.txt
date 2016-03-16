@@ -1,0 +1,9 @@
+./app/build/generated/source/buildConfig/androidTest/debug/br/ufpe/cin/pbicc/test/intents/explicit/test/BuildConfig.java
+./app/build/generated/source/buildConfig/debug/br/ufpe/cin/pbicc/test/intents/explicit/BuildConfig.java
+./app/build/generated/source/r/debug/android/support/v7/appcompat/R.java
+./app/build/generated/source/r/debug/br/ufpe/cin/pbicc/test/intents/explicit/R.java
+./app/src/androidTest/java/br/ufpe/cin/pbicc/test/intents/explicit/ApplicationTest.java
+./app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/MainActivity.java
+./app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/Strings.java
+./app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/TestActivity.java
+./app/src/test/java/br/ufpe/cin/pbicc/test/intents/explicit/ExampleUnitTest.java
