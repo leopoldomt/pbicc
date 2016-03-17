@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent();
-                i.setClassName(Strings.PACKAGE_NAME,Strings.CLASS_NAME);
+                String pkg = Strings.PACKAGE_NAME;
+                i.setClassName(pkg,Strings.CLASS_NAME);
                 startActivity(i);
             }
         });
