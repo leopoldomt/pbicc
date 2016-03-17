@@ -15,6 +15,10 @@ public class Component
     
     //TODO: capture other kinds of common information among components
     
+    public boolean enabled = true;
+    public String permission = NOT_SET;
+    public String process = NOT_SET;
+    
     public Component()
     {
       intentFilters = new LinkedList<IntentFilter>();
@@ -27,6 +31,9 @@ public class Component
         builder.append(String.format("Type: %s\n", type));
         builder.append(String.format("Label: %s\n", label));
         builder.append(String.format("Name: %s\n", name));
+        builder.append(String.format("Enabled: %s\n", enabled));
+        builder.append(String.format("Permission: %s\n", permission));
+        builder.append(String.format("Process: %s\n", process));
         
         builder.append("Intent Filters: \n");
         
