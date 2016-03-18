@@ -9,6 +9,11 @@ import icc.data.ICCLinkFindingResults;
 
 public class ContentResolverVisitor extends BaseVisitor {
 
+	/**
+	 * Query method from Content Resolver
+	 */
+	private static final String TARGET_METHOD = "query";
+
 	public ContentResolverVisitor(ICCLinkFindingResults data) {
 		super(data);
 	}
@@ -17,7 +22,7 @@ public class ContentResolverVisitor extends BaseVisitor {
 	public void visit(MethodCallExpr n, Object arg) {
 		super.visit(n, arg);
 		String calleeName = n.getName();
-		if ("query".equals(calleeName)) {
+		if (TARGET_METHOD.equals(calleeName)) {
 			List<Expression> calleeArguments = n.getArgs();
 			System.out.println(calleeArguments);
 		}
