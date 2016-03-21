@@ -10,7 +10,7 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestActivityVisitor {
+public class TestSymbolTableVisitor {
 	
 	// running from inside Eclipse only needs relative path
 	// TODO: provide user path if running from outside

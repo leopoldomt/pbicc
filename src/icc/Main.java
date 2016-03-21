@@ -25,6 +25,7 @@ import icc.data.IntentInfo;
 import icc.data.IntentStats;
 import icc.data.VarInfo;
 import icc.parsing.AndroidManifestParser;
+import icc.visitors.CFPVisitor;
 import icc.visitors.KeysVisitor;
 
 public class Main {
@@ -204,8 +205,17 @@ public class Main {
 
   public static void getICCLinkResults() {
     Map<String,CompilationUnit> asts = State.getInstance().astMap();
+    ICCLinkFindingResults results = new ICCLinkFindingResults();
+    
     for (Map.Entry<String, CompilationUnit> entry : asts.entrySet()) {
-      State.getInstance().resultsMap().put(entry.getKey(), ICCLinkFinder.findICCLinks(entry.getValue()));
+    	CFPVisitor cfpVisitor = new CFPVisitor(results);
+        cfpVisitor.visit(entry.getValue(), null);
+    }
+    
+    Map<String,String> mapStrings = new CFPVisitor(results).propagate();
+    
+    for (Map.Entry<String, CompilationUnit> entry : asts.entrySet()) {
+      State.getInstance().resultsMap().put(entry.getKey(), ICCLinkFinder.findICCLinks(entry.getValue(),results));
     }
   }
 

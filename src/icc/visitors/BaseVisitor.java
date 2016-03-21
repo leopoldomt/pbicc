@@ -6,13 +6,16 @@ import icc.data.VarInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.FieldAccessExpr;
 import com.github.javaparser.ast.expr.LiteralExpr;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.NameExpr;
@@ -58,11 +61,6 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     this.data = data;
   }
   
-  protected String getFullScopeName(String name)
-  {
-    return String.format("%s.%s", this.getScope(), name);
-  }
-  
   protected String getVarValue(Expression expr)
   {
     // if there's no var, return the original result
@@ -71,17 +69,23 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     if (expr instanceof NameExpr)
     {
       NameExpr nameExpr = (NameExpr) expr;
-
-      VarInfo info = this.data.varsST.get(getFullScopeName(nameExpr.getName()));
-
-      if (info != null)
-      {
-        result = info.value; 
-      }
-      else
-      {
-        result = String.format("could not retrieve var '%s'", result);
-      }
+      
+      String i = findWithSuffixMatch(nameExpr.getName());
+	  if (i!=null) {
+		  result = i;
+	  }
+	  else {	
+	      VarInfo info = this.data.varsST.get(getFullScopeName(nameExpr.getName()));
+	
+	      if (info != null)
+	      {
+	        result = info.value; 
+	      }
+	      else
+	      {
+	        result = String.format("could not retrieve var '%s'", result);
+	      }
+	  }
     }
 
     return result;
@@ -275,7 +279,6 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
   {
     Expression init = declarator.getInit();
     String varName = getFullScopeName(declarator.getId().toString());
-
     if (init == null)
     {
       this.data.varsST.put(varName, new VarInfo(varType, "null"));
@@ -285,6 +288,8 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
       if (init instanceof NameExpr)
       {
         NameExpr nameExpr = (NameExpr) init;
+        
+        
 
         String fullExistingName = getFullScopeName(nameExpr.getName());
         VarInfo varInfo = this.data.varsST.get(fullExistingName);    
@@ -354,9 +359,20 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         this.data.varsST.put(varName, new VarInfo(varType, value));
         
       }
+      else if (init instanceof FieldAccessExpr) {
+          String value = null;
+          FieldAccessExpr fieldAccess = (FieldAccessExpr) init;
+    	  if(isStringVar(varType)) {
+            value = handleStringAccess(varName, fieldAccess);
+          }
+    	  this.data.varsST.put(varName, new VarInfo(varType, value));
+
+      }
       else
       {
-        this.data.varsST.put(varName, new VarInfo(varType, init.toString()));
+          System.out.println("came here "+ init.getClass().toString());
+          
+    	  this.data.varsST.put(varName, new VarInfo(varType, init.toString()));
       }
     }
   }
@@ -568,23 +584,98 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     return varType.equals("String");
   }
 
+  protected String handleStringAccess(String varName, FieldAccessExpr expr)
+  {
+	  // TODO: improve constructor handling
+	  String result = data.literalStrings.get(varName);
+	  
+	  if (result == null) {
+		  result = findWithSuffixMatch(varName);
+		  if (result == null) {
+			  result = expr.getField().toString();
+		  }
+	  }
+	  return result;
+  }
+  
   protected String handleStringObjectCreation(String varName, ObjectCreationExpr expr)
   {
-    // TODO: improve constructor handling
-
-    String result = null;
-
-    List<Expression> args = expr.getArgs();
-
-    if (args != null && args.size() == 0)
-    {
-      result = "";
-    }
-    else
-    {
-      result = expr.toString();
-    }
-
-    return result;
+	  // TODO: improve constructor handling
+	  String result = data.literalStrings.get(varName);
+	  
+	  if (result == null) {
+		  result = findWithSuffixMatch(varName);
+		  if (result == null) {
+			  List<Expression> args = expr.getArgs();
+			  if (args != null && args.size() == 0) {
+				  result = "";
+			  }
+			  else {
+				  result = expr.toString();
+			  }
+		  }
+	  }
+	  return result;
   }
+  
+  public Map<String, String> propagate() {
+		/*
+		 * Please, test more thoroughly case like this:
+		 *   A { static String x1 = "Hello"; }
+		 *   B { static String x2 = A.x1; } 
+		 *   C { static String x3 = B.x2; }
+		 *   
+		 * Although the example I show does not show problems,
+		 * in general, this code should **not** handle such 
+		 * cases as the for loop assumes one specific ordering 
+		 * of string constants to resolve.
+		 * 
+		 * To address this problem, I suggest to use a working
+		 * list as opposed to this for loop.  -Marcelo 
+		 */
+		
+		for (Map.Entry<String, String> entry : data.referencedStrings.entrySet()) {
+			String key = entry.getKey();
+			String val = entry.getValue();
+			// look for this value elsewhere...
+			String tmp = data.literalStrings.get(val);
+			if (tmp == null) { // We could not find an exact match!  
+				// Applying some heuristic...
+				String[] arr = val.split(" ");
+				if (arr.length > 1) {
+					// case 1: is this a compound string?
+					StringBuffer sb = new StringBuffer();
+					for (String part : arr) {
+						String tmp2 = findWithSuffixMatch(part);
+						sb.append((tmp2!=null)?tmp2:part);
+						sb.append(" ");
+					}
+					tmp = sb.toString();
+				} else {
+					// case 2: not a compound string...look for a string with the same suffix...
+					tmp = findWithSuffixMatch(val);
+					if (tmp == null) {
+						System.err.println("MISSED THIS CASE " + entry);
+						continue;
+					}
+				}
+			}
+			data.referencedStrings.remove(entry);
+			data.literalStrings.put(key, tmp);
+		}
+		return Collections.unmodifiableMap(data.literalStrings);
+	}
+
+	private String findWithSuffixMatch(String tmp) {
+		List<String> res = new ArrayList<String>();
+		for (String s: data.literalStrings.keySet()) {
+			if (s.endsWith(tmp)) {
+				res.add(data.literalStrings.get(s));
+				break;
+			}
+		}
+		// null if could not find substring or it is ambiguous
+		return (res.size() == 1) ? res.get(0) : null;
+	}
+  
 }
