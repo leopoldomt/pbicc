@@ -35,29 +35,11 @@ public class CompActivity extends Component {
 	public String uiOptions = NOT_SET;
 	public String windowSoftInputMode = NOT_SET;
 
+	@Override
+	public String toStringExclusiveAttributes() {
+		StringBuilder builder = new StringBuilder();
 
-
-	public String toString(){
-        StringBuilder builder = new StringBuilder();
-
-        builder.append(String.format("Type: %s\n", type));
-        builder.append(String.format("Label: %s\n", label));
-        builder.append(String.format("Name: %s\n", name));
-        builder.append(String.format("Enabled: %s\n", enabled));
-        builder.append(String.format("Permission: %s\n", permission));
-        builder.append(String.format("Process: %s\n", process));
-
-        //TODO append the others attributes
-        
-        
-        builder.append("Intent Filters: \n");
-        
-        for (IntentFilter iFilter : intentFilters)
-        {
-            builder.append(String.format("%s\n", iFilter));
-        }
-        return builder.toString();
-
+		return builder.toString();
 	}
 
 }

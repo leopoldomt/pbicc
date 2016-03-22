@@ -3,7 +3,7 @@ package icc.data;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Component
+public abstract class Component
 {
     public final String NOT_SET = "#NOT SET#";
     //TODO: do we need to create subclasses for each kind of component? If so, remove ComponentType 
@@ -24,6 +24,9 @@ public class Component
       intentFilters = new LinkedList<IntentFilter>();
     }
     
+    
+    public abstract String toStringExclusiveAttributes();
+    
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
@@ -31,11 +34,15 @@ public class Component
         builder.append(String.format("Type: %s\n", type));
         builder.append(String.format("Label: %s\n", label));
         builder.append(String.format("Name: %s\n", name));
+        builder.append(String.format("Exported: %s\n", exported));
         builder.append(String.format("Enabled: %s\n", enabled));
         builder.append(String.format("Permission: %s\n", permission));
         builder.append(String.format("Process: %s\n", process));
         
-        builder.append("Intent Filters: \n");
+        builder.append(toStringExclusiveAttributes());
+
+        
+        builder.append("Intent Filters: \n");       
         
         for (IntentFilter iFilter : intentFilters)
         {

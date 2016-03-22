@@ -1,5 +1,7 @@
 package icc.parsing;
 
+import icc.data.CompActivity;
+import icc.data.CompContentProvider;
 import icc.data.Component;
 import icc.data.ComponentType;
 import icc.data.IntentFilter;
@@ -11,6 +13,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -63,17 +66,37 @@ public class AndroidManifestParser extends DefaultHandler
 
 	public void setCommonComponentsAttrs(Component c, Attributes attrs){
 		//TODO: maybe checking if getValue == null so we do not set label and other attributes to null?
-		c.label = attrs.getValue("android:label");
-		c.name = attrs.getValue("android:name");
-		c.permission = attrs.getValue("android:permission");
-		c.process = attrs.getValue("android:process");
+		String s;
+		c.label = 
+				null == (s = attrs.getValue("android:label"))
+				? c.label
+						: s;
+		c.name = 
+				null == (s = attrs.getValue("android:name"))
+				? c.name
+						: s;	
 
-		if (attrs.getValue("android:enabled") == "false") {
-			c.enabled = false;
-		}
-		if (attrs.getValue("android:exported") == "true") {
-			c.exported = true;
-		}
+		c.permission =
+				null == (s = attrs.getValue("android:permission"))
+				? c.permission
+						: s;
+
+		c.process =
+				null == (s = attrs.getValue("android:process"))
+				? c.process
+						: s;
+
+		c.enabled =
+				("false").equals(attrs.getValue("android:enabled"))
+				? false
+						: true;
+
+
+		//It is a common attribute, but may have different rules (by component)
+		c.exported =
+				("false").equals(attrs.getValue("android:exported"))
+				? false
+						: true;		
 	}
 
 	public void startElement(String uri, String localName,
@@ -99,10 +122,10 @@ public class AndroidManifestParser extends DefaultHandler
 		case ACTIVITY_TAG:
 			if (attributes != null)
 			{
-				Component c = new Component();
+				Component c = new CompActivity();
 
 				setCommonComponentsAttrs(c, attributes);
-				
+
 				c.type = ComponentType.ACTIVITY;
 
 				this.currComponent = c;
@@ -118,10 +141,17 @@ public class AndroidManifestParser extends DefaultHandler
 		case SERVICE_TAG:
 			if (attributes != null)
 			{
-				Component c = new Component();
-				
+				Component c = new Component(){
+
+					@Override
+					public String toStringExclusiveAttributes() {
+						return "";
+					}
+
+				};
+
 				setCommonComponentsAttrs(c, attributes);				
-				
+
 				c.type = ComponentType.SERVICE;
 
 				this.currComponent = c;
@@ -139,8 +169,15 @@ public class AndroidManifestParser extends DefaultHandler
 
 			if (attributes != null)
 			{
-				Component c = new Component();
-				
+				Component c = new Component(){
+
+					@Override
+					public String toStringExclusiveAttributes() {
+						return "";
+					}
+
+				};
+
 				setCommonComponentsAttrs(c, attributes);
 
 				c.type = ComponentType.BROADCAST_RECEIVER;
@@ -159,11 +196,51 @@ public class AndroidManifestParser extends DefaultHandler
 
 			if (attributes != null)
 			{
-				Component c = new Component();
-				
+				CompContentProvider c = new CompContentProvider();
+
 				setCommonComponentsAttrs(c, attributes);
 
+				//TODO process "exported" attribute.
+
+				String s;
+				StringTokenizer auts = new StringTokenizer(attributes.getValue("android:authorities"), ";");
+
+				while(auts.hasMoreElements()){
+					c.authorities.add((String) auts.nextElement());
+				}
+
+				c.grantUriPermissions = 
+						("true").equals(attributes.getValue("android:grantUriPermissions")) 
+						? true
+								: false;
+
+				c.initOrder = 
+						null == (s = attributes.getValue("android:initOrder"))
+						? 0 
+								: Integer.parseInt(s);
+
+				c.multiprocess = 
+						("true").equals(attributes.getValue("android:multprocess"))
+						? true
+								: false;
+
+				c.readPermission = 
+						null == (s = attributes.getValue("android:readPermission"))
+						? c.readPermission
+								: s;
+
+				c.syncable = 
+						("true").equals(attributes.getValue("android:syncable")) 
+						? true
+								: false;
+
+				c.writePermission = 
+						null == (s = attributes.getValue("android:writePermission"))
+						? c.writePermission
+								: s;
+
 				c.type = ComponentType.CONTENT_PROVIDER;
+
 				this.currComponent = c;
 				this.components.add(c);
 
@@ -175,6 +252,8 @@ public class AndroidManifestParser extends DefaultHandler
 			break;
 
 		case INTENT_FILTER_TAG:
+
+
 
 			if (attributes != null)
 			{
@@ -264,6 +343,22 @@ public class AndroidManifestParser extends DefaultHandler
 		{
 			((ArrayList<IntentFilter>) this.intentFilters.get(this.currentComponent)).add(this.currentIntentFilter);
 			this.currComponent.intentFilters.add(this.currentIntentFilter);
+
+			System.out.println("INTENTFILTERS SIZE = "+currComponent.intentFilters.size());
+			if(currComponent.intentFilters.size()>0){
+				switch (currComponent.type) {
+				case ACTIVITY:
+				case BROADCAST_RECEIVER:
+				case SERVICE:
+					currComponent.exported = true;
+					break;
+				case CONTENT_PROVIDER:
+					//special
+					break;
+				}
+
+			}
+
 		}
 	}
 
