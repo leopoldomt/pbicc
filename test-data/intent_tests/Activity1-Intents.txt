@@ -1,0 +1,58 @@
+class:Activity1 {
+
+    method:func1() {
+        var:toActivity2 = Intent({
+            action: Intent.ACTION_VIEW,
+            data: Uri.parse("custom://base#specific")
+        })
+        startActivity(toActivity2)
+
+        var:i = Intent({
+            action: Intent.ACTION_CALL,
+            data: Uri.parse("tel:123456789")
+        })
+        startActivity(i)
+    }
+
+    method:func2() {
+
+        var:i = Intent({
+            action: Intent.ACTION_VIEW,
+            data: Uri.parse("https://www.google.com")
+        })
+        startActivity(i)
+
+        var:i2 = Intent({
+            component: new ComponentName("br.ufpe.cin.androidintenttests", "Activity1"),
+            data: Uri.parse("https://www.google.com")
+        })
+        startActivity(i2)
+
+        var:i3 = Intent({
+            action: Intent.ACTION_VIEW,
+            data: Uri.parse("https://www.google.com")
+        })
+        startActivity(i3)
+
+        var:i4 = Intent({
+            action: Intent.ACTION_VIEW,
+            data: Uri.parse("https://www.google.com"),
+            type: "text/plain"
+        })
+        startActivity(i4)
+
+        var:i5 = Intent({
+            action: Intent.ACTION_VIEW,
+            data: Uri.parse("https://www.google.com"),
+            type: "text/plain"
+        })
+        startActivity(i5)
+
+        var:i6 = Intent({
+            component: ComponentName("br.ufpe.cin.androidintenttests", "Activity1"),
+            data: Uri.parse("https://www.google.com"),
+            type: "text/plain"
+        })
+        startActivity(i6)
+    }
+}
