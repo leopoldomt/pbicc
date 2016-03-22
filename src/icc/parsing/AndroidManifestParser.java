@@ -344,7 +344,6 @@ public class AndroidManifestParser extends DefaultHandler
 			((ArrayList<IntentFilter>) this.intentFilters.get(this.currentComponent)).add(this.currentIntentFilter);
 			this.currComponent.intentFilters.add(this.currentIntentFilter);
 
-			System.out.println("INTENTFILTERS SIZE = "+currComponent.intentFilters.size());
 			if(currComponent.intentFilters.size()>0){
 				switch (currComponent.type) {
 				case ACTIVITY:
