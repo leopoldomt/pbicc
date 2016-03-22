@@ -38,7 +38,31 @@ public class CompActivity extends Component {
 	@Override
 	public String toStringExclusiveAttributes() {
 		StringBuilder builder = new StringBuilder();
-
+        builder.append(String.format("AllowEmbedded: %s\n", allowEmbedded));
+        builder.append(String.format("AllowTaskReparenting: %s\n", allowTaskReparenting));
+        builder.append(String.format("AlwaysRetainTaskState: %s\n", alwaysRetainTaskState));
+        builder.append(String.format("AutoRemoveFromRecents: %s\n", autoRemoveFromRecents));
+        builder.append(String.format("Banner : %s\n", banner ));
+        builder.append(String.format("ClearTaskOnLaunch: %s\n", clearTaskOnLaunch));
+        builder.append(String.format("ConfigChanges: %s\n", configChanges));
+        builder.append(String.format("DocumentLaunchMode: %s\n", documentLaunchMode));
+        builder.append(String.format("ExcludeFromRecents: %s\n", excludeFromRecents));
+        builder.append(String.format("FinishOnTaskLaunch: %s\n", finishOnTaskLaunch));
+        builder.append(String.format("HardwareAccelerated: %s\n", hardwareAccelerated));
+        builder.append(String.format("Icon: %s\n", icon));
+        builder.append(String.format("LaunchMode: %s\n", launchMode));
+        builder.append(String.format("MaxRecents: %s\n", maxRecents));
+        builder.append(String.format("Multiprocess: %s\n", multiprocess));
+        builder.append(String.format("NoHistory: %s\n", noHistory));
+        builder.append(String.format("ParentActivityName: %s\n", parentActivityName));
+        builder.append(String.format("RelinquishTaskIdentity: %s\n", relinquishTaskIdentity));
+        builder.append(String.format("ScreenOrientation: %s\n", screenOrientation));
+        builder.append(String.format("StateNotNeeded: %s\n", stateNotNeeded));
+        builder.append(String.format("TaskAffinity: %s\n", taskAffinity));
+        builder.append(String.format("Theme: %s\n", theme));
+        builder.append(String.format("UiOptions: %s\n", uiOptions));
+        builder.append(String.format("WindowSoftInputMode: %s\n", windowSoftInputMode));		
+        builder.append("\n");
 		return builder.toString();
 	}
 
