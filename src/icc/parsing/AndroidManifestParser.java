@@ -70,33 +70,33 @@ public class AndroidManifestParser extends DefaultHandler
 		c.label = 
 				null == (s = attrs.getValue("android:label"))
 				? c.label
-						: s;
+				: s;
 		c.name = 
 				null == (s = attrs.getValue("android:name"))
 				? c.name
-						: s;	
+				: s;	
 
 		c.permission =
 				null == (s = attrs.getValue("android:permission"))
 				? c.permission
-						: s;
+				: s;
 
 		c.process =
 				null == (s = attrs.getValue("android:process"))
 				? c.process
-						: s;
+				: s;
 
 		c.enabled =
 				("false").equals(attrs.getValue("android:enabled"))
 				? false
-						: true;
+				: true;
 
 
 		//It is a common attribute, but may have different rules (by component)
 		c.exported =
 				("false").equals(attrs.getValue("android:exported"))
 				? false
-						: true;		
+				: true;		
 	}
 
 	public void startElement(String uri, String localName,
@@ -122,10 +122,130 @@ public class AndroidManifestParser extends DefaultHandler
 		case ACTIVITY_TAG:
 			if (attributes != null)
 			{
-				Component c = new CompActivity();
+				String s;
+				CompActivity c = new CompActivity();
 
 				setCommonComponentsAttrs(c, attributes);
 
+				c.allowEmbedded = 
+						("true").equals(attributes.getValue("android:allowEmbedded"))
+						? true
+						: false;
+				
+				c.allowTaskReparenting = 
+						("true").equals(attributes.getValue("android:allowTaskReparenting"))
+						? true
+						: false;
+				
+				c.alwaysRetainTaskState = 
+						("true").equals(attributes.getValue("android:alwaysRetainTaskState"))
+						? true
+						: false;
+				
+				c.autoRemoveFromRecents = 
+						("true").equals(attributes.getValue("android:autoRemoveFromRecents"))
+						? true
+						: false;
+				
+				c.banner = 
+						null == (s = attributes.getValue("android:banner"))
+						? c.banner
+						: s;
+				
+				c.clearTaskOnLaunch = 
+						("true").equals(attributes.getValue("android:clearTaskOnLaunch"))
+						? true
+						: false;
+				
+				c.configChanges = 
+						null == (s = attributes.getValue("android:configChanges"))
+						? c.configChanges
+						: s;
+				
+				c.documentLaunchMode =
+						null == (s = attributes.getValue("android:documentLaunchMode"))
+						? c.documentLaunchMode
+						: s;
+				
+				c.excludeFromRecents = 
+						("true").equals(attributes.getValue("android:excludeFromRecents"))
+						? true
+						: false;
+				
+				c.finishOnTaskLaunch = 
+						("true").equals(attributes.getValue("android:finishOnTaskLaunch"))
+						? true
+						: false;
+				
+				c.hardwareAccelerated = 
+						("true").equals(attributes.getValue("android:hardwareAccelerated"))
+						? true 
+						: false;
+				
+				c.icon = 
+						null == (s = attributes.getValue("android:icon"))
+						? c.icon
+						: s;
+				c.launchMode = 
+						null == (s = attributes.getValue("android:launchMode"))
+						? c.launchMode
+						: s;
+				
+				c.maxRecents =
+						null == ( s = attributes.getValue("android:maxRecents"))
+						? c.maxRecents
+						: Integer.parseInt(s);
+				
+				c.multiprocess = 
+						("true").equals(attributes.getValue("android:multiprocess"))
+						? true
+						: false;
+				
+				c.noHistory = 
+						("true").equals(attributes.getValue("android:noHistory"))
+						? true
+						: false;
+				
+				c.parentActivityName = 
+						null == (s = attributes.getValue("android:parentActivityName"))
+						? c.parentActivityName
+						: s;
+				
+				c.relinquishTaskIdentity = 
+						("true").equals(attributes.getValue("android:relinquishTaskIdentify"))
+						? true
+						: false;
+				
+				c.screenOrientation = 
+						null == (s = attributes.getValue("android:screenOrientation"))
+						? c.screenOrientation
+						: s;
+				
+				c.stateNotNeeded = 
+						("true").equals(attributes.getValue("android:stateNotNeeded"))
+						? true
+						: false;
+				
+				c.taskAffinity = 
+						null == (s = attributes.getValue("android:taskAffinity"))
+						? c.taskAffinity
+						: s;
+				
+				c.theme = 
+						null == (s = attributes.getValue("android:theme"))
+						? c.theme
+						: s;
+				
+				c.uiOptions = 
+						null == (s = attributes.getValue("android:uiOptions"))
+						? c.uiOptions
+						: s;
+				
+				c.windowSoftInputMode = 
+						null == (s = attributes.getValue("android:windowSoftInputMode"))
+						? c.windowSoftInputMode
+						: s;
+				
 				c.type = ComponentType.ACTIVITY;
 
 				this.currComponent = c;
@@ -152,6 +272,7 @@ public class AndroidManifestParser extends DefaultHandler
 
 				setCommonComponentsAttrs(c, attributes);				
 
+				
 				c.type = ComponentType.SERVICE;
 
 				this.currComponent = c;
@@ -191,7 +312,6 @@ public class AndroidManifestParser extends DefaultHandler
 
 			break;
 
-			//TODO: capture specific content provider information
 		case PROVIDER_TAG:
 
 			if (attributes != null)
@@ -212,32 +332,32 @@ public class AndroidManifestParser extends DefaultHandler
 				c.grantUriPermissions = 
 						("true").equals(attributes.getValue("android:grantUriPermissions")) 
 						? true
-								: false;
+						: false;
 
 				c.initOrder = 
 						null == (s = attributes.getValue("android:initOrder"))
 						? 0 
-								: Integer.parseInt(s);
+						: Integer.parseInt(s);
 
 				c.multiprocess = 
 						("true").equals(attributes.getValue("android:multprocess"))
 						? true
-								: false;
+						: false;
 
 				c.readPermission = 
 						null == (s = attributes.getValue("android:readPermission"))
 						? c.readPermission
-								: s;
+						: s;
 
 				c.syncable = 
 						("true").equals(attributes.getValue("android:syncable")) 
 						? true
-								: false;
+						: false;
 
 				c.writePermission = 
 						null == (s = attributes.getValue("android:writePermission"))
 						? c.writePermission
-								: s;
+						: s;
 
 				c.type = ComponentType.CONTENT_PROVIDER;
 
