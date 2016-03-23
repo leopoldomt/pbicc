@@ -26,22 +26,8 @@ public class State {
 	private Map<String/* classname */, PutsAndGets> pgMap = new HashMap<String, PutsAndGets>();
 	private Map<String/* filename */, CompilationUnit> astMap = new HashMap<String, CompilationUnit>();
 	private Map<String/* filename */, ICCLinkFindingResults> resultsMap = new HashMap<String, ICCLinkFindingResults>();
+	private ICCLinkFindingResults iccResults = new ICCLinkFindingResults();
 	private AndroidManifestParser manifestParser;
-
-	// TODO consider removing this - leopoldo
-	/*
-	private Map<String, String> literalStrings = new HashMap<String, String>();
-	private Map<String, String> referencedStrings = new HashMap<String, String>();
-	
-	public Map<String, String> literalStrings() {
-		return literalStrings;
-	}
-
-	public Map<String, String> referencedStrings() {
-		return referencedStrings;
-	}
-	/**/
-	private Map<String, String> mapStrings = new HashMap<String, String>();
 
 	/**
 	 * singleton implementation
@@ -71,6 +57,14 @@ public class State {
 		return resultsMap;
 	}
 
+	public ICCLinkFindingResults iccResults() {
+		return iccResults;
+	}
+	
+	public void setICCResults(ICCLinkFindingResults results) {
+		this.iccResults = results;
+	}
+
 	public Map<String, CompilationUnit> astMap() {
 		return astMap;
 	}
@@ -88,66 +82,5 @@ public class State {
 		this.manifestParser = manifestParser;
 	}
 	
-	
-	public Map<String, String> propagate(Map<String,String> literalStrings, Map<String,String> referencedStrings) {
-		/*
-		 * Please, test more thoroughly case like this:
-		 *   A { static String x1 = "Hello"; }
-		 *   B { static String x2 = A.x1; } 
-		 *   C { static String x3 = B.x2; }
-		 *   
-		 * Although the example I show does not show problems,
-		 * in general, this code should **not** handle such 
-		 * cases as the for loop assumes one specific ordering 
-		 * of string constants to resolve.
-		 * 
-		 * To address this problem, I suggest to use a working
-		 * list as opposed to this for loop.  -Marcelo 
-		 */
-		
-		for (Map.Entry<String, String> entry : referencedStrings.entrySet()) {
-			String key = entry.getKey();
-			String val = entry.getValue();
-			// look for this value elsewhere...
-			String tmp = literalStrings.get(val);
-			if (tmp == null) { // We could not find an exact match!  
-				// Applying some heuristic...
-				String[] arr = val.split(" ");
-				if (arr.length > 1) {
-					// case 1: is this a compound string?
-					StringBuffer sb = new StringBuffer();
-					for (String part : arr) {
-						String tmp2 = findWithSuffixMatch(part,literalStrings);
-						sb.append((tmp2!=null)?tmp2:part);
-						sb.append(" ");
-					}
-					tmp = sb.toString();
-				} else {
-					// case 2: not a compound string...look for a string with the same suffix...
-					tmp = findWithSuffixMatch(val, literalStrings);
-					if (tmp == null) {
-						System.err.println("MISSED THIS CASE " + entry);
-						continue;
-					}
-				}
-			}
-			referencedStrings.remove(entry);
-			literalStrings.put(key, tmp);
-		}
-		mapStrings = Collections.unmodifiableMap(literalStrings);
-		return mapStrings;
-	}
-
-	public String findWithSuffixMatch(String tmp, Map<String,String> literalStrings) {
-		List<String> res = new ArrayList<String>();
-		for (String s: literalStrings.keySet()) {
-			if (s.endsWith(tmp)) {
-				res.add(literalStrings.get(s));
-				break;
-			}
-		}
-		// null if could not find substring or it is ambiguous
-		return (res.size() == 1) ? res.get(0) : null;
-	}
 
 }

@@ -72,7 +72,12 @@ public class IntentInfo
         if (numC == numP) {
           component = "";
           for (int i = 0; i < numC; i++) {
-            component+= String.format("%s.%s", packageName.get(i), className.get(i));
+        	  if (className.get(i).startsWith(packageName.get(i))) {
+        		  component+= String.format("%s", className.get(i));
+        	  }
+        	  else {
+        		  component+= String.format("%s.%s", packageName.get(i), className.get(i));
+        	  }
           }
         }
         else {

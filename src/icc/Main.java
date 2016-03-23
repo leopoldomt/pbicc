@@ -206,16 +206,17 @@ public class Main {
   public static void getICCLinkResults() {
     Map<String,CompilationUnit> asts = State.getInstance().astMap();
     ICCLinkFindingResults results = new ICCLinkFindingResults();
+    State.getInstance().setICCResults(results);
     
     for (Map.Entry<String, CompilationUnit> entry : asts.entrySet()) {
     	CFPVisitor cfpVisitor = new CFPVisitor(results);
         cfpVisitor.visit(entry.getValue(), null);
     }
     
-    Map<String,String> mapStrings = new CFPVisitor(results).propagate();
+    Map<String,String> mapStrings = results.propagate();
     
     for (Map.Entry<String, CompilationUnit> entry : asts.entrySet()) {
-      State.getInstance().resultsMap().put(entry.getKey(), ICCLinkFinder.findICCLinks(entry.getValue(),results));
+      ICCLinkFinder.findICCLinks(entry.getValue(),results);
     }
   }
 

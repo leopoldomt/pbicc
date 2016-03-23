@@ -33,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent();
                 String pkg = Strings.PACKAGE_NAME;
-                String y = "oops";
-                i.setClassName(pkg,Strings.CLASS_NAME);
+                String y = Strings.CLASS_NAME;
+                //i.setClassName(pkg,Strings.CLASS_NAME);
+                i.setClassName(pkg,y);
                 startActivity(i);
             }
         });
-        /*
+        
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

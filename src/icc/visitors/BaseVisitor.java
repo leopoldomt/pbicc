@@ -70,7 +70,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     {
       NameExpr nameExpr = (NameExpr) expr;
       
-      String i = findWithSuffixMatch(nameExpr.getName());
+      String i = data.findWithSuffixMatch(nameExpr.getName());
 	  if (i!=null) {
 		  result = i;
 	  }
@@ -590,7 +590,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 	  String result = data.literalStrings.get(varName);
 	  
 	  if (result == null) {
-		  result = findWithSuffixMatch(varName);
+		  result = data.findWithSuffixMatch(varName);
 		  if (result == null) {
 			  result = expr.getField().toString();
 		  }
@@ -604,7 +604,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 	  String result = data.literalStrings.get(varName);
 	  
 	  if (result == null) {
-		  result = findWithSuffixMatch(varName);
+		  result = data.findWithSuffixMatch(varName);
 		  if (result == null) {
 			  List<Expression> args = expr.getArgs();
 			  if (args != null && args.size() == 0) {
@@ -618,64 +618,6 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 	  return result;
   }
   
-  public Map<String, String> propagate() {
-		/*
-		 * Please, test more thoroughly case like this:
-		 *   A { static String x1 = "Hello"; }
-		 *   B { static String x2 = A.x1; } 
-		 *   C { static String x3 = B.x2; }
-		 *   
-		 * Although the example I show does not show problems,
-		 * in general, this code should **not** handle such 
-		 * cases as the for loop assumes one specific ordering 
-		 * of string constants to resolve.
-		 * 
-		 * To address this problem, I suggest to use a working
-		 * list as opposed to this for loop.  -Marcelo 
-		 */
-		
-		for (Map.Entry<String, String> entry : data.referencedStrings.entrySet()) {
-			String key = entry.getKey();
-			String val = entry.getValue();
-			// look for this value elsewhere...
-			String tmp = data.literalStrings.get(val);
-			if (tmp == null) { // We could not find an exact match!  
-				// Applying some heuristic...
-				String[] arr = val.split(" ");
-				if (arr.length > 1) {
-					// case 1: is this a compound string?
-					StringBuffer sb = new StringBuffer();
-					for (String part : arr) {
-						String tmp2 = findWithSuffixMatch(part);
-						sb.append((tmp2!=null)?tmp2:part);
-						sb.append(" ");
-					}
-					tmp = sb.toString();
-				} else {
-					// case 2: not a compound string...look for a string with the same suffix...
-					tmp = findWithSuffixMatch(val);
-					if (tmp == null) {
-						System.err.println("MISSED THIS CASE " + entry);
-						continue;
-					}
-				}
-			}
-			data.referencedStrings.remove(entry);
-			data.literalStrings.put(key, tmp);
-		}
-		return Collections.unmodifiableMap(data.literalStrings);
-	}
-
-	private String findWithSuffixMatch(String tmp) {
-		List<String> res = new ArrayList<String>();
-		for (String s: data.literalStrings.keySet()) {
-			if (s.endsWith(tmp)) {
-				res.add(data.literalStrings.get(s));
-				break;
-			}
-		}
-		// null if could not find substring or it is ambiguous
-		return (res.size() == 1) ? res.get(0) : null;
-	}
+  
   
 }

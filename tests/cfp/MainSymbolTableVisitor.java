@@ -30,14 +30,14 @@ public class MainSymbolTableVisitor {
 			cu.accept(visitor, null);	
 		}
 		/*
-		for (Map.Entry<String, String> keyValue : visitor.propagate().entrySet()) {
+		for (Map.Entry<String, String> keyValue : results.propagate().entrySet()) {
 			System.out.printf("%s -> %s\n", keyValue.getKey(), keyValue.getValue());
 		}
 		/**/
-		visitor.propagate();
+		results.propagate();
 
 		/**/
-		
+		/**/
 		SymbolTableVisitor stVisitor = new SymbolTableVisitor(results);
 		
 		for (String s : l) {
@@ -50,6 +50,7 @@ public class MainSymbolTableVisitor {
 		for (Map.Entry<String, VarInfo> keyValue : results.varsST.getMap().entrySet()) {
 			System.out.printf("%s -> %s\n", keyValue.getKey(), keyValue.getValue().toString());
 		}
+		/**/
 
 
 	}

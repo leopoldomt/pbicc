@@ -36,7 +36,7 @@ public class TestSymbolTableVisitor {
 					
 				}
 				System.out.println("=====");
-				System.out.println(link.getTarget().getComponent());
+				System.out.println(link);
 				System.out.println("=====");
 			}
 		}
