@@ -7,6 +7,7 @@ public class IntentInfo
 {
     public final String NOT_SET = "#NOT SET#";
   
+    public String identifier = NOT_SET;
     public FieldList category = new FieldList();
     public FieldList className = new FieldList();
     public FieldList packageName = new FieldList();
@@ -25,6 +26,7 @@ public class IntentInfo
     //TODO: fix implementation when we have more than one possibility for a field   
     public String toCSV() {
       StringBuilder builder = new StringBuilder();
+      builder.append(String.format("%s,", identifier));
       builder.append(String.format("%s,", category));
       String component = getComponent();
       builder.append(String.format("%s,", component));
@@ -41,6 +43,8 @@ public class IntentInfo
     {
         StringBuilder builder = new StringBuilder();
             
+        builder.append(String.format("Identifier: %s\n", identifier));
+        
         builder.append(String.format("Category: %s\n", category));
         
         String component = getComponent();
@@ -72,7 +76,12 @@ public class IntentInfo
         if (numC == numP) {
           component = "";
           for (int i = 0; i < numC; i++) {
-            component+= String.format("%s.%s", packageName.get(i), className.get(i));
+        	  if (className.get(i).startsWith(packageName.get(i))) {
+        		  component+= String.format("%s", className.get(i));
+        	  }
+        	  else {
+        		  component+= String.format("%s.%s", packageName.get(i), className.get(i));
+        	  }
           }
         }
         else {

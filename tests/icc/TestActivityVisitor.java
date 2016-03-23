@@ -21,21 +21,23 @@ public class TestActivityVisitor {
 	
 	@Test
 	public void testDataComingFromAnotherClass() throws Exception {
-		String scope = "MainActivity.onCreate.onClick";
+		String scope = "br.ufpe.cin.pbicc.test.intents.explicit.MainActivity.@Override\npublic void onClick(View v) {\n    Intent i = new Intent();\n    String pkg = Strings.PACKAGE_NAME;\n    i.setClassName(pkg, Strings.CLASS_NAME);\n    startActivity(i);\n}";
 		Main.init(file, pathComputer + pathApp);
 		Main.getICCLinkResults();
-
-		for (Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet()) {
-			List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
-
-			for (ICCLinkInfo<IntentInfo> link : links) {
-				if (link.getScope().equals(scope)){
-					IntentInfo info = link.getTarget();
-					
-					Assert.assertEquals("br.ufpe.cin.pbicc.test.intents.explicit.TestActivity",info.getComponent());
-				}
+		
+		ICCLinkFindingResults results = State.getInstance().iccResults();
+		List<ICCLinkInfo<IntentInfo>> links = results.iccLinks;
+		System.out.println(links.size());
+		System.out.println("=====");
+		
+		for (ICCLinkInfo<IntentInfo> link : links) {
+			System.out.println(link);
+			System.out.println("=====");
+			if (link.getScope().equals(scope)){
+				IntentInfo info = link.getTarget();
+				Assert.assertEquals("br.ufpe.cin.pbicc.test.intents.explicit.TestActivity",info.getComponent());
 			}
+			
 		}
 	}
-
 }

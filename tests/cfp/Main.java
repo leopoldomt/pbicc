@@ -192,7 +192,8 @@ public class Main {
 	}
 
 	public static void main(String[] args) throws FileNotFoundException, ParseException {
-		List<String> l = Arrays.asList("tests/cfp/B.java", "tests/cfp/A.java");
+		//List<String> l = Arrays.asList("tests/cfp/B.java", "tests/cfp/A.java");
+		List<String> l = Arrays.asList("test-data/explicit_intent_test/app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/MainActivity.java","test-data/explicit_intent_test/app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/Strings.java");		
 		CFPVisitor visitor = new CFPVisitor();
 		for (String s : l) {
 			FileInputStream in = new FileInputStream(s);

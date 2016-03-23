@@ -90,7 +90,9 @@ public class SymbolTableVisitor extends BaseVisitor
       {
         if (VAR_TYPES.contains(varType))
         {
-          handleVarDeclaration(varType, var);
+        	//System.out.println("VariableDeclarationExpr [vartype: "+ varType + " | var: " + var + "]");
+        	handleVarDeclaration(varType, var);
+          
         }
       }
     }
@@ -159,7 +161,8 @@ public class SymbolTableVisitor extends BaseVisitor
       {
         if (VAR_TYPES.contains(varType))
         {
-          handleVarDeclaration(varType, var);
+        	//System.out.println("FieldDeclaration [vartype: "+ varType + " | var: " + var + "]");
+        	handleVarDeclaration(varType, var);
         }
       }
     }
@@ -233,7 +236,7 @@ public class SymbolTableVisitor extends BaseVisitor
       // other var
       else if (varInfo != null)
       {
-
+    	// System.out.println("vartype: "+ varInfo + " | fullName: " + fullName + " | expr: " + expr);
         handleVarAssignment(varInfo, fullName, expr);
       }
     }
