@@ -2,23 +2,36 @@ package icc.data;
 
 public class ICCLinkInfo <T>
 {
+  private String methodCall;
+  private String packageName;
+  private String className;
   private String methodName;
+  private String shortScope;
   private String scope;
   private T target;
 
-  public ICCLinkInfo(String scope, String methodName, T target)
+  public ICCLinkInfo(String scope, String methodCall, T target)
   {
     this.scope = scope;
+    this.methodCall = methodCall;
+    this.target = target;
+  }
+  
+  public ICCLinkInfo(String scope, String shortScope, String packageName, String className, String methodName, String methodCall, T target)
+  {
+    this.scope = scope;
+    this.shortScope = shortScope;
+    this.packageName = packageName;
+    this.className = className;
     this.methodName = methodName;
+    this.methodCall = methodCall;
     this.target = target;
   }
   
   public String toString()
   {
-    return String.format("\nScope: %s\nLink {\n---Start:\n\t%s\n---End:\n\t%s\n}\n",
-                         scope,
-                         methodName,
-                         target.toString().replace("\n", "\n\t"));
+    return String.format("\nScope: %s\nShort Scope: %s\nPackage: %s\nClass: %s\nMethod: %s\nLink {\n---Start:\n\t%s\n---End:\n\t%s\n}\n",
+            scope, shortScope, packageName, className, methodName, methodCall, target.toString().replace("\n", "\n\t"));
   }
   
   public String toCSV() {

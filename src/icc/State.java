@@ -25,7 +25,10 @@ public class State {
 	 */
 	private Map<String/* classname */, PutsAndGets> pgMap = new HashMap<String, PutsAndGets>();
 	private Map<String/* filename */, CompilationUnit> astMap = new HashMap<String, CompilationUnit>();
+	
+	//TODO remove this map, since it should no longer be necessary
 	private Map<String/* filename */, ICCLinkFindingResults> resultsMap = new HashMap<String, ICCLinkFindingResults>();
+	
 	private ICCLinkFindingResults iccResults = new ICCLinkFindingResults();
 	private AndroidManifestParser manifestParser;
 

@@ -14,6 +14,7 @@ public abstract class ScopeAwareVisitor extends VoidVisitorAdapter<Object> {
 	protected String lastPackageVisited;
 	protected String lastClassVisited;
 	protected String lastMethodVisited;
+	protected String lastMethodNameVisited;
 
 	public ScopeAwareVisitor() {
 		this.scope = new ArrayList<String>();
@@ -46,21 +47,21 @@ public abstract class ScopeAwareVisitor extends VoidVisitorAdapter<Object> {
 	}
 
 	public void visit(MethodDeclaration expr, Object arg) {
-		this.scope.add(expr.toString());
+		this.scope.add(expr.getName().toString());
 		lastMethodVisited = expr.toString();
+		lastMethodNameVisited = expr.getName().toString();
 
 		super.visit(expr, arg);
 
+		lastMethodNameVisited = null;
 		lastMethodVisited = null;
 		this.scope.remove(this.scope.size() - 1);
 	}
 
 	// utils
 
-	protected String getScope() {
-		/*
+	protected String getNameScope() {
 		StringBuilder builder = new StringBuilder();
-
 		for (int i = 0; i < this.scope.size(); i++) {
 			builder.append(this.scope.get(i));
 
@@ -68,11 +69,13 @@ public abstract class ScopeAwareVisitor extends VoidVisitorAdapter<Object> {
 				builder.append(".");
 			}
 		}
-
 		return builder.toString();
-		/**/
+	}
+	
+	protected String getScope() {
 		return canonicalize();
 	}
+	
 	
 	protected String canonicalize() {
 		List<String> l = new ArrayList<String>();
@@ -114,5 +117,21 @@ public abstract class ScopeAwareVisitor extends VoidVisitorAdapter<Object> {
 		
 		return canonicalize(name);
 		
+	}
+
+	public String getLastPackageVisited() {
+		return lastPackageVisited;
+	}
+
+	public String getLastClassVisited() {
+		return lastClassVisited;
+	}
+
+	public String getLastMethodVisited() {
+		return lastMethodVisited;
+	}
+
+	public String getLastMethodNameVisited() {
+		return lastMethodNameVisited;
 	}
 }
