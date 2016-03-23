@@ -15,9 +15,7 @@ import com.github.javaparser.ast.expr.ObjectCreationExpr;
 public class ActivityVisitor extends BaseVisitor {
 	private final String M_START_ACTIVITY = "startActivity";
 	private final String M_START_ACTIVITY_FOR_RESULT = "startActivityForResult";
-	private final List<String> ACTIVITY_CALLS = new ArrayList<String>(
-			Arrays.asList(new String[] { M_START_ACTIVITY,
-					M_START_ACTIVITY_FOR_RESULT }));
+	private final List<String> ACTIVITY_CALLS = new ArrayList<String>(Arrays.asList(new String[] { M_START_ACTIVITY, M_START_ACTIVITY_FOR_RESULT }));
 
 	public ActivityVisitor(ICCLinkFindingResults data) {
 		super(data);
@@ -60,6 +58,7 @@ public class ActivityVisitor extends BaseVisitor {
 					String fullName = getFullScopeName(intentVar.getName());
 					IntentInfo existingInfo = data.intentsST.get(fullName);
 					if (existingInfo != null) {
+						existingInfo.identifier = intentVar.getName();
 						this.data.iccLinks.add(new ICCLinkInfo<IntentInfo>(fullScope, shortScope, packageName, className, methodName, methodCall, existingInfo));
 					} else {
 						System.out.println(String.format("Intent instance '%s' is not on the symbol data.intentsST!", intentVar.getName()));
