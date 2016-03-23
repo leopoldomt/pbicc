@@ -1,0 +1,86 @@
+{
+    "sourceName": "Activity1",
+    "declaredPkg": "br.ufpe.cin.androidintenttests",
+    "intents": [{
+            "declaredMethod": "func1",
+            "target" : "startActivity",
+            "identifier" : "toActivity2",
+            "properties": {
+                "action": "Intent.ACTION_VIEW",
+                "data": "Uri.parse(\"custom://base#specific\")"
+            }
+        },
+        {
+            "declaredMethod": "func1",
+            "target" : "startActivity",
+            "identifier" : "i",
+            "properties": {
+                "action": "Intent.ACTION_CALL",
+                "data": "Uri.parse(\"tel:123456789\")"
+            }
+        },
+        {
+            "declaredMethod": "func2",
+            "target" : "startActivity",
+            "identifier": "i",
+            "properties": {
+                "action": "Intent.ACTION_VIEW",
+                "data": "Uri.parse(\"https://www.google.com\")"
+            }
+        },
+        {
+            "declaredMethod": "func2",
+            "target" : "startActivity",
+            "identifier": "i2",
+            "properties": {
+                "component": {
+                    "context": "br.ufpe.cin.androidintenttests",
+                    "class": "Activity1"
+                },
+                "data": "Uri.parse(\"https://www.google.com\")"
+            }
+        },
+        {
+            "declaredMethod": "func2",
+            "target" : "startActivity",
+            "identifier": "i3",
+            "properties": {
+                "action": "Intent.ACTION_VIEW",
+                "data": "Uri.parse(\"https://www.google.com\")"
+            }
+        },
+        {
+            "target" : "startActivity",
+            "declaredMethod": "func2",
+            "identifier": "i4",
+            "properties": {
+                "action": "Intent.ACTION_VIEW",
+                "data": "Uri.parse(\"https://www.google.com\")",
+                "type": "text/plain"
+            }
+        },
+        {
+            "declaredMethod": "func2",
+            "target" : "startActivity",
+            "identifier": "i5",
+            "properties": {
+                "action": "Intent.ACTION_VIEW",
+                "data": "Uri.parse(\"https://www.google.com\")",
+                "type": "text/plain"
+            }
+        },
+        {
+            "declaredMethod": "func2",
+            "target" : "startActivity",
+            "identifier": "i6",
+            "properties": {
+                "component": {
+                    "context": "br.ufpe.cin.androidintenttests",
+                    "class": "Activity1"
+                },
+                "data": "Uri.parse(\"https://www.google.com\")",
+                "type": "text/plain"
+            }
+        }
+    ]
+}
