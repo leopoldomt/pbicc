@@ -169,7 +169,6 @@ public class Main {
         new CompUnitProcessable() {
       @Override
       public void process(String name, CompilationUnit cu) {
-
         String replacedFilename = name.replaceAll("/", ".");
         State.getInstance().astMap().put(replacedFilename, cu);
       }
@@ -216,6 +215,9 @@ public class Main {
     while ((line = br.readLine()) != null) {
       String fileName = line.substring(2);
       File file = new File(appSourceDir, fileName);
+      if (!file.exists()) {
+    	  throw new RuntimeException("CANT FIND FILE: " + fileName);
+      }
       // creates an input stream for the file to be parse
       FileInputStream in = new FileInputStream(file);
       CompilationUnit cu = JavaParser.parse(in);

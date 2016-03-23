@@ -1,0 +1,3 @@
+./app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/MainActivity.java
+./app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/Strings.java
+./app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/TestActivity.java
