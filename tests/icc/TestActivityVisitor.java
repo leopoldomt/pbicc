@@ -28,17 +28,15 @@ public class TestActivityVisitor {
 		ICCLinkFindingResults results = State.getInstance().iccResults();
 		List<ICCLinkInfo<IntentInfo>> links = results.iccLinks;
 		System.out.println(links.size());
+		System.out.println("=====");
 		
 		for (ICCLinkInfo<IntentInfo> link : links) {
+			System.out.println(link);
+			System.out.println("=====");
 			if (link.getScope().equals(scope)){
 				IntentInfo info = link.getTarget();
 				Assert.assertEquals("br.ufpe.cin.pbicc.test.intents.explicit.TestActivity",info.getComponent());
 			}
-			/**/
-			System.out.println("=====");
-			//System.out.println(link.getTarget().getComponent());
-			System.out.println(link);
-			System.out.println("=====");
 			
 		}
 	}
