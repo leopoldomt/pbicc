@@ -1,6 +1,6 @@
 package icc.data;
 
-public class CompActivity extends Component {
+public class Activity extends Component {
 	
 	//TODO define which attributes are relevant.
 	
@@ -34,6 +34,10 @@ public class CompActivity extends Component {
 	public String theme = NOT_SET;
 	public String uiOptions = NOT_SET;
 	public String windowSoftInputMode = NOT_SET;
+
+	public Activity() {
+		super();
+	}
 
 	@Override
 	public String toStringExclusiveAttributes() {

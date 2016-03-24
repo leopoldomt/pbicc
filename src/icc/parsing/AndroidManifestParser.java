@@ -1,7 +1,7 @@
 package icc.parsing;
 
-import icc.data.CompActivity;
-import icc.data.CompContentProvider;
+import icc.data.Activity;
+import icc.data.ContentProvider;
 import icc.data.Component;
 import icc.data.ComponentType;
 import icc.data.IntentFilter;
@@ -123,7 +123,7 @@ public class AndroidManifestParser extends DefaultHandler
 			if (attributes != null)
 			{
 				String s;
-				CompActivity c = new CompActivity();
+				Activity c = new Activity();
 
 				setCommonComponentsAttrs(c, attributes);
 
@@ -316,7 +316,7 @@ public class AndroidManifestParser extends DefaultHandler
 
 			if (attributes != null)
 			{
-				CompContentProvider c = new CompContentProvider();
+				ContentProvider c = new ContentProvider();
 
 				setCommonComponentsAttrs(c, attributes);
 

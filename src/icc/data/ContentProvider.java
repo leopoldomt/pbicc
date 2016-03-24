@@ -3,7 +3,7 @@ package icc.data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompContentProvider extends Component {
+public class ContentProvider extends Component {
 	//TODO remove commented attributes, since they belong in Component class
 	public List<String> authorities;
 	//public android:enabled	["true" | "false"]
@@ -20,7 +20,8 @@ public class CompContentProvider extends Component {
 	public boolean syncable = false;
 	public String writePermission = NOT_SET;
 	
-	public CompContentProvider(){
+	public ContentProvider(){
+		super();
 		authorities = new ArrayList<String>();
 	}
 	
