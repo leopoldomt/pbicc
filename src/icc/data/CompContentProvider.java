@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompContentProvider extends Component {
+	//TODO remove commented attributes, since they belong in Component class
 	public List<String> authorities;
 	//public android:enabled	["true" | "false"]
 	//public android:exported	["true" | "false"]
