@@ -41,6 +41,8 @@ public class Main {
   static boolean ICC_SHOW_INTENT_FILTERS = false;
   static boolean PRINT_DOT = false;
   static boolean PRINT_TOPO_ORDER = false;
+  static boolean ICC_SAVE_RESULTS = true;
+  
 
   static String fileListFile;
   static String appSourceDir;
@@ -53,93 +55,100 @@ public class Main {
     State.getInstance().setManifestParser(new AndroidManifestParser(args[2]));
     
     DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
+    StringBuilder results = new StringBuilder();
 
-    if (ICC_SHOW_INTENT_FILTERS)
-    {
-      for (String component : State.getInstance().getManifestParser().intentFilters.keySet())
-      {
-        System.out.println("###");
-        System.out.println("Component: " + component);
-        System.out.println("Filters:");
+    
+    if (ICC_SHOW_INTENT_FILTERS) {
+    	StringBuilder localResults = new StringBuilder();
+    	for (String component : State.getInstance().getManifestParser().intentFilters.keySet()) {
+    		localResults.append("###\n");
+    		localResults.append("Component: " + component+"\n");
+    		localResults.append("Filters:\n");
 
-        for (IntentFilter filter : State.getInstance().getManifestParser().intentFilters.get(component))
-        {
-          System.out.println("---");
-          System.out.println(filter);
-        }
-      }
+    		for (IntentFilter filter : State.getInstance().getManifestParser().intentFilters.get(component)) {
+    			localResults.append("---\n");
+    			localResults.append(filter+"\n");
+    		}
+    	}
+    	String toPrint = localResults.toString();
+    	System.out.println(toPrint);
+    	results.append(toPrint);
     }
     
     if (DEBUG_KEYS) {
-      System.out.println("INTENT KEYS");
-      for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {
-        System.out.printf("COMP:%s, KEYS:%s", entry.getKey().toString(), entry.getValue().toString());
-      }
+    	StringBuilder localResults = new StringBuilder();
+    	localResults.append("INTENT KEYS\n");
+    	for (Map.Entry<String, PutsAndGets> entry : State.getInstance().pgMap().entrySet()) {
+    		localResults.append(String.format("COMP:%s, KEYS:%s\n", entry.getKey().toString(), entry.getValue().toString()));
+    	}
+    	String toPrint = localResults.toString();
+    	System.out.println(toPrint);
+    	results.append(toPrint);
     }
 
     IntentStats appIntentStats = new IntentStats();
 
-    for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet())
-    {
-      System.out.println(String.format("### File: %s", resultsEntry.getKey()));
-
-      // printing the intents
-      Map<String, IntentInfo> intents = resultsEntry.getValue().intentsST.getMap();
-      IntentInfo info = null;
-
-      for(Map.Entry<String, IntentInfo> intentEntry : intents.entrySet())
-      {
-        info = intentEntry.getValue();
-
-        if ((info.isExplicit() && ICC_SHOW_EXPLICIT_INTENTS) ||
-            (!info.isExplicit() && ICC_SHOW_IMPLICIT_INTENTS))
-        {
-          System.out.println(String.format("%s:\n%s\n----------", intentEntry.getKey(), intentEntry.getValue()));
-        }
-      }
-
-      // printing the vars
-      if (ICC_SHOW_VARS)
-      {
-        Map<String, VarInfo> vars = resultsEntry.getValue().varsST.getMap();
-
-        for(Map.Entry<String, VarInfo> varEntry : vars.entrySet())
-        {
-          String name = varEntry.getKey();
-          VarInfo varInfo = varEntry.getValue();
-
-          System.out.printf("%s %s = %s\n", info.type, name, varInfo.value);
-        }
-      }
-
-      // printing the links
-      if (ICC_SHOW_LINKS)
-      {
-        List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
-
-        for (ICCLinkInfo<IntentInfo> link : links)
-        {
-          System.out.println(link);
-        }
-      }
-
-      IntentStats stats = resultsEntry.getValue().stats;
-
-      appIntentStats.add(stats);
-
-      if (ICC_SHOW_STATS_PER_FILE)
-      {
-        System.out.println(resultsEntry.getValue().stats);
-      }
+    for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet()) {
+    	StringBuilder localResults = new StringBuilder();
+    	localResults.append(String.format("### File: %s", resultsEntry.getKey()));
+    	// printing the intents
+    	Map<String, IntentInfo> intents = resultsEntry.getValue().intentsST.getMap();
+    	IntentInfo info = null;
+    	for(Map.Entry<String, IntentInfo> intentEntry : intents.entrySet()) {
+    		info = intentEntry.getValue();
+    		if ((info.isExplicit() && ICC_SHOW_EXPLICIT_INTENTS) || (!info.isExplicit() && ICC_SHOW_IMPLICIT_INTENTS)) {
+    			localResults.append(String.format("%s:\n%s\n----------\n", intentEntry.getKey(), intentEntry.getValue()));
+    		}
+    	}
+    	
+    	//printing the vars
+    	if (ICC_SHOW_VARS) { 
+    		Map<String, VarInfo> vars = resultsEntry.getValue().varsST.getMap();
+    		for(Map.Entry<String, VarInfo> varEntry : vars.entrySet()) {
+    			String name = varEntry.getKey(); 
+    			VarInfo varInfo = varEntry.getValue();
+    			localResults.append(String.format("%s %s = %s\n", info.type, name, varInfo.value));
+    		}
+    	}
+    	
+    	// printing the links
+    	if (ICC_SHOW_LINKS) {
+    		List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
+    		for (ICCLinkInfo<IntentInfo> link : links) {
+    			localResults.append(link+"\n");
+    		}
+    	}
+    	
+    	IntentStats stats = resultsEntry.getValue().stats;
+    	appIntentStats.add(stats);
+    	if (ICC_SHOW_STATS_PER_FILE) {
+    		localResults.append(resultsEntry.getValue().stats+"\n");
+    	}
+    	String toPrint = localResults.toString();
+    	System.out.println(toPrint);
+    	results.append(toPrint);
     }
 
-    if (ICC_SHOW_FINAL_STATS)
-    {
-      System.out.println("### App Intent Stats");
-      System.out.println(appIntentStats);
-      System.out.println(appIntentStats.getExtendedAnalysis());
+    if (ICC_SHOW_FINAL_STATS) {
+    	StringBuilder localResults = new StringBuilder();
+    	localResults.append("### App Intent Stats\n");
+    	localResults.append(appIntentStats+"\n");
+    	localResults.append(appIntentStats.getExtendedAnalysis()+"\n");
+    	String toPrint = localResults.toString();
+    	System.out.println(toPrint);
+    	results.append(toPrint);
     }
 
+    // saving ICC link results information
+    if (ICC_SAVE_RESULTS) {
+    	String toSave = results.toString();
+    	String name = fileListFile.split("-")[0] + "-icc-results.txt"; // component dependency graph
+    	BufferedWriter bw = new BufferedWriter(new FileWriter(name));
+    	bw.write(toSave);
+        bw.flush();
+        bw.close();
+    }
+    
     if (PRINT_DOT) {
       String dot = toDot(g);
       String name = fileListFile.split("-")[0] + "-cdg.dot"; // component dependency graph
@@ -166,17 +175,16 @@ public class Main {
     Main.appSourceDir = appSourceDir;
 
     // processFileList makes a pass in all ASTs: one pass for each compilation unit
-    processFileList(fileListFile, appSourceDir,
-        new CompUnitProcessable() {
-      @Override
-      public void process(String name, CompilationUnit cu) {
-        String replacedFilename = name.replaceAll("/", ".");
-        State.getInstance().astMap().put(replacedFilename, cu);
-      }
+    processFileList(fileListFile, appSourceDir, new CompUnitProcessable() {
+		      @Override
+		      public void process(String name, CompilationUnit cu) {
+		        String replacedFilename = name.replaceAll("/", ".");
+		        State.getInstance().astMap().put(replacedFilename, cu);
+		      }
     }
         );
 
-    //TODO: we need to implement component analysis
+    //TODO: need to check if we still need the code below
     //    processFileList(fileListFile, appSourceDir,
     //        new CompUnitProcessable() {
     //          DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
