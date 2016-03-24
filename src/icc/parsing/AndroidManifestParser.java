@@ -1,10 +1,12 @@
 package icc.parsing;
 
 import icc.data.Activity;
-import icc.data.ContentProvider;
+import icc.data.BroadcastReceiver;
 import icc.data.Component;
 import icc.data.ComponentType;
+import icc.data.ContentProvider;
 import icc.data.IntentFilter;
+import icc.data.Service;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,8 +24,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class AndroidManifestParser extends DefaultHandler
-{
+public class AndroidManifestParser extends DefaultHandler {
 	static final String MANIFEST_TAG = "manifest";
 	static final String ACTIVITY_TAG = "activity";
 	static final String SERVICE_TAG = "service";
@@ -47,324 +48,144 @@ public class AndroidManifestParser extends DefaultHandler
 	public List<Component> components;
 	public List<String> permissions;
 
-	//TODO: remove the following 2 lines once we fix the remaining of the implementation
+	// TODO: remove the following 2 lines once we fix the remaining of the
+	// implementation
 	public Map<String, List<IntentFilter>> intentFilters;
 	String currentComponent;
 
 	Component currComponent;
 	IntentFilter currentIntentFilter;
 
-	public AndroidManifestParser(String manifestPath) throws Exception
-	{
+	public AndroidManifestParser(String manifestPath) throws Exception {
 		this.permissions = new LinkedList<String>();
 		this.components = new LinkedList<Component>();
 		this.intentFilters = new HashMap<String, List<IntentFilter>>();
 
-		SAXParser parser = SAXParserFactory.newInstance().newSAXParser();    
+		SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
 		parser.parse(new FileInputStream(new File(manifestPath)), this);
 	}
 
-	public void setCommonComponentsAttrs(Component c, Attributes attrs){
-		//TODO: maybe checking if getValue == null so we do not set label and other attributes to null?
+	public void setCommonComponentsAttrs(Component c, Attributes attrs) {
+		// TODO: maybe checking if getValue == null so we do not set label and other attributes to null?
 		String s;
-		c.label = 
-				null == (s = attrs.getValue("android:label"))
-				? c.label
-				: s;
-		c.name = 
-				null == (s = attrs.getValue("android:name"))
-				? c.name
-				: s;	
-
-		c.permission =
-				null == (s = attrs.getValue("android:permission"))
-				? c.permission
-				: s;
-
-		c.process =
-				null == (s = attrs.getValue("android:process"))
-				? c.process
-				: s;
-
-		c.enabled =
-				("false").equals(attrs.getValue("android:enabled"))
-				? false
-				: true;
-
-
-		//It is a common attribute, but may have different rules (by component)
-		c.exported =
-				("false").equals(attrs.getValue("android:exported"))
-				? false
-				: true;		
+		c.label = null == (s = attrs.getValue("android:label")) ? c.label : s;
+		c.name = null == (s = attrs.getValue("android:name")) ? c.name : s;
+		c.permission = null == (s = attrs.getValue("android:permission")) ? c.permission : s;
+		c.process = null == (s = attrs.getValue("android:process")) ? c.process : s;
+		c.enabled = ("false").equals(attrs.getValue("android:enabled")) ? false : true;
+		// It is a common attribute, but may have different rules (by component)
+		c.exported = ("false").equals(attrs.getValue("android:exported")) ? false : true;
 	}
 
-	public void startElement(String uri, String localName,
-			String qName, Attributes attributes) throws SAXException 
-	{
-		switch (qName)
-		{
+	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+		switch (qName) {
+		
 		case MANIFEST_TAG:
-
-			if (attributes != null)
-			{
+			if (attributes != null) {
 				this.appPackage = attributes.getValue("package");
 			}
-
 			break;
 
 		case USES_PERMISSIONS_TAG:
 			if (attributes != null) {
 				this.permissions.add(attributes.getValue("android:name"));
 			}
-			break;       
+			break;
 
 		case ACTIVITY_TAG:
-			if (attributes != null)
-			{
+			if (attributes != null) {
 				String s;
 				Activity c = new Activity();
-
 				setCommonComponentsAttrs(c, attributes);
-
-				c.allowEmbedded = 
-						("true").equals(attributes.getValue("android:allowEmbedded"))
-						? true
-						: false;
-				
-				c.allowTaskReparenting = 
-						("true").equals(attributes.getValue("android:allowTaskReparenting"))
-						? true
-						: false;
-				
-				c.alwaysRetainTaskState = 
-						("true").equals(attributes.getValue("android:alwaysRetainTaskState"))
-						? true
-						: false;
-				
-				c.autoRemoveFromRecents = 
-						("true").equals(attributes.getValue("android:autoRemoveFromRecents"))
-						? true
-						: false;
-				
-				c.banner = 
-						null == (s = attributes.getValue("android:banner"))
-						? c.banner
-						: s;
-				
-				c.clearTaskOnLaunch = 
-						("true").equals(attributes.getValue("android:clearTaskOnLaunch"))
-						? true
-						: false;
-				
-				c.configChanges = 
-						null == (s = attributes.getValue("android:configChanges"))
-						? c.configChanges
-						: s;
-				
-				c.documentLaunchMode =
-						null == (s = attributes.getValue("android:documentLaunchMode"))
-						? c.documentLaunchMode
-						: s;
-				
-				c.excludeFromRecents = 
-						("true").equals(attributes.getValue("android:excludeFromRecents"))
-						? true
-						: false;
-				
-				c.finishOnTaskLaunch = 
-						("true").equals(attributes.getValue("android:finishOnTaskLaunch"))
-						? true
-						: false;
-				
-				c.hardwareAccelerated = 
-						("true").equals(attributes.getValue("android:hardwareAccelerated"))
-						? true 
-						: false;
-				
-				c.icon = 
-						null == (s = attributes.getValue("android:icon"))
-						? c.icon
-						: s;
-				c.launchMode = 
-						null == (s = attributes.getValue("android:launchMode"))
-						? c.launchMode
-						: s;
-				
-				c.maxRecents =
-						null == ( s = attributes.getValue("android:maxRecents"))
-						? c.maxRecents
-						: Integer.parseInt(s);
-				
-				c.multiprocess = 
-						("true").equals(attributes.getValue("android:multiprocess"))
-						? true
-						: false;
-				
-				c.noHistory = 
-						("true").equals(attributes.getValue("android:noHistory"))
-						? true
-						: false;
-				
-				c.parentActivityName = 
-						null == (s = attributes.getValue("android:parentActivityName"))
-						? c.parentActivityName
-						: s;
-				
-				c.relinquishTaskIdentity = 
-						("true").equals(attributes.getValue("android:relinquishTaskIdentify"))
-						? true
-						: false;
-				
-				c.screenOrientation = 
-						null == (s = attributes.getValue("android:screenOrientation"))
-						? c.screenOrientation
-						: s;
-				
-				c.stateNotNeeded = 
-						("true").equals(attributes.getValue("android:stateNotNeeded"))
-						? true
-						: false;
-				
-				c.taskAffinity = 
-						null == (s = attributes.getValue("android:taskAffinity"))
-						? c.taskAffinity
-						: s;
-				
-				c.theme = 
-						null == (s = attributes.getValue("android:theme"))
-						? c.theme
-						: s;
-				
-				c.uiOptions = 
-						null == (s = attributes.getValue("android:uiOptions"))
-						? c.uiOptions
-						: s;
-				
-				c.windowSoftInputMode = 
-						null == (s = attributes.getValue("android:windowSoftInputMode"))
-						? c.windowSoftInputMode
-						: s;
-				
+				c.allowEmbedded = ("true").equals(attributes.getValue("android:allowEmbedded")) ? true : false;
+				c.allowTaskReparenting = ("true").equals(attributes.getValue("android:allowTaskReparenting")) ? true : false;
+				c.alwaysRetainTaskState = ("true").equals(attributes.getValue("android:alwaysRetainTaskState")) ? true : false;
+				c.autoRemoveFromRecents = ("true").equals(attributes.getValue("android:autoRemoveFromRecents")) ? true : false;
+				c.banner = null == (s = attributes.getValue("android:banner")) ? c.banner : s;
+				c.clearTaskOnLaunch = ("true").equals(attributes.getValue("android:clearTaskOnLaunch")) ? true : false;
+				c.configChanges = null == (s = attributes.getValue("android:configChanges")) ? c.configChanges : s;
+				c.documentLaunchMode = null == (s = attributes.getValue("android:documentLaunchMode")) ? c.documentLaunchMode : s;
+				c.excludeFromRecents = ("true").equals(attributes.getValue("android:excludeFromRecents")) ? true : false;
+				c.finishOnTaskLaunch = ("true").equals(attributes.getValue("android:finishOnTaskLaunch")) ? true : false;
+				c.hardwareAccelerated = ("true").equals(attributes.getValue("android:hardwareAccelerated")) ? true : false;
+				c.icon = null == (s = attributes.getValue("android:icon")) ? c.icon : s;
+				c.launchMode = null == (s = attributes.getValue("android:launchMode")) ? c.launchMode : s;
+				c.maxRecents = null == (s = attributes.getValue("android:maxRecents")) ? c.maxRecents : Integer.parseInt(s);
+				c.multiprocess = ("true").equals(attributes.getValue("android:multiprocess")) ? true : false;
+				c.noHistory = ("true").equals(attributes.getValue("android:noHistory")) ? true : false;
+				c.parentActivityName = null == (s = attributes.getValue("android:parentActivityName")) ? c.parentActivityName : s;
+				c.relinquishTaskIdentity = ("true").equals(attributes.getValue("android:relinquishTaskIdentify")) ? true : false;
+				c.screenOrientation = null == (s = attributes.getValue("android:screenOrientation")) ? c.screenOrientation : s;
+				c.stateNotNeeded = ("true").equals(attributes.getValue("android:stateNotNeeded")) ? true : false;
+				c.taskAffinity = null == (s = attributes.getValue("android:taskAffinity")) ? c.taskAffinity : s;
+				c.theme = null == (s = attributes.getValue("android:theme")) ? c.theme : s;
+				c.uiOptions = null == (s = attributes.getValue("android:uiOptions")) ? c.uiOptions : s;
+				c.windowSoftInputMode = null == (s = attributes.getValue("android:windowSoftInputMode")) ? c.windowSoftInputMode : s;
 				c.type = ComponentType.ACTIVITY;
-
 				this.currComponent = c;
 				this.components.add(c);
 
-				//TODO: remove the following line once we finish working on the rest of implementation
+				// TODO: remove the following line once we finish working on the rest of implementation
 				this.currentComponent = attributes.getValue("android:name");
 				this.intentFilters.put(this.currentComponent, new ArrayList<IntentFilter>());
 			}
-
 			break;
 
 		case SERVICE_TAG:
-			if (attributes != null)
-			{
-				Component c = new Component(){
-
-					@Override
-					public String toStringExclusiveAttributes() {
-						return "";
-					}
-
-				};
-
-				setCommonComponentsAttrs(c, attributes);				
-
-				
+			if (attributes != null) {
+				Service c = new Service();
+				setCommonComponentsAttrs(c, attributes);
 				c.type = ComponentType.SERVICE;
-
 				this.currComponent = c;
 				this.components.add(c);
 
-				//TODO: remove the following line once we finish working on the rest of implementation
+				// TODO: remove the following line once we finish working on the rest of implementation
 				this.currentComponent = attributes.getValue("android:name");
 				this.intentFilters.put(this.currentComponent, new ArrayList<IntentFilter>());
 			}
-
 			break;
 
-			//TODO: capture dynamically registered broadcast receiver       
+		// TODO: capture dynamically registered broadcast receiver
+		// leopoldo: we have to look in the code for that, we won't be able to capture them right here
 		case RECEIVER_TAG:
-
-			if (attributes != null)
-			{
-				Component c = new Component(){
-
-					@Override
-					public String toStringExclusiveAttributes() {
-						return "";
-					}
-
-				};
-
+			if (attributes != null) {
+				BroadcastReceiver c = new BroadcastReceiver();
 				setCommonComponentsAttrs(c, attributes);
-
 				c.type = ComponentType.BROADCAST_RECEIVER;
+				
 				this.currComponent = c;
 				this.components.add(c);
 
-				//TODO: remove the following line once we finish working on the rest of implementation
+				// TODO: remove the following line once we finish working on the rest of implementation
 				this.currentComponent = attributes.getValue("android:name");
 				this.intentFilters.put(this.currentComponent, new ArrayList<IntentFilter>());
 			}
-
 			break;
 
 		case PROVIDER_TAG:
-
-			if (attributes != null)
-			{
+			if (attributes != null) {
 				ContentProvider c = new ContentProvider();
-
 				setCommonComponentsAttrs(c, attributes);
 
-				//TODO process "exported" attribute.
-
+				// TODO process "exported" attribute.
 				String s;
 				StringTokenizer auts = new StringTokenizer(attributes.getValue("android:authorities"), ";");
-
-				while(auts.hasMoreElements()){
+				while (auts.hasMoreElements()) {
 					c.authorities.add((String) auts.nextElement());
 				}
 
-				c.grantUriPermissions = 
-						("true").equals(attributes.getValue("android:grantUriPermissions")) 
-						? true
-						: false;
-
-				c.initOrder = 
-						null == (s = attributes.getValue("android:initOrder"))
-						? 0 
-						: Integer.parseInt(s);
-
-				c.multiprocess = 
-						("true").equals(attributes.getValue("android:multprocess"))
-						? true
-						: false;
-
-				c.readPermission = 
-						null == (s = attributes.getValue("android:readPermission"))
-						? c.readPermission
-						: s;
-
-				c.syncable = 
-						("true").equals(attributes.getValue("android:syncable")) 
-						? true
-						: false;
-
-				c.writePermission = 
-						null == (s = attributes.getValue("android:writePermission"))
-						? c.writePermission
-						: s;
-
+				c.grantUriPermissions = ("true").equals(attributes.getValue("android:grantUriPermissions")) ? true : false;
+				c.initOrder = null == (s = attributes.getValue("android:initOrder")) ? 0 : Integer.parseInt(s);
+				c.multiprocess = ("true").equals(attributes.getValue("android:multprocess")) ? true : false;
+				c.readPermission = null == (s = attributes.getValue("android:readPermission")) ? c.readPermission : s;
+				c.syncable = ("true").equals(attributes.getValue("android:syncable")) ? true : false;
+				c.writePermission = null == (s = attributes.getValue("android:writePermission")) ? c.writePermission : s;
 				c.type = ComponentType.CONTENT_PROVIDER;
 
 				this.currComponent = c;
 				this.components.add(c);
 
-				//TODO: remove the following line once we finish working on the rest of implementation
+				// TODO: remove the following line once we finish working on the rest of implementation
 				this.currentComponent = attributes.getValue("android:name");
 				this.intentFilters.put(this.currentComponent, new ArrayList<IntentFilter>());
 			}
@@ -372,144 +193,86 @@ public class AndroidManifestParser extends DefaultHandler
 			break;
 
 		case INTENT_FILTER_TAG:
-
-
-
-			if (attributes != null)
-			{
+			if (attributes != null) {
 				this.currentIntentFilter = new IntentFilter();
 			}
-
 			break;
 
 		case ACTION_TAG:
-
-			if (attributes != null)
-			{
+			if (attributes != null) {
 				this.currentIntentFilter.action = attributes.getValue("android:name");
 			}
-
 			break;
 
 		case CATEGORY_TAG:
-
-			if (attributes != null)
-			{
+			if (attributes != null) {
 				this.currentIntentFilter.category = attributes.getValue("android:name");
 			}
-
 			break;
 
 		case DATA_TAG:
-
-			if (attributes != null)
-			{
-				for (int i = 0; i < attributes.getLength() ; i++)
-				{
-					switch (attributes.getQName(i))
-					{
+			if (attributes != null) {
+				for (int i = 0; i < attributes.getLength(); i++) {
+					switch (attributes.getQName(i)) {
 					case DATA_SCHEME_ATTR:
-
 						this.currentIntentFilter.data.scheme = attributes.getValue(i);
-
 						break;
 
 					case DATA_HOST_ATTR:
-
 						this.currentIntentFilter.data.host = attributes.getValue(i);
-
 						break;
 
 					case DATA_PORT_ATTR:
-
 						this.currentIntentFilter.data.port = attributes.getValue(i);
-
 						break;
 
 					case DATA_PATH_ATTR:
-
 						this.currentIntentFilter.data.path = attributes.getValue(i);
-
 						break;
 
 					case DATA_PATH_PATTERN_ATTR:
-
 						this.currentIntentFilter.data.pathPattern = attributes.getValue(i);
-
 						break;
 
 					case DATA_PATH_PREFIX_ATTR:
-
 						this.currentIntentFilter.data.pathPrefix = attributes.getValue(i);
-
 						break;
 
 					case DATA_MIME_TYPE_ATTR:
-
 						this.currentIntentFilter.data.mimeType = attributes.getValue(i);
-
 						break;
 					}
 				}
 			}
-
 			break;
 		}
 	}
 
-	public void endElement(String uri, String localName, String qName) throws SAXException 
-	{
-		if (qName.equals(INTENT_FILTER_TAG))
-		{
+	public void endElement(String uri, String localName, String qName) throws SAXException {
+		if (qName.equals(INTENT_FILTER_TAG)) {
 			((ArrayList<IntentFilter>) this.intentFilters.get(this.currentComponent)).add(this.currentIntentFilter);
 			this.currComponent.intentFilters.add(this.currentIntentFilter);
-
-			if(currComponent.intentFilters.size()>0){
+			if (currComponent.intentFilters.size() > 0) {
 				switch (currComponent.type) {
-				case ACTIVITY:
-				case BROADCAST_RECEIVER:
-				case SERVICE:
-					currComponent.exported = true;
-					break;
-				case CONTENT_PROVIDER:
-					//special
-					break;
+					case ACTIVITY:
+					case BROADCAST_RECEIVER:
+					case SERVICE:
+						currComponent.exported = true;
+						break;
+					case CONTENT_PROVIDER:
+						// special
+						break;
 				}
-
 			}
-
 		}
 	}
 
 	public static void main(String[] args) throws Exception {
 
-		//String manifestPath = "/home/vinicius/Coding/Monografia/main-tools/source_code/pbicc/presentation_study/src/android-chess/app/src/main/AndroidManifest.xml";
-		//String manifestPath = "/Users/leopoldomt/Documents/cin/pbicc/test-data/zooborns/AndroidManifest.xml";
-		//String manifestPath = "/Users/leopoldomt/Documents/cin/pbicc/test-data/k9/AndroidManifest.xml";
-		String manifestPath = "/home/jpttrindade/developer/workspaces/CIn/TG/pbicc/test-data/k9/AndroidManifest.xml";
-
+		// String manifestPath = "test-data/zooborns/AndroidManifest.xml";
+		String manifestPath = "test-data/k9/AndroidManifest.xml";
 
 		AndroidManifestParser manifestParser = new AndroidManifestParser(manifestPath);
-		/*
-    for (String component : manifestParser.intentFilters.keySet())
-    {
-      System.out.println("###");
-      System.out.println("Component: " + component);
-      System.out.println("Filters:");
-
-      for (IntentFilter filter : manifestParser.intentFilters.get(component))
-      {
-        System.out.println("---");
-        System.out.println(filter);
-      }
-    }
-
-    System.out.println("---");
-    for (String permission : manifestParser.permissions) {
-      System.out.println("Permission: " + permission);
-    }
-    System.out.println("---");
-/**/
 		System.out.println("---");
 		for (Component c : manifestParser.components) {
 			System.out.println("Component: ");
@@ -517,6 +280,5 @@ public class AndroidManifestParser extends DefaultHandler
 		}
 		System.out.println("---");
 	}
-
 
 }
