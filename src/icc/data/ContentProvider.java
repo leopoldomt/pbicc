@@ -8,6 +8,9 @@ public class ContentProvider extends Component {
 	public List<String> authorities;
 	//public android:enabled	["true" | "false"]
 	//public android:exported	["true" | "false"]
+	
+	public boolean exportedWasSetted;
+	
 	public boolean grantUriPermissions = false;
 	public String icon = NOT_SET;
 	public int initOrder;
@@ -23,6 +26,15 @@ public class ContentProvider extends Component {
 	public ContentProvider(){
 		super();
 		authorities = new ArrayList<String>();
+	}
+	
+	
+	public void setDefaultExported(int minSdkVersion, int targetSdkVersion){
+		if(minSdkVersion <= 16 || targetSdkVersion <=16){
+			super.exported = true;
+		} else {
+			super.exported = false;
+		}
 	}
 	
 	@Override

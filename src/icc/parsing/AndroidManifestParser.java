@@ -35,6 +35,8 @@ public class AndroidManifestParser extends DefaultHandler {
 	static final String CATEGORY_TAG = "category";
 	static final String DATA_TAG = "data";
 	static final String USES_PERMISSIONS_TAG = "uses-permission";
+	static final String USES_SDK_TAG = "uses-sdk";
+	
 
 	static final String DATA_SCHEME_ATTR = "android:scheme";
 	static final String DATA_HOST_ATTR = "android:host";
@@ -47,6 +49,11 @@ public class AndroidManifestParser extends DefaultHandler {
 	public String appPackage;
 	public List<Component> components;
 	public List<String> permissions;
+	
+	//TODO maybe create a new class (UsesSdk Class)
+	public int minSdkVersion;
+	public int targetSdkVersion;
+	//public int maxSdkVersion;
 
 	// TODO: remove the following 2 lines once we fix the remaining of the
 	// implementation
@@ -91,7 +98,12 @@ public class AndroidManifestParser extends DefaultHandler {
 				this.permissions.add(attributes.getValue("android:name"));
 			}
 			break;
-
+		case USES_SDK_TAG:
+			String in;
+			this.minSdkVersion = null == (in = attributes.getValue("android:minSdkVersion")) ? 1 : Integer.parseInt(in);
+			this.targetSdkVersion = null == (in = attributes.getValue("android:targetSdkVersion")) ? this.minSdkVersion : Integer.parseInt(in);
+			 
+			break;
 		case ACTIVITY_TAG:
 			if (attributes != null) {
 				String s;
@@ -166,8 +178,13 @@ public class AndroidManifestParser extends DefaultHandler {
 			if (attributes != null) {
 				ContentProvider c = new ContentProvider();
 				setCommonComponentsAttrs(c, attributes);
+			
+				c.exportedWasSetted = null == attributes.getValue("android:exported") ? false : true;
+				
+				if(!c.exportedWasSetted){
+					c.setDefaultExported(this.minSdkVersion, this.targetSdkVersion);
+				}
 
-				// TODO process "exported" attribute.
 				String s;
 				StringTokenizer auts = new StringTokenizer(attributes.getValue("android:authorities"), ";");
 				while (auts.hasMoreElements()) {
@@ -182,6 +199,7 @@ public class AndroidManifestParser extends DefaultHandler {
 				c.writePermission = null == (s = attributes.getValue("android:writePermission")) ? c.writePermission : s;
 				c.type = ComponentType.CONTENT_PROVIDER;
 
+				
 				this.currComponent = c;
 				this.components.add(c);
 
@@ -264,7 +282,19 @@ public class AndroidManifestParser extends DefaultHandler {
 						break;
 				}
 			}
+		} else if(qName.equals(USES_SDK_TAG)){
+			ContentProvider cp;
+			for(Component c: this.components){
+				if(c instanceof ContentProvider){
+					cp = (ContentProvider) c;
+					if(!cp.exportedWasSetted){
+						cp.setDefaultExported(this.minSdkVersion, this.targetSdkVersion);
+					}
+				}
+			}
 		}
+		
+		
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -273,6 +303,9 @@ public class AndroidManifestParser extends DefaultHandler {
 		String manifestPath = "test-data/k9/AndroidManifest.xml";
 
 		AndroidManifestParser manifestParser = new AndroidManifestParser(manifestPath);
+		System.out.println("---");
+		System.out.println("MinSdkVersion: "+manifestParser.minSdkVersion);
+		System.out.println("TargetSdkVersion: "+manifestParser.targetSdkVersion);
 		System.out.println("---");
 		for (Component c : manifestParser.components) {
 			System.out.println("Component: ");
