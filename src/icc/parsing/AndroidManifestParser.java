@@ -148,6 +148,9 @@ public class AndroidManifestParser extends DefaultHandler {
 			if (attributes != null) {
 				Service c = new Service();
 				setCommonComponentsAttrs(c, attributes);
+				
+				c.isolatedProcess = ("true").equals(attributes.getValue("android:isolatedProcess")) ? true : false;
+				
 				c.type = ComponentType.SERVICE;
 				this.currComponent = c;
 				this.components.add(c);
