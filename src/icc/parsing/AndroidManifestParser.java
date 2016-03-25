@@ -80,6 +80,8 @@ public class AndroidManifestParser extends DefaultHandler {
 		c.permission = null == (s = attrs.getValue("android:permission")) ? c.permission : s;
 		c.process = null == (s = attrs.getValue("android:process")) ? c.process : s;
 		c.enabled = ("false").equals(attrs.getValue("android:enabled")) ? false : true;
+		//c.icon = null == (s = attributes.getValue("android:icon")) ? c.icon : s;
+
 		// It is a common attribute, but may have different rules (by component)
 		c.exported = ("false").equals(attrs.getValue("android:exported")) ? false : true;
 	}
@@ -120,7 +122,6 @@ public class AndroidManifestParser extends DefaultHandler {
 				c.excludeFromRecents = ("true").equals(attributes.getValue("android:excludeFromRecents")) ? true : false;
 				c.finishOnTaskLaunch = ("true").equals(attributes.getValue("android:finishOnTaskLaunch")) ? true : false;
 				c.hardwareAccelerated = ("true").equals(attributes.getValue("android:hardwareAccelerated")) ? true : false;
-				c.icon = null == (s = attributes.getValue("android:icon")) ? c.icon : s;
 				c.launchMode = null == (s = attributes.getValue("android:launchMode")) ? c.launchMode : s;
 				c.maxRecents = null == (s = attributes.getValue("android:maxRecents")) ? c.maxRecents : Integer.parseInt(s);
 				c.multiprocess = ("true").equals(attributes.getValue("android:multiprocess")) ? true : false;

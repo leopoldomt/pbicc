@@ -12,7 +12,6 @@ public class ContentProvider extends Component {
 	public boolean exportedWasSetted;
 	
 	public boolean grantUriPermissions = false;
-	public String icon = NOT_SET;
 	public int initOrder;
 	//public android:label	"string resource"
 	public boolean multiprocess = false;
@@ -47,7 +46,6 @@ public class ContentProvider extends Component {
         }
         builder.append("\n");
         builder.append(String.format("GrantUriPermissions: %s\n", grantUriPermissions));
-        builder.append(String.format("Icon: %s\n", icon));
         builder.append(String.format("InitOrder: %s\n", initOrder));
         builder.append(String.format("Multiprocess: %s\n", multiprocess));
         builder.append(String.format("ReadPermission: %s\n", readPermission));

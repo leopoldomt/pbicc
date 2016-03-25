@@ -17,7 +17,7 @@ public class Activity extends Component {
 //	boolean exported;
 	public boolean finishOnTaskLaunch = false;
 	public boolean hardwareAccelerated = false;
-	public String icon = NOT_SET;
+//	public String icon = NOT_SET;
 //	String label;
 	public String launchMode = NOT_SET;
 	public int maxRecents = 16;
@@ -53,7 +53,6 @@ public class Activity extends Component {
         builder.append(String.format("ExcludeFromRecents: %s\n", excludeFromRecents));
         builder.append(String.format("FinishOnTaskLaunch: %s\n", finishOnTaskLaunch));
         builder.append(String.format("HardwareAccelerated: %s\n", hardwareAccelerated));
-        builder.append(String.format("Icon: %s\n", icon));
         builder.append(String.format("LaunchMode: %s\n", launchMode));
         builder.append(String.format("MaxRecents: %s\n", maxRecents));
         builder.append(String.format("Multiprocess: %s\n", multiprocess));
