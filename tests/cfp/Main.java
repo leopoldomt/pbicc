@@ -93,19 +93,19 @@ public class Main {
 				// these cases need to be unfolded
 				FieldAccessExpr fieldAccessExpr = (FieldAccessExpr) argument;
 				referencedStrings.put(key, fieldAccessExpr.toString());
-			} else { // fallback solution
+			} else if (argument!=null){ // fallback solution
 				StringBuffer sb = new StringBuffer();
 				for (String s : argument.toString().split(" ")) {
-					String tmp = canonicalize(s);
-					if (literalStrings.containsKey(tmp)) {
-						// if the canonicalized version is a known symbol, 
-						// consider the canonicalized version.
-						sb.append(tmp);	
-					} else {
-						sb.append(s);
+						String tmp = canonicalize(s);
+						if (literalStrings.containsKey(tmp)) {
+							// if the canonicalized version is a known symbol, 
+							// consider the canonicalized version.
+							sb.append(tmp);	
+						} else {
+							sb.append(s);
+						}
+						sb.append(" "); // this is important!
 					}
-					sb.append(" "); // this is important!
-				}
 				referencedStrings.put(key, sb.toString());
 			}
 		}
@@ -192,9 +192,9 @@ public class Main {
 	}
 
 	public static void main(String[] args) throws FileNotFoundException, ParseException {
-		//List<String> l = Arrays.asList("tests/cfp/B.java", "tests/cfp/A.java");
-		List<String> l = Arrays.asList("test-data/explicit_intent_test/app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/MainActivity.java","test-data/explicit_intent_test/app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/Strings.java");		
-		CFPVisitor visitor = new CFPVisitor();
+		List<String> l = Arrays.asList("tests/cfp/B.java", "tests/cfp/A.java");
+		//List<String> l = Arrays.asList("test-data/explicit_intent_test/app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/MainActivity.java","test-data/explicit_intent_test/app/src/main/java/br/ufpe/cin/pbicc/test/intents/explicit/Strings.java");		
+		Main.CFPVisitor visitor = new Main.CFPVisitor();
 		for (String s : l) {
 			FileInputStream in = new FileInputStream(s);
 			CompilationUnit cu = JavaParser.parse(in);

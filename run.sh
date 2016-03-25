@@ -18,7 +18,8 @@ if [ ! -f "target/pb-icc.jar" ]; then
 fi
 
 SUBJECT_DIR=$1
-SUBJECT_SRC=$SUBJECT_DIR/src/
+#SUBJECT_SRC=$SUBJECT_DIR/src/
+SUBJECT_SRC=$SUBJECT_DIR/
 SUBJECT_NAME=$(basename $SUBJECT_DIR)
 ## clean-compile code 
 mkdir -p $OUT

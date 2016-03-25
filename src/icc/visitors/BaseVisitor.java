@@ -71,7 +71,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
       NameExpr nameExpr = (NameExpr) expr;
       
       String i = data.findWithSuffixMatch(nameExpr.getName());
-      System.out.println(nameExpr.getName() + "--> " + i);
+      //System.out.println(nameExpr.getName() + "--> " + i);
 	  if (i!=null) {
 		  result = i;
 	  }
@@ -91,7 +91,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     else if (expr instanceof FieldAccessExpr) {
         FieldAccessExpr fieldAccess = (FieldAccessExpr) expr;
         String i = data.findWithSuffixMatch(fieldAccess.getField());
-        System.out.println(fieldAccess.getField() + "--> " + i);
+        //System.out.println(fieldAccess.getField() + "--> " + i);
         if (i!=null) {
         	result = i;
         }
@@ -387,9 +387,8 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
       }
       else
       {
-          System.out.println("came here "+ init.getClass().toString());
-          
-    	  this.data.varsST.put(varName, new VarInfo(varType, init.toString()));
+          //System.out.println("came here "+ init.getClass().toString());
+          this.data.varsST.put(varName, new VarInfo(varType, init.toString()));
       }
     }
   }

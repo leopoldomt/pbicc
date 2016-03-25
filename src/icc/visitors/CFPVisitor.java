@@ -52,12 +52,16 @@ public class CFPVisitor extends BaseVisitor {
 	private void updateMaps(String key, Expression argument) {
 		if (argument instanceof StringLiteralExpr) {
 			data.literalStrings.put(key, ((StringLiteralExpr) argument).getValue());
-		} else if (argument instanceof FieldAccessExpr) {
+		} 
+		else if (argument instanceof FieldAccessExpr) {
 			// these cases need to be unfolded
 			FieldAccessExpr fieldAccessExpr = (FieldAccessExpr) argument;
 			data.referencedStrings.put(key, fieldAccessExpr.toString());
-		} else { // fallback solution
+		} 
+		// fallback solution
+		else if (argument!=null) { 
 			StringBuffer sb = new StringBuffer();
+			//TODO nullpointerexception problem
 			for (String s : argument.toString().split(" ")) {
 				String tmp = canonicalize(s);
 				if (data.literalStrings.containsKey(tmp)) {
