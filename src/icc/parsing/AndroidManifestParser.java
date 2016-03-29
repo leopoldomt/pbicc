@@ -144,9 +144,13 @@ public class AndroidManifestParser extends DefaultHandler {
 				this.application.enabled = ("false").equals(attributes.getValue("android:enabled")) ? false : true;
 				this.application.hasCode= ("false").equals(attributes.getValue("android:")) ? false : true; 
 				
-				//TODO special case
-				//application.hardwareAccelerated;
-				
+				this.application.hardwareAcceleratedWasSetted = null == attributes.getValue("android:hardwareAccelerated") ? false : true;
+				if(!this.application.hardwareAcceleratedWasSetted){
+					this.application.setDefaulthardwareAccelerated(this.minSdkVersion, this.targetSdkVersion);
+				} else {
+					this.application.hardwareAccelerated = ("true").equals(attributes.getValue("android:hardwareAccelerated")) ? true : false;
+				}
+								
 				this.application.icon = (null) == (a = attributes.getValue("android:icon")) ? application.icon : a;
 				this.application.isGame = ("true").equals(attributes.getValue("android:isGame")) ? true : false;
 				this.application.killAfterRestore = ("false").equals(attributes.getValue("android:killAfterRestore")) ? false : true;
@@ -256,7 +260,6 @@ public class AndroidManifestParser extends DefaultHandler {
 				setCommonComponentsAttrs(c, attributes);
 			
 				c.exportedWasSetted = null == attributes.getValue("android:exported") ? false : true;
-				
 				if(!c.exportedWasSetted){
 					c.setDefaultExported(this.minSdkVersion, this.targetSdkVersion);
 				}
@@ -381,6 +384,9 @@ public class AndroidManifestParser extends DefaultHandler {
 		System.out.println("---");
 		System.out.println("MinSdkVersion: "+manifestParser.minSdkVersion);
 		System.out.println("TargetSdkVersion: "+manifestParser.targetSdkVersion);
+		System.out.println("---");
+		System.out.println("");
+		System.out.println(manifestParser.application);
 		System.out.println("---");
 		for (Component c : manifestParser.components) {
 			System.out.println("Component: ");
