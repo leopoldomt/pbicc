@@ -7,6 +7,8 @@ public class Service extends Component {
 	
 	public Service() {
 		super();
+		super.type = ComponentType.SERVICE;
+
 	}
 
 	@Override

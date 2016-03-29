@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Component
 {
-    public final String NOT_SET = "#NOT SET#";
+    public static final String NOT_SET = "#NOT SET#";
     public ComponentType type;
     public String label = NOT_SET;
     public String name = NOT_SET;

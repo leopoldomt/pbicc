@@ -24,6 +24,8 @@ public class ContentProvider extends Component {
 	
 	public ContentProvider(){
 		super();
+		super.type = ComponentType.CONTENT_PROVIDER;
+		
 		authorities = new ArrayList<String>();
 	}
 	
