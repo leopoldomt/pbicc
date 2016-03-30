@@ -69,6 +69,21 @@
 			</intent-filter>
 		</activity>
 
+		<service
+			android:name="com.fsck.k9.service.RemoteControlService"
+			android:permission="com.fsck.k9.permission.ANYTHING">
+		</service>
+		
+		<service
+			android:name="com.fsck.k9.service.RemoteControlService_2"
+			android:isolatedProcess="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</service>
+		
 		<!-- <activity
 		    android:configChanges="locale"
 		    android:label="@string/prefs_title"
@@ -316,9 +331,9 @@
 			<intent-filter>
 				<action android:name="edu.gatech.m3.emma.COLLECT_COVERAGE" />
 			</intent-filter>
-		</receiver> -->
+		</receiver> 
 		<activity android:label="EmmaInstrumentationActivity"
-			android:name="com.fsck.k9.EmmaInstrument.InstrumentedActivity" />
+			android:name="com.fsck.k9.EmmaInstrument.InstrumentedActivity" /> -->
 		
 	</application>
 	

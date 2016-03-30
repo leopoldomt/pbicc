@@ -1,16 +1,15 @@
 package icc;
 
 import icc.data.Activity;
-import icc.data.Component;
 import icc.parsing.AndroidManifestParser;
 import junit.framework.TestCase;
 
-public class TestAndroidManifestParser extends TestCase{
+public class TestAndroidManifestParserActivity extends TestCase implements
+		ITestAndroidManifestParserComponent {
 
 	String manifestPath = "test-data/manifestparser_test/AndroidManifest_1.xml";
 	AndroidManifestParser manifestParser;
 	Activity act;
-
 
 	@Override
 	protected void setUp() throws Exception {
@@ -18,7 +17,40 @@ public class TestAndroidManifestParser extends TestCase{
 		act = (Activity) manifestParser.components.get(0);
 	};
 
-	//public void testWindowSoftInputMode() {}
+	@Override
+	public void testEnabled() {
+		assertTrue(act.enabled);
+	}
+
+	@Override
+	public void testExported() {
+		assertTrue(act.exported);
+	}
+
+	@Override
+	public void testIcon() {
+	}
+
+	@Override
+	public void testLabel() {
+	}
+
+	@Override
+	public void testName() {
+		assertTrue(!Activity.NOT_SET.equals(act.name));
+	}
+
+	@Override
+	public void testPermission() {
+		assertEquals(manifestParser.application.permission, act.permission);
+	}
+
+	@Override
+	public void testProcess() {
+		assertEquals(manifestParser.application.process, act.process);
+	}
+
+	// public void testWindowSoftInputMode() {}
 
 	public void testUiOptions() {
 		assertEquals("none", act.uiOptions);
@@ -43,23 +75,12 @@ public class TestAndroidManifestParser extends TestCase{
 	public void testRelinquishTaskIdentity() {
 		assertFalse(act.relinquishTaskIdentity);
 	}
-	
-	public void testProcess(){
-		assertEquals(manifestParser.application.process, act.process);
-	}
 
-	public void testPermission(){
-		assertEquals(manifestParser.application.permission, act.permission);
+	public void testParentActivityName() {
 	}
-	
-	public void testParentActivityName() {}
 
 	public void testNoHistory() {
 		assertFalse(act.noHistory);
-	}
-	
-	public void testName(){
-		assertTrue(!Activity.NOT_SET.equals(act.name));
 	}
 
 	public void testMultiprocess() {
@@ -68,58 +89,49 @@ public class TestAndroidManifestParser extends TestCase{
 
 	public void testMaxRecents() {
 		assertEquals(16, act.maxRecents);
-		//assertTrue(act.maxRecents>=16 && act.maxRecents <= 50);
+		// assertTrue(act.maxRecents>=16 && act.maxRecents <= 50);
 	}
 
 	public void testLaunchMode() {
 		assertEquals("standard", act.launchMode);
 	}
 
-	//TODO maybe we can use this attribute and its default value (see default behavior)
-	//public void testeLabel(){}
+	// TODO maybe we can use this attribute and its default value (see default
+	// behavior)
+	// public void testeLabel(){}
 
 	public void testHardwareAccelerated() {
 		assertFalse(act.hardwareAccelerated);
 	}
 
 	public void testFinishOnTaskLaunch() {
-		assertFalse(act.finishOnTaskLaunch);		
-	}
-
-	public void testExported(){
-		assertTrue(act.exported);
+		assertFalse(act.finishOnTaskLaunch);
 	}
 
 	public void testExcludeFromRecents() {
 		assertFalse(act.excludeFromRecents);
-	}
-	
-	public void testEnabled(){
-		assertTrue(act.enabled);
 	}
 
 	public void testDocumentLaunchMode() {
 		assertEquals("none", act.documentLaunchMode);
 	}
 
-	//public void testConfigChanges() {}
+	// public void testConfigChanges() {}
 
 	public void testClearTaskOnLaunch() {
 		assertFalse(act.clearTaskOnLaunch);
 	}
 
-	//public void testBanner() {}
-
-	
+	// public void testBanner() {}
 
 	public void testAutoRemoveFromRecents() {
 		assertFalse(act.autoRemoveFromRecents);
 	}
-	
+
 	public void testAlwaysRetainTaskState() {
 		assertFalse(act.alwaysRetainTaskState);
 	}
-	
+
 	public void testAllowTaskReparenting() {
 		assertTrue(act.allowTaskReparenting);
 	}
@@ -127,4 +139,5 @@ public class TestAndroidManifestParser extends TestCase{
 	public void testAllowEmbedded() {
 		assertFalse(act.allowEmbedded);
 	}
+
 }
