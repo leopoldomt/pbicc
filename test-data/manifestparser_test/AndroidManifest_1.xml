@@ -89,6 +89,14 @@
 			android:name="com.fsck.k9.provider.AttachmentProvider"
 			android:readPermission="com.fsck.k9.permission.READ_ATTACHMENT" />
 		
+		<receiver 
+		    android:name="com.fsck.k9.service.CoreReceiver">
+			<intent-filter>
+				<action android:name="com.fsck.k9.service.CoreReceiver.wakeLockRelease" />
+			</intent-filter>
+		</receiver>
+		
+		
 		<!-- <activity
 		    android:configChanges="locale"
 		    android:label="@string/prefs_title"

@@ -6,7 +6,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ TestAndroidManifestParserActivity.class,
 		TestAndroidManifestParserService.class,
-		TestAndroidManifestParserContentProvider.class })
+		TestAndroidManifestParserContentProvider.class,
+		TestAndroidManifestParserBroadcastReceiver.class })
 public class TestAndroidManifestParserSuite {
 
 }
