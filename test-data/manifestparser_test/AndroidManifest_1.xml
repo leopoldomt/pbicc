@@ -84,6 +84,11 @@
 			</intent-filter>
 		</service>
 		
+		<provider
+		    android:authorities="com.fsck.k9.attachmentprovider"
+			android:name="com.fsck.k9.provider.AttachmentProvider"
+			android:readPermission="com.fsck.k9.permission.READ_ATTACHMENT" />
+		
 		<!-- <activity
 		    android:configChanges="locale"
 		    android:label="@string/prefs_title"
