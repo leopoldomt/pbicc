@@ -272,7 +272,7 @@ public class AndroidManifestParser extends DefaultHandler {
 
 				c.grantUriPermissions = ("true").equals(attributes.getValue("android:grantUriPermissions")) ? true : false;
 				c.initOrder = null == (s = attributes.getValue("android:initOrder")) ? 0 : Integer.parseInt(s);
-				c.multiprocess = ("true").equals(attributes.getValue("android:multprocess")) ? true : false;
+				c.multiprocess = ("true").equals(attributes.getValue("android:multiprocess")) ? true : false;
 				c.readPermission = null == (s = attributes.getValue("android:readPermission")) ? c.readPermission : s;
 				c.syncable = ("true").equals(attributes.getValue("android:syncable")) ? true : false;
 				c.writePermission = null == (s = attributes.getValue("android:writePermission")) ? c.writePermission : s;
