@@ -14,8 +14,9 @@ import com.github.javaparser.ast.expr.ObjectCreationExpr;
 
 public class ServiceVisitor extends BaseVisitor {
 	private final String M_START_SERVICE = "startService";
+	private final String M_BIND_SERVICE = "bindService";
 	private final List<String> SERVICE_CALLS = new ArrayList<String>(
-			Arrays.asList(new String[] { M_START_SERVICE }));
+			Arrays.asList(new String[] { M_START_SERVICE, M_BIND_SERVICE }));
 
 	public ServiceVisitor(ICCLinkFindingResults data) {
 		super(data);
@@ -32,6 +33,10 @@ public class ServiceVisitor extends BaseVisitor {
 			if (name.equals(M_START_SERVICE)) {
 				// stats being incremented
 				this.data.stats.addStartService();
+			}
+			else if (name.equals(M_BIND_SERVICE)) {
+				// stats being incremented
+				this.data.stats.addBindService();
 			}
 
 			// 1 or more args
