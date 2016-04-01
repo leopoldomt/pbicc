@@ -15,7 +15,30 @@ import com.github.javaparser.ast.expr.ObjectCreationExpr;
 public class ActivityVisitor extends BaseVisitor {
 	private final String M_START_ACTIVITY = "startActivity";
 	private final String M_START_ACTIVITY_FOR_RESULT = "startActivityForResult";
-	private final List<String> ACTIVITY_CALLS = new ArrayList<String>(Arrays.asList(new String[] { M_START_ACTIVITY, M_START_ACTIVITY_FOR_RESULT }));
+	//public boolean startActivityIfNeeded (Intent intent, int requestCode, (Bundle options)?)
+	private final String M_START_ACTIVITY_IF_NEEDED = "startActivityIfNeeded";
+	//public boolean startNextMatchingActivity (Intent intent, (Bundle options)?)
+	private final String M_START_NEXT_MATCHING_ACTIVITY = "startNextMatchingActivity";
+	//public void startActivityFromChild (Activity child, Intent intent, int requestCode, (Bundle options)?)
+	private final String M_START_ACTIVITY_FROM_CHILD = "startActivityFromChild";
+	//public void startActivityFromFragment (Fragment fragment, Intent intent, int requestCode, (Bundle options)?)
+	private final String M_START_ACTIVITY_FROM_FRAGMENT = "startActivityFromFragment";
+	
+	//TODO add support for the other methods below, on a if-need-be basis
+	//public void startActivities (Intent[] intents, (Bundle bundle)?)
+	private final String M_START_ACTIVITIES = "startActivities"; 
+	//public void startIntentSender (IntentSender intent, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, (Bundle options)?)
+	private final String M_START_INTENT_SENDER = "startIntentSender";
+	//public void startIntentSenderForResult (IntentSender intent, int requestCode, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, (Bundle options)?)
+	private final String M_START_INTENT_SENDER_FOR_RESULT = "startIntentSenderForResult";
+	//public void startIntentSenderFromChild (Activity child, IntentSender intent, int requestCode, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, (Bundle options)?)
+	private final String M_START_INTENT_SENDER_FROM_CHILD = "startIntentSenderFromChild";
+
+	private final List<String> ACTIVITY_CALLS = new ArrayList<String>(Arrays.asList(new String[] { 
+			M_START_ACTIVITY, M_START_ACTIVITY_FOR_RESULT, M_START_ACTIVITY_IF_NEEDED, 
+			M_START_NEXT_MATCHING_ACTIVITY, M_START_ACTIVITY_FROM_CHILD, M_START_ACTIVITY_FROM_FRAGMENT 
+		}
+	));
 
 	public ActivityVisitor(ICCLinkFindingResults data) {
 		super(data);
@@ -29,10 +52,20 @@ public class ActivityVisitor extends BaseVisitor {
 		List<Expression> args = expr.getArgs();
 
 		if (ACTIVITY_CALLS.contains(methodCall)) {
-			if (methodCall.equals(M_START_ACTIVITY) || methodCall.equals(M_START_ACTIVITY_FOR_RESULT)) {
-				// stats being incremented
-				this.data.stats.addStartActivity();
+			// stats being incremented
+			this.data.stats.addStartActivity();
+			
+			Expression argExpr = null; 
+			
+			if (methodCall.equals(M_START_ACTIVITY) || methodCall.equals(M_START_ACTIVITY_FOR_RESULT) 
+				|| methodCall.equals(M_START_ACTIVITY_IF_NEEDED) || methodCall.equals(M_START_NEXT_MATCHING_ACTIVITY)) {
+				argExpr = args.get(0);
 			}
+			else if (methodCall.equals(M_START_ACTIVITY_FROM_CHILD) || methodCall.equals(M_START_ACTIVITY_FROM_FRAGMENT)) {
+				argExpr = args.get(1);
+			}
+			//TODO when adding support for other methods, handle argExpr with other else if branches
+			
 
 			// 1 or more args
 			if (args != null && args.size() >= 1) {
@@ -41,7 +74,6 @@ public class ActivityVisitor extends BaseVisitor {
 				String packageName = this.getLastPackageVisited();
 				String className = this.getLastClassVisited();
 				String methodName = this.getLastMethodNameVisited();
-				Expression argExpr = args.get(0);
 
 				// object creation
 				if (argExpr instanceof ObjectCreationExpr) {
@@ -75,6 +107,7 @@ public class ActivityVisitor extends BaseVisitor {
 							this.data.iccLinks.add(new ICCLinkInfo<IntentInfo>(fullScope, shortScope, packageName, className, methodName, methodCall, info));
 						}
 					} 
+					//TODO try to capture method calls that return Intent type
 					else {
 						// TODO: improve this heuristic (empty implicit intent)
 						this.data.iccLinks.add(new ICCLinkInfo<IntentInfo>(fullScope, shortScope, packageName, className, methodName, methodCall, new IntentInfo()));
