@@ -27,6 +27,28 @@ public class TestActivityVisitor {
 		
 		ICCLinkFindingResults results = State.getInstance().iccResults();
 		List<ICCLinkInfo<IntentInfo>> links = results.iccLinks;
+		//System.out.println(links.size());
+		//System.out.println("=====");
+		
+		for (ICCLinkInfo<IntentInfo> link : links) {
+			//System.out.println(link);
+			//System.out.println("=====");
+			if (link.getScope().equals(scope)){
+				IntentInfo info = link.getTarget();
+				Assert.assertEquals("br.ufpe.cin.pbicc.test.intents.explicit.TestActivity",info.getComponent());
+			}
+			
+		}
+	}
+	
+	@Test
+	public void testObjectCreationWithPutExtra() throws Exception {
+		String scope = "br.ufpe.cin.pbicc.test.intents.explicit.TestActivity.void test() {\n    startActivity(new Intent(Intent.ACTION_VIEW).putExtra(\"key\", \"value\"));\n}";
+		Main.init(file, pathComputer + pathApp);
+		Main.getICCLinkResults();
+		
+		ICCLinkFindingResults results = State.getInstance().iccResults();
+		List<ICCLinkInfo<IntentInfo>> links = results.iccLinks;
 		System.out.println(links.size());
 		System.out.println("=====");
 		
@@ -35,7 +57,7 @@ public class TestActivityVisitor {
 			System.out.println("=====");
 			if (link.getScope().equals(scope)){
 				IntentInfo info = link.getTarget();
-				Assert.assertEquals("br.ufpe.cin.pbicc.test.intents.explicit.TestActivity",info.getComponent());
+				Assert.assertEquals("Intent.ACTION_VIEW",info.action);
 			}
 			
 		}

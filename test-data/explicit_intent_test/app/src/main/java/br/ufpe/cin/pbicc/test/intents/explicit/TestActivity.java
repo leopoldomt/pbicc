@@ -10,4 +10,8 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
     }
+    
+    void test() {
+    	startActivity(new Intent(Intent.ACTION_VIEW).putExtra("key","value"));
+    }
 }

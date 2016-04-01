@@ -1,12 +1,13 @@
 package icc.visitors;
 
+import icc.data.ICCLinkFindingResults;
+import icc.data.ICCLinkInfo;
+import icc.data.IntentInfo;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import icc.data.ICCLinkFindingResults;
-import icc.data.ICCLinkInfo;
-import icc.data.IntentInfo;
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.NameExpr;
@@ -74,11 +75,11 @@ public class ActivityVisitor extends BaseVisitor {
 				String packageName = this.getLastPackageVisited();
 				String className = this.getLastClassVisited();
 				String methodName = this.getLastMethodNameVisited();
-
+				
 				// object creation
 				if (argExpr instanceof ObjectCreationExpr) {
 					ObjectCreationExpr newIntent = (ObjectCreationExpr) argExpr;
-
+					
 					IntentInfo info = handleIntentCreation(newIntent);
 
 					if (info != null) {
@@ -98,9 +99,21 @@ public class ActivityVisitor extends BaseVisitor {
 				} 
 				else if (argExpr instanceof MethodCallExpr) {
 					MethodCallExpr callExpr = (MethodCallExpr) argExpr;
-					System.out.println(callExpr.getName());
+					//System.out.println(callExpr.getName());
 
-					if (callExpr.getName().equals(M_CREATE_CHOOSER)) {
+					if (callExpr.getName().equals("putExtra")) {
+						Expression e = callExpr.getScope();
+						if (e instanceof ObjectCreationExpr) {
+							ObjectCreationExpr newIntent = (ObjectCreationExpr) e;
+							IntentInfo info = handleIntentCreation(newIntent);
+							List<Expression> extraArgs = callExpr.getArgs();
+							handleSetPutExtra(extraArgs, info);
+							if (info != null) {
+								this.data.iccLinks.add(new ICCLinkInfo<IntentInfo>(fullScope, shortScope, packageName, className, methodName, methodCall, info));
+							}
+						}
+					}
+					else if (callExpr.getName().equals(M_CREATE_CHOOSER)) {
 						IntentInfo info = handleCreateChooser(callExpr);
 
 						if (info != null) {
