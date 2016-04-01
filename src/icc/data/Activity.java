@@ -11,15 +11,15 @@ public class Activity extends Component {
 	public String banner = NOT_SET;
 	public boolean clearTaskOnLaunch = false;	
 	public String configChanges = NOT_SET;
-	public String documentLaunchMode = NOT_SET;
+	public String documentLaunchMode = "none";
 //	boolean enabled;
 	public boolean excludeFromRecents = false;
 //	boolean exported;
 	public boolean finishOnTaskLaunch = false;
 	public boolean hardwareAccelerated = false;
-	public String icon = NOT_SET;
+//	public String icon = NOT_SET;
 //	String label;
-	public String launchMode = NOT_SET;
+	public String launchMode = "standard";
 	public int maxRecents = 16;
 	public boolean multiprocess = false;
 //	String name;
@@ -28,15 +28,17 @@ public class Activity extends Component {
 //	String permission;
 //	String process;
 	public boolean relinquishTaskIdentity = false;
-	public String screenOrientation = NOT_SET;
+	public String screenOrientation = "unspecified";
 	public boolean stateNotNeeded = false;
 	public String taskAffinity = NOT_SET;
 	public String theme = NOT_SET;
-	public String uiOptions = NOT_SET;
+	public String uiOptions = "none";
 	public String windowSoftInputMode = NOT_SET;
 
 	public Activity() {
 		super();
+		super.type = ComponentType.ACTIVITY;
+
 	}
 
 	@Override
@@ -53,7 +55,6 @@ public class Activity extends Component {
         builder.append(String.format("ExcludeFromRecents: %s\n", excludeFromRecents));
         builder.append(String.format("FinishOnTaskLaunch: %s\n", finishOnTaskLaunch));
         builder.append(String.format("HardwareAccelerated: %s\n", hardwareAccelerated));
-        builder.append(String.format("Icon: %s\n", icon));
         builder.append(String.format("LaunchMode: %s\n", launchMode));
         builder.append(String.format("MaxRecents: %s\n", maxRecents));
         builder.append(String.format("Multiprocess: %s\n", multiprocess));

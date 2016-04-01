@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Component
 {
-    public final String NOT_SET = "#NOT SET#";
+    public static final String NOT_SET = "#NOT SET#";
     public ComponentType type;
     public String label = NOT_SET;
     public String name = NOT_SET;
@@ -14,6 +14,7 @@ public abstract class Component
     
     //TODO: capture other kinds of common information among components
     
+	//public String icon = NOT_SET;
     public boolean enabled = true;
     public String permission = NOT_SET;
     public String process = NOT_SET;
@@ -35,6 +36,8 @@ public abstract class Component
         builder.append(String.format("Enabled: %s\n", enabled));
         builder.append(String.format("Permission: %s\n", permission));
         builder.append(String.format("Process: %s\n", process));
+        //builder.append(String.format("Icon: %s\n", icon));
+
         
         builder.append(toStringExclusiveAttributes());
         

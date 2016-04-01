@@ -8,8 +8,10 @@ public class ContentProvider extends Component {
 	public List<String> authorities;
 	//public android:enabled	["true" | "false"]
 	//public android:exported	["true" | "false"]
+	
+	public boolean exportedWasSetted;
+	
 	public boolean grantUriPermissions = false;
-	public String icon = NOT_SET;
 	public int initOrder;
 	//public android:label	"string resource"
 	public boolean multiprocess = false;
@@ -22,7 +24,18 @@ public class ContentProvider extends Component {
 	
 	public ContentProvider(){
 		super();
+		super.type = ComponentType.CONTENT_PROVIDER;
+		
 		authorities = new ArrayList<String>();
+	}
+	
+	
+	public void setDefaultExported(int minSdkVersion, int targetSdkVersion){
+		if(minSdkVersion <= 16 || targetSdkVersion <=16){
+			super.exported = true;
+		} else {
+			super.exported = false;
+		}
 	}
 	
 	@Override
@@ -35,7 +48,6 @@ public class ContentProvider extends Component {
         }
         builder.append("\n");
         builder.append(String.format("GrantUriPermissions: %s\n", grantUriPermissions));
-        builder.append(String.format("Icon: %s\n", icon));
         builder.append(String.format("InitOrder: %s\n", initOrder));
         builder.append(String.format("Multiprocess: %s\n", multiprocess));
         builder.append(String.format("ReadPermission: %s\n", readPermission));
