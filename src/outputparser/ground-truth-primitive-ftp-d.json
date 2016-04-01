@@ -1,0 +1,62 @@
+  [
+    {
+      "scope" : "PrimitiveFtpdActivity.handlePrefs", 
+      "methodType" : "startActivity",
+      "identifier" : "intent",
+      "component" : "FtpPrefsActivityThemeDark.class",
+      "action" : "-",
+      "data" : "-",
+      "mimeType" : "-",
+      "extras" : "address"
+    },
+    {
+      "scope" : "PrimitiveFtpdActivity.handlePrefs", 
+      "methodType" : "startActivity",
+      "identifier" : "intent",
+      "component" : "FtpPrefsActivityThemeLight.class",
+      "action" : "-",
+      "data" : "-",
+      "mimeType" : "-",
+      "extras" : "address"
+    },
+    {
+      "scope" : "PrimitiveFtpdActivity.handleAbout", 
+      "methodType" : "startActivity",
+      "identifier" : "intent",
+      "component" : "AboutActivity.class",
+      "action" : "-",
+      "data" : "-",
+      "mimeType" : "-",
+      "extras" : "-"
+    },
+    {
+      "scope" : "ServerServiceHandler.handleStart", 
+      "methodType" : "sendBroadcast",
+      "identifier" : "intent",
+      "component" : "-",
+      "action" : "org.primftpd.CouldNotStartServer",
+      "data" : "-",
+      "mimeType" : "-",
+      "extras" : "-"
+    },
+    {
+      "scope" : "ServicesStartStopUtil.startServers", 
+      "methodType" : "startService",
+      "identifier" : "-",
+      "component" : "SshServerService.class",
+      "action" : "-",
+      "data" : "-",
+      "mimeType" : "-",
+      "extras" : "prefs.bean"
+    },
+    {
+      "scope" : "ServicesStartStopUtil.startServers", 
+      "methodType" : "startService",
+      "identifier" : "-",
+      "component" : "FtpServerService.class",
+      "action" : "-",
+      "data" : "-",
+      "mimeType" : "-",
+      "extras" : "prefs.bean"
+    }
+  ]
