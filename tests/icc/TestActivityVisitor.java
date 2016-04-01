@@ -1,13 +1,16 @@
 package icc;
 
+import icc.data.BroadcastReceiver;
 import icc.data.ICCLinkFindingResults;
 import icc.data.ICCLinkInfo;
 import icc.data.IntentInfo;
+import icc.parsing.AndroidManifestParser;
 
 import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestActivityVisitor {
@@ -27,8 +30,6 @@ public class TestActivityVisitor {
 		
 		ICCLinkFindingResults results = State.getInstance().iccResults();
 		List<ICCLinkInfo<IntentInfo>> links = results.iccLinks;
-		//System.out.println(links.size());
-		//System.out.println("=====");
 		
 		for (ICCLinkInfo<IntentInfo> link : links) {
 			//System.out.println(link);
@@ -36,8 +37,7 @@ public class TestActivityVisitor {
 			if (link.getScope().equals(scope)){
 				IntentInfo info = link.getTarget();
 				Assert.assertEquals("br.ufpe.cin.pbicc.test.intents.explicit.TestActivity",info.getComponent());
-			}
-			
+			}	
 		}
 	}
 	
@@ -49,17 +49,32 @@ public class TestActivityVisitor {
 		
 		ICCLinkFindingResults results = State.getInstance().iccResults();
 		List<ICCLinkInfo<IntentInfo>> links = results.iccLinks;
-		System.out.println(links.size());
-		System.out.println("=====");
 		
 		for (ICCLinkInfo<IntentInfo> link : links) {
-			System.out.println(link);
-			System.out.println("=====");
+			//System.out.println(link);
+			//System.out.println("=====");
 			if (link.getScope().equals(scope)){
 				IntentInfo info = link.getTarget();
 				Assert.assertEquals("Intent.ACTION_VIEW",info.action);
 			}
 			
+		}
+	}
+	
+	@Test
+	public void testObjectCreationWithAction() throws Exception {
+		String scope = "br.ufpe.cin.pbicc.test.intents.explicit.TestActivity.void test() {\n    startActivity(new Intent(Intent.ACTION_VIEW).putExtra(\"key\", \"value\"));\n}";
+		Main.init(file, pathComputer + pathApp);
+		Main.getICCLinkResults();
+		
+		ICCLinkFindingResults results = State.getInstance().iccResults();
+		List<ICCLinkInfo<IntentInfo>> links = results.iccLinks;
+		
+		for (ICCLinkInfo<IntentInfo> link : links) {
+			if (link.getScope().startsWith("br.ufpe.cin.pbicc.test.intents.explicit.TestActivity")) {
+				System.out.println(link);
+				System.out.println("=====");
+			}			
 		}
 	}
 }

@@ -255,8 +255,7 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 
     if (args != null)
     {
-      if (args.size() == 1)
-      {
+      if (args.size() == 1) {
         // TODO: check if the argument isn't another intent instead of an action
         Expression e = args.get(0);
         String value = e.toString();
@@ -266,19 +265,39 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         }
         info.action.add(value);
       }
-      else if (args.size() == 2)
-      {
-        // TODO: improve the heuristic being used to determine if the argument
-        // is a Context or String object.
-
-        if (matchesContextString(args.get(0).toString()))
-        {
+      else if (args.size() == 2) {
+        // TODO: improve the heuristic being used to determine if the argument is a Context or String object.
+        if (matchesContextString(args.get(0).toString())) {
           info.className.add(args.get(1).toString());
         }
-        else
-        {
-          info.action.add(args.get(0).toString());
-          info.data.add(args.get(1).toString());
+        else {
+        	//System.out.println(args.get(0).toString() + " --> " + args.get(0).getClass().getName());
+        	Expression e1 = args.get(0);
+        	Expression e2 = args.get(1);
+        	String v2 = getVarValue(e2);
+        	if (e2.toString().endsWith(".class") || v2.endsWith(".class")) {
+        		info.className.add(e2.toString());
+        	}
+        	else {
+        		if (e1 instanceof NameExpr || e1 instanceof FieldAccessExpr) {
+		        	String i1 = getVarValue(e1);
+		            if (!i1.startsWith("could not")) {
+		            	info.action.add(i1);
+		            }
+		            else {
+		            	info.action.add(e1.toString());
+		            }
+        		}
+        		else {
+        			info.action.add(e1.toString());
+        		}
+        		if (e2 instanceof NameExpr || e2 instanceof FieldAccessExpr) {
+               		info.data.add(v2);
+               	}
+               	else {
+               		info.data.add(e2.toString());
+               	}
+            }
         }
       }
       else if (args.size() == 4)
