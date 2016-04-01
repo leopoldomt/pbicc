@@ -10,6 +10,8 @@ public class IntentStats {
 			this.value = 0;
 		}
 	}
+	
+	//TODO consider creating a map indexed by method call, so we avoid introducing so many attributes 
 
 	public Stat intentCount = new Stat("Intents");
 	public Stat explicitIntents = new Stat("Intents (Explicit)");

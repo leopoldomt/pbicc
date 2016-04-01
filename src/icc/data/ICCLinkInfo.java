@@ -52,6 +52,11 @@ public class ICCLinkInfo <T>
     
     return csv;
   }
+  
+  public String toJSON() {
+	  
+	  return "";
+  }
 
   public String getMethodName() {
     return methodName;
