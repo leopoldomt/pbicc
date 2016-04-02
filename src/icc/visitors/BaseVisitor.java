@@ -61,13 +61,11 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     this.data = data;
   }
   
-  protected String getVarValue(Expression expr)
-  {
+  protected String getVarValue(Expression expr) {
     // if there's no var, return the original result
     String result = expr.toString();
 
-    if (expr instanceof NameExpr)
-    {
+    if (expr instanceof NameExpr) {
       NameExpr nameExpr = (NameExpr) expr;
       
       String i = data.findWithSuffixMatch(nameExpr.getName());
@@ -78,12 +76,10 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 	  else {	
 	      VarInfo info = this.data.varsST.get(getFullScopeName(nameExpr.getName()));
 	
-	      if (info != null)
-	      {
+	      if (info != null) {
 	        result = info.value; 
 	      }
-	      else
-	      {
+	      else {
 	        result = String.format("could not retrieve var '%s'", result);
 	      }
 	  }
@@ -104,6 +100,10 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         		result = String.format("could not retrieve var '%s'", result);
         	}
         }
+    }
+    else if (expr instanceof StringLiteralExpr) {
+    	StringLiteralExpr literal = (StringLiteralExpr) expr;
+    	result = literal.getValue();
     }
     return result;
   }

@@ -1,10 +1,13 @@
 package icc.data;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class IntentInfo {
 	public final String NOT_SET = "-";
+	private final boolean PRINT_EXTRAS_VALUES = false;
 
 	public String identifier = NOT_SET;
 	public FieldList category = new FieldList();
@@ -40,18 +43,35 @@ public class IntentInfo {
 
 	public String toJSON() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(String.format("\n \"identifier\" : \"%s\"", identifier));
-		builder.append(String.format("\n \"component\" : \"%s\"", getComponent()));
-		builder.append(String.format("\n \"action\" : \"%s\"", action));
-		builder.append(String.format("\n \"data\" : \"%s\"", data));
-		builder.append(String.format("\n \"mimeType\" : \"%s\"", type));
-		String extrasJson;
+		builder.append(String.format("\n \"identifier\" : \"%s\",", identifier));
+		builder.append(String.format("\n \"component\" : \"%s\",", getComponent()));
+		builder.append(String.format("\n \"action\" : \"%s\",", action));
+		builder.append(String.format("\n \"data\" : \"%s\",", data));
+		builder.append(String.format("\n \"mimeType\" : \"%s\",", type));
+		//TODO consider if we need the extras value, I don't think we do
+		String extrasJson = extrasToJSON(PRINT_EXTRAS_VALUES);
+		builder.append(String.format("\n \"extras\" : %s", extrasJson));
+		return builder.toString();
+	}
+	
+	public String extrasToJSON(boolean withValue) {
+		StringBuilder builder = new StringBuilder();
 		if (extras.size() > 0) {
-			extrasJson = String.join(", ", extras.keySet());
+			builder.append("[");
+			Set<String> extraStrings = new HashSet<String>();
+			for (Map.Entry<String, String> entry : extras.entrySet()) {
+				StringBuilder value = new StringBuilder();
+				value.append("\""+entry.getKey()+"\"");
+				if (withValue) {
+					value.append(" : \""+entry.getValue()+"\"");
+				}
+				extraStrings.add(value.toString());
+			}
+			builder.append(String.join(", ", extraStrings));
+			builder.append("]");
 		} else {
-			extrasJson = "-";
+			builder.append("\"-\"");
 		}
-		builder.append(String.format("\n \"extras\" : \"%s\"", extrasJson));
 		return builder.toString();
 	}
 

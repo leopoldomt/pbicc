@@ -56,8 +56,8 @@ public class ICCLinkInfo <T>
   public String toJSON() {
 	  StringBuilder sb = new StringBuilder();
 	  sb.append("\n{");
-	  sb.append(String.format("\n \"scope\" : \"%s\"", shortScope));
-	  sb.append(String.format("\n \"methodType\" : \"%s\"", methodCall));
+	  sb.append(String.format("\n \"scope\" : \"%s\",", shortScope));
+	  sb.append(String.format("\n \"methodType\" : \"%s\",", methodCall));
 	  String t;
 	  if (target instanceof IntentInfo) {
 	      IntentInfo i = (IntentInfo) target;      
