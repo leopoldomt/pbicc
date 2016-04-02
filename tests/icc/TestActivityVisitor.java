@@ -73,4 +73,14 @@ public class TestActivityVisitor {
 			}			
 		}
 	}
+
+	@Test
+	public void testJSON() throws Exception {
+		Main.init(file, pathComputer + pathApp);
+		Main.getICCLinkResults();		
+		ICCLinkFindingResults results = State.getInstance().iccResults();
+		System.out.println(results.toJSON());
+		
+	}
+
 }

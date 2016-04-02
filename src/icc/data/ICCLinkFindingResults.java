@@ -40,6 +40,21 @@ public class ICCLinkFindingResults {
 		stats.implicitIntents.value = getImplicitIntentsCount();
 	}
 	
+	public String toJSON() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		int x = 1;
+		int total = iccLinks.size();
+		for (ICCLinkInfo<IntentInfo> linkInfo : iccLinks) {
+			sb.append(linkInfo.toJSON());
+			if (x<total) {
+				sb.append(",");
+			}
+			x++;
+		}
+		sb.append("]");
+		return sb.toString();
+	}
 	
 
 	private int getAnonymousIntentsCount() {

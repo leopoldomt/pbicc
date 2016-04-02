@@ -54,8 +54,21 @@ public class ICCLinkInfo <T>
   }
   
   public String toJSON() {
-	  
-	  return "";
+	  StringBuilder sb = new StringBuilder();
+	  sb.append("\n{");
+	  sb.append(String.format("\n \"scope\" : \"%s\"", shortScope));
+	  sb.append(String.format("\n \"methodType\" : \"%s\"", methodCall));
+	  String t;
+	  if (target instanceof IntentInfo) {
+	      IntentInfo i = (IntentInfo) target;      
+		  t = i.toJSON();
+	  }
+	  else {
+		  t = target.toString(); 
+	  }
+	  sb.append(t);
+	  sb.append("\n}");
+	  return sb.toString();
   }
 
   public String getMethodName() {

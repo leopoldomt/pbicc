@@ -14,10 +14,9 @@ public class FieldList extends ArrayList<String> {
   public String toString() {
     Iterator<String> it = iterator();
     if (! it.hasNext())
-        return "[]";
+        return "-";
 
     StringBuilder sb = new StringBuilder();
-    //sb.append('[');
     for (;;) {
         String e = it.next();
         sb.append(e);
