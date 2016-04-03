@@ -1,0 +1,38 @@
+[
+  {
+    "scope": "FullscreenImage.onOptionsItemSelected",
+    "methodType": "startActivity",
+    "identifier": "i",
+    "component": "-",
+    "action": "Intent.ACTION_VIEW",
+    "data": "entry.getUrl()",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "-"
+  },
+  {
+    "scope": "FullscreenImage.share",
+    "methodType": "startActivity",
+    "identifier": "i",
+    "component": "-",
+    "action": "ACTION_SEND",
+    "data": "-",
+    "mimeType": ["image/jpg", "text/plain"],
+    "category": "-",
+    "flags": "-",
+    "extras": ["Intent.EXTRA_STREAM", "Intent.EXTRA_SUBJECT", "Intent.EXTRA_TEXT"]
+  },
+  {
+    "scope": "ZooBorns.onCreate.onItemClick",
+    "methodType": "startActivity",
+    "identifier": "i",
+    "component": "FullScreenImage",
+    "action": "---",
+    "data": "that.imgCache.getImages().get(position).filesystemUri()",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": ["cachedImageList", "gallery", "currentImageIndex"]
+  }
+]

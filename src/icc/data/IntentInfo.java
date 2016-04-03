@@ -45,16 +45,16 @@ public class IntentInfo {
 		StringBuilder builder = new StringBuilder();
 		builder.append(String.format("\n \"identifier\" : \"%s\",", identifier));
 		builder.append(String.format("\n \"component\" : \"%s\",", getComponent()));
-		builder.append(String.format("\n \"action\" : \"%s\",", action));
-		builder.append(String.format("\n \"data\" : \"%s\",", data));
-		builder.append(String.format("\n \"mimeType\" : \"%s\",", type));
+		builder.append(String.format("\n \"action\" : %s,", action.toJSON()));
+		builder.append(String.format("\n \"data\" : %s,", data.toJSON()));
+		builder.append(String.format("\n \"mimeType\" : %s,", type.toJSON()));
 		//TODO consider if we need the extras value, I don't think we do
 		String extrasJson = extrasToJSON(PRINT_EXTRAS_VALUES);
 		builder.append(String.format("\n \"extras\" : %s", extrasJson));
 		return builder.toString();
 	}
 	
-	public String extrasToJSON(boolean withValue) {
+	private String extrasToJSON(boolean withValue) {
 		StringBuilder builder = new StringBuilder();
 		if (extras.size() > 0) {
 			builder.append("[");

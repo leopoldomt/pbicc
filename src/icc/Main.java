@@ -42,6 +42,7 @@ public class Main {
   static boolean PRINT_DOT = false;
   static boolean PRINT_TOPO_ORDER = false;
   static boolean ICC_SAVE_RESULTS = true;
+  static boolean ICC_SAVE_JSON = true;
   
 
   static String fileListFile;
@@ -187,6 +188,15 @@ public class Main {
     	String name = fileListFile.split("-")[0] + "-icc-results.txt"; // component dependency graph
     	BufferedWriter bw = new BufferedWriter(new FileWriter(name));
     	bw.write(toSave);
+        bw.flush();
+        bw.close();
+    }
+    
+    // saving ICC link results information in JSON format
+    if (ICC_SAVE_JSON) {
+    	String name = fileListFile.split("-")[0] + "-icc-results.json";
+    	BufferedWriter bw = new BufferedWriter(new FileWriter(name));
+    	bw.write(iccResults.toJSON());
         bw.flush();
         bw.close();
     }

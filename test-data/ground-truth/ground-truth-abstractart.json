@@ -1,0 +1,62 @@
+[
+  {
+    "scope": "Wallpaper.AbstractArtEngine.onCommand",
+    "methodType": "startActivity",
+    "identifier": "myIntent",
+    "component": "BackgroundSelector",
+    "action": "-",
+    "data": "-",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "FLAG_ACTIVITY_NEW_TASK",
+    "extras": "-"
+  },
+  {
+    "scope": "Wallpaper.AbstractArtEngine.onCommand",
+    "methodType": "startActivity",
+    "identifier": "myIntent",
+    "component": "Settings",
+    "action": "-",
+    "data": "-",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "FLAG_ACTIVITY_NEW_TASK",
+    "extras": "-"
+  },
+  {
+    "scope": "Settings.onCreate.onPreferenceClick",
+    "methodType": "startActivity",
+    "identifier": "-",
+    "component": "-",
+    "action": "ACTION_VIEW",
+    "data": "market://details?id= + appName",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "-"
+  },
+  {
+    "scope": "Settings.onCreate.onPreferenceClick",
+    "methodType": "startActivity",
+    "identifier": "-",
+    "component": "-",
+    "action": "ACTION_VIEW",
+    "data": "http://play.google.com/store/apps/details?id= + appName",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "-"
+  },
+  {
+    "scope": "Settings.onCreate.onPreferenceClick",
+    "methodType": "startActivity",
+    "identifier": "send",
+    "component": "-",
+    "action": "ACTION_SENDTO",
+    "data": "mailto:george@georgewhiteside.net?subject=Abstract Art",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "-"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "scope": "AddressInputDialog.onCreateDialog.onClick",
+    "methodType": "startActivity",
+    "identifier": "startIntent",
+    "component": "ClientActivity",
+    "action": "-",
+    "data": "-",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "address"
+  },
+  {
+    "scope": "MainActivity.onOptionsItemSelected",
+    "methodType": "startActivity",
+    "identifier": "-",
+    "component": "SettingsActivity.class",
+    "action": "-",
+    "data": "-",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "-"
+  },
+  {
+    "scope": "MainActivity.startScreenCapture",
+    "methodType": "startActivityForResult",
+    "identifier": "-",
+    "component": "-",
+    "action": "-",
+    "data": "-",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "-"
+  },
+  {
+    "scope": "MainActivity.onActivityResult",
+    "methodType": "startService",
+    "identifier": "startServerIntent",
+    "component": "ServerService.class",
+    "action": "START",
+    "data": "-",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "-"
+  },
+  {
+    "scope": "MainActivity.StartServerServiceDialog. onClick",
+    "methodType": "startService",
+    "identifier": "startServerIntent",
+    "component": "ServerService.class",
+    "action": "START",
+    "data": "-",
+    "mimeType": "-",
+    "category": "-",
+    "flags": "-",
+    "extras": "-"
+  }
+]
