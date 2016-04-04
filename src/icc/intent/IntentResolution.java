@@ -45,18 +45,17 @@ public class IntentResolution {
 	private static void actionTest(Intent it, IntentFilter ifilter)
 			throws ActionTestException {
 		System.out.println(ifilter.action);
-		if(null == ifilter.action){
+		if (null == ifilter.action) {
 			throw new ActionTestException();
-		} 
-		
-		if(null != it.getAction()){
-			//TODO Intent-Filter can has one or more actions.
-			
-			if(!it.getAction().equals(ifilter.action)){
+		}
+
+		if (null != it.getAction()) {
+			// TODO Intent-Filter can has one or more actions.
+			if (!it.getAction().equals(ifilter.action)) {
 				throw new ActionTestException();
 			}
-		} 
-				
+		}
+
 	}
 
 	private static void dataTest(Intent it, IntentFilter ifilter)
@@ -68,8 +67,32 @@ public class IntentResolution {
 
 	private static void categoryTest(Intent it, IntentFilter ifilter)
 			throws CategoryTestException {
-		// throw new CategoryTestException();
 
+		System.out.println(ifilter.category);
+
+		if(it.getCategories().size() > 0){
+			if(null != ifilter.category){
+				boolean pass = true;
+				for(String ctg : it.getCategories()){
+					if(!pass){
+						throw new CategoryTestException();
+					}
+					
+					// TODO for-each in ifilter.catergory (has to be a list);
+					if(ctg.equals(ifilter.category)){
+						pass = true;
+					} else {
+						pass = false;
+					}
+				}
+			} else {
+				throw new CategoryTestException();
+			}
+		} else if(null != ifilter.category){
+			// TODO what happen when has no category on intent neither on intent-filter?
+			//throw new CategoryTestException();
+		}
+		
 	}
 
 	static class ActionTestException extends Exception {
@@ -100,9 +123,9 @@ public class IntentResolution {
 
 		Intent it = new Intent();
 
-		it.setAction("android.intent.action.VIEW");
+		it.setAction("android.intent.action.MAIN");
 		it.addData("mailto://contacts/people/1");
-		it.addCategory("android.intent.category.DEFAULT");
+		//it.addCategory("android.intent.category.DEFAULT");
 
 		for (Component c : androidManifest.components) {
 			System.out.println(IntentResolution.resolve(it, c));
