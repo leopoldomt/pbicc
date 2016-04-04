@@ -2,16 +2,18 @@ package icc.intent;
 
 import java.util.ArrayList;
 
+import icc.data.IntentFilter;
+
 public class Intent {
 
 	private String componentName;
 	private String action;
 	private ArrayList<String> categories;
-	private ArrayList<String> datas;
+	private IntentFilter.Data data;
 
 	public Intent() {
 		this.categories = new ArrayList<String>();
-		this.datas = new ArrayList<String>();
+		//this.datas = new ArrayList<IntentFilter.Data>();
 	}
 
 	public Intent(String compName) {
@@ -31,8 +33,8 @@ public class Intent {
 		return categories;
 	}
 
-	public ArrayList<String> getDatas() {
-		return datas;
+	public IntentFilter.Data getData() {
+		return data;
 	}
 
 	public void setAction(String action) {
@@ -43,8 +45,8 @@ public class Intent {
 		categories.add(category);
 	}
 
-	public void addData(String data) {
-		datas.add(data);
+	public void setData(IntentFilter.Data data) {
+		this.data = data;
 	}
 
 }
