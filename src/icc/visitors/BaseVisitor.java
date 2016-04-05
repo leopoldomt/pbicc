@@ -80,7 +80,8 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 	        result = info.value; 
 	      }
 	      else {
-	        result = String.format("could not retrieve var '%s'", result);
+	    	  //result = String.format("could not retrieve var '%s'", result);
+	    	  result = nameExpr.toString();
 	      }
 	  }
     }
@@ -97,7 +98,8 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         		result = info.value; 
         	}
         	else {
-        		result = String.format("could not retrieve var '%s'", result);
+        		//result = String.format("could not retrieve field access '%s'", result);
+        		result = fieldAccess.toString();
         	}
         }
     }
@@ -218,22 +220,19 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 
       IntentInfo existingIntentInfo = this.data.intentsST.get(existingVar);
 
-      if (existingIntentInfo != null)
-      {
-        info = new IntentInfo();
-
-        info.action.add(CHOOSER_ACTION);
-        info.target = existingIntentInfo;
+      if (existingIntentInfo != null) {
+        //info = new IntentInfo();
+        //info.action.add(CHOOSER_ACTION);
+        //info.target = existingIntentInfo;
+    	return existingIntentInfo;
       }
-      else
-      {
+      else {
         // TODO: Fix tool limitation
         info.action.add(CHOOSER_ACTION);
         info.target = new IntentInfo();
       }
     }
-    else
-    {
+    else {
       // TODO: Fix tool limitation
       info.action.add(CHOOSER_ACTION);
       info.target = new IntentInfo();
@@ -262,6 +261,27 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         if (e instanceof NameExpr) {
           NameExpr n = (NameExpr) e;
           value = getVarValue(n);
+        }
+        else if (e instanceof FieldAccessExpr) {
+            FieldAccessExpr fieldAccess = (FieldAccessExpr) e;
+            String i = data.findWithSuffixMatch(fieldAccess.getField());
+            if (i!=null) {
+            	value = i;
+            }
+            else {
+            	VarInfo varInfo = this.data.varsST.get(getFullScopeName(fieldAccess.getField()));
+            	if (varInfo != null) {
+            		value = varInfo.value; 
+            	}
+            	else {
+            		//result = String.format("could not retrieve field access '%s'", result);
+            		value = e.toString();
+            	}
+            }
+        }
+        else if (e instanceof StringLiteralExpr) {
+        	StringLiteralExpr literal = (StringLiteralExpr) e;
+        	value = literal.getValue();
         }
         info.action.add(value);
       }

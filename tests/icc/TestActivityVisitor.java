@@ -74,12 +74,27 @@ public class TestActivityVisitor {
 		}
 	}
 
+
+	
+	@Test
+	public void testCreateChooser() throws Exception {
+		Main.init(file, pathComputer + pathApp);
+		Main.getICCLinkResults();		
+		ICCLinkFindingResults results = State.getInstance().iccResults();
+		List<ICCLinkInfo<IntentInfo>> links = results.iccLinks;
+		
+		for (ICCLinkInfo<IntentInfo> link : links) {
+			System.out.println(link);			
+		}
+		
+	}
+	
 	@Test
 	public void testJSON() throws Exception {
 		Main.init(file, pathComputer + pathApp);
 		Main.getICCLinkResults();		
 		ICCLinkFindingResults results = State.getInstance().iccResults();
-		System.out.println(results.toJSON());
+		//System.out.println(results.toJSON());
 		
 	}
 

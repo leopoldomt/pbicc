@@ -117,6 +117,10 @@ public class ActivityVisitor extends BaseVisitor {
 						IntentInfo info = handleCreateChooser(callExpr);
 
 						if (info != null) {
+							if (callExpr.getArgs().get(0) instanceof NameExpr) {
+								NameExpr intentVar = (NameExpr) callExpr.getArgs().get(0);
+								info.identifier = intentVar.getName();
+							}
 							this.data.iccLinks.add(new ICCLinkInfo<IntentInfo>(fullScope, shortScope, packageName, className, methodName, methodCall, info));
 						}
 					} 

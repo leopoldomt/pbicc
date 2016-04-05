@@ -43,7 +43,6 @@ public class Main {
   static boolean PRINT_TOPO_ORDER = false;
   static boolean ICC_SAVE_RESULTS = true;
   static boolean ICC_SAVE_JSON = true;
-  
 
   static String fileListFile;
   static String appSourceDir;
@@ -128,49 +127,6 @@ public class Main {
 		System.out.println(toPrint);
 		results.append(toPrint);
     }
-
-    /*
-    for(Map.Entry<String, ICCLinkFindingResults> resultsEntry : State.getInstance().resultsMap().entrySet()) {
-    	StringBuilder localResults = new StringBuilder();
-    	localResults.append(String.format("### File: %s", resultsEntry.getKey()));
-    	// printing the intents
-    	Map<String, IntentInfo> intents = resultsEntry.getValue().intentsST.getMap();
-    	IntentInfo info = null;
-    	for(Map.Entry<String, IntentInfo> intentEntry : intents.entrySet()) {
-    		info = intentEntry.getValue();
-    		if ((info.isExplicit() && ICC_SHOW_EXPLICIT_INTENTS) || (!info.isExplicit() && ICC_SHOW_IMPLICIT_INTENTS)) {
-    			localResults.append(String.format("%s:\n%s\n----------\n", intentEntry.getKey(), intentEntry.getValue()));
-    		}
-    	}
-    	
-    	//printing the vars
-    	if (ICC_SHOW_VARS) { 
-    		Map<String, VarInfo> vars = resultsEntry.getValue().varsST.getMap();
-    		for(Map.Entry<String, VarInfo> varEntry : vars.entrySet()) {
-    			String name = varEntry.getKey(); 
-    			VarInfo varInfo = varEntry.getValue();
-    			localResults.append(String.format("%s %s = %s\n", info.type, name, varInfo.value));
-    		}
-    	}
-    	
-    	// printing the links
-    	if (ICC_SHOW_LINKS) {
-    		List<ICCLinkInfo<IntentInfo>> links = resultsEntry.getValue().iccLinks;
-    		for (ICCLinkInfo<IntentInfo> link : links) {
-    			localResults.append(link+"\n");
-    		}
-    	}
-    	
-    	IntentStats stats = resultsEntry.getValue().stats;
-    	appIntentStats.add(stats);
-    	if (ICC_SHOW_STATS_PER_FILE) {
-    		localResults.append(resultsEntry.getValue().stats+"\n");
-    	}
-    	String toPrint = localResults.toString();
-    	System.out.println(toPrint);
-    	results.append(toPrint);
-    }
-    /**/
 
     if (ICC_SHOW_FINAL_STATS) {
     	StringBuilder localResults = new StringBuilder();
@@ -273,7 +229,7 @@ public class Main {
         cfpVisitor.visit(entry.getValue(), null);
     }
     
-    Map<String,String> mapStrings = results.propagate();
+    results.propagate();
     
     for (Map.Entry<String, CompilationUnit> entry : asts.entrySet()) {
       ICCLinkFinder.findICCLinks(entry.getValue(),results);
