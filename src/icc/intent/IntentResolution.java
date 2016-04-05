@@ -11,10 +11,10 @@ public class IntentResolution {
 	}
 
 	public static boolean resolve(Intent it, Component comp) {
-		System.out.println(comp.name);
+		// System.out.println(comp.name);
 		boolean response = false;
 		for (IntentFilter ifilter : comp.intentFilters) {
-			System.out.println(">>>> Start intent-fiter");
+			// System.out.println(">>>> Start intent-fiter");
 
 			try {
 				actionTest(it, ifilter);
@@ -24,26 +24,27 @@ public class IntentResolution {
 				throw new Exception();
 
 			} catch (ActionTestException e1) {
-				System.out.println(e1.getMessage());
+				// System.out.println(e1.getMessage());
 				response = false;
 			} catch (DataTestException e2) {
-				System.out.println(e2.getMessage());
+				// System.out.println(e2.getMessage());
 				response = false;
 			} catch (CategoryTestException e3) {
-				System.out.println(e3.getMessage());
+				// System.out.println(e3.getMessage());
 				response = false;
 			} catch (Exception e4) {
 				response = true;
-				System.out.println(">>>> End intent-filter");
+				// System.out.println(">>>> End intent-filter");
 				break;
 			}
-			System.out.println(">>>> End intent-filter");
+			// System.out.println(">>>> End intent-filter");
 		}
 		return response;
 	}
 
-	private static void actionTest(Intent it, IntentFilter ifilter) throws ActionTestException {
-		System.out.println(ifilter.action);
+	private static void actionTest(Intent it, IntentFilter ifilter)
+			throws ActionTestException {
+		// System.out.println(ifilter.action);
 		if (null == ifilter.action) {
 			throw new ActionTestException();
 		}
@@ -57,8 +58,9 @@ public class IntentResolution {
 
 	}
 
-	private static void dataTest(Intent it, IntentFilter ifilter) throws DataTestException {
-		System.out.println(ifilter.data);
+	private static void dataTest(Intent it, IntentFilter ifilter)
+			throws DataTestException {
+		// System.out.println(ifilter.data);
 
 		DataTestException e = new DataTestException();
 		if (it.getData().scheme == null && it.getData().mimeType == null) {
@@ -68,37 +70,56 @@ public class IntentResolution {
 			}
 			// TODO nothing?
 
-		} else
+		} else if (it.getData().scheme != null && it.getData().mimeType == null) {
 
-		if (it.getData().scheme != null && it.getData().mimeType == null) {
-
-			if (ifilter.data.mimeType != null && !matchUri(it.getData(), ifilter.data)) {
+			if (ifilter.data.mimeType == null
+					&& !matchUri(it.getData(), ifilter.data)) {
 				throw e;
 			}
 
-			// match only uri
-
-		} else
-
-		if (it.getData().scheme == null && it.getData().mimeType != null) {
-			if (ifilter.data.scheme != null || !it.getData().mimeType.equals(ifilter.data.mimeType)) {
+		} else if (it.getData().scheme == null && it.getData().mimeType != null) {
+			if (ifilter.data.scheme != null
+					|| !matchMimetype(it.getData(), ifilter.data)) {
 				throw e;
 			}
 		} else {
-
-			// if (it.getData().scheme != null && it.getData().mimeType != null)
-			// {
-
-			if (ifilter.data.scheme == null || ifilter.data.mimeType == null) {
+			// (it.getData().scheme != null && it.getData().mimeType != null)
+			if (ifilter.data.mimeType == null
+					|| !(ifilter.data.scheme == null && (it.getData().scheme
+							.equals("content") || it.getData().scheme
+							.equals("file")))
+					|| (!matchMimetype(it.getData(), ifilter.data) || !matchUri(
+							it.getData(), ifilter.data))) {
 				throw e;
 			}
-
-			// TODO ....
+			// ....
 		}
 
 	}
 
-	private static boolean matchUriPath(IntentFilter.Data dt1, IntentFilter.Data dt2) {
+	private static boolean matchMimetype(IntentFilter.Data dt1,
+			IntentFilter.Data dt2) {
+		boolean match = false;
+		// it.getData().mimeType.equals(ifilter.data.mimeType)
+		String prefix_dt1 = dt1.mimeType
+				.substring(0, dt1.mimeType.indexOf("/"));
+		String prefix_dt2 = dt2.mimeType
+				.substring(0, dt2.mimeType.indexOf("/"));
+		String posfix_dt1 = dt1.mimeType.substring(dt1.mimeType.indexOf("/"));
+		String posfix_dt2 = dt2.mimeType.substring(dt2.mimeType.indexOf("/"));
+
+		if (dt1.mimeType.equals(dt2.mimeType)
+				|| (dt2.mimeType.startsWith("*/"))
+				|| (prefix_dt1.equals(prefix_dt2) && (posfix_dt2.equals("*") || posfix_dt1
+						.equals(posfix_dt2)))) {
+			match = true;
+		}
+		return match;
+
+	}
+
+	private static boolean matchUriPath(IntentFilter.Data dt1,
+			IntentFilter.Data dt2) {
 		boolean match = false;
 		if (dt1.path == null && dt2.path == null) {
 			match = true;
@@ -110,7 +131,8 @@ public class IntentResolution {
 					if (dt1.pathPrefix.equals(dt2.pathPrefix)) {
 						if (dt2.pathPattern == null && dt2.pathPattern == null) {
 							match = true;
-						} else if (dt1.pathPattern != null && dt2.pathPattern != null) {
+						} else if (dt1.pathPattern != null
+								&& dt2.pathPattern != null) {
 							if (dt1.pathPattern.equals(dt2.pathPattern)) {
 								match = true;
 							}
@@ -131,7 +153,8 @@ public class IntentResolution {
 			if (dt1.scheme.equals(dt2.scheme)) {
 				if (dt1.host != null && dt2.host != null) {
 					if (dt1.host.equals(dt2.host)) {
-						if (dt1.port == null && dt2.port == null || dt1.port != null && dt2.port != null) {
+						if (dt1.port == null && dt2.port == null
+								|| dt1.port != null && dt2.port != null) {
 							match = matchUriPath(dt1, dt2);
 						}
 					}
@@ -145,9 +168,10 @@ public class IntentResolution {
 
 	}
 
-	private static void categoryTest(Intent it, IntentFilter ifilter) throws CategoryTestException {
+	private static void categoryTest(Intent it, IntentFilter ifilter)
+			throws CategoryTestException {
 
-		System.out.println(ifilter.category);
+		// System.out.println(ifilter.category);
 
 		if (it.getCategories().size() > 0) {
 			if (null != ifilter.category) {
@@ -198,22 +222,34 @@ public class IntentResolution {
 
 		String manifestPath = "test-data/k9/AndroidManifest.xml";
 
-		AndroidManifestParser androidManifest = new AndroidManifestParser(manifestPath);
+		AndroidManifestParser androidManifest = new AndroidManifestParser(
+				manifestPath);
 
 		Intent it = new Intent();
 
-		it.setAction("android.intent.action.MAIN");
-
 		IntentFilter.Data dt = new IntentFilter.Data();
-		// "mailto://contacts/people/1"
-		dt.scheme = "mailto";
-		dt.host = "contacts";
+
+		// it.setAction("android.intent.action.VIEW");
+		// it.addCategory("android.intent.category.DEFAULT");
+		// dt.scheme = "email";
+		// dt.host = "messages";
+
+		// it.setAction("android.intent.action.SENDTO");
+		// it.addCategory("android.intent.category.DEFAULT");
+		// dt.scheme = "mailto";
+
+		// it.setAction("android.intent.action.SEND");
+		// it.addCategory("android.intent.category.DEFAULT");
+		// dt.mimeType = "text/*";
+
+		it.setAction("android.intent.action.MEDIA_MOUNTED");
+		dt.scheme = "file";
 
 		it.setData(dt);
-		// it.addCategory("android.intent.category.DEFAULT");
 
 		for (Component c : androidManifest.components) {
-			System.out.println(IntentResolution.resolve(it, c));
+			System.out.println(String.format("%s - %s", c.name,
+					IntentResolution.resolve(it, c)));
 		}
 
 	}
