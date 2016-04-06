@@ -17,33 +17,33 @@
  "action" : "event",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FileSyncAdapter.class.getName() + ".EXTRA_ACCOUNT_NAME" ", "FileSyncAdapter.class.getName() + ".EXTRA_RESULT" ", "FileSyncAdapter.class.getName() + ".EXTRA_FOLDER_PATH" "]
+ "extras" : "FileSyncAdapter.class.getName() + ".EXTRA_ACCOUNT_NAME" , FileSyncAdapter.class.getName() + ".EXTRA_FOLDER_PATH" , FileSyncAdapter.class.getName() + ".EXTRA_RESULT" "
 },
 {
  "scope" : "ConflictsResolveActivity.conflictDecisionMade",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "FileDownloader.class; ",
+ "component" : "FileDownloader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "ConflictsResolveActivity.conflictDecisionMade",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileUploader.class; ",
+ "component" : "FileUploader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["BEHAVIOUR", "account", "KEY_FORCE_OVERWRITE", "FILE", "UPLOAD_TYPE"]
+ "extras" : "KEY_FORCE_OVERWRITE, BEHAVIOUR, UPLOAD_TYPE, FILE, account"
 },
 {
  "scope" : "OperationsService.OperationsServiceBinder.queueNewOperation",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "OperationsService.class; ",
+ "component" : "OperationsService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -57,7 +57,7 @@
  "action" : "OperationsService.class.getName() + ".OPERATION_ADDED" ",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["SERVER_URL", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , SERVER_URL"
 },
 {
  "scope" : "OperationsService.sendBroadcastOperationFinished",
@@ -67,27 +67,27 @@
  "action" : "OperationsService.class.getName() + ".OPERATION_FINISHED" ",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FileSyncAdapter.class.getName() + ".EXTRA_RESULT" ", "SERVER_URL", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "FileSyncAdapter.class.getName() + ".EXTRA_RESULT" , ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , SERVER_URL"
 },
 {
  "scope" : "MediaServiceBinder.start",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "MediaService.class; ",
+ "component" : "MediaService.class",
  "action" : "MediaService.class.getPackage() != null ? MediaService.class.getPackage().getName() : "com.owncloud.android.media"  + ".action.PLAY_FILE" ",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "OCFileListFragment.class.getPackage() != null ? OCFileListFragment.class.getPackage().getName() : "com.owncloud.android.ui.fragment"  + ".extra.START_POSITION" ", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" ", "MediaService.class.getPackage() != null ? MediaService.class.getPackage().getName() : "com.owncloud.android.media"  + ".extra.PLAY_ON_LOAD" "]
+ "extras" : "OCFileListFragment.class.getPackage() != null ? OCFileListFragment.class.getPackage().getName() : "com.owncloud.android.ui.fragment"  + ".extra.START_POSITION" , ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , MediaService.class.getPackage() != null ? MediaService.class.getPackage().getName() : "com.owncloud.android.media"  + ".extra.PLAY_ON_LOAD" , FILE"
 },
 {
  "scope" : "FileDisplayActivity.startImagePreview",
  "methodType" : "startActivity",
  "identifier" : "showDetailsIntent",
- "component" : "PreviewImageActivity.class; ",
+ "component" : "PreviewImageActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "FileDisplayActivity.onCreate",
@@ -103,41 +103,41 @@
  "scope" : "FileDisplayActivity.requestMultipleUpload",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileUploader.class; ",
+ "component" : "FileUploader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["BEHAVIOUR", "account", "UPLOAD_TYPE", "REMOTE_FILE", "LOCAL_FILE"]
+ "extras" : "REMOTE_FILE, BEHAVIOUR, UPLOAD_TYPE, LOCAL_FILE, account"
 },
 {
  "scope" : "FileDisplayActivity.requestSimpleUpload",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileUploader.class; ",
+ "component" : "FileUploader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["BEHAVIOUR", "account", "MIME_TYPE", "UPLOAD_TYPE", "REMOTE_FILE", "LOCAL_FILE"]
+ "extras" : "REMOTE_FILE, BEHAVIOUR, UPLOAD_TYPE, LOCAL_FILE, account, MIME_TYPE"
 },
 {
  "scope" : "FileDisplayActivity.requestForDownload",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileDownloader.class; ",
+ "component" : "FileDownloader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "FileDisplayActivity.requestForDownload",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileDownloader.class; ",
+ "component" : "FileDownloader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "SyncFolderHandler.sendBroadcastNewSyncFolder",
@@ -147,7 +147,7 @@
  "action" : "FileDownloader.getDownloadAddedMessage()",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ACCOUNT_NAME", "REMOTE_PATH", "FILE_PATH"]
+ "extras" : "ACCOUNT_NAME, REMOTE_PATH, FILE_PATH"
 },
 {
  "scope" : "SyncFolderHandler.sendBroadcastFinishedSyncFolder",
@@ -157,17 +157,17 @@
  "action" : "FileDownloader.getDownloadFinishMessage()",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ACCOUNT_NAME", "REMOTE_PATH", "RESULT", "FILE_PATH"]
+ "extras" : "ACCOUNT_NAME, REMOTE_PATH, FILE_PATH, RESULT"
 },
 {
  "scope" : "FileActivity.requestCredentialsUpdate",
  "methodType" : "startActivity",
  "identifier" : "updateAccountCredentials",
- "component" : "AuthenticatorActivity.class; ",
+ "component" : "AuthenticatorActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ACTION", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ACTION, ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "
 },
 {
  "scope" : "FileActivity.onCreateShareViaLinkOperationFinish",
@@ -183,17 +183,17 @@
  "scope" : "FileActivity.onSynchronizeFileOperationFinish",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "ConflictsResolveActivity.class; ",
+ "component" : "ConflictsResolveActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "FileActivity.restart",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "FileDisplayActivity.class; ",
+ "component" : "FileDisplayActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -203,7 +203,7 @@
  "scope" : "FileActivity.DrawerItemClickListener.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "settingsIntent",
- "component" : "Preferences.class; ",
+ "component" : "Preferences.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -213,7 +213,7 @@
  "scope" : "FileActivity.DrawerItemClickListener.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "loggerIntent",
- "component" : "LogHistoryActivity.class; ",
+ "component" : "LogHistoryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -223,7 +223,7 @@
  "scope" : "FileActivity.onCreate",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "OperationsService.class; ",
+ "component" : "OperationsService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -233,7 +233,7 @@
  "scope" : "FileActivity.onCreate",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "FileDownloader.class; ",
+ "component" : "FileDownloader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -243,7 +243,7 @@
  "scope" : "FileActivity.onCreate",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "FileUploader.class; ",
+ "component" : "FileUploader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -253,21 +253,21 @@
  "scope" : "SynchronizeFileOperation.requestForUpload",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileUploader.class; ",
+ "component" : "FileUploader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["account", "KEY_FORCE_OVERWRITE", "FILE", "UPLOAD_TYPE"]
+ "extras" : "KEY_FORCE_OVERWRITE, UPLOAD_TYPE, FILE, account"
 },
 {
  "scope" : "SynchronizeFileOperation.requestForDownload",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileDownloader.class; ",
+ "component" : "FileDownloader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "OCFileListFragment.registerFabUploadFromAppListeners.onClick",
@@ -277,53 +277,53 @@
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["Intent.EXTRA_ALLOW_MULTIPLE"]
+ "extras" : "Intent.EXTRA_ALLOW_MULTIPLE"
 },
 {
  "scope" : "OCFileListFragment.onFileActionChosen",
  "methodType" : "startActivityForResult",
  "identifier" : "action",
- "component" : "FolderPickerActivity.class; ",
+ "component" : "FolderPickerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE"]
+ "extras" : "FILE"
 },
 {
  "scope" : "OCFileListFragment.onFileActionChosen",
  "methodType" : "startActivityForResult",
  "identifier" : "action",
- "component" : "FolderPickerActivity.class; ",
+ "component" : "FolderPickerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE"]
+ "extras" : "FILE"
 },
 {
  "scope" : "FolderObserver.startSyncOperation",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "ConflictsResolveActivity.class; ",
+ "component" : "ConflictsResolveActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "Preferences.onCreate.onItemLongClick.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "updateAccountCredentials",
- "component" : "AuthenticatorActivity.class; ",
+ "component" : "AuthenticatorActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ACTION", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ACTION, ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "
 },
 {
  "scope" : "Preferences.onCreate.onPreferenceChange",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "PassCodeActivity.class; ",
+ "component" : "PassCodeActivity.class",
  "action" : "incoming.booleanValue() ? PassCodeActivity.ACTION_REQUEST_WITH_RESULT : PassCodeActivity.ACTION_CHECK_WITH_RESULT",
  "data" : "-",
  "mimeType" : "-",
@@ -343,7 +343,7 @@
  "scope" : "Preferences.onCreate.onPreferenceClick",
  "methodType" : "startActivity",
  "identifier" : "loggerIntent",
- "component" : "LogHistoryActivity.class; ",
+ "component" : "LogHistoryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -357,7 +357,7 @@
  "action" : "Intent.ACTION_SENDTO",
  "data" : "null",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_TEXT", "Intent.EXTRA_SUBJECT"]
+ "extras" : "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
 },
 {
  "scope" : "Preferences.onCreate.onPreferenceClick",
@@ -367,7 +367,7 @@
  "action" : "Intent.ACTION_SENDTO",
  "data" : "(String) getText(R.string.mail_feedback) ",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_SUBJECT"]
+ "extras" : "Intent.EXTRA_SUBJECT"
 },
 {
  "scope" : "Preferences.onCreate.onPreferenceClick",
@@ -383,27 +383,27 @@
  "scope" : "Preferences.onCreate.onPreferenceClick",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "UploadPathActivity.class; ",
+ "component" : "UploadPathActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["INSTANT_UPLOAD_PATH"]
+ "extras" : "INSTANT_UPLOAD_PATH"
 },
 {
  "scope" : "Preferences.onCreate.onPreferenceClick",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "UploadPathActivity.class; ",
+ "component" : "UploadPathActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["INSTANT_UPLOAD_PATH"]
+ "extras" : "INSTANT_UPLOAD_PATH"
 },
 {
  "scope" : "Preferences.onMenuItemSelected",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "FileDisplayActivity.class; ",
+ "component" : "FileDisplayActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -413,7 +413,7 @@
  "scope" : "Preferences.addAccountsCheckboxPreferences.onPreferenceChange",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "FileDisplayActivity.class; ",
+ "component" : "FileDisplayActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -423,7 +423,7 @@
  "scope" : "Preferences.onCreate",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "FileDownloader.class; ",
+ "component" : "FileDownloader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -433,7 +433,7 @@
  "scope" : "Preferences.onCreate",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "FileUploader.class; ",
+ "component" : "FileUploader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -447,7 +447,7 @@
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["Intent.EXTRA_ALLOW_MULTIPLE"]
+ "extras" : "Intent.EXTRA_ALLOW_MULTIPLE"
 },
 {
  "scope" : "UploadSourceDialogFragment.onCreateDialog.onClick",
@@ -457,7 +457,7 @@
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["Intent.EXTRA_ALLOW_MULTIPLE"]
+ "extras" : "Intent.EXTRA_ALLOW_MULTIPLE"
 },
 {
  "scope" : "AuthenticatorActivity.startOauthorization",
@@ -483,7 +483,7 @@
  "scope" : "AuthenticatorActivity.onCreate",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "OperationsService.class; ",
+ "component" : "OperationsService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -503,21 +503,21 @@
  "scope" : "FileOperationsHelper.showShareFile",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "ShareActivity.class; ",
+ "component" : "ShareActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "FileOperationsHelper.syncFile",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "OperationsService.class; ",
+ "component" : "OperationsService.class",
  "action" : "SYNC_FOLDER",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["REMOTE_PATH", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "REMOTE_PATH, ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "
 },
 {
  "scope" : "FileOperationsHelper.toggleFavorite",
@@ -537,7 +537,7 @@
  "action" : "Intent.ACTION_SEND_MULTIPLE",
  "data" : "-",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_EMAIL", "Intent.EXTRA_SUBJECT"]
+ "extras" : "Intent.EXTRA_EMAIL, Intent.EXTRA_SUBJECT"
 },
 {
  "scope" : "FileDownloader.sendBroadcastDownloadFinished",
@@ -547,7 +547,7 @@
  "action" : "getDownloadFinishMessage()",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ACCOUNT_NAME", "LINKED_TO", "REMOTE_PATH", "RESULT", "FILE_PATH"]
+ "extras" : "ACCOUNT_NAME, LINKED_TO, REMOTE_PATH, FILE_PATH, RESULT"
 },
 {
  "scope" : "FileDownloader.sendBroadcastNewDownload",
@@ -557,7 +557,7 @@
  "action" : "getDownloadAddedMessage()",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ACCOUNT_NAME", "LINKED_TO", "REMOTE_PATH", "FILE_PATH"]
+ "extras" : "ACCOUNT_NAME, LINKED_TO, REMOTE_PATH, FILE_PATH"
 },
 {
  "scope" : "InstantUploadBroadcastReceiver.handleNewPictureAction",
@@ -613,7 +613,7 @@
  "scope" : "Uploader.onCreateDialog.onClick",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "AccountAuthenticator.class; ",
+ "component" : "AccountAuthenticator.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -623,7 +623,7 @@
  "scope" : "Uploader.onCreateDialog.onClick",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "AccountAuthenticator.class; ",
+ "component" : "AccountAuthenticator.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -633,51 +633,51 @@
  "scope" : "Uploader.uploadFiles",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "FileUploader.class; ",
+ "component" : "FileUploader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["account", "UPLOAD_TYPE", "REMOTE_FILE", "LOCAL_FILE"]
+ "extras" : "REMOTE_FILE, UPLOAD_TYPE, LOCAL_FILE, account"
 },
 {
  "scope" : "Uploader.onTmpFileCopied",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "FileUploader.class; ",
+ "component" : "FileUploader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["account", "UPLOAD_TYPE", "REMOTE_FILE", "LOCAL_FILE"]
+ "extras" : "REMOTE_FILE, UPLOAD_TYPE, LOCAL_FILE, account"
 },
 {
  "scope" : "SynchronizeFolderOperation.startDirectDownloads",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileDownloader.class; ",
+ "component" : "FileDownloader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "SynchronizeFolderOperation.startSyncFolderOperation",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "OperationsService.class; ",
+ "component" : "OperationsService.class",
  "action" : "SYNC_FOLDER",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["REMOTE_PATH", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "REMOTE_PATH, ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "
 },
 {
  "scope" : "UploadFilesActivity.startUploadActivityForResult",
  "methodType" : "startActivityForResult",
  "identifier" : "action",
- "component" : "UploadFilesActivity.class; ",
+ "component" : "UploadFilesActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "
 },
 {
  "scope" : "ShareLinkToDialog.createSelector.onClick",
@@ -697,13 +697,13 @@
  "action" : "event",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FileSyncAdapter.class.getName() + ".EXTRA_ACCOUNT_NAME" ", "FileSyncAdapter.class.getName() + ".EXTRA_RESULT" ", "FileSyncAdapter.class.getName() + ".EXTRA_FOLDER_PATH" "]
+ "extras" : "FileSyncAdapter.class.getName() + ".EXTRA_ACCOUNT_NAME" , FileSyncAdapter.class.getName() + ".EXTRA_FOLDER_PATH" , FileSyncAdapter.class.getName() + ".EXTRA_RESULT" "
 },
 {
  "scope" : "PassCodeManager.onActivityStarted",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "PassCodeActivity.class; ",
+ "component" : "PassCodeActivity.class",
  "action" : "ACTION_CHECK",
  "data" : "-",
  "mimeType" : "-",
@@ -713,37 +713,37 @@
  "scope" : "PreviewImageActivity.showDetails",
  "methodType" : "startActivity",
  "identifier" : "showDetailsIntent",
- "component" : "FileDisplayActivity.class; ",
+ "component" : "FileDisplayActivity.class",
  "action" : "com.owncloud.android.ui.activity.action.DETAILS",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "PreviewImageActivity.requestForDownload",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "FileDownloader.class; ",
+ "component" : "FileDownloader.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "PreviewMediaFragment.startFullScreenVideo",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "PreviewVideoActivity.class; ",
+ "component" : "PreviewVideoActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["FILE", "AUTOPLAY", "OCFileListFragment.class.getPackage() != null ? OCFileListFragment.class.getPackage().getName() : "com.owncloud.android.ui.fragment"  + ".extra.START_POSITION" ", "ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" "]
+ "extras" : "AUTOPLAY, OCFileListFragment.class.getPackage() != null ? OCFileListFragment.class.getPackage().getName() : "com.owncloud.android.ui.fragment"  + ".extra.START_POSITION" , ErrorsWhileCopyingHandlerActivity.class.getCanonicalName() + ".EXTRA_ACCOUNT" , FILE"
 },
 {
  "scope" : "PreviewMediaFragment.stopAudio",
  "methodType" : "startService",
  "identifier" : "i",
- "component" : "MediaService.class; ",
+ "component" : "MediaService.class",
  "action" : "MY_PACKAGE + ".action.STOP_ALL" ",
  "data" : "-",
  "mimeType" : "-",
@@ -753,7 +753,7 @@
  "scope" : "PreviewMediaFragment.bindMediaService",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "MediaService.class; ",
+ "component" : "MediaService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -767,7 +767,7 @@
  "action" : "getUploadFinishMessage()",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ACCOUNT_NAME", "LINKED_TO", "REMOTE_PATH", "OLD_REMOTE_PATH", "RESULT", "OLD_FILE_PATH"]
+ "extras" : "OLD_FILE_PATH, ACCOUNT_NAME, LINKED_TO, REMOTE_PATH, OLD_REMOTE_PATH, RESULT"
 },
 {
  "scope" : "LogListAdapter.getView.onClick",
@@ -777,5 +777,5 @@
  "action" : "android.content.Intent.ACTION_SEND",
  "data" : "-",
  "mimeType" : "text/rtf",
- "extras" : ["android.content.Intent.EXTRA_SUBJECT", "android.content.Intent.EXTRA_STREAM", "android.content.Intent.EXTRA_TEXT"]
+ "extras" : "android.content.Intent.EXTRA_SUBJECT, android.content.Intent.EXTRA_STREAM, android.content.Intent.EXTRA_TEXT"
 }]

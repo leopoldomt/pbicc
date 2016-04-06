@@ -23,7 +23,7 @@
  "scope" : "StartActivity.onCreate",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "VideoPlayerActivity.class; ",
+ "component" : "VideoPlayerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -33,7 +33,7 @@
  "scope" : "StartActivity.onCreate",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "VLCApplication.showTvUi() ? AudioPlayerActivity.class : MainActivity.class; ",
+ "component" : "VLCApplication.showTvUi() ? AudioPlayerActivity.class : MainActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -43,7 +43,7 @@
  "scope" : "StartActivity.onCreate",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "VLCApplication.showTvUi() ? MainTvActivity.class : MainActivity.class; ",
+ "component" : "VLCApplication.showTvUi() ? MainTvActivity.class : MainActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -83,11 +83,11 @@
  "scope" : "SortedBrowserFragment.showDetails",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "DetailsActivity.class; ",
+ "component" : "DetailsActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["media", "item"]
+ "extras" : "item, media"
 },
 {
  "scope" : "PlaybackService.onReceive",
@@ -103,7 +103,7 @@
  "scope" : "PlaybackService.showNotification",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "PlaybackService.class; ",
+ "component" : "PlaybackService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -147,7 +147,7 @@
  "action" : "com.getpebble.action.NOW_PLAYING",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["track", "artist", "album"]
+ "extras" : "artist, album, track"
 },
 {
  "scope" : "PlaybackService.next",
@@ -167,7 +167,7 @@
  "action" : "ACTION_WIDGET_PREFIX + "UPDATE" ",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["isplaying", "title", "artist"]
+ "extras" : "artist, isplaying, title"
 },
 {
  "scope" : "PlaybackService.updateWidgetCover",
@@ -177,7 +177,7 @@
  "action" : "ACTION_WIDGET_PREFIX + "UPDATE_COVER" ",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["cover"]
+ "extras" : "cover"
 },
 {
  "scope" : "PlaybackService.updateWidgetPosition",
@@ -187,7 +187,7 @@
  "action" : "ACTION_WIDGET_PREFIX + "UPDATE_POSITION" ",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["position"]
+ "extras" : "position"
 },
 {
  "scope" : "PlaybackService.broadcastMetadata",
@@ -197,13 +197,13 @@
  "action" : "com.android.music.metachanged",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["track", "artist", "duration", "playing", "album"]
+ "extras" : "duration, artist, album, playing, track"
 },
 {
  "scope" : "NativeCrashActivity.onCreate.onClick",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "StartActivity.class; ",
+ "component" : "StartActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -213,7 +213,7 @@
  "scope" : "BaseTvActivity.onKeyDown",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "SearchActivity.class; ",
+ "component" : "SearchActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -223,47 +223,47 @@
  "scope" : "AudioBrowserFragment.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["filter", "fragment"]
+ "extras" : "filter, fragment"
 },
 {
  "scope" : "AudioBrowserFragment.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["filter", "fragment"]
+ "extras" : "filter, fragment"
 },
 {
  "scope" : "AudioBrowserFragment.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["filter", "fragment"]
+ "extras" : "filter, fragment"
 },
 {
  "scope" : "AudioBrowserFragment.handleContextItemSelected",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["param", "fragment"]
+ "extras" : "fragment, param"
 },
 {
  "scope" : "Developer.onPreferenceTreeClick",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "DebugLogActivity.class; ",
+ "component" : "DebugLogActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -273,17 +273,17 @@
  "scope" : "BrowserGridFragment.showDetails",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "DetailsActivity.class; ",
+ "component" : "DetailsActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["media", "item"]
+ "extras" : "item, media"
 },
 {
  "scope" : "MainTvActivity.onActivityResult",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "StartActivity.class; ",
+ "component" : "StartActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -293,17 +293,17 @@
  "scope" : "MainTvActivity.onKeyDown",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "DetailsActivity.class; ",
+ "component" : "DetailsActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["media", "item"]
+ "extras" : "item, media"
 },
 {
  "scope" : "MainTvActivity.onItemClicked",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "AudioPlayerActivity.class; ",
+ "component" : "AudioPlayerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -313,17 +313,17 @@
  "scope" : "MainTvActivity.onItemClicked",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "VerticalGridActivity.class; ",
+ "component" : "VerticalGridActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["browser_type", "category"]
+ "extras" : "browser_type, category"
 },
 {
  "scope" : "MainTvActivity.onItemClicked",
  "methodType" : "startActivityForResult",
  "identifier" : "-",
- "component" : "org.videolan.vlc.gui.tv.preferences.PreferencesActivity.class; ",
+ "component" : "org.videolan.vlc.gui.tv.preferences.PreferencesActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -333,7 +333,7 @@
  "scope" : "MainTvActivity.onItemClicked",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "org.videolan.vlc.gui.tv.AboutActivity.class; ",
+ "component" : "org.videolan.vlc.gui.tv.AboutActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -343,7 +343,7 @@
  "scope" : "MainTvActivity.onItemClicked",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "org.videolan.vlc.gui.tv.LicenceActivity.class; ",
+ "component" : "org.videolan.vlc.gui.tv.LicenceActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -353,7 +353,7 @@
  "scope" : "MainTvActivity.onClick",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "SearchActivity.class; ",
+ "component" : "SearchActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -363,7 +363,7 @@
  "scope" : "MainTvActivity.onStop",
  "methodType" : "startService",
  "identifier" : "recommendationIntent",
- "component" : "RecommendationsService.class; ",
+ "component" : "RecommendationsService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -383,11 +383,11 @@
  "scope" : "PreferencesFragment.onPreferenceTreeClick",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["fragment"]
+ "extras" : "fragment"
 },
 {
  "scope" : "MediaUtils.actionScanStart",
@@ -423,91 +423,91 @@
  "scope" : "AudioAlbumsSongsFragment.handleContextItemSelected",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["param", "fragment"]
+ "extras" : "fragment, param"
 },
 {
  "scope" : "AudioAlbumsSongsFragment.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["filter", "fragment"]
+ "extras" : "filter, fragment"
 },
 {
  "scope" : "TvUtil.openMedia",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "VerticalGridActivity.class; ",
+ "component" : "VerticalGridActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["browser_type"]
+ "extras" : "browser_type"
 },
 {
  "scope" : "TvUtil.openMedia",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "VerticalGridActivity.class; ",
+ "component" : "VerticalGridActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["browser_type"]
+ "extras" : "browser_type"
 },
 {
  "scope" : "TvUtil.openMedia",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "VerticalGridActivity.class; ",
+ "component" : "VerticalGridActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["browser_type"]
+ "extras" : "browser_type"
 },
 {
  "scope" : "TvUtil.browseFolder",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "VerticalGridActivity.class; ",
+ "component" : "VerticalGridActivity.class",
  "action" : "-",
  "data" : "uri",
  "mimeType" : "-",
- "extras" : ["browser_type"]
+ "extras" : "browser_type"
 },
 {
  "scope" : "TvUtil.playAudioList",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "AudioPlayerActivity.class; ",
+ "component" : "AudioPlayerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["key_media_list", "media_position"]
+ "extras" : "media_position, key_media_list"
 },
 {
  "scope" : "PreferencesFragment.onPreferenceTreeClick",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["fragment"]
+ "extras" : "fragment"
 },
 {
  "scope" : "MediaItemDetailsFragment.buildDetails.onActionClicked",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "AudioPlayerActivity.class; ",
+ "component" : "AudioPlayerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["key_media_list"]
+ "extras" : "key_media_list"
 },
 {
  "scope" : "ExtensionBrowser.onClick",
@@ -533,7 +533,7 @@
  "scope" : "Developer.onPreferenceTreeClick",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "DebugLogActivity.class; ",
+ "component" : "DebugLogActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -543,7 +543,7 @@
  "scope" : "VLCAppWidgetProvider.onUpdate",
  "methodType" : "sendBroadcast",
  "identifier" : "i",
- "component" : "APPLICATION_ID.?; ",
+ "component" : "APPLICATION_ID.?",
  "action" : "ACTION_WIDGET_PREFIX + "INIT" ",
  "data" : "-",
  "mimeType" : "-",
@@ -553,17 +553,17 @@
  "scope" : "VLCInstance.get.onNativeCrash",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "NativeCrashActivity.class; ",
+ "component" : "NativeCrashActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["PID"]
+ "extras" : "PID"
 },
 {
  "scope" : "VLCInstance.testCompatibleCPU",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "CompatErrorActivity.class; ",
+ "component" : "CompatErrorActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -583,17 +583,17 @@
  "scope" : "MainActivity.showSecondaryFragment",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["param", "fragment"]
+ "extras" : "fragment, param"
 },
 {
  "scope" : "MainActivity.onActivityResult",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "StartActivity.class; ",
+ "component" : "StartActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -603,7 +603,7 @@
  "scope" : "MainActivity.onNavigationItemSelected",
  "methodType" : "startActivityForResult",
  "identifier" : "-",
- "component" : "PreferencesActivity.class; ",
+ "component" : "PreferencesActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -623,7 +623,7 @@
  "scope" : "MainActivity.createExtensionServiceConnection",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "ExtensionManagerService.class; ",
+ "component" : "ExtensionManagerService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -643,11 +643,11 @@
  "scope" : "VideoGridFragment.handleContextItemSelected",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["param", "fragment"]
+ "extras" : "fragment, param"
 },
 {
  "scope" : "VideoPlayerActivity.start",
@@ -663,7 +663,7 @@
  "scope" : "VideoPlayerActivity.switchToAudioMode",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "VLCApplication.showTvUi() ? AudioPlayerActivity.class : MainActivity.class; ",
+ "component" : "VLCApplication.showTvUi() ? AudioPlayerActivity.class : MainActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -673,7 +673,7 @@
  "scope" : "VideoPlayerActivity.onAudioSubClick.onMenuItemClick",
  "methodType" : "startActivityForResult",
  "identifier" : "filePickerIntent",
- "component" : "FilePickerActivity.class; ",
+ "component" : "FilePickerActivity.class",
  "action" : "-",
  "data" : "null",
  "mimeType" : "-",
@@ -683,7 +683,7 @@
  "scope" : "DebugLogService.start",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "DebugLogService.class; ",
+ "component" : "DebugLogService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -693,7 +693,7 @@
  "scope" : "DebugLogService.Client",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "DebugLogService.class; ",
+ "component" : "DebugLogService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -713,11 +713,11 @@
  "scope" : "AudioAlbumFragment.handleContextItemSelected",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["param", "fragment"]
+ "extras" : "fragment, param"
 },
 {
  "scope" : "AudioPlayer.start",
@@ -733,29 +733,29 @@
  "scope" : "BaseBrowserFragment.handleContextItemSelected",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["param", "fragment"]
+ "extras" : "fragment, param"
 },
 {
  "scope" : "MusicFragment.AsyncAudioUpdate.onPostExecute.onItemClicked",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "VerticalGridActivity.class; ",
+ "component" : "VerticalGridActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["filter", "browser_type", "category", "section"]
+ "extras" : "filter, browser_type, section, category"
 },
 {
  "scope" : "AdvOptionsDialog.onClick",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "SecondaryActivity.class; ",
+ "component" : "SecondaryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["fragment"]
+ "extras" : "fragment"
 }]

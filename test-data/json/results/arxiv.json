@@ -3,11 +3,11 @@
  "scope" : "SearchListWindow.onListItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SingleItemWindow.class; ",
+ "component" : "SingleItemWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keycreator", "keytitle", "keyname", "keylink", "keydescription"]
+ "extras" : "keycreator, keytitle, keylink, keyname, keydescription"
 },
 {
  "scope" : "PrintDialogActivity.PrintDialogWebClient.shouldOverrideUrlLoading",
@@ -17,33 +17,33 @@
  "action" : "com.google.zxing.client.android.SCAN",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["SCAN_MODE"]
+ "extras" : "SCAN_MODE"
 },
 {
  "scope" : "SubarXiv.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "RSSListWindow.class; ",
+ "component" : "RSSListWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyname", "keyurl"]
+ "extras" : "keyname, keyurl"
 },
 {
  "scope" : "SubarXiv.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "RSSListWindow.class; ",
+ "component" : "RSSListWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyname", "keyurl"]
+ "extras" : "keyname, keyurl"
 },
 {
  "scope" : "arXiv.applyMenuChoice",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "HistoryWindow.class; ",
+ "component" : "HistoryWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -53,7 +53,7 @@
  "scope" : "arXiv.applyMenuChoice",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "EditPreferences.class; ",
+ "component" : "EditPreferences.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -73,57 +73,57 @@
  "scope" : "arXiv.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SubarXiv.class; ",
+ "component" : "SubarXiv.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyshortitems", "keyname", "keyurls", "keyitems"]
+ "extras" : "keyshortitems, keyurls, keyname, keyitems"
 },
 {
  "scope" : "arXiv.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SubarXiv.class; ",
+ "component" : "SubarXiv.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyshortitems", "keyname", "keyurls", "keyitems"]
+ "extras" : "keyshortitems, keyurls, keyname, keyitems"
 },
 {
  "scope" : "arXiv.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SubarXiv.class; ",
+ "component" : "SubarXiv.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyshortitems", "keyname", "keyurls", "keyitems"]
+ "extras" : "keyshortitems, keyurls, keyname, keyitems"
 },
 {
  "scope" : "arXiv.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SubarXiv.class; ",
+ "component" : "SubarXiv.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyshortitems", "keyname", "keyurls", "keyitems"]
+ "extras" : "keyshortitems, keyurls, keyname, keyitems"
 },
 {
  "scope" : "arXiv.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SubarXiv.class; ",
+ "component" : "SubarXiv.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyshortitems", "keyname", "keyurls", "keyitems"]
+ "extras" : "keyshortitems, keyurls, keyname, keyitems"
 },
 {
  "scope" : "arXiv.searchPressed",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SearchWindow.class; ",
+ "component" : "SearchWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -157,37 +157,37 @@
  "action" : "android.content.Intent.ACTION_SEND",
  "data" : "-",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_TEXT", "Intent.EXTRA_SUBJECT"]
+ "extras" : "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
 },
 {
  "scope" : "SingleItemWindow.onClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SearchListWindow.class; ",
+ "component" : "SearchListWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyname", "keyurl", "keyquery"]
+ "extras" : "keyquery, keyname, keyurl"
 },
 {
  "scope" : "SingleItemWindow.authorPressed",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SearchListWindow.class; ",
+ "component" : "SearchListWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyname", "keyurl", "keyquery"]
+ "extras" : "keyquery, keyname, keyurl"
 },
 {
  "scope" : "SingleItemWindow.pressedPDFButton.run.run.onItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "PrintDialogActivity.class; ",
+ "component" : "PrintDialogActivity.class",
  "action" : "-",
  "data" : "Uri.fromFile(file)",
  "mimeType" : "application/pdf",
- "extras" : ["title"]
+ "extras" : "title"
 },
 {
  "scope" : "SingleItemWindow.pressedPDFButton",
@@ -195,7 +195,7 @@
  "identifier" : "myIntent",
  "component" : "-",
  "action" : "Intent.ACTION_VIEW",
- "data" : "link.replace(\"abs\", \"pdf\") ",
+ "data" : "link.replace("abs", "pdf") ",
  "mimeType" : "-",
  "extras" : "-"
 },
@@ -203,19 +203,19 @@
  "scope" : "RSSListWindow.onListItemClick",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SingleItemWindow.class; ",
+ "component" : "SingleItemWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keycreator", "keytitle", "keyname", "keylink", "keydescription"]
+ "extras" : "keycreator, keytitle, keylink, keyname, keydescription"
 },
 {
  "scope" : "SearchWindow.pressedSearchButton",
  "methodType" : "startActivity",
  "identifier" : "myIntent",
- "component" : "SearchListWindow.class; ",
+ "component" : "SearchListWindow.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["keyname", "keyurl", "keyquery"]
+ "extras" : "keyquery, keyname, keyurl"
 }]

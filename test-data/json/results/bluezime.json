@@ -7,7 +7,7 @@
  "action" : "com.hexad.bluezime.config",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["com.hexad.bluezime.sessionid", "version", "driverdisplaynames", "drivernames"]
+ "extras" : "drivernames, com.hexad.bluezime.sessionid, version, driverdisplaynames"
 },
 {
  "scope" : "BluezService.onHandleIntent",
@@ -17,7 +17,7 @@
  "action" : "com.hexad.bluezime.config",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["com.hexad.bluezime.sessionid", "version", "driverdisplaynames", "drivernames"]
+ "extras" : "drivernames, com.hexad.bluezime.sessionid, version, driverdisplaynames"
 },
 {
  "scope" : "BluezService.connectToDevice",
@@ -27,7 +27,7 @@
  "action" : "com.hexad.bluezime.connecting",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["address", "com.hexad.bluezime.sessionid"]
+ "extras" : "address, com.hexad.bluezime.sessionid"
 },
 {
  "scope" : "BluezService.notifyError",
@@ -37,27 +37,27 @@
  "action" : "com.hexad.bluezime.error",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["message", "com.hexad.bluezime.sessionid", "stacktrace"]
+ "extras" : "stacktrace, com.hexad.bluezime.sessionid, message"
 },
 {
  "scope" : "BluezIME.connect",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "BluezService.class; ",
+ "component" : "BluezService.class",
  "action" : "com.hexad.bluezime.connect",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["address", "driver", "com.hexad.bluezime.sessionid", "registernotification"]
+ "extras" : "registernotification, address, driver, com.hexad.bluezime.sessionid"
 },
 {
  "scope" : "BluezIME.onDestroy",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "BluezService.class; ",
+ "component" : "BluezService.class",
  "action" : "com.hexad.bluezime.disconnect",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["com.hexad.bluezime.sessionid"]
+ "extras" : "com.hexad.bluezime.sessionid"
 },
 {
  "scope" : "Preferences.setSelectedDriverName",
@@ -193,8 +193,8 @@
  "scope" : "RfcommReader",
  "methodType" : "startService",
  "identifier" : "m_foregroundServiceIntent",
- "component" : "BluezForegroundService.class; ",
- "action" : ["com.hexad.bluezime.START_FG_SERVICE", "com.hexad.bluezime.STOP_FG_SERVICE"],
+ "component" : "BluezForegroundService.class",
+ "action" : "com.hexad.bluezime.START_FG_SERVICE | com.hexad.bluezime.STOP_FG_SERVICE",
  "data" : "-",
  "mimeType" : "-",
  "extras" : "-"
@@ -217,7 +217,7 @@
  "action" : "com.hexad.bluezime.connected",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["address", "com.hexad.bluezime.sessionid"]
+ "extras" : "address, com.hexad.bluezime.sessionid"
 },
 {
  "scope" : "RfcommReader.stop",
@@ -227,7 +227,7 @@
  "action" : "com.hexad.bluezime.disconnected",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["address", "com.hexad.bluezime.sessionid"]
+ "extras" : "address, com.hexad.bluezime.sessionid"
 },
 {
  "scope" : "RfcommReader.notifyError",
@@ -237,7 +237,7 @@
  "action" : "com.hexad.bluezime.error",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["message", "com.hexad.bluezime.sessionid", "stacktrace"]
+ "extras" : "stacktrace, com.hexad.bluezime.sessionid, message"
 },
 {
  "scope" : "BluezIMESettings.onCreate.onPreferenceClick",
@@ -263,11 +263,11 @@
  "scope" : "BluezIMESettings.onCreate.onPreferenceChange",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "DeviceScanActivity.class; ",
+ "component" : "DeviceScanActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["controller"]
+ "extras" : "controller"
 },
 {
  "scope" : "BluezIMESettings.onCreate",

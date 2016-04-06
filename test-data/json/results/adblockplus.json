@@ -23,7 +23,7 @@
  "scope" : "Preferences.onOptionsItemSelected",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "AdvancedPreferences.class; ",
+ "component" : "AdvancedPreferences.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -33,17 +33,17 @@
  "scope" : "Preferences.showProxySettings",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "ProxyConfigurationActivity.class; ",
+ "component" : "ProxyConfigurationActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["port"]
+ "extras" : "port"
 },
 {
  "scope" : "Preferences.setProxyEnabled",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "ProxyService.class; ",
+ "component" : "ProxyService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -53,7 +53,7 @@
  "scope" : "AdvancedPreferences.onSharedPreferenceChanged",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "ProxyService.class; ",
+ "component" : "ProxyService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -94,20 +94,20 @@
  "methodType" : "startActivity",
  "identifier" : "intent",
  "component" : "com.android.settings.InstalledAppDetails",
- "action" : ["Settings.ACTION_APPLICATION_DETAILS_SETTINGS", "Intent.ACTION_VIEW"],
- "data" : "Uri.fromParts(\"package\", packageName, null)",
+ "action" : "Settings.ACTION_APPLICATION_DETAILS_SETTINGS | Intent.ACTION_VIEW",
+ "data" : "Uri.fromParts("package", packageName, null)",
  "mimeType" : "-",
- "extras" : ["(Build.VERSION.SDK_INT == Build.VERSION_CODES.FROYO ? "pkg" : "com.android.settings.ApplicationPkgName") "]
+ "extras" : "(Build.VERSION.SDK_INT == Build.VERSION_CODES.FROYO ? "pkg" : "com.android.settings.ApplicationPkgName") "
 },
 {
  "scope" : "AdblockPlus.onCreate",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "CrashReportDialog.class; ",
+ "component" : "CrashReportDialog.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["report"]
+ "extras" : "report"
 },
 {
  "scope" : "AdblockPlus.setFilteringEnabled",
@@ -177,7 +177,7 @@
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["configured"]
+ "extras" : "configured"
 },
 {
  "scope" : "ConfigurationActivity.onHelp",
@@ -207,7 +207,7 @@
  "action" : "android.net.wifi.LINK_CONFIGURATION_CHANGED",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["linkProperties"]
+ "extras" : "linkProperties"
 },
 {
  "scope" : "Utils.updateSubscriptionStatus",
@@ -243,7 +243,7 @@
  "scope" : "Starter.onReceive",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "ProxyService.class; ",
+ "component" : "ProxyService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -253,7 +253,7 @@
  "scope" : "ServiceBinder.bind",
  "methodType" : "bindService",
  "identifier" : "-",
- "component" : "ProxyService.class; ",
+ "component" : "ProxyService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",

@@ -3,7 +3,7 @@
  "scope" : "MediaAddFragment.startMediaUploadService",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "MediaUploadService.class; ",
+ "component" : "MediaUploadService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -13,57 +13,57 @@
  "scope" : "PostMediaService.startService",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "PostMediaService.class; ",
+ "component" : "PostMediaService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["blog_id", "media_ids"]
+ "extras" : "blog_id, media_ids"
 },
 {
  "scope" : "StatsAbstractFragment.refreshStats",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "StatsService.class; ",
+ "component" : "StatsService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["stats_page_requested", "blog_id", "stats_max_results", "stats_section", "stats_period", "stats_date"]
+ "extras" : "blog_id, stats_section, stats_date, stats_page_requested, stats_period, stats_max_results"
 },
 {
  "scope" : "EditPostActivity.startMediaGalleryActivity",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "MediaGalleryActivity.class; ",
+ "component" : "MediaGalleryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["PARAMS_LAUNCH_PICKER", "PARAMS_MEDIA_GALLERY"]
+ "extras" : "PARAMS_LAUNCH_PICKER, PARAMS_MEDIA_GALLERY"
 },
 {
  "scope" : "EditPostActivity.startMediaGalleryAddActivity",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "MediaGalleryPickerActivity.class; ",
+ "component" : "MediaGalleryPickerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["PARAM_SELECT_ONE_ITEM"]
+ "extras" : "PARAM_SELECT_ONE_ITEM"
 },
 {
  "scope" : "EditPostActivity.startMediaSelection",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "MediaPickerActivity.class; ",
+ "component" : "MediaPickerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["activity-title"]
+ "extras" : "activity-title"
 },
 {
  "scope" : "EditPostActivity.savePost",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "PostUploadService.class; ",
+ "component" : "PostUploadService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -73,7 +73,7 @@
  "scope" : "EditPostActivity.startMediaUploadService",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "MediaUploadService.class; ",
+ "component" : "MediaUploadService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -97,13 +97,13 @@
  "action" : "Intent.ACTION_SEND",
  "data" : "-",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_TEXT", "Intent.EXTRA_SUBJECT"]
+ "extras" : "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
 },
 {
  "scope" : "ShareIntentReceiverActivity.finishIfNoVisibleBlogs",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "SignInActivity.class; ",
+ "component" : "SignInActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -113,7 +113,7 @@
  "scope" : "SuggestionServiceConnectionManager.bindToService",
  "methodType" : "bindService",
  "identifier" : "intent",
- "component" : "SuggestionService.class; ",
+ "component" : "SuggestionService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -123,57 +123,57 @@
  "scope" : "PlanUpdateService.startService",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "PlanUpdateService.class; ",
+ "component" : "PlanUpdateService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["local_blog_id"]
+ "extras" : "local_blog_id"
 },
 {
  "scope" : "ReaderActivityLauncher.showReaderBlogPreview",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "ReaderPostListActivity.class; ",
+ "component" : "ReaderPostListActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["blog_id", "post_list_type"]
+ "extras" : "blog_id, post_list_type"
 },
 {
  "scope" : "ReaderActivityLauncher.showReaderFeedPreview",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "ReaderPostListActivity.class; ",
+ "component" : "ReaderPostListActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["feed_id", "post_list_type"]
+ "extras" : "post_list_type, feed_id"
 },
 {
  "scope" : "ReaderActivityLauncher.showReaderTagPreview",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "ReaderPostListActivity.class; ",
+ "component" : "ReaderPostListActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["post_list_type", "tag"]
+ "extras" : "tag, post_list_type"
 },
 {
  "scope" : "ReaderActivityLauncher.showReaderLikingUsers",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "ReaderUserListActivity.class; ",
+ "component" : "ReaderUserListActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["post_id", "blog_id", "comment_id"]
+ "extras" : "blog_id, post_id, comment_id"
 },
 {
  "scope" : "ReaderActivityLauncher.showReaderSubs",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "ReaderSubsActivity.class; ",
+ "component" : "ReaderSubsActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -183,21 +183,21 @@
  "scope" : "ReaderActivityLauncher.showReaderPhotoViewer",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "ReaderPhotoViewerActivity.class; ",
+ "component" : "ReaderPhotoViewerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["image_url", "is_private", "content"]
+ "extras" : "is_private, image_url, content"
 },
 {
  "scope" : "ReaderActivityLauncher.showReaderPhotoViewer",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "ReaderPhotoViewerActivity.class; ",
+ "component" : "ReaderPhotoViewerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["image_url", "is_private", "content"]
+ "extras" : "is_private, image_url, content"
 },
 {
  "scope" : "ReaderActivityLauncher.openUrl",
@@ -213,17 +213,17 @@
  "scope" : "StatsAbstractListFragment.configureViewAllButton.onClick",
  "methodType" : "startActivity",
  "identifier" : "viewAllIntent",
- "component" : "StatsViewAllActivity.class; ",
+ "component" : "StatsViewAllActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ARGS_IS_SINGLE_VIEW", "ARG_LOCAL_TABLE_BLOG_ID", "ARGS_TOP_PAGER_SELECTED_BUTTON_INDEX", "ARGS_SELECTED_DATE", "ARGS_TIMEFRAME", "ARGS_VIEW_TYPE"]
+ "extras" : "ARGS_TIMEFRAME, ARGS_SELECTED_DATE, ARG_LOCAL_TABLE_BLOG_ID, ARGS_TOP_PAGER_SELECTED_BUTTON_INDEX, ARGS_VIEW_TYPE, ARGS_IS_SINGLE_VIEW"
 },
 {
  "scope" : "SelectCategoriesActivity.onOptionsItemSelected",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "AddCategoryActivity.class; ",
+ "component" : "AddCategoryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -233,7 +233,7 @@
  "scope" : "HelpActivity.onCreate.onClick",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "AppLogViewerActivity.class; ",
+ "component" : "AppLogViewerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -253,17 +253,17 @@
  "scope" : "ThemeWebActivity.openWPCOMURL",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "ThemeWebActivity.class; ",
+ "component" : "ThemeWebActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["theme_id", "theme_name", "url_to_load", "local_blog_id", "authenticated_user", "authenticated_passwd", "is_current_theme", "is_premium_theme", "authenticated_url"]
+ "extras" : "is_current_theme, url_to_load, authenticated_url, theme_name, theme_id, authenticated_user, is_premium_theme, authenticated_passwd, local_blog_id"
 },
 {
  "scope" : "VisualEditorOptionsReceiver.onCreate",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "WPLaunchActivity.class; ",
+ "component" : "WPLaunchActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -273,17 +273,17 @@
  "scope" : "NotificationsListFragment.openNote",
  "methodType" : "startActivityForResult",
  "identifier" : "detailIntent",
- "component" : "NotificationsDetailActivity.class; ",
+ "component" : "NotificationsDetailActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["noteId", "instantReply"]
+ "extras" : "noteId, instantReply"
 },
 {
  "scope" : "DeepLinkingIntentReceiverActivity.onCreate",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "SignInActivity.class; ",
+ "component" : "SignInActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -293,11 +293,11 @@
  "scope" : "AuthenticationDialogUtils.showAuthErrorView",
  "methodType" : "startActivityForResult",
  "identifier" : "signInIntent",
- "component" : "SignInActivity.class; ",
+ "component" : "SignInActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ARG_IS_AUTH_ERROR"]
+ "extras" : "ARG_IS_AUTH_ERROR"
 },
 {
  "scope" : "AppSettingsFragment.changeLanguage",
@@ -313,7 +313,7 @@
  "scope" : "AppSettingsFragment.handleAboutPreferenceClick",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "AboutActivity.class; ",
+ "component" : "AboutActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -323,7 +323,7 @@
  "scope" : "AppSettingsFragment.handleOssPreferenceClick",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "LicensesActivity.class; ",
+ "component" : "LicensesActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -333,31 +333,31 @@
  "scope" : "WPWebViewActivity.openUrlByUsingBlogCredentials",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "WPWebViewActivity.class; ",
+ "component" : "WPWebViewActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["url_to_load", "sharable_url", "local_blog_id", "authenticated_user", "authenticated_passwd", "authenticated_url"]
+ "extras" : "url_to_load, authenticated_url, authenticated_user, authenticated_passwd, local_blog_id, sharable_url"
 },
 {
  "scope" : "WPWebViewActivity.openURL",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "WPWebViewActivity.class; ",
+ "component" : "WPWebViewActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["url_to_load"]
+ "extras" : "url_to_load"
 },
 {
  "scope" : "WPWebViewActivity.openWPCOMURL",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "WPWebViewActivity.class; ",
+ "component" : "WPWebViewActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["url_to_load", "authenticated_user", "authenticated_url"]
+ "extras" : "url_to_load, authenticated_url, authenticated_user"
 },
 {
  "scope" : "WPWebViewActivity.onOptionsItemSelected",
@@ -367,7 +367,7 @@
  "action" : "Intent.ACTION_SEND",
  "data" : "-",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_TEXT"]
+ "extras" : "Intent.EXTRA_TEXT"
 },
 {
  "scope" : "WPWebViewActivity.onOptionsItemSelected",
@@ -383,11 +383,11 @@
  "scope" : "SignInFragment.initInfoButtons.onClick",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "HelpActivity.class; ",
+ "component" : "HelpActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ENTERED_URL_KEY", "ORIGIN_KEY", "ENTERED_USERNAME_KEY"]
+ "extras" : "ENTERED_USERNAME_KEY, ORIGIN_KEY, ENTERED_URL_KEY"
 },
 {
  "scope" : "SignInFragment.onClick",
@@ -413,7 +413,7 @@
  "scope" : "PostsListFragment.onPostButtonClicked",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "PostUploadService.class; ",
+ "component" : "PostUploadService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -433,7 +433,7 @@
  "scope" : "MediaBrowserActivity.startMediaDeleteService",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "MediaDeleteService.class; ",
+ "component" : "MediaDeleteService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -463,21 +463,21 @@
  "scope" : "ReaderCommentService.startService",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "ReaderCommentService.class; ",
+ "component" : "ReaderCommentService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["post_id", "blog_id", "next_page"]
+ "extras" : "next_page, blog_id, post_id"
 },
 {
  "scope" : "ReaderCommentService.startServiceForComment",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "ReaderCommentService.class; ",
+ "component" : "ReaderCommentService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["post_id", "blog_id", "comment_id"]
+ "extras" : "blog_id, post_id, comment_id"
 },
 {
  "scope" : "SignInDialogFragment.onClickAction",
@@ -493,7 +493,7 @@
  "scope" : "SignInDialogFragment.onClickAction",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "AppLogViewerActivity.class; ",
+ "component" : "AppLogViewerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -503,17 +503,17 @@
  "scope" : "MediaGalleryActivity.handleAddMedia",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "MediaGalleryPickerActivity.class; ",
+ "component" : "MediaGalleryPickerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["PARAM_SELECTED_IDS"]
+ "extras" : "PARAM_SELECTED_IDS"
 },
 {
  "scope" : "PostPreviewActivity.publishPost",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "PostUploadService.class; ",
+ "component" : "PostUploadService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -523,7 +523,7 @@
  "scope" : "WordPress.deferredInit",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "GCMRegistrationIntentService.class; ",
+ "component" : "GCMRegistrationIntentService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -533,7 +533,7 @@
  "scope" : "WordPress.ApplicationLifecycleMonitor.updatePushNotificationTokenIfNotLimited",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "GCMRegistrationIntentService.class; ",
+ "component" : "GCMRegistrationIntentService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -543,11 +543,11 @@
  "scope" : "PostUpdateService.startServiceForBlog",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "PostUpdateService.class; ",
+ "component" : "PostUpdateService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["blog_id", "is_page", "load_more"]
+ "extras" : "blog_id, is_page, load_more"
 },
 {
  "scope" : "WordPressMediaUtils.launchVideoLibrary",
@@ -633,37 +633,37 @@
  "scope" : "StatsActivity.startWPComLoginActivity",
  "methodType" : "startActivityForResult",
  "identifier" : "signInIntent",
- "component" : "SignInActivity.class; ",
+ "component" : "SignInActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ARG_JETPACK_SITE_AUTH", "ARG_JETPACK_MESSAGE_AUTH"]
+ "extras" : "ARG_JETPACK_SITE_AUTH, ARG_JETPACK_MESSAGE_AUTH"
 },
 {
  "scope" : "StatsActivity.showJetpackMissingAlert.onClick",
  "methodType" : "startActivityForResult",
  "identifier" : "jetpackIntent",
- "component" : "WPWebViewActivity.class; ",
+ "component" : "WPWebViewActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["url_to_load", "authenticated_user", "authenticated_passwd", "authenticated_url"]
+ "extras" : "url_to_load, authenticated_url, authenticated_user, authenticated_passwd"
 },
 {
  "scope" : "MediaGridFragment.MultiChoiceModeListener.handleNewPost",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "EditPostActivity.class; ",
+ "component" : "EditPostActivity.class",
  "action" : "NEW_MEDIA_POST",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["NEW_MEDIA_POST_ID"]
+ "extras" : "NEW_MEDIA_POST_ID"
 },
 {
  "scope" : "MediaGridFragment.MultiChoiceModeListener.handleMultiSelectPost",
  "methodType" : "startActivity",
  "identifier" : "i",
- "component" : "EditPostActivity.class; ",
+ "component" : "EditPostActivity.class",
  "action" : "NEW_MEDIA_GALLERY",
  "data" : "-",
  "mimeType" : "-",
@@ -683,7 +683,7 @@
  "scope" : "InstanceIDService.onTokenRefresh",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "GCMRegistrationIntentService.class; ",
+ "component" : "GCMRegistrationIntentService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -693,7 +693,7 @@
  "scope" : "IabHelper.startSetup",
  "methodType" : "bindService",
  "identifier" : "serviceIntent",
- "component" : "com.android.vending.?; ",
+ "component" : "com.android.vending.?",
  "action" : "com.android.vending.billing.InAppBillingService.BIND",
  "data" : "-",
  "mimeType" : "-",
@@ -703,7 +703,7 @@
  "scope" : "WPLaunchActivity.onCreate",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "WPMainActivity.class; ",
+ "component" : "WPMainActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -717,7 +717,7 @@
  "action" : "Intent.ACTION_SEND",
  "data" : "-",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_TEXT"]
+ "extras" : "Intent.EXTRA_TEXT"
 },
 {
  "scope" : "ViewSiteActivity.onOptionsItemSelected",
@@ -733,27 +733,27 @@
  "scope" : "StatsWidgetProvider.enqueueStatsRequestForBlog",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "StatsService.class; ",
+ "component" : "StatsService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["blog_id", "stats_section", "stats_period", "stats_date"]
+ "extras" : "blog_id, stats_section, stats_date, stats_period"
 },
 {
  "scope" : "NotificationsDetailActivity.showStatsActivityForSite",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "StatsViewAllActivity.class; ",
+ "component" : "StatsViewAllActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["arg_stats_view_all_title", "ARG_LOCAL_TABLE_BLOG_ID", "ARGS_SELECTED_DATE", "ARGS_TIMEFRAME", "ARGS_VIEW_TYPE"]
+ "extras" : "ARGS_TIMEFRAME, ARGS_SELECTED_DATE, ARG_LOCAL_TABLE_BLOG_ID, arg_stats_view_all_title, ARGS_VIEW_TYPE"
 },
 {
  "scope" : "NewUserFragment.initInfoButton.onClick",
  "methodType" : "startActivity",
  "identifier" : "newAccountIntent",
- "component" : "HelpActivity.class; ",
+ "component" : "HelpActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -773,37 +773,37 @@
  "scope" : "ActivityLauncher.addNewBlogPostOrPageForResult",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "EditPostActivity.class; ",
+ "component" : "EditPostActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["postId", "isNewPost", "isPage"]
+ "extras" : "postId, isNewPost, isPage"
 },
 {
  "scope" : "ActivityLauncher.editBlogPostOrPageForResult",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "EditPostActivity.class; ",
+ "component" : "EditPostActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["postId", "isPage"]
+ "extras" : "postId, isPage"
 },
 {
  "scope" : "ActivityLauncher.viewSSLCerts",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "SSLCertsViewActivity.class; ",
+ "component" : "SSLCertsViewActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["CertDetails"]
+ "extras" : "CertDetails"
 },
 {
  "scope" : "ActivityLauncher.newAccountForResult",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "NewAccountActivity.class; ",
+ "component" : "NewAccountActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -813,17 +813,17 @@
  "scope" : "ActivityLauncher.newBlogForResult",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "NewBlogActivity.class; ",
+ "component" : "NewBlogActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["start-mode"]
+ "extras" : "start-mode"
 },
 {
  "scope" : "ActivityLauncher.showSignInForResult",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "SignInActivity.class; ",
+ "component" : "SignInActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -833,21 +833,21 @@
  "scope" : "ActivityLauncher.viewStatsSinglePostDetails",
  "methodType" : "startActivity",
  "identifier" : "statsPostViewIntent",
- "component" : "StatsSingleItemDetailsActivity.class; ",
+ "component" : "StatsSingleItemDetailsActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["ARG_REMOTE_ITEM_ID", "ARG_REMOTE_ITEM_TYPE", "ARG_REMOTE_BLOG_ID", "ARG_ITEM_TITLE", "ARG_ITEM_URL"]
+ "extras" : "ARG_REMOTE_ITEM_TYPE, ARG_ITEM_URL, ARG_ITEM_TITLE, ARG_REMOTE_BLOG_ID, ARG_REMOTE_ITEM_ID"
 },
 {
  "scope" : "ActivityLauncher.addSelfHostedSiteForResult",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "SignInActivity.class; ",
+ "component" : "SignInActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["start-fragment"]
+ "extras" : "start-fragment"
 },
 {
  "scope" : "AppLogViewerActivity.shareAppLog",
@@ -857,7 +857,7 @@
  "action" : "Intent.ACTION_SEND",
  "data" : "-",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_TEXT", "Intent.EXTRA_SUBJECT"]
+ "extras" : "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
 },
 {
  "scope" : "NotificationsSettingsFragment.updateUIForNotificationsEnabledState.onPreferenceClick",
@@ -877,7 +877,7 @@
  "action" : "Intent.ACTION_SEND",
  "data" : "-",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_TEXT", "Intent.EXTRA_SUBJECT"]
+ "extras" : "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
 },
 {
  "scope" : "ShareAndDismissNotificationReceiver.onReceive",
@@ -897,13 +897,13 @@
  "action" : "com.android.launcher.action.UNINSTALL_SHORTCUT",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["duplicate", "Intent.EXTRA_SHORTCUT_INTENT", "Intent.EXTRA_SHORTCUT_NAME"]
+ "extras" : "Intent.EXTRA_SHORTCUT_INTENT, Intent.EXTRA_SHORTCUT_NAME, duplicate"
 },
 {
  "scope" : "AddQuickPressShortcutActivity.displayAccounts",
  "methodType" : "startActivityForResult",
  "identifier" : "i",
- "component" : "SignInActivity.class; ",
+ "component" : "SignInActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -917,7 +917,7 @@
  "action" : "com.android.launcher.action.INSTALL_SHORTCUT",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["Intent.EXTRA_SHORTCUT_INTENT", "Intent.EXTRA_SHORTCUT_NAME", "Intent.EXTRA_SHORTCUT_ICON_RESOURCE"]
+ "extras" : "Intent.EXTRA_SHORTCUT_INTENT, Intent.EXTRA_SHORTCUT_NAME, Intent.EXTRA_SHORTCUT_ICON_RESOURCE"
 },
 {
  "scope" : "PostsListAdapter.LoadPostsTask.onPostExecute",
@@ -953,7 +953,7 @@
  "scope" : "PlansActivity.startPurchaseProcess",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "PlanPostPurchaseActivity.class; ",
+ "component" : "PlanPostPurchaseActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -983,47 +983,47 @@
  "scope" : "ReaderPostService.startServiceForTag",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "ReaderPostService.class; ",
+ "component" : "ReaderPostService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["action", "tag"]
+ "extras" : "action, tag"
 },
 {
  "scope" : "ReaderPostService.startServiceForBlog",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "ReaderPostService.class; ",
+ "component" : "ReaderPostService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["blog_id", "action"]
+ "extras" : "blog_id, action"
 },
 {
  "scope" : "ReaderPostService.startServiceForFeed",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "ReaderPostService.class; ",
+ "component" : "ReaderPostService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["action", "feed_id"]
+ "extras" : "action, feed_id"
 },
 {
  "scope" : "ReaderUpdateService.startService",
  "methodType" : "startService",
  "identifier" : "intent",
- "component" : "ReaderUpdateService.class; ",
+ "component" : "ReaderUpdateService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["update_tasks"]
+ "extras" : "update_tasks"
 },
 {
  "scope" : "WPMainActivity.onActivityResult",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "GCMRegistrationIntentService.class; ",
+ "component" : "GCMRegistrationIntentService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -1033,7 +1033,7 @@
  "scope" : "WPMainActivity.onActivityResult",
  "methodType" : "startService",
  "identifier" : "-",
- "component" : "GCMRegistrationIntentService.class; ",
+ "component" : "GCMRegistrationIntentService.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -1043,17 +1043,17 @@
  "scope" : "EditPostSettingsFragment.launchMediaGalleryActivity",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "MediaGalleryPickerActivity.class; ",
+ "component" : "MediaGalleryPickerActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["PARAM_SELECT_ONE_ITEM"]
+ "extras" : "PARAM_SELECT_ONE_ITEM"
 },
 {
  "scope" : "EditPostSettingsFragment.onClick",
  "methodType" : "startActivityForResult",
  "identifier" : "categoriesIntent",
- "component" : "SelectCategoriesActivity.class; ",
+ "component" : "SelectCategoriesActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -1073,9 +1073,9 @@
  "scope" : "CommentDetailFragment.editComment",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "EditCommentActivity.class; ",
+ "component" : "EditCommentActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["note_id", "local_blog_id", "comment_id"]
+ "extras" : "note_id, comment_id, local_blog_id"
 }]

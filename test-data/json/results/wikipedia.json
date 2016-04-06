@@ -3,7 +3,7 @@
  "scope" : "SettingsPreferenceLoader.overridePackageName.onPreferenceClick",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "AboutActivity.class; ",
+ "component" : "AboutActivity.class",
  "action" : "Intent.ACTION_VIEW",
  "data" : "-",
  "mimeType" : "-",
@@ -53,31 +53,31 @@
  "scope" : "PageFragment.onOptionsItemSelected",
  "methodType" : "startActivityForResult",
  "identifier" : "langIntent",
- "component" : "LangLinksActivity.class; ",
+ "component" : "LangLinksActivity.class",
  "action" : "org.wikipedia.langlinks_for_title",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["org.wikipedia.pagetitle"]
+ "extras" : "org.wikipedia.pagetitle"
 },
 {
  "scope" : "EditPreviewFragment.displayPreview.onInternalLinkClicked.run",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "PageActivity.class; ",
+ "component" : "PageActivity.class",
  "action" : "org.wikipedia.page_for_title",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["org.wikipedia.history.historyentry", "org.wikipedia.pagetitle"]
+ "extras" : "org.wikipedia.history.historyentry, org.wikipedia.pagetitle"
 },
 {
  "scope" : "EditHandler.onMessage",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "EditSectionActivity.class; ",
+ "component" : "EditSectionActivity.class",
  "action" : "org.wikipedia.edit_section",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["org.wikipedia.edit_section.title", "org.wikipedia.edit_section.pageprops", "org.wikipedia.edit_section.sectionheading", "org.wikipedia.edit_section.sectionid"]
+ "extras" : "org.wikipedia.edit_section.sectionheading, org.wikipedia.edit_section.pageprops, org.wikipedia.edit_section.title, org.wikipedia.edit_section.sectionid"
 },
 {
  "scope" : "PreferenceMultiLine.onBindViewHolder.onPreferenceClick",
@@ -153,11 +153,11 @@
  "scope" : "PageActivity.updateFeaturedPageWidget",
  "methodType" : "sendBroadcast",
  "identifier" : "widgetIntent",
- "component" : "WidgetProviderFeaturedPage.class; ",
+ "component" : "WidgetProviderFeaturedPage.class",
  "action" : "AppWidgetManager.ACTION_APPWIDGET_UPDATE",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["AppWidgetManager.EXTRA_APPWIDGET_IDS"]
+ "extras" : "AppWidgetManager.EXTRA_APPWIDGET_IDS"
 },
 {
  "scope" : "CrashReportActivity.onStartOver",
@@ -173,7 +173,7 @@
  "scope" : "InstallReceiver.openPageFromUrl",
  "methodType" : "startActivity",
  "identifier" : "intent",
- "component" : "PageActivity.class; ",
+ "component" : "PageActivity.class",
  "action" : "Intent.ACTION_VIEW",
  "data" : "objinfo.optString("url", "") ",
  "mimeType" : "-",
@@ -193,19 +193,19 @@
  "scope" : "LoginActivity.startCreateAccountActivity",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "CreateAccountActivity.class; ",
+ "component" : "CreateAccountActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["login_session_token", "login_request_source"]
+ "extras" : "login_request_source, login_session_token"
 },
 {
  "scope" : "GalleryActivity.showGallery",
  "methodType" : "startActivityForResult",
  "identifier" : "galleryIntent",
- "component" : "GalleryActivity.class; ",
+ "component" : "GalleryActivity.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["source", "org.wikipedia.pagetitle", "imageTitle"]
+ "extras" : "org.wikipedia.pagetitle, source, imageTitle"
 }]

@@ -17,13 +17,13 @@
  "action" : "Intent.ACTION_SEND",
  "data" : "-",
  "mimeType" : "text/plain",
- "extras" : ["Intent.EXTRA_TEXT"]
+ "extras" : "Intent.EXTRA_TEXT"
 },
 {
  "scope" : "MultiPictureSetting.onOptionsItemSelected",
  "methodType" : "startActivity",
  "identifier" : "-",
- "component" : "QRViewer.class; ",
+ "component" : "QRViewer.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
@@ -53,11 +53,11 @@
  "scope" : "FolderSource.startFolderPickerActivity",
  "methodType" : "startActivityForResult",
  "identifier" : "intent",
- "component" : "FolderPicker.class; ",
+ "component" : "FolderPicker.class",
  "action" : "-",
  "data" : "-",
  "mimeType" : "-",
- "extras" : ["extraInitPath"]
+ "extras" : "extraInitPath"
 },
 {
  "scope" : "LazyPickerClient.start",

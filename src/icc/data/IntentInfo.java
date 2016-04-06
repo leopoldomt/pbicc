@@ -67,6 +67,27 @@ public class IntentInfo {
 	
 	private String extrasToJSON(boolean withValue) {
 		StringBuilder builder = new StringBuilder();
+		builder.append("\"");
+		if (extras.size() > 0) {
+			Set<String> extraStrings = new HashSet<String>();
+			for (Map.Entry<String, String> entry : extras.entrySet()) {
+				StringBuilder value = new StringBuilder();
+				value.append(entry.getKey());
+				if (withValue) {
+					value.append(" : "+sanitize(entry.getValue()));
+				}
+				extraStrings.add(value.toString());
+			}
+			builder.append(String.join(", ", extraStrings));
+		} else {
+			builder.append("-");
+		}
+		builder.append("\"");
+		return builder.toString();
+	}
+	
+	private String extrasToJSONArray(boolean withValue) {
+		StringBuilder builder = new StringBuilder();
 		if (extras.size() > 0) {
 			builder.append("[");
 			Set<String> extraStrings = new HashSet<String>();
@@ -109,13 +130,17 @@ public class IntentInfo {
 			int numP = packageName.size();
 			if (numC == numP) {
 				component = "";
+				Set<String> components = new HashSet<String>();
 				for (int i = 0; i < numC; i++) {
 					if (className.get(i).startsWith(packageName.get(i))) {
 						component += String.format("%s", className.get(i));
+						components.add(String.format("%s", className.get(i)));
 					} else {
 						component += String.format("%s.%s", packageName.get(i), className.get(i));
+						components.add(String.format("%s.%s", packageName.get(i), className.get(i)));
 					}
 				}
+				component = String.join(" | ", components);
 			} 
 			else {
 				throw new RuntimeException("Mismatch between size of packageName and className elements");
@@ -123,15 +148,19 @@ public class IntentInfo {
 		} 
 		else if (!className.isEmpty()) {
 			component = "";
+			Set<String> components = new HashSet<String>();
 			for (String c : className) {
-				component += c + "; ";
+				components.add(c);
 			}
+			component = String.join(" | ", components);
 		} 
 		else if (!packageName.equals(NOT_SET)) {
 			component = "";
+			Set<String> components = new HashSet<String>();
 			for (String c : packageName) {
-				component += String.format("%s.?", c) + "; ";
+				components.add(String.format("%s.?", c));
 			}
+			component = String.join(" | ", components);
 		}
 
 		if (!component.equals(NOT_SET)) {

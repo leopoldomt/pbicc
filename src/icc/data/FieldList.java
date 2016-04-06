@@ -38,6 +38,26 @@ public class FieldList extends ArrayList<String> {
 		}
 		else {
 			StringBuilder sb = new StringBuilder();
+			sb.append('"');
+			for (;;) {
+				String e = it.next();
+				sb.append(e);
+				if (!it.hasNext())
+					break;
+				sb.append(' ').append('|').append(' ');
+			}
+			sb.append('"');
+			return sb.toString();
+		}
+	}
+	
+	public String toJSONarray() {
+		Iterator<String> it = iterator();
+		if (!it.hasNext()) {
+			return "\"-\"";
+		}
+		else {
+			StringBuilder sb = new StringBuilder();
 			boolean moreThanOne = (this.size() > 1); 
 			if (moreThanOne) {
 				sb.append("[");				

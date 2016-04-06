@@ -16,7 +16,7 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		//put name of file
-		String subject = "abstract-art";
+		String subject = "zooborns";
 		String dir = "test-data/json/";
 		// ground truth 
 		//String s = "src/outputparser/ground-truth-primitive-ftp-d.json";

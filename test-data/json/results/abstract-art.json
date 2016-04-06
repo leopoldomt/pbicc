@@ -45,7 +45,7 @@
  "identifier" : "send",
  "component" : "-",
  "action" : "Intent.ACTION_SENDTO",
- "data" : "uriText.replace(\" \", \"%20\") ",
+ "data" : "uriText.replace(" ", "%20") ",
  "mimeType" : "-",
  "extras" : "-"
 }]
