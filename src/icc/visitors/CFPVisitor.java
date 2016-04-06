@@ -3,9 +3,6 @@ package icc.visitors;
 import icc.State;
 import icc.data.ICCLinkFindingResults;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.expr.Expression;
