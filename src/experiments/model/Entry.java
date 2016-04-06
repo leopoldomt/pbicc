@@ -1,4 +1,4 @@
-package outputparser;
+package experiments.model;
 
 /**
  * This is the data structure to represent the output of the analysis.  
