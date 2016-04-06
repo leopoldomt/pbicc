@@ -15,5 +15,7 @@ hs_err_pid*
 out/
 /target/
 
-# Ignoring unnecessary Eclipse files
+# Ignoring unnecessary files
 .settings/
+.DS_Store
+*.swp
