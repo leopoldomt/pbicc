@@ -45,6 +45,9 @@ public class Entry {
 			res = action;
 			break;
 		case "data":
+			res = data;
+			break;
+		case "mimeType":
 			res = mimeType;
 			break;
 		case "extras":

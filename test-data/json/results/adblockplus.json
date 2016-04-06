@@ -1,0 +1,261 @@
+[
+{
+ "scope" : "ProxyConfigurationActivity.onSettings",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "Settings.ACTION_WIFI_SETTINGS",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.onOptionsItemSelected",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "uri",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.onOptionsItemSelected",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "AdvancedPreferences.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.showProxySettings",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "ProxyConfigurationActivity.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["port"]
+},
+{
+ "scope" : "Preferences.setProxyEnabled",
+ "methodType" : "startService",
+ "identifier" : "-",
+ "component" : "ProxyService.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "AdvancedPreferences.onSharedPreferenceChanged",
+ "methodType" : "startService",
+ "identifier" : "-",
+ "component" : "ProxyService.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ManualProxyConfigurator.trafficReceived.run",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "org.adblockplus.android.PROXY_STATE_CHANGED",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ManualProxyConfigurator.noTrafficReceived.run",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "org.adblockplus.android.PROXY_STATE_CHANGED",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "HelpfulCheckBoxPreference.onBindView.onClick",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "sharedPreferences.getString(key, null) ",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "AdblockPlus.showAppDetails",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "com.android.settings.InstalledAppDetails",
+ "action" : ["Settings.ACTION_APPLICATION_DETAILS_SETTINGS", "Intent.ACTION_VIEW"],
+ "data" : "Uri.fromParts(\"package\", packageName, null)",
+ "mimeType" : "-",
+ "extras" : ["(Build.VERSION.SDK_INT == Build.VERSION_CODES.FROYO ? "pkg" : "com.android.settings.ApplicationPkgName") "]
+},
+{
+ "scope" : "AdblockPlus.onCreate",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "CrashReportDialog.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["report"]
+},
+{
+ "scope" : "AdblockPlus.setFilteringEnabled",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ProxyService.onCreate",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ProxyService.onCreate",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ProxyService.onCreate",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ProxyService.onCreate",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ProxyService.onDestroy",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ProxyService.sendStateChangedBroadcast",
+ "methodType" : "sendBroadcast",
+ "identifier" : "stateIntent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["configured"]
+},
+{
+ "scope" : "ConfigurationActivity.onHelp",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "uri",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "NativeProxyConfigurator.canUse",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "NativeProxyConfigurator.sendIntent",
+ "methodType" : "sendBroadcast",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "android.net.wifi.LINK_CONFIGURATION_CHANGED",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["linkProperties"]
+},
+{
+ "scope" : "Utils.updateSubscriptionStatus",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "UpdaterActivity.onCreate",
+ "methodType" : "startActivity",
+ "identifier" : "installerIntent",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "Uri.fromFile(updateFile)",
+ "mimeType" : "application/vnd.android.package-archive",
+ "extras" : "-"
+},
+{
+ "scope" : "UpdaterActivity.onCreate.onClick",
+ "methodType" : "startService",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Starter.onReceive",
+ "methodType" : "startService",
+ "identifier" : "-",
+ "component" : "ProxyService.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ServiceBinder.bind",
+ "methodType" : "bindService",
+ "identifier" : "-",
+ "component" : "ProxyService.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+}]

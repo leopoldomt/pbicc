@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -13,16 +15,28 @@ import com.google.gson.reflect.TypeToken;
 public class Main {
 	
 	public static void main(String[] args) throws IOException {
+		//put name of file
+		String subject = "abstract-art";
+		String dir = "test-data/json/";
 		// ground truth 
-		String s = "src/outputparser/ground-truth-primitive-ftp-d.json";
+		//String s = "src/outputparser/ground-truth-primitive-ftp-d.json";
+		String s = dir+"ground-truth/"+subject+".json";
 		List<Entry> golden = load(s);
 		
 		// results
-		s = "src/outputparser/fake-output-primitive-ftp-d.json";
+		//s = "src/outputparser/fake-output-primitive-ftp-d.json";
+		s = dir+"results/"+subject+".json";
 		List<Entry> output = load(s);
 		
-		PairDoubles pr = precisionRecall(golden, output, "component");
-		System.out.printf("(precision, recall) = %s", pr);
+		String[] attributes = new String[] {"action", "component", "data", "mimeType", "extras"};
+		System.out.println("============");
+		for (String attribute : attributes) {
+			PairDoubles pr = precisionRecall(golden, output, attribute);
+			System.out.println("Attribute "+attribute);
+			System.out.println(String.format("(precision, recall) = %s", pr));
+			System.out.println("============");
+		}
+		
 	}
 
 	private static PairDoubles precisionRecall(List<Entry> golden, List<Entry> output, String attribute) {
@@ -70,6 +84,10 @@ public class Main {
 					}
 				}
 			}
+		}
+		if (hitsOutput == 0 && sizeOutput == 0) {
+			hitsOutput = 1;
+			sizeOutput = 1;
 		}
 		PairInts pis = new PairInts(hitsOutput, sizeOutput);
 		return pis;

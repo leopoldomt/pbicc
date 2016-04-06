@@ -35,10 +35,10 @@ public class Main {
   static boolean ICC_SHOW_EXPLICIT_INTENTS = false;
   static boolean ICC_SHOW_IMPLICIT_INTENTS = false;
   static boolean ICC_SHOW_VARS = false;
-  static boolean ICC_SHOW_LINKS = true;
+  static boolean ICC_SHOW_LINKS = false;
   static boolean ICC_SHOW_STATS_PER_FILE = false;
   static boolean ICC_SHOW_FINAL_STATS = true;
-  static boolean ICC_SHOW_INTENT_FILTERS = true;
+  static boolean ICC_SHOW_INTENT_FILTERS = false;
   static boolean PRINT_DOT = false;
   static boolean PRINT_TOPO_ORDER = false;
   static boolean ICC_SAVE_RESULTS = true;
@@ -51,14 +51,14 @@ public class Main {
 
     init(args[0], args[1]);
     getICCLinkResults();
-
-    State.getInstance().setManifestParser(new AndroidManifestParser(args[2]));
     
     DirectedGraph<String, DefaultEdge> g = createDependencyGraph();
     StringBuilder results = new StringBuilder();
 
     
     if (ICC_SHOW_INTENT_FILTERS) {
+        //TODO we do not need to load manifest if we are not looking at intent filters 
+    	State.getInstance().setManifestParser(new AndroidManifestParser(args[2]));
     	StringBuilder localResults = new StringBuilder();
     	for (String component : State.getInstance().getManifestParser().intentFilters.keySet()) {
     		localResults.append("###\n");
@@ -150,7 +150,7 @@ public class Main {
     
     // saving ICC link results information in JSON format
     if (ICC_SAVE_JSON) {
-    	String name = fileListFile.split("-")[0] + "-icc-results.json";
+    	String name = fileListFile.split("-")[0] + ".json";
     	BufferedWriter bw = new BufferedWriter(new FileWriter(name));
     	bw.write(iccResults.toJSON());
         bw.flush();

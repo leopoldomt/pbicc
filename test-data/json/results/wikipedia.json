@@ -1,0 +1,211 @@
+[
+{
+ "scope" : "SettingsPreferenceLoader.overridePackageName.onPreferenceClick",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "AboutActivity.class; ",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "HockeyAppCrashReporter.CrashListener.launchCrashReportActivity",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "EditSectionActivity.updateEditLicenseText.onUrlClick",
+ "methodType" : "startActivityForResult",
+ "identifier" : "loginIntent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "EditSectionActivity.handleEditingException.onClick",
+ "methodType" : "startActivity",
+ "identifier" : "loginIntent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "DeveloperSettingsPreferenceLoader.buildUserOptionButtonClickListener.onPreferenceClick",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "PageFragment.onOptionsItemSelected",
+ "methodType" : "startActivityForResult",
+ "identifier" : "langIntent",
+ "component" : "LangLinksActivity.class; ",
+ "action" : "org.wikipedia.langlinks_for_title",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["org.wikipedia.pagetitle"]
+},
+{
+ "scope" : "EditPreviewFragment.displayPreview.onInternalLinkClicked.run",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "PageActivity.class; ",
+ "action" : "org.wikipedia.page_for_title",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["org.wikipedia.history.historyentry", "org.wikipedia.pagetitle"]
+},
+{
+ "scope" : "EditHandler.onMessage",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "EditSectionActivity.class; ",
+ "action" : "org.wikipedia.edit_section",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["org.wikipedia.edit_section.title", "org.wikipedia.edit_section.pageprops", "org.wikipedia.edit_section.sectionheading", "org.wikipedia.edit_section.sectionid"]
+},
+{
+ "scope" : "PreferenceMultiLine.onBindViewHolder.onPreferenceClick",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "NavDrawerHelper.launchSettingsActivity",
+ "methodType" : "startActivityForResult",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "NavDrawerHelper.launchLoginActivity",
+ "methodType" : "startActivityForResult",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ShareUtil.shareText",
+ "methodType" : "startActivity",
+ "identifier" : "chooserIntent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ShareUtil.shareImage.onFinish",
+ "methodType" : "startActivity",
+ "identifier" : "chooserIntent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "UriUtil.visitInExternalBrowser",
+ "methodType" : "startActivity",
+ "identifier" : "chooserIntent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "UriUtil.sendGeoIntent",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : ""?q=" + Uri.encode(placeName) ",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "PageActivity.updateFeaturedPageWidget",
+ "methodType" : "sendBroadcast",
+ "identifier" : "widgetIntent",
+ "component" : "WidgetProviderFeaturedPage.class; ",
+ "action" : "AppWidgetManager.ACTION_APPWIDGET_UPDATE",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["AppWidgetManager.EXTRA_APPWIDGET_IDS"]
+},
+{
+ "scope" : "CrashReportActivity.onStartOver",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "InstallReceiver.openPageFromUrl",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "PageActivity.class; ",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "objinfo.optString("url", "") ",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "SettingsFragment.launchDeveloperSettingsActivity",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "LoginActivity.startCreateAccountActivity",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "CreateAccountActivity.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["login_session_token", "login_request_source"]
+},
+{
+ "scope" : "GalleryActivity.showGallery",
+ "methodType" : "startActivityForResult",
+ "identifier" : "galleryIntent",
+ "component" : "GalleryActivity.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : ["source", "org.wikipedia.pagetitle", "imageTitle"]
+}]

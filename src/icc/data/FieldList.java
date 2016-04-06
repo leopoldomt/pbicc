@@ -25,6 +25,11 @@ public class FieldList extends ArrayList<String> {
 			sb.append(';').append(' ');
 		}
 	}
+	
+	public String sanitize(String s) {
+		//TODO consider doing more stuff here, if-need-be
+		return s.replace("\"", "\\\"");
+	}
 
 	public String toJSON() {
 		Iterator<String> it = iterator();

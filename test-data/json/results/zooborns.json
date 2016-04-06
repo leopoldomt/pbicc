@@ -1,0 +1,21 @@
+[
+{
+ "scope" : "FullscreenImage.share",
+ "methodType" : "startActivity",
+ "identifier" : "i",
+ "component" : "-",
+ "action" : "android.content.Intent.ACTION_SEND",
+ "data" : "-",
+ "mimeType" : ["image/jpg", "text/plain"],
+ "extras" : ["Intent.EXTRA_STREAM", "Intent.EXTRA_TEXT", "Intent.EXTRA_SUBJECT"]
+},
+{
+ "scope" : "ZooBorns.onCreate.onItemClick",
+ "methodType" : "startActivity",
+ "identifier" : "i",
+ "component" : "FullscreenImage.class; ",
+ "action" : "-",
+ "data" : "null",
+ "mimeType" : "-",
+ "extras" : ["cachedImageList", "gallery", "currentImageIndex"]
+}]

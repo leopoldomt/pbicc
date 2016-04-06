@@ -1,0 +1,51 @@
+[
+{
+ "scope" : "PrimitiveFtpdActivity.handlePrefs",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "prefsActivityClass; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "PrimitiveFtpdActivity.handleAbout",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "AboutActivity.class; ",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ServicesStartStopUtil.startServers",
+ "methodType" : "startService",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ServicesStartStopUtil.startServers",
+ "methodType" : "startService",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ServerServiceHandler.handleStart",
+ "methodType" : "sendBroadcast",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "org.primftpd.CouldNotStartServer",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+}]

@@ -1,0 +1,51 @@
+[
+{
+ "scope" : "Wallpaper.AbstractArtEngine.onCommand",
+ "methodType" : "startActivity",
+ "identifier" : "myIntent",
+ "component" : "net.georgewhiteside.android.abstractart.Settings",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Wallpaper.AbstractArtEngine.onCommand",
+ "methodType" : "startActivity",
+ "identifier" : "myIntent",
+ "component" : "net.georgewhiteside.android.abstractart.Settings",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Settings.onCreate.onPreferenceClick",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "market://details?id=",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Settings.onCreate.onPreferenceClick",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "http://play.google.com/store/apps/details?id=",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Settings.onCreate.onPreferenceClick",
+ "methodType" : "startActivity",
+ "identifier" : "send",
+ "component" : "-",
+ "action" : "Intent.ACTION_SENDTO",
+ "data" : "uriText.replace(\" \", \"%20\") ",
+ "mimeType" : "-",
+ "extras" : "-"
+}]

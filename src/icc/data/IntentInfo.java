@@ -44,7 +44,13 @@ public class IntentInfo {
 	public String toJSON() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(String.format("\n \"identifier\" : \"%s\",", identifier));
-		builder.append(String.format("\n \"component\" : \"%s\",", getComponent()));
+		String comp = getComponent();
+		if (comp.isEmpty()) {
+			builder.append("\n \"component\" : \"-\",");
+		}
+		else {
+			builder.append(String.format("\n \"component\" : \"%s\",", getComponent()));
+		}
 		builder.append(String.format("\n \"action\" : %s,", action.toJSON()));
 		builder.append(String.format("\n \"data\" : %s,", data.toJSON()));
 		builder.append(String.format("\n \"mimeType\" : %s,", type.toJSON()));
@@ -52,6 +58,11 @@ public class IntentInfo {
 		String extrasJson = extrasToJSON(PRINT_EXTRAS_VALUES);
 		builder.append(String.format("\n \"extras\" : %s", extrasJson));
 		return builder.toString();
+	}
+	
+	public String sanitize(String s) {
+		//TODO consider doing more stuff here, if-need-be
+		return s.replace("\"", "\\\"");
 	}
 	
 	private String extrasToJSON(boolean withValue) {
@@ -63,7 +74,7 @@ public class IntentInfo {
 				StringBuilder value = new StringBuilder();
 				value.append("\""+entry.getKey()+"\"");
 				if (withValue) {
-					value.append(" : \""+entry.getValue()+"\"");
+					value.append(" : \""+sanitize(entry.getValue())+"\"");
 				}
 				extraStrings.add(value.toString());
 			}

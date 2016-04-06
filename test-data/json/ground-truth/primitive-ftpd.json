@@ -3,7 +3,7 @@
     "scope": "PrimitiveFtpdActivity.handlePrefs",
     "methodType": "startActivity",
     "identifier": "intent",
-    "component": "FtpPrefsActivityThemeDark.class | FtpPrefsActivityThemeLight.class",
+    "component": "FtpPrefsActivityThemeDark.class; FtpPrefsActivityThemeLight.class",
     "action": "-",
     "data": "-",
     "mimeType": "-",
