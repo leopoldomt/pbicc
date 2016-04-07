@@ -1,761 +1,685 @@
-[
-{
- "scope" : "RemoteControlClientReceiver.onReceive",
- "methodType" : "startService",
- "identifier" : "i",
- "component" : "-",
- "action" : "ACTION_REMOTE_GENERIC + "Backward" ",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "RemoteControlClientReceiver.onReceive",
- "methodType" : "sendBroadcast",
- "identifier" : "i",
- "component" : "-",
- "action" : "ACTION_REMOTE_GENERIC + "Backward" ",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "StartActivity.onCreate",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "VideoPlayerActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "StartActivity.onCreate",
- "methodType" : "startActivity",
- "identifier" : "-",
- "component" : "VLCApplication.showTvUi() ? AudioPlayerActivity.class : MainActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "StartActivity.onCreate",
- "methodType" : "startActivity",
- "identifier" : "-",
- "component" : "VLCApplication.showTvUi() ? MainTvActivity.class : MainActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "Permissions.createDialog.onClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "-",
- "action" : "android.settings.APPLICATION_DETAILS_SETTINGS",
- "data" : "package:",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "Permissions.createDialogCompat.onClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "-",
- "action" : "android.settings.APPLICATION_DETAILS_SETTINGS",
- "data" : "package:",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "Permissions.createSettingsDialogCompat.onClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "-",
- "action" : "Settings.ACTION_MANAGE_WRITE_SETTINGS",
- "data" : "package:",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "SortedBrowserFragment.showDetails",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "DetailsActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "item, media"
-},
-{
- "scope" : "PlaybackService.onReceive",
- "methodType" : "startActivity",
- "identifier" : "-",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PlaybackService.showNotification",
- "methodType" : "startService",
- "identifier" : "-",
- "component" : "PlaybackService.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PlaybackService.Client.startService",
- "methodType" : "startService",
- "identifier" : "-",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PlaybackService.Client.connect",
- "methodType" : "bindService",
- "identifier" : "-",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PlaybackService.switchToVideo",
- "methodType" : "sendBroadcast",
- "identifier" : "-",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PlaybackService.updateMetadata",
- "methodType" : "sendBroadcast",
- "identifier" : "i",
- "component" : "-",
- "action" : "com.getpebble.action.NOW_PLAYING",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "artist, album, track"
-},
-{
- "scope" : "PlaybackService.next",
- "methodType" : "sendBroadcast",
- "identifier" : "-",
- "component" : "-",
- "action" : "VideoPlayerActivity.EXIT_PLAYER",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PlaybackService.updateWidgetState",
- "methodType" : "sendBroadcast",
- "identifier" : "i",
- "component" : "-",
- "action" : "ACTION_WIDGET_PREFIX + "UPDATE" ",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "artist, isplaying, title"
-},
-{
- "scope" : "PlaybackService.updateWidgetCover",
- "methodType" : "sendBroadcast",
- "identifier" : "i",
- "component" : "-",
- "action" : "ACTION_WIDGET_PREFIX + "UPDATE_COVER" ",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "cover"
-},
-{
- "scope" : "PlaybackService.updateWidgetPosition",
- "methodType" : "sendBroadcast",
- "identifier" : "i",
- "component" : "-",
- "action" : "ACTION_WIDGET_PREFIX + "UPDATE_POSITION" ",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "position"
-},
-{
- "scope" : "PlaybackService.broadcastMetadata",
- "methodType" : "sendBroadcast",
- "identifier" : "broadcast",
- "component" : "-",
- "action" : "com.android.music.metachanged",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "duration, artist, album, playing, track"
-},
-{
- "scope" : "NativeCrashActivity.onCreate.onClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "StartActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "BaseTvActivity.onKeyDown",
- "methodType" : "startActivity",
- "identifier" : "-",
- "component" : "SearchActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "AudioBrowserFragment.onItemClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "filter, fragment"
-},
-{
- "scope" : "AudioBrowserFragment.onItemClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "filter, fragment"
-},
-{
- "scope" : "AudioBrowserFragment.onItemClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "filter, fragment"
-},
-{
- "scope" : "AudioBrowserFragment.handleContextItemSelected",
- "methodType" : "startActivityForResult",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment, param"
-},
-{
- "scope" : "Developer.onPreferenceTreeClick",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "DebugLogActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "BrowserGridFragment.showDetails",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "DetailsActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "item, media"
-},
-{
- "scope" : "MainTvActivity.onActivityResult",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "StartActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainTvActivity.onKeyDown",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "DetailsActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "item, media"
-},
-{
- "scope" : "MainTvActivity.onItemClicked",
- "methodType" : "startActivity",
- "identifier" : "-",
- "component" : "AudioPlayerActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainTvActivity.onItemClicked",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "VerticalGridActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "browser_type, category"
-},
-{
- "scope" : "MainTvActivity.onItemClicked",
- "methodType" : "startActivityForResult",
- "identifier" : "-",
- "component" : "org.videolan.vlc.gui.tv.preferences.PreferencesActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainTvActivity.onItemClicked",
- "methodType" : "startActivity",
- "identifier" : "-",
- "component" : "org.videolan.vlc.gui.tv.AboutActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainTvActivity.onItemClicked",
- "methodType" : "startActivity",
- "identifier" : "-",
- "component" : "org.videolan.vlc.gui.tv.LicenceActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainTvActivity.onClick",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "SearchActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainTvActivity.onStop",
- "methodType" : "startService",
- "identifier" : "recommendationIntent",
- "component" : "RecommendationsService.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PreferencesActivity.exitAndRescan",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PreferencesFragment.onPreferenceTreeClick",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment"
-},
-{
- "scope" : "MediaUtils.actionScanStart",
- "methodType" : "sendBroadcast",
- "identifier" : "intent",
- "component" : "-",
- "action" : "Strings.buildPkgString("gui.ScanStart")",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MediaUtils.actionScanStop",
- "methodType" : "sendBroadcast",
- "identifier" : "intent",
- "component" : "-",
- "action" : "Strings.buildPkgString("gui.ScanStop")",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "VLCApplication.fireDialog",
- "methodType" : "startActivity",
- "identifier" : "-",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "AudioAlbumsSongsFragment.handleContextItemSelected",
- "methodType" : "startActivityForResult",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment, param"
-},
-{
- "scope" : "AudioAlbumsSongsFragment.onItemClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "filter, fragment"
-},
-{
- "scope" : "TvUtil.openMedia",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "VerticalGridActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "browser_type"
-},
-{
- "scope" : "TvUtil.openMedia",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "VerticalGridActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "browser_type"
-},
-{
- "scope" : "TvUtil.openMedia",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "VerticalGridActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "browser_type"
-},
-{
- "scope" : "TvUtil.browseFolder",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "VerticalGridActivity.class",
- "action" : "-",
- "data" : "uri",
- "mimeType" : "-",
- "extras" : "browser_type"
-},
-{
- "scope" : "TvUtil.playAudioList",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "AudioPlayerActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "media_position, key_media_list"
-},
-{
- "scope" : "PreferencesFragment.onPreferenceTreeClick",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment"
-},
-{
- "scope" : "MediaItemDetailsFragment.buildDetails.onActionClicked",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "AudioPlayerActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "key_media_list"
-},
-{
- "scope" : "ExtensionBrowser.onClick",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "-",
- "action" : "Intent.ACTION_VIEW",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "PreferencesActivity.exitAndRescan",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "Developer.onPreferenceTreeClick",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "DebugLogActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "VLCAppWidgetProvider.onUpdate",
- "methodType" : "sendBroadcast",
- "identifier" : "i",
- "component" : "APPLICATION_ID.?",
- "action" : "ACTION_WIDGET_PREFIX + "INIT" ",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "VLCInstance.get.onNativeCrash",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "NativeCrashActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "PID"
-},
-{
- "scope" : "VLCInstance.testCompatibleCPU",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "CompatErrorActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "SearchActivity.onCreate.recognizeSpeech",
- "methodType" : "startActivityForResult",
- "identifier" : "-",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainActivity.showSecondaryFragment",
- "methodType" : "startActivityForResult",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment, param"
-},
-{
- "scope" : "MainActivity.onActivityResult",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "StartActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainActivity.onNavigationItemSelected",
- "methodType" : "startActivityForResult",
- "identifier" : "-",
- "component" : "PreferencesActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainActivity.onNavigationItemSelected",
- "methodType" : "startActivityForResult",
- "identifier" : "intent",
- "component" : "-",
- "action" : "Intent.ACTION_GET_CONTENT",
- "data" : "-",
- "mimeType" : "audio/* video/*",
- "extras" : "-"
-},
-{
- "scope" : "MainActivity.createExtensionServiceConnection",
- "methodType" : "bindService",
- "identifier" : "-",
- "component" : "ExtensionManagerService.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "MainActivity.onOptionsItemSelected",
- "methodType" : "sendBroadcast",
- "identifier" : "i",
- "component" : "-",
- "action" : "audio ? PlaybackService.ACTION_REMOTE_LAST_PLAYLIST : PlaybackService.ACTION_REMOTE_LAST_VIDEO_PLAYLIST",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "VideoGridFragment.handleContextItemSelected",
- "methodType" : "startActivityForResult",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment, param"
-},
-{
- "scope" : "VideoPlayerActivity.start",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "VideoPlayerActivity.switchToAudioMode",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "VLCApplication.showTvUi() ? AudioPlayerActivity.class : MainActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "VideoPlayerActivity.onAudioSubClick.onMenuItemClick",
- "methodType" : "startActivityForResult",
- "identifier" : "filePickerIntent",
- "component" : "FilePickerActivity.class",
- "action" : "-",
- "data" : "null",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "DebugLogService.start",
- "methodType" : "startService",
- "identifier" : "-",
- "component" : "DebugLogService.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "DebugLogService.Client",
- "methodType" : "bindService",
- "identifier" : "-",
- "component" : "DebugLogService.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "ExtensionManagerService.connectService",
- "methodType" : "bindService",
- "identifier" : "-",
- "component" : "-",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "AudioAlbumFragment.handleContextItemSelected",
- "methodType" : "startActivityForResult",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment, param"
-},
-{
- "scope" : "AudioPlayer.start",
- "methodType" : "sendBroadcast",
- "identifier" : "intent",
- "component" : "-",
- "action" : "AudioPlayerContainerActivity.ACTION_SHOW_PLAYER",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "-"
-},
-{
- "scope" : "BaseBrowserFragment.handleContextItemSelected",
- "methodType" : "startActivityForResult",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment, param"
-},
-{
- "scope" : "MusicFragment.AsyncAudioUpdate.onPostExecute.onItemClicked",
- "methodType" : "startActivity",
- "identifier" : "intent",
- "component" : "VerticalGridActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "filter, browser_type, section, category"
-},
-{
- "scope" : "AdvOptionsDialog.onClick",
- "methodType" : "startActivity",
- "identifier" : "i",
- "component" : "SecondaryActivity.class",
- "action" : "-",
- "data" : "-",
- "mimeType" : "-",
- "extras" : "fragment"
+[{
+	"scope": "RemoteControlClientReceiver.onReceive",
+	"methodType": "startService",
+	"identifier": "i",
+	"component": "-",
+	"action": "ACTION_REMOTE_GENERIC + \" Backward \"",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "RemoteControlClientReceiver.onReceive",
+	"methodType": "sendBroadcast",
+	"identifier": "i",
+	"component": "-",
+	"action": "ACTION_REMOTE_GENERIC + \"Backward\"",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "StartActivity.onCreate",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "VideoPlayerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "StartActivity.onCreate",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "VLCApplication.showTvUi() ? AudioPlayerActivity.class : MainActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "StartActivity.onCreate",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "VLCApplication.showTvUi() ? MainTvActivity.class : MainActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "Permissions.createDialog.onClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "-",
+	"action": "android.settings.APPLICATION_DETAILS_SETTINGS",
+	"data": "package:",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "Permissions.createDialogCompat.onClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "-",
+	"action": "android.settings.APPLICATION_DETAILS_SETTINGS",
+	"data": "package:",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "Permissions.createSettingsDialogCompat.onClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "-",
+	"action": "Settings.ACTION_MANAGE_WRITE_SETTINGS",
+	"data": "package:",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "SortedBrowserFragment.showDetails",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "DetailsActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "item, media"
+}, {
+	"scope": "PlaybackService.onReceive",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlaybackService.showNotification",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "PlaybackService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlaybackService.Client.startService",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlaybackService.Client.connect",
+	"methodType": "bindService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlaybackService.switchToVideo",
+	"methodType": "sendBroadcast",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlaybackService.updateMetadata",
+	"methodType": "sendBroadcast",
+	"identifier": "i",
+	"component": "-",
+	"action": "com.getpebble.action.NOW_PLAYING",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "artist, album, track"
+}, {
+	"scope": "PlaybackService.next",
+	"methodType": "sendBroadcast",
+	"identifier": "-",
+	"component": "-",
+	"action": "VideoPlayerActivity.EXIT_PLAYER",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlaybackService.updateWidgetState",
+	"methodType": "sendBroadcast",
+	"identifier": "i",
+	"component": "-",
+	"action": "ACTION_WIDGET_PREFIX + \"UPDATE\"",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "artist, isplaying, title"
+}, {
+	"scope": "PlaybackService.updateWidgetCover",
+	"methodType": "sendBroadcast",
+	"identifier": "i",
+	"component": "-",
+	"action": "ACTION_WIDGET_PREFIX + \"UPDATE_COVER\"",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "cover"
+}, {
+	"scope": "PlaybackService.updateWidgetPosition",
+	"methodType": "sendBroadcast",
+	"identifier": "i",
+	"component": "-",
+	"action": "ACTION_WIDGET_PREFIX + \"UPDATE_POSITION\"",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "position"
+}, {
+	"scope": "PlaybackService.broadcastMetadata",
+	"methodType": "sendBroadcast",
+	"identifier": "broadcast",
+	"component": "-",
+	"action": "com.android.music.metachanged",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "duration, artist, album, playing, track"
+}, {
+	"scope": "NativeCrashActivity.onCreate.onClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "StartActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "BaseTvActivity.onKeyDown",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "SearchActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "AudioBrowserFragment.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "filter, fragment"
+}, {
+	"scope": "AudioBrowserFragment.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "filter, fragment"
+}, {
+	"scope": "AudioBrowserFragment.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "filter, fragment"
+}, {
+	"scope": "AudioBrowserFragment.handleContextItemSelected",
+	"methodType": "startActivityForResult",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment, param"
+}, {
+	"scope": "Developer.onPreferenceTreeClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "DebugLogActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "BrowserGridFragment.showDetails",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "DetailsActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "item, media"
+}, {
+	"scope": "MainTvActivity.onActivityResult",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "StartActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainTvActivity.onKeyDown",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "DetailsActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "item, media"
+}, {
+	"scope": "MainTvActivity.onItemClicked",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "AudioPlayerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainTvActivity.onItemClicked",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "VerticalGridActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "browser_type, category"
+}, {
+	"scope": "MainTvActivity.onItemClicked",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "org.videolan.vlc.gui.tv.preferences.PreferencesActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainTvActivity.onItemClicked",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "org.videolan.vlc.gui.tv.AboutActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainTvActivity.onItemClicked",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "org.videolan.vlc.gui.tv.LicenceActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainTvActivity.onClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "SearchActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainTvActivity.onStop",
+	"methodType": "startService",
+	"identifier": "recommendationIntent",
+	"component": "RecommendationsService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PreferencesActivity.exitAndRescan",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PreferencesFragment.onPreferenceTreeClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment"
+}, {
+	"scope": "MediaUtils.actionScanStart",
+	"methodType": "sendBroadcast",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Strings.buildPkgString(\"gui.ScanStart\")",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MediaUtils.actionScanStop",
+	"methodType": "sendBroadcast",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Strings.buildPkgString(\"gui.ScanStop\")",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "VLCApplication.fireDialog",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "AudioAlbumsSongsFragment.handleContextItemSelected",
+	"methodType": "startActivityForResult",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment, param"
+}, {
+	"scope": "AudioAlbumsSongsFragment.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "filter, fragment"
+}, {
+	"scope": "TvUtil.openMedia",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "VerticalGridActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "browser_type"
+}, {
+	"scope": "TvUtil.openMedia",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "VerticalGridActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "browser_type"
+}, {
+	"scope": "TvUtil.openMedia",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "VerticalGridActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "browser_type"
+}, {
+	"scope": "TvUtil.browseFolder",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "VerticalGridActivity.class",
+	"action": "-",
+	"data": "uri",
+	"mimeType": "-",
+	"extras": "browser_type"
+}, {
+	"scope": "TvUtil.playAudioList",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "AudioPlayerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "media_position, key_media_list"
+}, {
+	"scope": "PreferencesFragment.onPreferenceTreeClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment"
+}, {
+	"scope": "MediaItemDetailsFragment.buildDetails.onActionClicked",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "AudioPlayerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "key_media_list"
+}, {
+	"scope": "ExtensionBrowser.onClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PreferencesActivity.exitAndRescan",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "Developer.onPreferenceTreeClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "DebugLogActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "VLCAppWidgetProvider.onUpdate",
+	"methodType": "sendBroadcast",
+	"identifier": "i",
+	"component": "APPLICATION_ID.?",
+	"action": "ACTION_WIDGET_PREFIX + \"INIT\"",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "VLCInstance.get.onNativeCrash",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "NativeCrashActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "PID"
+}, {
+	"scope": "VLCInstance.testCompatibleCPU",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "CompatErrorActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "SearchActivity.onCreate.recognizeSpeech",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainActivity.showSecondaryFragment",
+	"methodType": "startActivityForResult",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment, param"
+}, {
+	"scope": "MainActivity.onActivityResult",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "StartActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainActivity.onNavigationItemSelected",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "PreferencesActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainActivity.onNavigationItemSelected",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Intent.ACTION_GET_CONTENT",
+	"data": "-",
+	"mimeType": "audio/* video/*",
+	"extras": "-"
+}, {
+	"scope": "MainActivity.createExtensionServiceConnection",
+	"methodType": "bindService",
+	"identifier": "-",
+	"component": "ExtensionManagerService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MainActivity.onOptionsItemSelected",
+	"methodType": "sendBroadcast",
+	"identifier": "i",
+	"component": "-",
+	"action": "audio ? PlaybackService.ACTION_REMOTE_LAST_PLAYLIST : PlaybackService.ACTION_REMOTE_LAST_VIDEO_PLAYLIST",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "VideoGridFragment.handleContextItemSelected",
+	"methodType": "startActivityForResult",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment, param"
+}, {
+	"scope": "VideoPlayerActivity.start",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "VideoPlayerActivity.switchToAudioMode",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "VLCApplication.showTvUi() ? AudioPlayerActivity.class : MainActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "VideoPlayerActivity.onAudioSubClick.onMenuItemClick",
+	"methodType": "startActivityForResult",
+	"identifier": "filePickerIntent",
+	"component": "FilePickerActivity.class",
+	"action": "-",
+	"data": "null",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "DebugLogService.start",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "DebugLogService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "DebugLogService.Client",
+	"methodType": "bindService",
+	"identifier": "-",
+	"component": "DebugLogService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ExtensionManagerService.connectService",
+	"methodType": "bindService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "AudioAlbumFragment.handleContextItemSelected",
+	"methodType": "startActivityForResult",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment, param"
+}, {
+	"scope": "AudioPlayer.start",
+	"methodType": "sendBroadcast",
+	"identifier": "intent",
+	"component": "-",
+	"action": "AudioPlayerContainerActivity.ACTION_SHOW_PLAYER",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "BaseBrowserFragment.handleContextItemSelected",
+	"methodType": "startActivityForResult",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment, param"
+}, {
+	"scope": "MusicFragment.AsyncAudioUpdate.onPostExecute.onItemClicked",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "VerticalGridActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "filter, browser_type, section, category"
+}, {
+	"scope": "AdvOptionsDialog.onClick",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "SecondaryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "fragment"
 }]
