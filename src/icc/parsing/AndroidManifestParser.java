@@ -142,7 +142,7 @@ public class AndroidManifestParser extends DefaultHandler {
 				this.application.debuggable = ("true").equals(attributes.getValue("android:debuggable")) ? true : false;
 				this.application.description = (null) == (a = attributes.getValue("android:description")) ? application.description : a;
 				this.application.enabled = ("false").equals(attributes.getValue("android:enabled")) ? false : true;
-				this.application.hasCode= ("false").equals(attributes.getValue("android:")) ? false : true; 
+				this.application.hasCode= ("false").equals(attributes.getValue("android:hasCode")) ? false : true; 
 				
 				this.application.hardwareAcceleratedWasSetted = null == attributes.getValue("android:hardwareAccelerated") ? false : true;
 				if(!this.application.hardwareAcceleratedWasSetted){
