@@ -1,10 +1,7 @@
 package icc.data;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 public class FieldList extends ArrayList<String> {
 
