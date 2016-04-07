@@ -5,8 +5,10 @@ import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,33 +39,37 @@ public class FileManagerTest {
 
 	@Test
 	public void shouldListAllFileNames() {
-		// Order and files are based on ROOT_DIR
+		// IMPORTAN: ORDER IS OS DEPENDENT!
+		//
+		// Files are based on ROOT_DIR
 		List<String> expectedChildren = Arrays.asList("FileManagerTest.java", "dummy-1.json");
-		ensureSameList(manager.listAllFileNames(), expectedChildren);
+		ensureSameElements(manager.listAllFileNames(), expectedChildren);
 	}
 
 	@Test
 	public void shouldListJsonFileNames() {
-		// Order and files are based on ROOT_DIR
+		// files are based on ROOT_DIR
 		List<String> expectedChildren = Arrays.asList("dummy-1.json");
-		ensureSameList(manager.listJsonFileNames(), expectedChildren);
+		ensureSameElements(manager.listJsonFileNames(), expectedChildren);
 	}
 
 	@Test
 	public void shouldSupportRelativePaths() {
-		// Order and files are based on ROOT_DIR
-		List<String> expectedChildren = Arrays.asList("tests/experiments/utils/dummy-1.json");
-		ensureSameList(manager.listJsonFilesWithRelatives(), expectedChildren);
+		File f = new File("tests/experiments/utils/dummy-1.json");
+	
+		// Because path separators are OS dependent, the File object must be
+		// used. Other option would be concatenate several File.separator
+		List<String> expectedChildren = Arrays.asList(f.getPath());
+		ensureSameElements(manager.listJsonFilesWithRelatives(), expectedChildren);
 
 		String extraSeparator = File.separator;
 		manager = new FileManager(ROOT_DIR + extraSeparator + extraSeparator);
-		ensureSameList(manager.listJsonFilesWithRelatives(), expectedChildren);
+		ensureSameElements(manager.listJsonFilesWithRelatives(), expectedChildren);
 	}
 
-	private <T> void ensureSameList(List<T> listA, List<T> listB) {
-		assertEquals(listB.size(), listA.size());
-		for (int i = 0; i < listB.size(); i++) {
-			assertEquals(listB.get(i), listA.get(i));
-		}
+	private <T> void ensureSameElements(Collection<T> bagA, Collection<T> bagB) {
+		assertEquals(bagB.size(), bagA.size());
+		assertTrue(bagA.containsAll(bagB));
+		assertTrue(bagB.containsAll(bagA));
 	}
 }
