@@ -29,4 +29,22 @@ public class PrecisionAndRecallAnalysisTest {
 		}
 	}
 
+	@Test
+	public void shouldBeZeroWithUnrelatedSubjects() {
+		List<Entry> subject1 = null;
+		List<Entry> subject2 = null;
+		try {
+			subject1 = JsonUtils.load("test-data/json/results/abstract-art.json");
+			subject2 = JsonUtils.load("test-data/json/results/adblockplus.json");
+
+		} catch (IOException e) {
+			fail("Should not have failed: " + e.getLocalizedMessage());
+		}
+		String result = PrecisionAndRecallAnalysis.run(subject1, subject2, "component");
+		assertEquals("Expected result should be \"(0.00, 0.00)\"", "(0.00, 0.00)", result);
+
+		result = PrecisionAndRecallAnalysis.run(subject2, subject1, "component");
+		assertEquals("Expected result should be \"(0.00, 0.00)\"", "(0.00, 0.00)", result);
+
+	}
 }
