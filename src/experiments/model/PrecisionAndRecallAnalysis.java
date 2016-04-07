@@ -1,6 +1,7 @@
 package experiments.model;
 
 import java.util.List;
+import java.util.Locale;
 
 public class PrecisionAndRecallAnalysis {
 
@@ -30,7 +31,7 @@ public class PrecisionAndRecallAnalysis {
 
 		@Override
 		public String toString() {
-			return String.format("(%.2f, %.2f)", p, r);
+			return String.format(Locale.US, "(%.2f, %.2f)", p, r);
 		}
 	}
 
