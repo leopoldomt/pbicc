@@ -1,11 +1,18 @@
 package tg;
 
+import icc.parsing.AndroidManifestParser;
+
 
 public class TgMain {
 
 	public static void main(String[] args) {
-		
+
+		String manifestPath = "test-data/k9/AndroidManifest.xml";
+
+
 		String path = "/home/jpttrindade/Mega/CIN/TCC/inputs/";
+
+
 		String file1 = "abstract-art.json";
 		String file2 = "adblockplus.json";
 		String file3 = "arxiv.json";
@@ -20,7 +27,16 @@ public class TgMain {
 		String file12 = "wordpress.json";
 		String file13 = "zooborns.json";
 
-		IntentReader i = new IntentReader(path+file4);
+
+		try {
+			Intent[] its =IntentReader.fromJsonFile(path+file4);
+
+			AndroidManifestParser manifestParser = new AndroidManifestParser(manifestPath);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -1,5 +1,7 @@
 package tg;
 
+import icc.data.IntentFilter.Data;
+
 import java.util.ArrayList;
 
 public class Intent {
@@ -9,9 +11,9 @@ public class Intent {
 	String identifier;
 	String component;
 	ArrayList<String> actions;
-	String data;
+	Data data;
 	String mimeType;
-	String category;
+	ArrayList<String> categories;
 	String flags;
 	ArrayList<String> extras;
 
@@ -29,7 +31,10 @@ public class Intent {
 		
 		sb.append(String.format("#data: %s\n", data));
 		sb.append(String.format("#mimeType: %s\n", mimeType));
-		sb.append(String.format("#category: %s\n", category));
+		
+		for(String c : categories)
+			sb.append(String.format("#category: %s\n", c));
+		
 		sb.append(String.format("#flags: %s\n", flags));
 		
 		sb.append(String.format("#extras: "));
@@ -39,5 +44,47 @@ public class Intent {
 		
 		return sb.toString();
 	}
+
+	public String getScope() {
+		return scope;
+	}
+
+	public String getMethodType() {
+		return methodType;
+	}
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public String getComponent() {
+		return component;
+	}
+
+	public String getAction() {
+		return actions.get(0);
+	}
+
+	public Data getData() {
+		return data;
+	}
+
+	public String getMimeType() {
+		return mimeType;
+	}
+
+	public ArrayList<String> getCategories() {
+		return categories;
+	}
+
+	public String getFlags() {
+		return flags;
+	}
+
+	public ArrayList<String> getExtras() {
+		return extras;
+	}
+	
+	
 
 }
