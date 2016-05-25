@@ -1,0 +1,91 @@
+[
+{
+ "scope" : "LaunchDispatcher.onCreate",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "Intent.ACTION_SET_WALLPAPER",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "MultiPictureSetting.onOptionsItemSelected",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "Intent.ACTION_SEND",
+ "data" : "-",
+ "mimeType" : "text/plain",
+ "extras" : "Intent.EXTRA_TEXT"
+},
+{
+ "scope" : "MultiPictureSetting.onOptionsItemSelected",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "QRViewer.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "MultiPictureSetting.OnPictureSourceChangeListener.onPreferenceChange",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "MultiPictureSetting.OnDntClickListener.onPreferenceClick",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "null",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "FolderSource.startFolderPickerActivity",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "FolderPicker.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "extraInitPath"
+},
+{
+ "scope" : "LazyPickerClient.start",
+ "methodType" : "bindService",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "org.tamanegi.wallpaper.multipicture.plugin.LazyPickService",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "SingleSource.startFilePickerActivity",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "Intent.ACTION_GET_CONTENT",
+ "data" : "-",
+ "mimeType" : "image/*",
+ "extras" : "-"
+},
+{
+ "scope" : "PictureSourcePreference.onPrepareDialogBuilder.onClick",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "null",
+ "mimeType" : "-",
+ "extras" : "-"
+}]

@@ -6,9 +6,7 @@ import icc.data.VarInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
 
 import com.github.javaparser.ast.body.VariableDeclarator;
@@ -61,13 +59,10 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     this.data = data;
   }
   
-  protected String getVarValue(Expression expr)
-  {
+  protected String getVarValue(Expression expr) {
     // if there's no var, return the original result
     String result = expr.toString();
-
-    if (expr instanceof NameExpr)
-    {
+    if (expr instanceof NameExpr) {
       NameExpr nameExpr = (NameExpr) expr;
       
       String i = data.findWithSuffixMatch(nameExpr.getName());
@@ -78,18 +73,22 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 	  else {	
 	      VarInfo info = this.data.varsST.get(getFullScopeName(nameExpr.getName()));
 	
-	      if (info != null)
-	      {
-	        result = info.value; 
+	      if (info != null) {
+	        if (info.value != null) {
+	        	result = info.value; 
+	        }
+	        else {
+	        	result = nameExpr.toString();
+	        }
 	      }
-	      else
-	      {
-	        result = String.format("could not retrieve var '%s'", result);
+	      else {
+	    	  //result = String.format("could not retrieve var '%s'", result);
+	    	  result = nameExpr.toString();
 	      }
 	  }
     }
     else if (expr instanceof FieldAccessExpr) {
-        FieldAccessExpr fieldAccess = (FieldAccessExpr) expr;
+    	FieldAccessExpr fieldAccess = (FieldAccessExpr) expr;
         String i = data.findWithSuffixMatch(fieldAccess.getField());
         //System.out.println(fieldAccess.getField() + "--> " + i);
         if (i!=null) {
@@ -101,9 +100,14 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         		result = info.value; 
         	}
         	else {
-        		result = String.format("could not retrieve var '%s'", result);
+        		//result = String.format("could not retrieve field access '%s'", result);
+        		result = fieldAccess.toString();
         	}
         }
+    }
+    else if (expr instanceof StringLiteralExpr) {
+    	StringLiteralExpr literal = (StringLiteralExpr) expr;
+    	result = literal.getValue();
     }
     return result;
   }
@@ -155,19 +159,16 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
     }
   }
 
-  protected void handleSetData(List<Expression> args, IntentInfo info)
-  {
-    if (args.get(0) instanceof NameExpr) {
-      info.data.add(getVarValue(args.get(0)));
-    }
-    else if (args.get(0) instanceof MethodCallExpr) {
-      MethodCallExpr mCall = (MethodCallExpr) args.get(0);
-      if (mCall.getName().equals("parse")) {
-        info.data.add(handleParseCall(mCall));
+  protected void handleSetData(List<Expression> args, IntentInfo info) {
+	  if (args.get(0) instanceof NameExpr) {
+		  info.data.add(getVarValue(args.get(0)));
+	  }
+	  else if (args.get(0) instanceof MethodCallExpr) {
+		  MethodCallExpr mCall = (MethodCallExpr) args.get(0);
+		  if (mCall.getName().equals("parse")) {
+			  info.data.add(handleParseCall(mCall));
+		  }
       }
-      
-
-    }
   }
 
   protected void handleSetDataAndNormalize(List<Expression> args, IntentInfo info)
@@ -218,22 +219,19 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
 
       IntentInfo existingIntentInfo = this.data.intentsST.get(existingVar);
 
-      if (existingIntentInfo != null)
-      {
-        info = new IntentInfo();
-
-        info.action.add(CHOOSER_ACTION);
-        info.target = existingIntentInfo;
+      if (existingIntentInfo != null) {
+        //info = new IntentInfo();
+        //info.action.add(CHOOSER_ACTION);
+        //info.target = existingIntentInfo;
+    	return existingIntentInfo;
       }
-      else
-      {
+      else {
         // TODO: Fix tool limitation
         info.action.add(CHOOSER_ACTION);
         info.target = new IntentInfo();
       }
     }
-    else
-    {
+    else {
       // TODO: Fix tool limitation
       info.action.add(CHOOSER_ACTION);
       info.target = new IntentInfo();
@@ -263,6 +261,27 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
           NameExpr n = (NameExpr) e;
           value = getVarValue(n);
         }
+        else if (e instanceof FieldAccessExpr) {
+            FieldAccessExpr fieldAccess = (FieldAccessExpr) e;
+            String i = data.findWithSuffixMatch(fieldAccess.getField());
+            if (i!=null) {
+            	value = i;
+            }
+            else {
+            	VarInfo varInfo = this.data.varsST.get(getFullScopeName(fieldAccess.getField()));
+            	if (varInfo != null) {
+            		value = varInfo.value; 
+            	}
+            	else {
+            		//result = String.format("could not retrieve field access '%s'", result);
+            		value = e.toString();
+            	}
+            }
+        }
+        else if (e instanceof StringLiteralExpr) {
+        	StringLiteralExpr literal = (StringLiteralExpr) e;
+        	value = literal.getValue();
+        }
         info.action.add(value);
       }
       else if (args.size() == 2) {
@@ -274,8 +293,15 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         	//System.out.println(args.get(0).toString() + " --> " + args.get(0).getClass().getName());
         	Expression e1 = args.get(0);
         	Expression e2 = args.get(1);
-        	String v2 = getVarValue(e2);
-        	if (e2.toString().endsWith(".class") || v2.endsWith(".class")) {
+        	String v2 = "";
+        	String exp2 = "";
+        	if (e2!=null) {
+        		if (e2 instanceof Expression) {
+        			exp2 = e2.toString();
+        			v2 = getVarValue(e2);
+        		}
+        	}
+        	if (exp2.endsWith(".class") || v2.endsWith(".class")) {
         		info.className.add(e2.toString());
         	}
         	else {
@@ -294,6 +320,12 @@ public abstract class BaseVisitor extends ScopeAwareVisitor
         		if (e2 instanceof NameExpr || e2 instanceof FieldAccessExpr) {
                		info.data.add(v2);
                	}
+        		else if (e2 instanceof MethodCallExpr) {
+        			MethodCallExpr mCall = (MethodCallExpr) e2;
+        			if (mCall.getName().equals("parse")) {
+        				info.data.add(handleParseCall(mCall));
+        			}
+        	    }
                	else {
                		info.data.add(e2.toString());
                	}

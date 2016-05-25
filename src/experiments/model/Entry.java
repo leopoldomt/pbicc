@@ -1,4 +1,4 @@
-package outputparser;
+package experiments.model;
 
 /**
  * This is the data structure to represent the output of the analysis.  
@@ -45,6 +45,9 @@ public class Entry {
 			res = action;
 			break;
 		case "data":
+			res = data;
+			break;
+		case "mimeType":
 			res = mimeType;
 			break;
 		case "extras":

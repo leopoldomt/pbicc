@@ -189,7 +189,7 @@ public class ICCLinkFindingResults {
 					// case 2: not a compound string...look for a string with the same suffix...
 					tmp = findWithSuffixMatch(val);
 					if (tmp == null) {
-						System.err.println("MISSED THIS CASE " + entry);
+						//System.err.println("MISSED THIS CASE " + entry);
 						continue;
 					}
 				}

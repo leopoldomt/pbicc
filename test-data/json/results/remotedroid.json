@@ -1,0 +1,51 @@
+[
+{
+ "scope" : "AddressInputDialog.onCreateDialog.onClick",
+ "methodType" : "startActivity",
+ "identifier" : "startIntent",
+ "component" : "ClientActivity.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "address"
+},
+{
+ "scope" : "MainActivity.onOptionsItemSelected",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "SettingsActivity.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "MainActivity.startScreenCapture",
+ "methodType" : "startActivityForResult",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "MainActivity.onActivityResult",
+ "methodType" : "startService",
+ "identifier" : "startServerIntent",
+ "component" : "ServerService.class",
+ "action" : "START",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "MainActivity.StartServerServiceDialog.onCreateDialog.onClick",
+ "methodType" : "startService",
+ "identifier" : "startServerIntent",
+ "component" : "ServerService.class",
+ "action" : "START",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+}]

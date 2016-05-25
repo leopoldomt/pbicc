@@ -40,6 +40,17 @@ public class TestActivity extends AppCompatActivity {
         that.startActivity(i);
     }
     
+    void testCreateChooser() {
+    	Intent send = new Intent();
+    	send.setAction(Intent.ACTION_SENDTO);
+    	String uriText = "mailto:george@georgewhiteside.net" + "?subject=Abstract Art";
+    	Uri uri = Uri.parse(uriText);
+        send.setData(uri);
+        startActivity(Intent.createChooser(send, "Send e-mail"));
+    }
+    
+
+    
     
 
     

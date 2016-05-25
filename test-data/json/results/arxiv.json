@@ -1,0 +1,199 @@
+[{
+	"scope": "SearchListWindow.onListItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SingleItemWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keycreator, keytitle, keylink, keyname, keydescription"
+}, {
+	"scope": "PrintDialogActivity.PrintDialogWebClient.shouldOverrideUrlLoading",
+	"methodType": "startActivityForResult",
+	"identifier": "intentScan",
+	"component": "-",
+	"action": "com.google.zxing.client.android.SCAN",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "SCAN_MODE"
+}, {
+	"scope": "SubarXiv.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "RSSListWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyname, keyurl"
+}, {
+	"scope": "SubarXiv.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "RSSListWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyname, keyurl"
+}, {
+	"scope": "arXiv.applyMenuChoice",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "HistoryWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "arXiv.applyMenuChoice",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "EditPreferences.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "arXiv.applyMenuChoice",
+	"methodType": "startActivity",
+	"identifier": "goToMarket",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "market://details?id=com.jd.android.arXiv",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "arXiv.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SubarXiv.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyshortitems, keyurls, keyname, keyitems"
+}, {
+	"scope": "arXiv.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SubarXiv.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyshortitems, keyurls, keyname, keyitems"
+}, {
+	"scope": "arXiv.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SubarXiv.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyshortitems, keyurls, keyname, keyitems"
+}, {
+	"scope": "arXiv.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SubarXiv.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyshortitems, keyurls, keyname, keyitems"
+}, {
+	"scope": "arXiv.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SubarXiv.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyshortitems, keyurls, keyname, keyitems"
+}, {
+	"scope": "arXiv.searchPressed",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SearchWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "HistoryWindow.onListItemClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "android.content.Intent.ACTION_VIEW",
+	"data": "Uri.fromFile(file)",
+	"mimeType": "application/pdf",
+	"extras": "-"
+}, {
+	"scope": "HistoryWindow.onListItemClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "android.content.Intent.ACTION_VIEW",
+	"data": "Uri.fromFile(file)",
+	"mimeType": "application/pdf",
+	"extras": "-"
+}, {
+	"scope": "SingleItemWindow.applyMenuChoice",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "-",
+	"action": "android.content.Intent.ACTION_SEND",
+	"data": "-",
+	"mimeType": "text/plain",
+	"extras": "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
+}, {
+	"scope": "SingleItemWindow.onClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SearchListWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyquery, keyname, keyurl"
+}, {
+	"scope": "SingleItemWindow.authorPressed",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SearchListWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyquery, keyname, keyurl"
+}, {
+	"scope": "SingleItemWindow.pressedPDFButton.run.run.onItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "PrintDialogActivity.class",
+	"action": "-",
+	"data": "Uri.fromFile(file)",
+	"mimeType": "application/pdf",
+	"extras": "title"
+}, {
+	"scope": "SingleItemWindow.pressedPDFButton",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "link.replace(\" \", \"pdf\") ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "RSSListWindow.onListItemClick",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SingleItemWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keycreator, keytitle, keylink, keyname, keydescription"
+}, {
+	"scope": "SearchWindow.pressedSearchButton",
+	"methodType": "startActivity",
+	"identifier": "myIntent",
+	"component": "SearchListWindow.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "keyquery, keyname, keyurl"
+}]

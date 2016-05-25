@@ -1,0 +1,301 @@
+[
+{
+ "scope" : "BluezService.onHandleIntent",
+ "methodType" : "sendBroadcast",
+ "identifier" : "i",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.config",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "drivernames, com.hexad.bluezime.sessionid, version, driverdisplaynames"
+},
+{
+ "scope" : "BluezService.onHandleIntent",
+ "methodType" : "sendBroadcast",
+ "identifier" : "i",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.config",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "drivernames, com.hexad.bluezime.sessionid, version, driverdisplaynames"
+},
+{
+ "scope" : "BluezService.connectToDevice",
+ "methodType" : "sendBroadcast",
+ "identifier" : "connectingBroadcast",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.connecting",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "address, com.hexad.bluezime.sessionid"
+},
+{
+ "scope" : "BluezService.notifyError",
+ "methodType" : "sendBroadcast",
+ "identifier" : "errorBroadcast",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.error",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "stacktrace, com.hexad.bluezime.sessionid, message"
+},
+{
+ "scope" : "BluezIME.connect",
+ "methodType" : "startService",
+ "identifier" : "intent",
+ "component" : "BluezService.class",
+ "action" : "com.hexad.bluezime.connect",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "registernotification, address, driver, com.hexad.bluezime.sessionid"
+},
+{
+ "scope" : "BluezIME.onDestroy",
+ "methodType" : "startService",
+ "identifier" : "intent",
+ "component" : "BluezService.class",
+ "action" : "com.hexad.bluezime.disconnect",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "com.hexad.bluezime.sessionid"
+},
+{
+ "scope" : "Preferences.setSelectedDriverName",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setSelectedDeviceName",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setSelectedDeviceAddress",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setSelectedDevice",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setKeyMapping",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setMetaKeyMapping",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setCurrentProfile",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.clearByPrefix",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setDonatedAmount",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setProfileDisplayName",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setControllerCount",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setManageBluetooth",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "Preferences.setWakeLock",
+ "methodType" : "sendBroadcast",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.preferenceschanged",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "RfcommReader",
+ "methodType" : "startService",
+ "identifier" : "m_foregroundServiceIntent",
+ "component" : "BluezForegroundService.class",
+ "action" : "com.hexad.bluezime.START_FG_SERVICE | com.hexad.bluezime.STOP_FG_SERVICE",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "RfcommReader.stop",
+ "methodType" : "startService",
+ "identifier" : "m_foregroundServiceIntent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "RfcommReader.doConnect",
+ "methodType" : "sendBroadcast",
+ "identifier" : "connectedBroadcast",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.connected",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "address, com.hexad.bluezime.sessionid"
+},
+{
+ "scope" : "RfcommReader.stop",
+ "methodType" : "sendBroadcast",
+ "identifier" : "disconnectedBroadcast",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.disconnected",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "address, com.hexad.bluezime.sessionid"
+},
+{
+ "scope" : "RfcommReader.notifyError",
+ "methodType" : "sendBroadcast",
+ "identifier" : "errorBroadcast",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.error",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "stacktrace, com.hexad.bluezime.sessionid, message"
+},
+{
+ "scope" : "BluezIMESettings.onCreate.onPreferenceClick",
+ "methodType" : "startActivity",
+ "identifier" : "browse",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal%40hexad%2edk&item_name=BluezIME%20Donation&no_shipping=2&no_note=1&tax=0&currency_code=EUR&bn=PP%2dDonationsBF&charset=UTF%2d8",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "BluezIMESettings.onCreate.onPreferenceChange",
+ "methodType" : "startActivity",
+ "identifier" : "browse",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal%40hexad%2edk&item_name=BluezIME%20Donation&no_shipping=2&no_note=1&tax=0&currency_code=EUR&bn=PP%2dDonationsBF&charset=UTF%2d8",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "BluezIMESettings.onCreate.onPreferenceChange",
+ "methodType" : "startActivityForResult",
+ "identifier" : "i",
+ "component" : "DeviceScanActivity.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "controller"
+},
+{
+ "scope" : "BluezIMESettings.onCreate",
+ "methodType" : "startService",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "com.hexad.bluezime.getconfig",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "DeviceScanActivity.discoverDevices",
+ "methodType" : "startActivityForResult",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "BluetoothAdapter.ACTION_REQUEST_ENABLE",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "ImprovedBluetoothDevice.ActivateBluetooth",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "BluetoothAdapter.ACTION_REQUEST_ENABLE",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+}]

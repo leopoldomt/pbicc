@@ -1,0 +1,973 @@
+[{
+	"scope": "MediaAddFragment.startMediaUploadService",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "MediaUploadService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PostMediaService.startService",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "PostMediaService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "blog_id, media_ids"
+}, {
+	"scope": "StatsAbstractFragment.refreshStats",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "StatsService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "blog_id, stats_section, stats_date, stats_page_requested, stats_period, stats_max_results"
+}, {
+	"scope": "EditPostActivity.startMediaGalleryActivity",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "MediaGalleryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "PARAMS_LAUNCH_PICKER, PARAMS_MEDIA_GALLERY"
+}, {
+	"scope": "EditPostActivity.startMediaGalleryAddActivity",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "MediaGalleryPickerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "PARAM_SELECT_ONE_ITEM"
+}, {
+	"scope": "EditPostActivity.startMediaSelection",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "MediaPickerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "activity-title"
+}, {
+	"scope": "EditPostActivity.savePost",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "PostUploadService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "EditPostActivity.startMediaUploadService",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "MediaUploadService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "EditPostActivity.onActivityResult",
+	"methodType": "sendBroadcast",
+	"identifier": "-",
+	"component": "-",
+	"action": "Intent.ACTION_MEDIA_MOUNTED",
+	"data": "file://",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ReaderPostDetailFragment.sharePage",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Intent.ACTION_SEND",
+	"data": "-",
+	"mimeType": "text/plain",
+	"extras": "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
+}, {
+	"scope": "ShareIntentReceiverActivity.finishIfNoVisibleBlogs",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "SignInActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "SuggestionServiceConnectionManager.bindToService",
+	"methodType": "bindService",
+	"identifier": "intent",
+	"component": "SuggestionService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlanUpdateService.startService",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "PlanUpdateService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "local_blog_id"
+}, {
+	"scope": "ReaderActivityLauncher.showReaderBlogPreview",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "ReaderPostListActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "blog_id, post_list_type"
+}, {
+	"scope": "ReaderActivityLauncher.showReaderFeedPreview",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "ReaderPostListActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "post_list_type, feed_id"
+}, {
+	"scope": "ReaderActivityLauncher.showReaderTagPreview",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "ReaderPostListActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "tag, post_list_type"
+}, {
+	"scope": "ReaderActivityLauncher.showReaderLikingUsers",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "ReaderUserListActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "blog_id, post_id, comment_id"
+}, {
+	"scope": "ReaderActivityLauncher.showReaderSubs",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "ReaderSubsActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ReaderActivityLauncher.showReaderPhotoViewer",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "ReaderPhotoViewerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "is_private, image_url, content"
+}, {
+	"scope": "ReaderActivityLauncher.showReaderPhotoViewer",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "ReaderPhotoViewerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "is_private, image_url, content"
+}, {
+	"scope": "ReaderActivityLauncher.openUrl",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "MapUtils.getMapStr(account, \"url\") ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "StatsAbstractListFragment.configureViewAllButton.onClick",
+	"methodType": "startActivity",
+	"identifier": "viewAllIntent",
+	"component": "StatsViewAllActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "ARGS_TIMEFRAME, ARGS_SELECTED_DATE, ARG_LOCAL_TABLE_BLOG_ID, ARGS_TOP_PAGER_SELECTED_BUTTON_INDEX, ARGS_VIEW_TYPE, ARGS_IS_SINGLE_VIEW"
+}, {
+	"scope": "SelectCategoriesActivity.onOptionsItemSelected",
+	"methodType": "startActivityForResult",
+	"identifier": "i",
+	"component": "AddCategoryActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "HelpActivity.onCreate.onClick",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "AppLogViewerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WPAlertDialogFragment.onCreateDialog.onClick",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "http://videopress.com",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ThemeWebActivity.openWPCOMURL",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "ThemeWebActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "is_current_theme, url_to_load, authenticated_url, theme_name, theme_id, authenticated_user, is_premium_theme, authenticated_passwd, local_blog_id"
+}, {
+	"scope": "VisualEditorOptionsReceiver.onCreate",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "WPLaunchActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "NotificationsListFragment.openNote",
+	"methodType": "startActivityForResult",
+	"identifier": "detailIntent",
+	"component": "NotificationsDetailActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "noteId, instantReply"
+}, {
+	"scope": "DeepLinkingIntentReceiverActivity.onCreate",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "SignInActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "AuthenticationDialogUtils.showAuthErrorView",
+	"methodType": "startActivityForResult",
+	"identifier": "signInIntent",
+	"component": "SignInActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "ARG_IS_AUTH_ERROR"
+}, {
+	"scope": "AppSettingsFragment.changeLanguage",
+	"methodType": "startActivity",
+	"identifier": "refresh",
+	"component": "-",
+	"action": "getActivity()",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "AppSettingsFragment.handleAboutPreferenceClick",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "AboutActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "AppSettingsFragment.handleOssPreferenceClick",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "LicensesActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WPWebViewActivity.openUrlByUsingBlogCredentials",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "WPWebViewActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "url_to_load, authenticated_url, authenticated_user, authenticated_passwd, local_blog_id, sharable_url"
+}, {
+	"scope": "WPWebViewActivity.openURL",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "WPWebViewActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "url_to_load"
+}, {
+	"scope": "WPWebViewActivity.openWPCOMURL",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "WPWebViewActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "url_to_load, authenticated_url, authenticated_user"
+}, {
+	"scope": "WPWebViewActivity.onOptionsItemSelected",
+	"methodType": "startActivity",
+	"identifier": "share",
+	"component": "-",
+	"action": "Intent.ACTION_SEND",
+	"data": "-",
+	"mimeType": "text/plain",
+	"extras": "Intent.EXTRA_TEXT"
+}, {
+	"scope": "WPWebViewActivity.onOptionsItemSelected",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "Uri.parse(URL_AUTOMATTIC + URL_PRIVACY_POLICY) ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "SignInFragment.initInfoButtons.onClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "HelpActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "ENTERED_USERNAME_KEY, ORIGIN_KEY, ENTERED_URL_KEY"
+}, {
+	"scope": "SignInFragment.onClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "getForgotPasswordURL()",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "SignInFragment.onSuccess",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PostsListFragment.onPostButtonClicked",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "PostUploadService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WPLinkMovementMethod.showTappedUrl",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "MapUtils.getMapStr(account, \"url\") ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MediaBrowserActivity.startMediaDeleteService",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "MediaDeleteService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "AboutActivity.onClick",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "Uri.parse(URL_AUTOMATTIC + URL_PRIVACY_POLICY) ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ReaderSubsActivity.performUpdate",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ReaderCommentService.startService",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "ReaderCommentService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "next_page, blog_id, post_id"
+}, {
+	"scope": "ReaderCommentService.startServiceForComment",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "ReaderCommentService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "blog_id, post_id, comment_id"
+}, {
+	"scope": "SignInDialogFragment.onClickAction",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "null",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "SignInDialogFragment.onClickAction",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "AppLogViewerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MediaGalleryActivity.handleAddMedia",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "MediaGalleryPickerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "PARAM_SELECTED_IDS"
+}, {
+	"scope": "PostPreviewActivity.publishPost",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "PostUploadService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPress.deferredInit",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "GCMRegistrationIntentService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPress.ApplicationLifecycleMonitor.updatePushNotificationTokenIfNotLimited",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "GCMRegistrationIntentService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PostUpdateService.startServiceForBlog",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "PostUpdateService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "blog_id, is_page, load_more"
+}, {
+	"scope": "WordPressMediaUtils.launchVideoLibrary",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPressMediaUtils.launchVideoLibrary",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPressMediaUtils.launchVideoCamera",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPressMediaUtils.launchVideoCamera",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPressMediaUtils.launchPictureLibrary",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPressMediaUtils.launchPictureLibrary",
+	"methodType": "startActivityForResult",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPressMediaUtils.launchCamera",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPressMediaUtils.launchCamera",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "StatsActivity.startWPComLoginActivity",
+	"methodType": "startActivityForResult",
+	"identifier": "signInIntent",
+	"component": "SignInActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "ARG_JETPACK_SITE_AUTH, ARG_JETPACK_MESSAGE_AUTH"
+}, {
+	"scope": "StatsActivity.showJetpackMissingAlert.onClick",
+	"methodType": "startActivityForResult",
+	"identifier": "jetpackIntent",
+	"component": "WPWebViewActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "url_to_load, authenticated_url, authenticated_user, authenticated_passwd"
+}, {
+	"scope": "MediaGridFragment.MultiChoiceModeListener.handleNewPost",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "EditPostActivity.class",
+	"action": "NEW_MEDIA_POST",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "NEW_MEDIA_POST_ID"
+}, {
+	"scope": "MediaGridFragment.MultiChoiceModeListener.handleMultiSelectPost",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "EditPostActivity.class",
+	"action": "NEW_MEDIA_GALLERY",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ReaderPostListFragment.updateFollowedTagsAndBlogsIfNeeded",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "InstanceIDService.onTokenRefresh",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "GCMRegistrationIntentService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "IabHelper.startSetup",
+	"methodType": "bindService",
+	"identifier": "serviceIntent",
+	"component": "com.android.vending.?",
+	"action": "com.android.vending.billing.InAppBillingService.BIND",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WPLaunchActivity.onCreate",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "WPMainActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ViewSiteActivity.onOptionsItemSelected",
+	"methodType": "startActivity",
+	"identifier": "share",
+	"component": "-",
+	"action": "Intent.ACTION_SEND",
+	"data": "-",
+	"mimeType": "text/plain",
+	"extras": "Intent.EXTRA_TEXT"
+}, {
+	"scope": "ViewSiteActivity.onOptionsItemSelected",
+	"methodType": "startActivity",
+	"identifier": "i",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "Uri.parse(URL_AUTOMATTIC + URL_PRIVACY_POLICY) ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "StatsWidgetProvider.enqueueStatsRequestForBlog",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "StatsService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "blog_id, stats_section, stats_date, stats_period"
+}, {
+	"scope": "NotificationsDetailActivity.showStatsActivityForSite",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "StatsViewAllActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "ARGS_TIMEFRAME, ARGS_SELECTED_DATE, ARG_LOCAL_TABLE_BLOG_ID, arg_stats_view_all_title, ARGS_VIEW_TYPE"
+}, {
+	"scope": "NewUserFragment.initInfoButton.onClick",
+	"methodType": "startActivity",
+	"identifier": "newAccountIntent",
+	"component": "HelpActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "NewUserFragment.onCreateView.onClick",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "-",
+	"action": "Intent.ACTION_VIEW",
+	"data": "Uri.parse(URL_AUTOMATTIC + URL_PRIVACY_POLICY) ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ActivityLauncher.addNewBlogPostOrPageForResult",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "EditPostActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "postId, isNewPost, isPage"
+}, {
+	"scope": "ActivityLauncher.editBlogPostOrPageForResult",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "EditPostActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "postId, isPage"
+}, {
+	"scope": "ActivityLauncher.viewSSLCerts",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "SSLCertsViewActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "CertDetails"
+}, {
+	"scope": "ActivityLauncher.newAccountForResult",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "NewAccountActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ActivityLauncher.newBlogForResult",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "NewBlogActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "start-mode"
+}, {
+	"scope": "ActivityLauncher.showSignInForResult",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "SignInActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ActivityLauncher.viewStatsSinglePostDetails",
+	"methodType": "startActivity",
+	"identifier": "statsPostViewIntent",
+	"component": "StatsSingleItemDetailsActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "ARG_REMOTE_ITEM_TYPE, ARG_ITEM_URL, ARG_ITEM_TITLE, ARG_REMOTE_BLOG_ID, ARG_REMOTE_ITEM_ID"
+}, {
+	"scope": "ActivityLauncher.addSelfHostedSiteForResult",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "SignInActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "start-fragment"
+}, {
+	"scope": "AppLogViewerActivity.shareAppLog",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Intent.ACTION_SEND",
+	"data": "-",
+	"mimeType": "text/plain",
+	"extras": "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
+}, {
+	"scope": "NotificationsSettingsFragment.updateUIForNotificationsEnabledState.onPreferenceClick",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "-",
+	"action": "Settings.ACTION_APPLICATION_DETAILS_SETTINGS",
+	"data": "Uri.parse(URL_AUTOMATTIC + URL_PRIVACY_POLICY) ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ShareAndDismissNotificationReceiver.onReceive",
+	"methodType": "startActivity",
+	"identifier": "shareIntent",
+	"component": "-",
+	"action": "Intent.ACTION_SEND",
+	"data": "-",
+	"mimeType": "text/plain",
+	"extras": "Intent.EXTRA_TEXT, Intent.EXTRA_SUBJECT"
+}, {
+	"scope": "ShareAndDismissNotificationReceiver.onReceive",
+	"methodType": "sendBroadcast",
+	"identifier": "-",
+	"component": "-",
+	"action": "Intent.ACTION_CLOSE_SYSTEM_DIALOGS",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WordPressDB.deleteQuickPressShortcutsForLocalTableBlogId",
+	"methodType": "sendBroadcast",
+	"identifier": "broadcastShortcutIntent",
+	"component": "-",
+	"action": "com.android.launcher.action.UNINSTALL_SHORTCUT",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "Intent.EXTRA_SHORTCUT_INTENT, Intent.EXTRA_SHORTCUT_NAME, duplicate"
+}, {
+	"scope": "AddQuickPressShortcutActivity.displayAccounts",
+	"methodType": "startActivityForResult",
+	"identifier": "i",
+	"component": "SignInActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "AddQuickPressShortcutActivity.buildDialog.onClick",
+	"methodType": "sendBroadcast",
+	"identifier": "addIntent",
+	"component": "-",
+	"action": "com.android.launcher.action.INSTALL_SHORTCUT",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "Intent.EXTRA_SHORTCUT_INTENT, Intent.EXTRA_SHORTCUT_NAME, Intent.EXTRA_SHORTCUT_ICON_RESOURCE"
+}, {
+	"scope": "PostsListAdapter.LoadPostsTask.onPostExecute",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MediaPickerActivity.onActivityResult",
+	"methodType": "sendBroadcast",
+	"identifier": "-",
+	"component": "-",
+	"action": "Intent.ACTION_MEDIA_SCANNER_SCAN_FILE",
+	"data": "Uri.fromFile(file)",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "MediaPickerActivity.onActivityResult",
+	"methodType": "sendBroadcast",
+	"identifier": "-",
+	"component": "-",
+	"action": "Intent.ACTION_MEDIA_SCANNER_SCAN_FILE",
+	"data": "data != null ? data.getData() : null",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlansActivity.startPurchaseProcess",
+	"methodType": "startActivity",
+	"identifier": "intent",
+	"component": "PlanPostPurchaseActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "PlansActivity.onCreate",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ReaderCommentListActivity.updateComments",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "-",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "ReaderPostService.startServiceForTag",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "ReaderPostService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "action, tag"
+}, {
+	"scope": "ReaderPostService.startServiceForBlog",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "ReaderPostService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "blog_id, action"
+}, {
+	"scope": "ReaderPostService.startServiceForFeed",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "ReaderPostService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "action, feed_id"
+}, {
+	"scope": "ReaderUpdateService.startService",
+	"methodType": "startService",
+	"identifier": "intent",
+	"component": "ReaderUpdateService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "update_tasks"
+}, {
+	"scope": "WPMainActivity.onActivityResult",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "GCMRegistrationIntentService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "WPMainActivity.onActivityResult",
+	"methodType": "startService",
+	"identifier": "-",
+	"component": "GCMRegistrationIntentService.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "EditPostSettingsFragment.launchMediaGalleryActivity",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "MediaGalleryPickerActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "PARAM_SELECT_ONE_ITEM"
+}, {
+	"scope": "EditPostSettingsFragment.onClick",
+	"methodType": "startActivityForResult",
+	"identifier": "categoriesIntent",
+	"component": "SelectCategoriesActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "EditPostSettingsFragment.viewLocation",
+	"methodType": "startActivity",
+	"identifier": "-",
+	"component": "-",
+	"action": "android.content.Intent.ACTION_VIEW",
+	"data": "Uri.parse(URL_AUTOMATTIC + URL_PRIVACY_POLICY) ",
+	"mimeType": "-",
+	"extras": "-"
+}, {
+	"scope": "CommentDetailFragment.editComment",
+	"methodType": "startActivityForResult",
+	"identifier": "intent",
+	"component": "EditCommentActivity.class",
+	"action": "-",
+	"data": "-",
+	"mimeType": "-",
+	"extras": "note_id, comment_id, local_blog_id"
+}]

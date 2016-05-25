@@ -1,0 +1,111 @@
+[
+{
+ "scope" : "FileListMenu.onFileSelected.onClick",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "InstallProgress.class",
+ "action" : "-",
+ "data" : "file://",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimTouch.checkPlugins",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "InstallProgress.class",
+ "action" : "-",
+ "data" : "plugin://",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimTouch.checkVimRuntime",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "InstallProgress.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimTouch.restart",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimTouch.onOptionsItemSelected",
+ "methodType" : "startActivity",
+ "identifier" : "search",
+ "component" : "-",
+ "action" : "Intent.ACTION_VIEW",
+ "data" : "market://search?q=VimTouch",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimTouch.onOptionsItemSelected",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "InstallProgress.class",
+ "action" : "-",
+ "data" : "null",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimTouch.doPreferences",
+ "methodType" : "startActivity",
+ "identifier" : "-",
+ "component" : "VimTouchPreferences.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimTouch.onCreate",
+ "methodType" : "startService",
+ "identifier" : "TSIntent",
+ "component" : "VimTermService.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimTouch.onCreate",
+ "methodType" : "bindService",
+ "identifier" : "TSIntent",
+ "component" : "VimTermService.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimFileActivity.onCreate",
+ "methodType" : "startActivityForResult",
+ "identifier" : "intent",
+ "component" : "-",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "-"
+},
+{
+ "scope" : "VimFileActivity.onActivityResult",
+ "methodType" : "startActivity",
+ "identifier" : "intent",
+ "component" : "VimTouch.class",
+ "action" : "-",
+ "data" : "-",
+ "mimeType" : "-",
+ "extras" : "open_type"
+}]

@@ -1,10 +1,13 @@
 package icc.data;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class IntentInfo {
 	public final String NOT_SET = "-";
+	private final boolean PRINT_EXTRAS_VALUES = false;
 
 	public String identifier = NOT_SET;
 	public FieldList category = new FieldList();
@@ -40,18 +43,67 @@ public class IntentInfo {
 
 	public String toJSON() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(String.format("\n \"identifier\" : \"%s\"", identifier));
-		builder.append(String.format("\n \"component\" : \"%s\"", getComponent()));
-		builder.append(String.format("\n \"action\" : \"%s\"", action));
-		builder.append(String.format("\n \"data\" : \"%s\"", data));
-		builder.append(String.format("\n \"mimeType\" : \"%s\"", type));
-		String extrasJson;
-		if (extras.size() > 0) {
-			extrasJson = String.join(", ", extras.keySet());
-		} else {
-			extrasJson = "-";
+		builder.append(String.format("\n \"identifier\" : \"%s\",", identifier));
+		String comp = getComponent();
+		if (comp.isEmpty()) {
+			builder.append("\n \"component\" : \"-\",");
 		}
-		builder.append(String.format("\n \"extras\" : \"%s\"", extrasJson));
+		else {
+			builder.append(String.format("\n \"component\" : \"%s\",", getComponent()));
+		}
+		builder.append(String.format("\n \"action\" : %s,", action.toJSON()));
+		builder.append(String.format("\n \"data\" : %s,", data.toJSON()));
+		builder.append(String.format("\n \"mimeType\" : %s,", type.toJSON()));
+		//TODO consider if we need the extras value, I don't think we do
+		String extrasJson = extrasToJSON(PRINT_EXTRAS_VALUES);
+		builder.append(String.format("\n \"extras\" : %s", extrasJson));
+		return builder.toString();
+	}
+	
+	public String sanitize(String s) {
+		//TODO consider doing more stuff here, if-need-be
+		return s.replace("\"", "\\\"");
+	}
+	
+	private String extrasToJSON(boolean withValue) {
+		StringBuilder builder = new StringBuilder();
+		builder.append("\"");
+		if (extras.size() > 0) {
+			Set<String> extraStrings = new HashSet<String>();
+			for (Map.Entry<String, String> entry : extras.entrySet()) {
+				StringBuilder value = new StringBuilder();
+				value.append(entry.getKey());
+				if (withValue) {
+					value.append(" : "+sanitize(entry.getValue()));
+				}
+				extraStrings.add(value.toString());
+			}
+			builder.append(String.join(", ", extraStrings));
+		} else {
+			builder.append("-");
+		}
+		builder.append("\"");
+		return builder.toString();
+	}
+	
+	private String extrasToJSONArray(boolean withValue) {
+		StringBuilder builder = new StringBuilder();
+		if (extras.size() > 0) {
+			builder.append("[");
+			Set<String> extraStrings = new HashSet<String>();
+			for (Map.Entry<String, String> entry : extras.entrySet()) {
+				StringBuilder value = new StringBuilder();
+				value.append("\""+entry.getKey()+"\"");
+				if (withValue) {
+					value.append(" : \""+sanitize(entry.getValue())+"\"");
+				}
+				extraStrings.add(value.toString());
+			}
+			builder.append(String.join(", ", extraStrings));
+			builder.append("]");
+		} else {
+			builder.append("\"-\"");
+		}
 		return builder.toString();
 	}
 
@@ -78,13 +130,17 @@ public class IntentInfo {
 			int numP = packageName.size();
 			if (numC == numP) {
 				component = "";
+				Set<String> components = new HashSet<String>();
 				for (int i = 0; i < numC; i++) {
 					if (className.get(i).startsWith(packageName.get(i))) {
 						component += String.format("%s", className.get(i));
+						components.add(String.format("%s", className.get(i)));
 					} else {
 						component += String.format("%s.%s", packageName.get(i), className.get(i));
+						components.add(String.format("%s.%s", packageName.get(i), className.get(i)));
 					}
 				}
+				component = String.join(" | ", components);
 			} 
 			else {
 				throw new RuntimeException("Mismatch between size of packageName and className elements");
@@ -92,15 +148,19 @@ public class IntentInfo {
 		} 
 		else if (!className.isEmpty()) {
 			component = "";
+			Set<String> components = new HashSet<String>();
 			for (String c : className) {
-				component += c + "; ";
+				components.add(c);
 			}
+			component = String.join(" | ", components);
 		} 
 		else if (!packageName.equals(NOT_SET)) {
 			component = "";
+			Set<String> components = new HashSet<String>();
 			for (String c : packageName) {
-				component += String.format("%s.?", c) + "; ";
+				components.add(String.format("%s.?", c));
 			}
+			component = String.join(" | ", components);
 		}
 
 		if (!component.equals(NOT_SET)) {
