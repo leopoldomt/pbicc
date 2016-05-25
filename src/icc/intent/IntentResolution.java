@@ -45,13 +45,13 @@ public class IntentResolution {
 	private static void actionTest(Intent it, IntentFilter ifilter)
 			throws ActionTestException {
 		// System.out.println(ifilter.action);
-		if (null == ifilter.action) {
+		if (0 == ifilter.actions.size()) {
 			throw new ActionTestException();
 		}
 
 		if (null != it.getAction()) {
-			// TODO Intent-Filter can has one or more actions.
-			if (!it.getAction().equals(ifilter.action)) {
+			//if (!it.getAction().equals(ifilter.action)) {
+			if(!ifilter.actions.contains(it.getAction())){
 				throw new ActionTestException();
 			}
 		}
@@ -174,15 +174,14 @@ public class IntentResolution {
 		// System.out.println(ifilter.category);
 
 		if (it.getCategories().size() > 0) {
-			if (null != ifilter.category) {
+			if (ifilter.categories.size() > 0) {
 				boolean pass = true;
 				for (String ctg : it.getCategories()) {
 					if (!pass) {
 						throw new CategoryTestException();
 					}
 
-					// TODO for-each in ifilter.catergory (has to be a list);
-					if (ctg.equals(ifilter.category)) {
+					if (ifilter.categories.contains(ctg)) {
 						pass = true;
 					} else {
 						pass = false;
@@ -191,7 +190,9 @@ public class IntentResolution {
 			} else {
 				throw new CategoryTestException();
 			}
-		} else if (null != ifilter.category) {
+		} else if (ifilter.categories.size() > 0) {
+			
+		} else {
 			// TODO what happen when has no category on intent neither on
 			// intent-filter?
 			// throw new CategoryTestException();

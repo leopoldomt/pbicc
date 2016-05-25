@@ -296,13 +296,13 @@ public class AndroidManifestParser extends DefaultHandler {
 
 		case ACTION_TAG:
 			if (attributes != null) {
-				this.currentIntentFilter.action = attributes.getValue("android:name");
+				this.currentIntentFilter.actions.add(attributes.getValue("android:name"));
 			}
 			break;
 
 		case CATEGORY_TAG:
 			if (attributes != null) {
-				this.currentIntentFilter.category = attributes.getValue("android:name");
+				this.currentIntentFilter.categories.add(attributes.getValue("android:name"));
 			}
 			break;
 
