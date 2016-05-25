@@ -6,13 +6,16 @@ import icc.parsing.AndroidManifestParser;
 
 public class IntentResolution {
 
+	
 	public IntentResolution() {
 
 	}
+	
 
-	public static boolean resolve(Intent it, Component comp) {
+	public static Result resolve(IntentForResolution it, Component comp) {
 		// System.out.println(comp.name);
-		boolean response = false;
+		Result response = new Result();
+		response.match = false;
 		for (IntentFilter ifilter : comp.intentFilters) {
 			// System.out.println(">>>> Start intent-fiter");
 
@@ -25,15 +28,18 @@ public class IntentResolution {
 
 			} catch (ActionTestException e1) {
 				// System.out.println(e1.getMessage());
-				response = false;
+				response.match = false;
+				response.reason = e1.getMessage();
 			} catch (DataTestException e2) {
 				// System.out.println(e2.getMessage());
-				response = false;
+				response.match = false;
+				response.reason = e2.getMessage();
 			} catch (CategoryTestException e3) {
 				// System.out.println(e3.getMessage());
-				response = false;
+				response.match = false;
+				response.reason = e3.getMessage();
 			} catch (Exception e4) {
-				response = true;
+				response.match = true;
 				// System.out.println(">>>> End intent-filter");
 				break;
 			}
@@ -42,7 +48,7 @@ public class IntentResolution {
 		return response;
 	}
 
-	private static void actionTest(Intent it, IntentFilter ifilter)
+	private static void actionTest(IntentForResolution it, IntentFilter ifilter)
 			throws ActionTestException {
 		// System.out.println(ifilter.action);
 		if (0 == ifilter.actions.size()) {
@@ -58,7 +64,7 @@ public class IntentResolution {
 
 	}
 
-	private static void dataTest(Intent it, IntentFilter ifilter)
+	private static void dataTest(IntentForResolution it, IntentFilter ifilter)
 			throws DataTestException {
 		// System.out.println(ifilter.data);
 
@@ -168,23 +174,16 @@ public class IntentResolution {
 
 	}
 
-	private static void categoryTest(Intent it, IntentFilter ifilter)
+	private static void categoryTest(IntentForResolution it, IntentFilter ifilter)
 			throws CategoryTestException {
 
 		// System.out.println(ifilter.category);
 
 		if (it.getCategories().size() > 0) {
 			if (ifilter.categories.size() > 0) {
-				boolean pass = true;
 				for (String ctg : it.getCategories()) {
-					if (!pass) {
+					if (!ifilter.categories.contains(ctg)) {
 						throw new CategoryTestException();
-					}
-
-					if (ifilter.categories.contains(ctg)) {
-						pass = true;
-					} else {
-						pass = false;
 					}
 				}
 			} else {
@@ -195,7 +194,7 @@ public class IntentResolution {
 		} else {
 			// TODO what happen when has no category on intent neither on
 			// intent-filter?
-			// throw new CategoryTestException();
+			throw new CategoryTestException();
 		}
 
 	}
@@ -226,7 +225,7 @@ public class IntentResolution {
 		AndroidManifestParser androidManifest = new AndroidManifestParser(
 				manifestPath);
 
-		Intent it = new Intent();
+		IntentForResolution it = new IntentForResolution();
 
 		IntentFilter.Data dt = new IntentFilter.Data();
 
@@ -253,6 +252,12 @@ public class IntentResolution {
 					IntentResolution.resolve(it, c)));
 		}
 
+	}
+	
+	
+	public static class Result {
+		public boolean match;
+		public String reason;
 	}
 
 }

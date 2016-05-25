@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 import icc.data.IntentFilter;
 
-public class Intent {
+public class IntentForResolution {
 
 	private String componentName;
 	private String action;
 	private ArrayList<String> categories;
 	private IntentFilter.Data data;
 
-	public Intent() {
+	public IntentForResolution() {
 		this.categories = new ArrayList<String>();
 		//this.datas = new ArrayList<IntentFilter.Data>();
 	}
 
-	public Intent(String compName) {
+	public IntentForResolution(String compName) {
 		this();
 		this.componentName = compName;
 	}
@@ -41,6 +41,9 @@ public class Intent {
 		this.action = action;
 	}
 
+	public void setCategories(ArrayList<String> ctgs) {
+		categories = ctgs;
+	}
 	public void addCategory(String category) {
 		categories.add(category);
 	}

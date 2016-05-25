@@ -11,11 +11,11 @@ import com.google.gson.JsonSyntaxException;
 
 public class IntentReader {
 
-	public static Intent[] fromJsonFile (String path) throws JsonSyntaxException, JsonIOException, FileNotFoundException {
+	public static IntentFromJson[] fromJsonFile (String path) throws JsonSyntaxException, JsonIOException, FileNotFoundException {
 		
 		GsonBuilder gsonB = new GsonBuilder();
-		gsonB.registerTypeAdapter(Intent.class, new IntentDeserializer());
-		Intent[] its = gsonB.create().fromJson(new FileReader(path), Intent[].class);
+		gsonB.registerTypeAdapter(IntentFromJson.class, new IntentDeserializer());
+		IntentFromJson[] its = gsonB.create().fromJson(new FileReader(path), IntentFromJson[].class);
 		return its;
 	}
 
