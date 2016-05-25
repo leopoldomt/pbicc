@@ -147,11 +147,11 @@ public class AndroidManifestParser extends DefaultHandler {
 				this.application.description = (null) == (a = attributes.getValue("android:description"))
 						? application.description : a;
 				this.application.enabled = ("false").equals(attributes.getValue("android:enabled")) ? false : true;
-				this.application.hasCode = ("false").equals(attributes.getValue("android:")) ? false : true;
 
-				this.application.hardwareAcceleratedWasSetted = null == attributes
-						.getValue("android:hardwareAccelerated") ? false : true;
-				if (!this.application.hardwareAcceleratedWasSetted) {
+				this.application.hasCode= ("false").equals(attributes.getValue("android:hasCode")) ? false : true; 
+				
+				this.application.hardwareAcceleratedWasSetted = null == attributes.getValue("android:hardwareAccelerated") ? false : true;
+				if(!this.application.hardwareAcceleratedWasSetted){
 					this.application.setDefaulthardwareAccelerated(this.minSdkVersion, this.targetSdkVersion);
 				} else {
 					this.application.hardwareAccelerated = ("true")
@@ -336,13 +336,13 @@ public class AndroidManifestParser extends DefaultHandler {
 
 		case ACTION_TAG:
 			if (attributes != null) {
-				this.currentIntentFilter.action = attributes.getValue("android:name");
+				this.currentIntentFilter.actions.add(attributes.getValue("android:name"));
 			}
 			break;
 
 		case CATEGORY_TAG:
 			if (attributes != null) {
-				this.currentIntentFilter.category = attributes.getValue("android:name");
+				this.currentIntentFilter.categories.add(attributes.getValue("android:name"));
 			}
 			break;
 
