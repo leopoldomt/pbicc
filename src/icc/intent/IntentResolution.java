@@ -62,17 +62,9 @@ public class IntentResolution {
 	private static void actionTest(IntentForResolution it, IntentFilter ifilter)
 			throws ActionTestException {
 		// System.out.println(ifilter.action);
-		if (0 == ifilter.actions.size()) {
-			throw new ActionTestException("Intent-Filter without actions.");
+		if (!ifilter.actions.contains(it.getAction())) {
+			throw new ActionTestException("filter not contains intent action.");
 		}
-
-		if (null != it.getAction()) {
-			//if (!it.getAction().equals(ifilter.action)) {
-			if(!ifilter.actions.contains(it.getAction())){
-				throw new ActionTestException("Intent-Filter not contains any Intent's actions.");
-			}
-		}
-
 	}
 	
 
@@ -273,22 +265,10 @@ public class IntentResolution {
 
 		// System.out.println(ifilter.category);
 
-		if (it.getCategories().size() > 0) {
-			if (ifilter.categories.size() > 0) {
-				for (String ctg : it.getCategories()) {
-					if (!ifilter.categories.contains(ctg)) {
-						throw new CategoryTestException("Intent-Filter not contais Intent's category.");
-					}
-				}
-			} else {
-				throw new CategoryTestException("Intent-Filter hasn't categories.");
+		for (String category : it.getCategories()) {
+			if (!ifilter.categories.contains(category)){
+				throw new CategoryTestException("Intent-Filter not contais Intent's category. Intent hasn't too.");
 			}
-		} else if (ifilter.categories.size() > 0) {
-			
-		} else {
-			// TODO what happen when has no category on intent neither on
-			// intent-filter?
-			throw new CategoryTestException("Intent-Filter not contais Intent's category. Intent hasn't too.");
 		}
 
 	}
