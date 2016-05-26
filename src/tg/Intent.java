@@ -3,6 +3,9 @@ package tg;
 
 public class Intent {
 	
+	/*
+	 * Activity actions
+	 */
 	public static final String ACTION_VIEW = "android.intent.action.VIEW";
 	public static final String ACTION_SEND = "android.intent.action.SEND";
 	public static final String ACTION_MAIN = "android.intent.action.MAIN";
@@ -25,7 +28,10 @@ public class Intent {
 	public static final String ACTION_FACTORY_TEST = "android.intent.action.FACTORY_TEST";
 	
 	
-	
+
+	/*
+	 * Broadcast actions
+	 */
 	public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";
 	public static final String ACTION_TIME_CHANGED = "android.intent.action.TIME_CHANGED";
 	public static final String ACTION_TIMEZONE_CHANGED = "android.intent.action.TIMEZONE_CHANGED";
@@ -42,6 +48,10 @@ public class Intent {
 	public static final String ACTION_SHUTDOWN = "android.intent.action.SHUTDOWN";
 	
 			
+
+	/*
+	 * Categories
+	 */
 	public static final String CATEGORY_DEFAULT = "android.intent.category.DEFAULT";
 	public static final String CATEGORY_BROWSABLE = "android.intent.category.BROWSABLE";
 	public static final String CATEGORY_TAB = "android.intent.category.TAB";

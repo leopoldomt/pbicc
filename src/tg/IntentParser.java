@@ -3,6 +3,8 @@ package tg;
 import icc.data.IntentFilter.Data;
 import icc.intent.IntentForResolution;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class IntentParser {
@@ -13,27 +15,156 @@ public class IntentParser {
 
 		if(it.actions.size()>0){
 			for(String action: it.actions){
-				ifr = new IntentForResolution();
+				if("-".equals(it.component)) ifr = new IntentForResolution();
+				else ifr = new IntentForResolution(it.component); 
+
 				ifr.setAction(parseAction(action));
-				ifr.setData(parseData(it.data));
+				ifr.setData(parseData(it.data, it.mimeType));
 				for(String ctg: it.categories){
 					ifr.addCategory(parseCategory(ctg));
 				}
 				its.add(ifr);
 			}
 		} else {
-			ifr = new IntentForResolution();
-			ifr.setData(parseData(it.data));
+			if("-".equals(it.component)) ifr = new IntentForResolution();
+			else ifr = new IntentForResolution(it.component); 
+
+			ifr.setData(parseData(it.data, it.mimeType));
 			for(String ctg: it.categories){
 				ifr.addCategory(parseCategory(ctg));
 			}
 			its.add(ifr);
 		}
-		
+
 		return its;
 	}
 
-	public static Data parseData(String data) {
+
+	private static String getScheme(String data) {
+		String scheme = null;
+		int index = data.indexOf(":");
+		if(index != -1) {
+			scheme = data.substring(0, index);
+		}
+		return scheme;
+	}
+
+	private static String getHost(String data, String scheme) {
+		String host = null;
+		if (scheme != null) {
+			String scheme_specific_part = data.substring(scheme.length()+1);
+			//System.out.println(data);
+			if (scheme_specific_part.startsWith("//")) {
+				//System.out.println("hier_part.net_path");
+				
+				String data_without_double_slash = scheme_specific_part.substring(2);
+//				System.out.println(data_without_double_slash);
+				
+				int index = data_without_double_slash.indexOf(":");
+				if (index<=0) {
+					index = data_without_double_slash.indexOf("/"); 
+					if (index<=0) {
+						index = data_without_double_slash.indexOf("?"); 
+						if (index<=0) {
+							index = data_without_double_slash.length();
+						}
+					}
+				}
+				host = data_without_double_slash.substring(0, index);
+	//			System.out.println(host);
+			} else if (scheme_specific_part.startsWith("/")) {
+				//System.out.println("hier_part.abs_path");
+			} else {
+				//System.out.println("opaque_part");
+			}
+		}
+		return host;
+	}
+
+	private static String getPort(String data, String scheme, String host) {
+		//System.out.println("getPort()");
+		String port = null;
+		if (host != null) {
+			String scheme_specific_part = data.substring(data.indexOf(host));
+			//System.out.println(scheme_specific_part);
+			
+			String data_without_host = scheme_specific_part.substring(host.length());
+			//System.out.println(data_without_host);
+			
+			if (data_without_host.startsWith(":")) {
+				int index = data_without_host.indexOf("/");
+				if (index<=0) {
+					index = data_without_host.indexOf("?");
+					if (index<=0) {
+						index = data_without_host.length();
+					}
+				}
+				
+				port = data_without_host.substring(1, index);
+				//System.out.println(port);
+			}
+		}
+		return port;
+	}
+
+	private static String getPath(String data, String scheme, String host,
+			String port) {
+		//System.out.println("getPath()");
+		String path = null;
+		if (host != null) {
+			//System.out.println(host);
+			int index = data.indexOf("/", scheme.length()+host.length() + ((port!=null)?port.length():0));
+			
+			if (index != -1) {
+				path = data.substring(index);
+			}
+			
+			//System.out.println("-"+path);
+		}
+		return path;
+	}
+
+
+
+
+	public static Data parseData(String data, String mimeType) {
+
+		Data dt = new Data();
+
+		dt.scheme = getScheme(data);
+		dt.host = getHost(data, dt.scheme);
+		dt.port = getPort(data, dt.scheme, dt.host);
+		dt.path = getPath(data, dt.scheme, dt.host, dt.port);
+
+		dt.mimeType = "-".equals(mimeType) ? null : mimeType;
+		return dt;
+	}
+
+
+
+
+	/*public static Data parseData(String data, String mimeType) {
+		Data dt = new Data();
+
+		URI uri;
+		try {
+			uri = new URI(data);
+			//System.out.println(uri);
+			dt.scheme = uri.getScheme();
+			dt.host = uri.getHost();
+			dt.port = uri.getPort() != -1 ? uri.getPort()+"" : null;
+			dt.path = uri.getPath();
+			dt.mimeType = "-".equals(mimeType) ? null : mimeType;
+
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return dt;
+	}
+	 */
+	/*public static Data parseData(String data) {
 		Data dt = new Data();
 		int index = data.lastIndexOf("://");		
 		if(index > 0){
@@ -54,13 +185,18 @@ public class IntentParser {
 					dt.port = data.substring(i+1);
 				}
 			} else {
-				// <schema>://<host>
-				dt.host = data.substring(index+3);
+
+				if(data.length() > dt.scheme.length()+3) {
+					// <schema>://<host>
+				 	dt.host = data.substring(index+3);
+				} else {
+					// <schema>://
+				}
 			}
 		}	
 		return dt;
 	}
-	
+	 */
 	public static String parseAction(String act) {
 		String finalAction;
 		switch (act) {
@@ -204,13 +340,13 @@ public class IntentParser {
 			finalAction = act;
 			break;
 		}
-		
+
 		return finalAction;
 	}
 
 	public static String parseCategory(String ctg) {
 		String finalCtg;
-		
+
 		switch (ctg) {
 		case "Intent.CATEGORY_DEFAULT":
 			finalCtg = Intent.CATEGORY_DEFAULT;
