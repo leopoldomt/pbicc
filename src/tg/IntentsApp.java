@@ -1,8 +1,8 @@
 package tg;
 
-import icc.intent.IntentForResolution;
-
 import java.util.ArrayList;
+
+import tg.resolution.IntentForResolution;
 
 public class IntentsApp {
 	

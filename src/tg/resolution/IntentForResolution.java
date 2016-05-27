@@ -1,7 +1,8 @@
-package icc.intent;
+package tg.resolution;
 
 import java.util.ArrayList;
 
+import tg.DataURI;
 import icc.data.IntentFilter;
 
 public class IntentForResolution {
@@ -9,7 +10,7 @@ public class IntentForResolution {
 	private String componentName;
 	private String action;
 	private ArrayList<String> categories;
-	private IntentFilter.Data data;
+	private DataURI data;
 
 	public IntentForResolution() {
 		this.categories = new ArrayList<String>();
@@ -33,7 +34,7 @@ public class IntentForResolution {
 		return categories;
 	}
 
-	public IntentFilter.Data getData() {
+	public DataURI getData() {
 		return data;
 	}
 
@@ -48,7 +49,7 @@ public class IntentForResolution {
 		categories.add(category);
 	}
 
-	public void setData(IntentFilter.Data data) {
+	public void setData(DataURI data) {
 		this.data = data;
 	}
 

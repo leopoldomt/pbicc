@@ -1,11 +1,10 @@
 package tg;
 
-import icc.data.IntentFilter.Data;
-import icc.intent.IntentForResolution;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+
+import tg.resolution.IntentForResolution;
 
 public class IntentParser {
 
@@ -127,16 +126,13 @@ public class IntentParser {
 
 
 
-	public static Data parseData(String data, String mimeType) {
-
-		Data dt = new Data();
-
-		dt.scheme = getScheme(data);
-		dt.host = getHost(data, dt.scheme);
-		dt.port = getPort(data, dt.scheme, dt.host);
-		dt.path = getPath(data, dt.scheme, dt.host, dt.port);
-
-		dt.mimeType = "-".equals(mimeType) ? null : mimeType;
+	public static DataURI parseData(String data, String mimeType) {
+		
+		if("-".equals(data)) data = "";
+		
+		DataURI dt = new DataURI(data);  
+			
+		if (!"-".equals(mimeType)) dt.setType(mimeType);		
 		return dt;
 	}
 

@@ -1,17 +1,23 @@
 package tg;
 
 import icc.data.Component;
-import icc.intent.IntentForResolution;
-import icc.intent.IntentResolution;
 import icc.parsing.AndroidManifestParser;
 
 import java.util.ArrayList;
+
+import tg.resolution.IntentForResolution;
+import tg.resolution.IntentResolution;
 
 
 public class TgMain {
 	
 
 	private static void init() {
+		
+		//Data data = new Data("mailto:emailaddress@emailaddress.com");
+		
+		//System.out.println(data.getAuthority());
+		
 		/*try {
 			URI uri = new URI("mailto:george@georgewhiteside.net?subject=AbstractArt");
 			System.out.println(uri.getScheme());
@@ -67,7 +73,9 @@ public class TgMain {
 
 
 		try {
-			IntentFromJson[] its =IntentReader.fromJsonFile(path+file5);
+			IntentFromJson[] its =IntentReader.fromJsonFile(path+file2);
+			
+			AndroidManifestParser manifestParser = new AndroidManifestParser(manifestPath1);
 			
 			ArrayList<IntentForResolution> intentForResolutions = new ArrayList<IntentForResolution>();
 			for(IntentFromJson it : its){
@@ -78,7 +86,7 @@ public class TgMain {
 			
 			System.out.printf(">> The app has %dexp/%dimp intents.\n", itsApp.explicits.size(), itsApp.implicits.size());
 
-			AndroidManifestParser manifestParser = new AndroidManifestParser(manifestPath1);
+			
 
 			System.out.printf(">> The manifest has %d components\n", manifestParser.components.size());
 
