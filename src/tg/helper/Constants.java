@@ -1,7 +1,7 @@
-package tg;
+package tg.helper;
 
 
-public class Intent {
+public class Constants {
 	
 	/*
 	 * Activity actions

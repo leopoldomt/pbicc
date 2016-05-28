@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class IntentFromJson {
 
-	String scope;
-	String methodType;
-	String identifier;
-	String component;
-	ArrayList<String> actions;
-	String data;
-	String mimeType;
-	ArrayList<String> categories;
-	String flags;
-	ArrayList<String> extras;
+	public String scope;
+	public String methodType;
+	public String identifier;
+	public ArrayList<String> components;
+	public ArrayList<String> actions;
+	public ArrayList<String> datas;
+	public ArrayList<String> mimeTypes;
+	public ArrayList<String> categories;
+	public String flags;
+	public ArrayList<String> extras;
 	
 	@Override
 	public String toString() {
@@ -22,13 +22,15 @@ public class IntentFromJson {
 		sb.append(String.format("#scope: %s\n", scope));
 		sb.append(String.format("#methodType: %s\n", methodType));
 		sb.append(String.format("#identifier: %s\n", identifier));
-		sb.append(String.format("#component: %s\n", component));
+		sb.append(String.format("#component: %s\n", components));
 		
 		for(String a : actions )
 			sb.append(String.format("#action: %s\n", a));
 		
-		sb.append(String.format("#data: %s\n", data));
-		sb.append(String.format("#mimeType: %s\n", mimeType));
+		for(String d : datas)
+			sb.append(String.format("#data: %s\n", d));
+		for(String m : mimeTypes)
+			sb.append(String.format("#mimeType: %s\n", m));
 		
 		for(String c : categories)
 			sb.append(String.format("#category: %s\n", c));
@@ -56,20 +58,20 @@ public class IntentFromJson {
 		return identifier;
 	}
 
-	public String getComponent() {
-		return component;
+	public ArrayList<String> getComponents() {
+		return components;
 	}
 
 	public String getAction() {
 		return actions.get(0);
 	}
 
-	public String getData() {
-		return data;
+	public ArrayList<String> getDatas() {
+		return datas;
 	}
 
-	public String getMimeType() {
-		return mimeType;
+	public ArrayList<String> getMimeTypes() {
+		return mimeTypes;
 	}
 
 	public ArrayList<String> getCategories() {

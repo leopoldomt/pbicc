@@ -5,6 +5,8 @@ import icc.parsing.AndroidManifestParser;
 
 import java.util.ArrayList;
 
+import tg.helper.IntentJson;
+import tg.parse.IntentParser;
 import tg.resolution.IntentForResolution;
 import tg.resolution.IntentResolution;
 
@@ -73,13 +75,14 @@ public class TgMain {
 
 
 		try {
-			IntentFromJson[] its =IntentReader.fromJsonFile(path+file2);
+			IntentFromJson[] its =IntentJson.read(path+file01);
 			
-			AndroidManifestParser manifestParser = new AndroidManifestParser(manifestPath1);
+			AndroidManifestParser manifestParser = new AndroidManifestParser(manifestPath01);
 			
 			ArrayList<IntentForResolution> intentForResolutions = new ArrayList<IntentForResolution>();
+			int i = 0;
 			for(IntentFromJson it : its){
-				intentForResolutions.addAll(IntentParser.parse(it));
+				intentForResolutions.addAll(IntentParser.parseToResolution(it, i+""));
 			}
 			
 			IntentsApp itsApp = IntentsApp.createIntentsApp(intentForResolutions);
@@ -90,18 +93,20 @@ public class TgMain {
 
 			System.out.printf(">> The manifest has %d components\n", manifestParser.components.size());
 
-			int i = 1;
+			int index = 1;
 			int component;
 			IntentResolution.Result result;
 			
 
 			int matches = 0;
 			for(IntentForResolution ifr : itsApp.all){
-				System.out.println("\n#Intent"+(i));
+				System.out.println("\n#Intent"+(index));
 				component = 1;
 				//if(i == 5) System.out.println(ifr.getData());
+				if(index == 2) System.out.println(ifr.getData().getScheme());
 				for(Component c : manifestParser.components){
 					//if(component == 3) System.out.println(c.intentFilters.get(0).data);
+					System.out.println(ifr.getData().getType());
 					result = IntentResolution.resolve(ifr, c);
 					System.out.print("##Component"+component+": "+result.match);
 					System.out.println((result.match==false ? " -> "+result.reason : ""));
@@ -110,7 +115,7 @@ public class TgMain {
 					
 					component++;
 				}
-				i++;
+				index++;
 			}
 			
 			System.out.printf("\n#########Total de Matches = %d", matches);

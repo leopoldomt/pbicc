@@ -2,6 +2,7 @@ package tg.resolution;
 
 import tg.DataURI;
 import icc.data.Component;
+import icc.data.Data;
 import icc.data.IntentFilter;
 import icc.parsing.AndroidManifestParser;
 
@@ -72,16 +73,16 @@ public class IntentResolution {
 	private static void dataTest(IntentForResolution it, IntentFilter ifilter)
 			throws DataTestException {
 		//System.out.println(it.getData());
-		if (it.getData().getScheme() != null && ifilter.data.scheme != null) {
+		if (it.getData().getScheme() != null && !ifilter.data.getSchemes().isEmpty()) {
 			// i(+,_) 
 			// f(+,_)
-			if (it.getData().getType() != null && ifilter.data.mimeType == null) {
+			if (it.getData().getType() != null && ifilter.data.getMimeTypes().isEmpty()) {
 				// i(+,+) 
 				// f(+,-)
 				throw new DataTestException("intent has mimetype, ifilter hasn't mimetype.");
 			}
 			
-			if (it.getData().getType() == null && ifilter.data.mimeType != null) {
+			if (it.getData().getType() == null && !ifilter.data.getMimeTypes().isEmpty()) {
 				// i(+,-) 
 				// f(+,+)
 				throw new DataTestException("intent hasn't mimetype, ifilter has mimetype.");
@@ -99,24 +100,24 @@ public class IntentResolution {
 			return;
 		} 
 		
-		if (it.getData().getScheme() != null && ifilter.data.scheme == null) {
+		if (it.getData().getScheme() != null && ifilter.data.getSchemes().isEmpty()) {
 			// i(+,_) 
 			// f(-,_)
 			
-			if (it.getData().getType() != null && ifilter.data.mimeType == null) {
+			if (it.getData().getType() != null && ifilter.data.getMimeTypes().isEmpty()) {
 				// i(+,+) 
 				// f(-,-)
-				throw new DataTestException("filter hasn't data.");
+				throw new DataTestException("filter hasn't scheme neither mimeType.");
 			}
 			
-			if (it.getData().getType() == null && ifilter.data.mimeType == null) {
+			if (it.getData().getType() == null && ifilter.data.getMimeTypes().isEmpty()) {
 				// i(+,-) 
 				// f(-,-)
-				throw new DataTestException("filter hasn't data.");
+				throw new DataTestException("filter hasn't scheme neither mimeType.");
 			}
 			
 			
-			if (it.getData().getType() == null && ifilter.data.mimeType != null) {
+			if (it.getData().getType() == null && !ifilter.data.getMimeTypes().isEmpty()) {
 				// i(+,-) 
 				// f(-,+)
 				throw new DataTestException("intent has uri but not mimeType. ifilter has mimeType but not uri.");
@@ -136,30 +137,30 @@ public class IntentResolution {
 		}
 		
 		
-		if (it.getData().getScheme() == null && ifilter.data.scheme != null) {
+		if (it.getData().getScheme() == null && !ifilter.data.getSchemes().isEmpty()) {
 			// i(-,_) 
 			// f(+,_)
 			throw new DataTestException("intent hasn't scheme and filter has it.");
 		}
 		
-		if (it.getData().getScheme() == null && ifilter.data.scheme == null) {
+		if (it.getData().getScheme() == null && ifilter.data.getSchemes().isEmpty()) {
 			// i(-,_) 
 			// f(-,_)
 			
-			if (it.getData().getType() != null && ifilter.data.mimeType == null) {
+			if (it.getData().getType() != null && ifilter.data.getMimeTypes().isEmpty()) {
 				// i(-,+) 
 				// f(-,-)
 				throw new DataTestException("filter hasn't data.");
 			}
 			
-			if (it.getData().getType() == null && ifilter.data.mimeType != null) {
+			if (it.getData().getType() == null && !ifilter.data.getMimeTypes().isEmpty()) {
 				// i(-,-) 
 				// f(-,+)				
 				throw new DataTestException("intent hasn't data.");
 			}
 			
 			
-			if (it.getData().getType() != null && ifilter.data.mimeType != null){
+			if (it.getData().getType() != null && !ifilter.data.getMimeTypes().isEmpty()){
 				// i(-,+) 
 				// f(-,+)
 				if(!matchMimetype(it.getData(), ifilter.data)) {
@@ -176,20 +177,27 @@ public class IntentResolution {
 	}
 
 	private static boolean matchMimetype(DataURI intData,
-			IntentFilter.Data dt2) {
+			Data filtData) {
 		boolean match = false;
 		// it.getData().getType().equals(ifilter.data.mimeType)
+		
+		
 		String prefix_dt1 = intData.getType()
 				.substring(0, intData.getType().indexOf("/"));
-		String prefix_dt2 = dt2.mimeType
-				.substring(0, dt2.mimeType.indexOf("/"));
+		
+		//String prefix_dt2 = filtData.getMimeTypes().substring(0, filtData.getMimeTypes().indexOf("/"));
+		
+		
 		String posfix_dt1 = intData.getType().substring(intData.getType().indexOf("/"));
-		String posfix_dt2 = dt2.mimeType.substring(dt2.mimeType.indexOf("/"));
+		//String posfix_dt2 = filtData.getMimeTypes().substring(filtData.getMimeTypes().indexOf("/"));
 
-		if (intData.getType().equals(dt2.mimeType)
-				|| (dt2.mimeType.startsWith("*/"))
-				|| (prefix_dt1.equals(prefix_dt2) && (posfix_dt2.equals("*") || posfix_dt1
-						.equals(posfix_dt2)))) {
+		if (filtData.getMimeTypes().contains(intData.getType())
+				|| (filtData.hasGenericMimeTypePrefix)
+				|| filtData.getPrefixesOfMimeTypeWithGenericSufix().contains(prefix_dt1) 
+				/*(prefix_dt1.equals(prefix_dt2) && (posfix_dt2.equals("*")*/
+				
+				|| filtData.getMimeTypeSufixes().contains((posfix_dt1))) { 
+				/*posfix_dt1.equals(posfix_dt2)*/
 			match = true;
 		}
 		return match;
@@ -197,14 +205,14 @@ public class IntentResolution {
 	}
 
 	private static boolean matchUriPath(DataURI intentData,
-			IntentFilter.Data filterData) {
+			Data filterData) {
 		//TODO A path specification can contain a wildcard asterisk (*) to require only 
 		//a partial match of the path name.
 		boolean match = false;
-		if (intentData.getPath() == null && filterData.path == null) {
+		if (intentData.getPath() == null && filterData.getPaths().isEmpty()) {
 			match = true;
-		} else if (intentData.getPath() != null && filterData.path != null) {
-			if (intentData.getPath().equals(filterData.path)) {
+		} else if (intentData.getPath() != null && !filterData.getPaths().isEmpty()) {
+			if (filterData.getPaths().contains(intentData.getPath())) {
 				/*if (intentData.pathPrefix == null && intentData.pathPrefix == null) {
 					match = true;
 				} else if (intentData.pathPrefix != null && filterData.pathPrefix != null) {
@@ -223,38 +231,38 @@ public class IntentResolution {
 				match = true;
 			}
 		} else {
-			if(filterData.path == null){
+			if(filterData.getPaths().isEmpty()){
 				match = true;
 			}
 		}
 		return match;
 	}
 
-	private static boolean matchUri(DataURI intentData, IntentFilter.Data filterData) {
+	private static boolean matchUri(DataURI intentData, Data filterData) {
 
 		boolean match = false;
 		
 		
-		if (intentData.getScheme() == null && filterData.scheme == null) {
+		if (intentData.getScheme() == null && filterData.getSchemes().isEmpty()) {
 			match = true;
-		} else if (intentData.getScheme() != null && filterData.scheme != null) {
-			if (intentData.getScheme().equals(filterData.scheme)) {
-				if (intentData.getHost() != null && filterData.host != null) {
-					if (intentData.getHost().equals(filterData.host)) {
+		} else if (intentData.getScheme() != null && !filterData.getSchemes().isEmpty()) {
+			if (filterData.getSchemes().contains(intentData.getScheme())) {
+				if (intentData.getHost() != null && !filterData.getHosts().isEmpty()) {
+					if (filterData.getHosts().contains(intentData.getHost())) {
 
-						if (intentData.getPort() == 0 && filterData.port == null) {
-							if (intentData.getPath() != null && filterData.path != null) {
+						if (intentData.getPort() == 0 && filterData.getPorts().isEmpty()) {
+							if (intentData.getPath() != null && !filterData.getPaths().isEmpty()) {
 								match = matchUriPath(intentData, filterData);	
 							}
 						} else {
-							if ((intentData.getPort()+"") != null && filterData.port != null){
-								if((intentData.getPort()+"").equals(filterData.port)) {
+							if ((intentData.getPort()+"") != null && !filterData.getPorts().isEmpty()){
+								if(filterData.getPorts().contains(intentData.getPort()+"")) {
 									match = matchUriPath(intentData, filterData);
 								}
 							}
 						}
 					}
-				} else if (filterData.host == null) {
+				} else if (filterData.getHosts().isEmpty()) {
 					match = true;
 				}
 			}
@@ -339,7 +347,7 @@ public class IntentResolution {
 
 		IntentForResolution it = new IntentForResolution();
 
-		IntentFilter.Data dt = new IntentFilter.Data();
+		Data dt = new Data();
 
 		// it.setAction("android.intent.action.VIEW");
 		// it.addCategory("android.intent.category.DEFAULT");
@@ -355,7 +363,7 @@ public class IntentResolution {
 		// dt.mimeType = "text/*";
 
 		it.setAction("android.intent.action.MEDIA_MOUNTED");
-		dt.scheme = "file";
+		dt.addScheme("file");
 
 		//it.setData(dt);
 

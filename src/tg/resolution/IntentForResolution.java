@@ -7,6 +7,8 @@ import icc.data.IntentFilter;
 
 public class IntentForResolution {
 
+	private String parentId;
+	private String methodType;
 	private String componentName;
 	private String action;
 	private ArrayList<String> categories;
@@ -17,11 +19,18 @@ public class IntentForResolution {
 		//this.datas = new ArrayList<IntentFilter.Data>();
 	}
 
-	public IntentForResolution(String compName) {
-		this();
-		this.componentName = compName;
+	public void setParentId(String pid) {
+		parentId = pid;
 	}
-
+	
+	public String getParentId() {
+		return parentId;
+	}
+	
+	public void setComponentName(String name) {
+		componentName = name;
+	}
+	
 	public String getComponentName() {
 		return componentName;
 	}
@@ -51,6 +60,14 @@ public class IntentForResolution {
 
 	public void setData(DataURI data) {
 		this.data = data;
+	}
+	
+	public String getMethodType() {
+		return methodType;
+	}
+	
+	public void setMethodType(String method) {
+		methodType = method;
 	}
 
 }

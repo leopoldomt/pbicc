@@ -351,31 +351,31 @@ public class AndroidManifestParser extends DefaultHandler {
 				for (int i = 0; i < attributes.getLength(); i++) {
 					switch (attributes.getQName(i)) {
 					case DATA_SCHEME_ATTR:
-						this.currentIntentFilter.data.scheme = attributes.getValue(i);
+						this.currentIntentFilter.data.addScheme(attributes.getValue(i));
 						break;
 
 					case DATA_HOST_ATTR:
-						this.currentIntentFilter.data.host = attributes.getValue(i);
+						this.currentIntentFilter.data.addHost(attributes.getValue(i));
 						break;
 
 					case DATA_PORT_ATTR:
-						this.currentIntentFilter.data.port = attributes.getValue(i);
+						this.currentIntentFilter.data.addPort(attributes.getValue(i));
 						break;
 
 					case DATA_PATH_ATTR:
-						this.currentIntentFilter.data.path = attributes.getValue(i);
+						this.currentIntentFilter.data.addPath(attributes.getValue(i));
 						break;
 
 					case DATA_PATH_PATTERN_ATTR:
-						this.currentIntentFilter.data.pathPattern = attributes.getValue(i);
+						this.currentIntentFilter.data.addPathPattern(attributes.getValue(i));
 						break;
 
 					case DATA_PATH_PREFIX_ATTR:
-						this.currentIntentFilter.data.pathPrefix = attributes.getValue(i);
+						this.currentIntentFilter.data.addPathPrefix(attributes.getValue(i));
 						break;
 
 					case DATA_MIME_TYPE_ATTR:
-						this.currentIntentFilter.data.mimeType = attributes.getValue(i);
+						this.currentIntentFilter.data.addMimeType(attributes.getValue(i));
 						break;
 					}
 				}

@@ -1,8 +1,10 @@
-package tg;
+package tg.helper;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+
+import tg.IntentFromJson;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -17,10 +19,10 @@ public class IntentDeserializer implements JsonDeserializer<IntentFromJson> {
 		IntentFromJson it = new IntentFromJson();
 		it.scope = element.getAsJsonObject().get("scope").getAsString();
 		it.identifier = element.getAsJsonObject().get("identifier").getAsString();
-		it.component = element.getAsJsonObject().get("component").getAsString();
+		it.components = getAttribute(element.getAsJsonObject().get("component").getAsString(), " | ");
 		it.actions = getAttribute(element.getAsJsonObject().get("action").getAsString(), " | ");
-		it.data = element.getAsJsonObject().get("data").getAsString();
-		it.mimeType = element.getAsJsonObject().get("mimeType").getAsString();
+		it.datas = getAttribute(element.getAsJsonObject().get("data").getAsString(), " | ");
+		it.mimeTypes = getAttribute(element.getAsJsonObject().get("mimeType").getAsString(), " | ");
 		it.categories = getAttribute(element.getAsJsonObject().get("category").getAsString(), " | ");
 		it.flags = element.getAsJsonObject().get("flags").getAsString();
 		it.extras = getAttribute(element.getAsJsonObject().get("extras").getAsString(), ", ");
@@ -28,7 +30,7 @@ public class IntentDeserializer implements JsonDeserializer<IntentFromJson> {
 		it.methodType = element.getAsJsonObject().get("methodType").getAsString();
 
 		if(it.methodType.equals("startActivity") || it.methodType.equals("startActivityForResult")){
-			it.categories.add(Intent.CATEGORY_DEFAULT);
+			it.categories.add(Constants.CATEGORY_DEFAULT);
 		}
 
 		return it;
