@@ -4,14 +4,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import tg.IntentFromJson;
+import tg.parse.IntentFromJson;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
-public class IntentDeserializer implements JsonDeserializer<IntentFromJson> {
+public class FirstIntentDeserializer implements JsonDeserializer<IntentFromJson> {
 
 	@Override
 	public IntentFromJson deserialize(JsonElement element, Type clazz,

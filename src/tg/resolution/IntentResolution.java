@@ -1,6 +1,7 @@
 package tg.resolution;
 
-import tg.DataURI;
+import tg.parse.DataURI;
+import tg.parse.IntentForResolution;
 import icc.data.Component;
 import icc.data.Data;
 import icc.data.IntentFilter;

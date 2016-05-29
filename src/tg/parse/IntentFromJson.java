@@ -1,4 +1,4 @@
-package tg;
+package tg.parse;
 
 import java.util.ArrayList;
 

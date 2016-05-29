@@ -4,17 +4,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import tg.IntentFromJson;
 import tg.helper.Files;
+import tg.helper.FirstIntentDeserializer;
 import tg.helper.IntentJson;
-import tg.resolution.IntentForResolution;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 public class MainParse {
 
-	static String fileFromJsonName = Files.file00;
+	static String fileFromJsonName = Files.FromJson.file02;
 	
 	static String fileForResolutionName = fileFromJsonName.substring(fileFromJsonName.lastIndexOf("/"));
 
@@ -77,7 +76,7 @@ public class MainParse {
 	static IntentFromJson[] ifjs;
 	static void setIntentsFromJson(String file) {
 		try {
-			ifjs = IntentJson.read(file);
+			ifjs = IntentJson.readFromJson(file);
 		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
 		}

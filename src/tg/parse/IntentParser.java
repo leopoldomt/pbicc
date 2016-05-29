@@ -2,10 +2,7 @@ package tg.parse;
 
 import java.util.ArrayList;
 
-import tg.DataURI;
-import tg.IntentFromJson;
 import tg.helper.Constants;
-import tg.resolution.IntentForResolution;
 import tg.resolution.IntentResolution;
 
 public class IntentParser {

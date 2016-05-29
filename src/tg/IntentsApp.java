@@ -2,7 +2,7 @@ package tg;
 
 import java.util.ArrayList;
 
-import tg.resolution.IntentForResolution;
+import tg.parse.IntentForResolution;
 
 public class IntentsApp {
 	

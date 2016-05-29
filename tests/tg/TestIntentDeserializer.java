@@ -6,12 +6,12 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import tg.helper.Constants;
-import tg.helper.IntentDeserializer;
+import tg.helper.FirstIntentDeserializer;
 import tg.parse.IntentParser;
 
 public class TestIntentDeserializer extends TestCase {
 
-	IntentDeserializer id = new IntentDeserializer();
+	FirstIntentDeserializer id = new FirstIntentDeserializer();
 	
 	@Test
 	public void testGetActions() {

@@ -1,4 +1,4 @@
-	package tg;
+	package tg.parse;
 	
 	public class DataURI {
 	

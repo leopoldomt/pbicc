@@ -1,8 +1,8 @@
-package tg.parse;
+package tg.helper;
 
 import java.lang.reflect.Type;
 
-import tg.resolution.IntentForResolution;
+import tg.parse.IntentForResolution;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -15,7 +15,6 @@ public class IntentSerializer implements JsonSerializer<IntentForResolution> {
 	@Override
 	public JsonElement serialize(IntentForResolution ifr, Type typeOfSrc,
 			JsonSerializationContext context) {
-
 		JsonObject result = new JsonObject();
 		result.addProperty("parentId", ifr.getParentId());
 		result.addProperty("methodType", ifr.getMethodType());
@@ -25,13 +24,11 @@ public class IntentSerializer implements JsonSerializer<IntentForResolution> {
 		result.addProperty("mimetype", null==ifr.getData().getType()?"":ifr.getData().getType());
 		
 		JsonArray categories = new JsonArray();
-		
 		for(int i=0; i<ifr.getCategories().size(); i++){
 			categories.add(ifr.getCategories().get(i));
 		}
 		
 		result.add("categories", categories);
-				
 		return result;
 	}
 

@@ -1,8 +1,7 @@
-package tg.resolution;
+package tg.parse;
 
 import java.util.ArrayList;
 
-import tg.DataURI;
 import icc.data.IntentFilter;
 
 public class IntentForResolution {
@@ -68,6 +67,21 @@ public class IntentForResolution {
 	
 	public void setMethodType(String method) {
 		methodType = method;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(String.format("#parentId: %s\n", this.parentId));
+		sb.append(String.format("#methodType: %s\n", this.methodType));
+		sb.append(String.format("#componentName: %s\n", this.componentName));
+		sb.append(String.format("#action: %s\n", this.action));
+		sb.append(String.format("#data: %s\n", this.data.toString()));
+		sb.append(String.format("#mimeType: %s\n", this.data.getType()));
+		sb.append(String.format("#categories: %s\n", this.categories.toString()));
+		
+		
+		return sb.toString();
 	}
 
 }
