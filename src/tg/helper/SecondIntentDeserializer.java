@@ -34,7 +34,7 @@ public class SecondIntentDeserializer implements
 		
 		
 		DataURI data = new DataURI(sData);
-		data.setType(mimeType);
+		data.setType(mimeType.isEmpty()?null:mimeType);
 		ifr.setData(data);
 		
 		for(JsonElement e : sCategories){

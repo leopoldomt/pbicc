@@ -4,9 +4,25 @@
 	
 		String type;
 		String dataString;
+		private String scheme;
+		private String host;
+		private int port;
+		private String path;
+		private String query;
+		private String ssp;
+		private String fragment;
+		private String authority;
 	
 		public DataURI(String dataString) {
 			this.dataString = dataString;
+			scheme = parseScheme();
+			host = parseHost();
+			port = parsePort();
+			path = parsePath();
+			query = parseQuery();
+			ssp = parseSsp();
+			fragment = parseFragment();
+			authority = parseAuthority(dataString, findSchemeSeparator());
 		}
 		
 		public void setType(String type) {
@@ -52,7 +68,7 @@
 		}
 	
 		public String getScheme() {
-			return parseScheme();
+			return scheme;
 		}
 	
 		private String parseScheme() {
@@ -61,7 +77,7 @@
 		}
 	
 		public String getHost() {
-			return parseHost();
+			return host;
 		}
 	
 		private String parseHost() {
@@ -81,7 +97,7 @@
 		}
 	
 		public int getPort() {
-			return parsePort();
+			return port;
 		}
 	
 		private int parsePort() {
@@ -108,7 +124,7 @@
 		}
 	
 		public String getSsp() {
-			return parseSsp(); 
+			return ssp; 
 		}
 	
 		private String parseSsp() {
@@ -123,7 +139,7 @@
 	
 	
 		public String getAuthority() {
-			return parseAuthority(this.dataString, findSchemeSeparator());
+			return authority;
 		}
 	
 		private String parseAuthority(String uriString, int ssi) {
@@ -155,7 +171,7 @@
 		}
 	
 		public String getPath() {
-			return parsePath();
+			return path;
 		}
 	
 		private String parsePath() {
@@ -244,7 +260,7 @@
 		}
 	
 		public String getQuery() {
-			return parseQuery();
+			return query;
 		}
 	
 		private String parseFragment() {
@@ -254,7 +270,7 @@
 	
 	
 		public String getFragment() {
-			return parseFragment();
+			return fragment;
 		}
 	
 		public String toString() {

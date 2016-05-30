@@ -2,9 +2,12 @@ package tg.resolution;
 
 import tg.parse.DataURI;
 import tg.parse.IntentForResolution;
+import icc.data.Activity;
+import icc.data.BroadcastReceiver;
 import icc.data.Component;
 import icc.data.Data;
 import icc.data.IntentFilter;
+import icc.data.Service;
 import icc.parsing.AndroidManifestParser;
 
 public class IntentResolution {
@@ -15,11 +18,9 @@ public class IntentResolution {
 	}
 	
 
-	public static Result resolve(IntentForResolution it, Component comp) {
-		
+	private static Result match(IntentForResolution it, Component comp){
 		Result response = new Result();
 		response.match = false;
-
 		if(it.getComponentName() != null) {
 			if(it.getComponentName().equals(comp.name)) {
 				response.match = true;
@@ -61,6 +62,46 @@ public class IntentResolution {
 		}
 		return response;
 	}
+	
+
+	public static Result resolve(IntentForResolution it, Component comp) {
+		
+		Result response = new Result();
+		response.match = false;
+			
+		switch (it.getMethodType()) {
+		case "startActivityForResult":
+		case "startActivity":
+			if(comp instanceof Activity){
+				response = match(it, comp);
+			} else {
+				response.match = false;
+				response.reason = String.format("methodType = %s and componenteType = %s.", it.getMethodType(), comp.type);
+			}
+			break;
+		case "startService":
+			if(comp instanceof Service){
+				response = match(it, comp);
+			} else {
+				response.match = false;
+				response.reason = String.format("methodType = %s and componenteType = %s.", it.getMethodType(), comp.type);
+			}
+			break;
+		case "sendBroadcast":
+			if(comp instanceof BroadcastReceiver){
+				response = match(it, comp);
+			} else {
+				response = new Result();
+				response.match = false;
+				response.reason = String.format("methodType = %s and componenteType = %s.", it.getMethodType(), comp.type);
+			}
+			break;
+		default:
+			System.out.println("OOOPS!!!");
+			break;
+		}
+		return response;
+	}
 
 	private static void actionTest(IntentForResolution it, IntentFilter ifilter)
 			throws ActionTestException {
@@ -80,6 +121,7 @@ public class IntentResolution {
 			if (it.getData().getType() != null && ifilter.data.getMimeTypes().isEmpty()) {
 				// i(+,+) 
 				// f(+,-)
+				System.out.println(it.getData().getType() + " _ "+ ifilter.data.getMimeTypes().isEmpty());
 				throw new DataTestException("intent has mimetype, ifilter hasn't mimetype.");
 			}
 			
