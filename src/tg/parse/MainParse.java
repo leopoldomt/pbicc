@@ -13,11 +13,12 @@ import com.google.gson.JsonSyntaxException;
 
 public class MainParse {
 
-	static String fileFromJsonName = Files.FromJson.file02;
+	static String fileFromJsonName = Files.FromJson.file2;
 	
-	static String fileForResolutionName = fileFromJsonName.substring(fileFromJsonName.lastIndexOf("/"));
+	static String fileForResolutionName = fileFromJsonName.substring(fileFromJsonName.lastIndexOf("/")+1);
 
 	public static void before () {
+		System.out.println(fileFromJsonName);
 		System.out.println(">>> START <<<");
 		setIntentsFromJson(fileFromJsonName);
 		setIntetsForResolution();		

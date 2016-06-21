@@ -25,9 +25,9 @@ public class Files {
 		public static final String file01 = inputPath + "test01.json";
 		public static final String file02 = inputPath + "test02.json";
 
-		public static final String file1 = inputPath + "abstract-art.json";
 		public static final String manifestPath1 = inputPath + "/manifests/abstract-art.xml";
-		
+
+		public static final String file1 = inputPath + "abstract-art.json";		
 		public static final String file2 = inputPath + "adblockplus.json";
 		public static final String file3 = inputPath + "arxiv.json";
 		public static final String file4 = inputPath + "bluezime.json";

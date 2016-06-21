@@ -16,6 +16,7 @@ public class IntentSerializer implements JsonSerializer<IntentForResolution> {
 	public JsonElement serialize(IntentForResolution ifr, Type typeOfSrc,
 			JsonSerializationContext context) {
 		JsonObject result = new JsonObject();
+		result.addProperty("hash", ifr.getHash());
 		result.addProperty("parentId", ifr.getParentId());
 		result.addProperty("methodType", ifr.getMethodType());
 		result.addProperty("componentName", null==ifr.getComponentName()?"":ifr.getComponentName());

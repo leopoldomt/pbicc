@@ -3,6 +3,7 @@ package tg.parse;
 import java.util.ArrayList;
 
 import tg.helper.Constants;
+import tg.helper.HashGenerator;
 import tg.resolution.IntentResolution;
 
 public class IntentParser {
@@ -13,9 +14,19 @@ public class IntentParser {
 			for(String a : it.actions){
 				ifrs.addAll(getMimeTypes(it,parseAction(a), parentId));
 			}
+			
+			for(IntentForResolution ifr : ifrs) {
+				HashGenerator.generateIFRHash(ifr);
+			}
 			return ifrs;
 		} 
-		return getMimeTypes(it, null, parentId);
+		
+		ifrs.addAll(getMimeTypes(it, null, parentId));
+		
+		for(IntentForResolution ifr : ifrs) {
+			HashGenerator.generateIFRHash(ifr);
+		}		
+		return ifrs;
 	}
 
 	private static ArrayList<IntentForResolution> getMimeTypes(IntentFromJson ifj, String action, String parentId) {

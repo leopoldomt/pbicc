@@ -80,7 +80,7 @@ public class IntentForResolution {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		
+		sb.append(String.format("#hash: %s\n", this.hash));
 		sb.append(String.format("#parentId: %s\n", this.parentId));
 		sb.append(String.format("#methodType: %s\n", this.methodType));
 		sb.append(String.format("#componentName: %s\n", this.componentName));
@@ -90,6 +90,18 @@ public class IntentForResolution {
 		sb.append(String.format("#categories: %s\n", this.categories.toString()));
 		
 		
+		return sb.toString();
+	}
+
+	public String toStringLine() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(String.format("_parentId_%s_", this.parentId));
+		sb.append(String.format("_methodType_%s_", this.methodType));
+		sb.append(String.format("_componentName_s_", this.componentName));
+		sb.append(String.format("_action_%s_", this.action));
+		sb.append(String.format("_data_%s_", this.data.toString()));
+		sb.append(String.format("_mimeType_%s_", this.data.getType()));
+		sb.append(String.format("_categories_%s_", this.categories.toString()));
 		return sb.toString();
 	}
 
