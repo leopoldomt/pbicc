@@ -1,0 +1,72 @@
+[
+  {
+    "hash": "FA4C2460D34EF3C904B2810D8FE77C9C",
+    "parentId": "abstract-art_1",
+    "methodType": "startActivity",
+    "componentName": "net.georgewhiteside.android.abstractart.settings.BackgroundSelector",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "0FBEFF81295D25BD4B4885267DE45322",
+    "parentId": "abstract-art_2",
+    "methodType": "startActivity",
+    "componentName": "net.georgewhiteside.android.abstractart.Settings",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "FB2FAA9F18733BE6134255E132582915",
+    "parentId": "abstract-art_3",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "market://details?id\u003d",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "FFEB679F2F66677FAA770C660DFD4582",
+    "parentId": "abstract-art_4",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "http://play.google.com/store/apps/details",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6239B9DC5E9D3ED9B0736AB0BFF44F0A",
+    "parentId": "abstract-art_5",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SENDTO",
+    "data": "mailto:george@georgewhiteside.net?subject\u003dAbstractArt",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B3E2247DDE20D7DE5940338AE94174A1",
+    "parentId": "abstract-art_6",
+    "methodType": "startService",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "https://cin.ufpe.br",
+    "mimetype": "",
+    "categories": []
+  }
+]

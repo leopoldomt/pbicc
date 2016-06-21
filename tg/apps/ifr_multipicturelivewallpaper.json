@@ -1,0 +1,193 @@
+[
+  {
+    "hash": "58E21E3541DF4B2C300761EF1E373180",
+    "parentId": "multipicturelivewallpaper_1",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "Intent.ACTION_SET_WALLPAPER",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "58E89FCC759C2C192285FEB946574896",
+    "parentId": "multipicturelivewallpaper_2",
+    "methodType": "startActivityForResult",
+    "componentName": "",
+    "action": "android.intent.action.GET_CONTENT",
+    "data": "",
+    "mimetype": "image/*",
+    "categories": [
+      "Intent.CATEGORY_OPENABLE",
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "BFDB4C7D3791E10D2178B64F7988211F",
+    "parentId": "multipicturelivewallpaper_3",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "market://search?q\u003dMultiPicture-Live-Wallpaper",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "C134593CCBCADBF05DB433F58C178756",
+    "parentId": "multipicturelivewallpaper_4",
+    "methodType": "startActivityForResult",
+    "componentName": "FolderPicker.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "1B0C7E6D9F1E25F6F36DCAE68ECA1671",
+    "parentId": "multipicturelivewallpaper_5",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "76F4CB8FE3C77B60B6F6149F5F1FC797",
+    "parentId": "multipicturelivewallpaper_6",
+    "methodType": "startActivity",
+    "componentName": "QRViewer.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "0A358A27B150A0290FEC0926AABA904C",
+    "parentId": "multipicturelivewallpaper_7",
+    "methodType": "startActivityForResult",
+    "componentName": "val",
+    "action": "org.tamanegi.wallpaper.multipicture.action.GET_PICTURE_SOURCE",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F3C91EEE7E06C464406F528053FC271B",
+    "parentId": "multipicturelivewallpaper_8",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "market://search?q\u003dpname:org.tamanegi.wallpaper.multipicture.dnt",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "1603E6981D9A627BE60428A6AAF87405",
+    "parentId": "multipicturelivewallpaper_9",
+    "methodType": "bindService",
+    "componentName": "comp",
+    "action": "org.tamanegi.wallpaper.multipicture.plugin.LazyPickService",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F11A87D019FA2DC4338EC9FA94C30FD5",
+    "parentId": "multipicturelivewallpaper_10",
+    "methodType": "ContentResolver.query",
+    "componentName": "0",
+    "action": "0",
+    "data": "0",
+    "mimetype": "0",
+    "categories": [
+      "0"
+    ]
+  },
+  {
+    "hash": "5079D58C59F0127F54B63B3182CF15F2",
+    "parentId": "multipicturelivewallpaper_11",
+    "methodType": "ContentResolver.query",
+    "componentName": "MediaStore.Images.Media.EXTERNAL_CONTENT_URI",
+    "action": "0",
+    "data": "0",
+    "mimetype": "0",
+    "categories": [
+      "0"
+    ]
+  },
+  {
+    "hash": "F071955DFEAB1FA3B0775E5091149C98",
+    "parentId": "multipicturelivewallpaper_12",
+    "methodType": "ContentResolver.query",
+    "componentName": "MediaStore.Images.Media.EXTERNAL_CONTENT_URI",
+    "action": "0",
+    "data": "0",
+    "mimetype": "0",
+    "categories": [
+      "0"
+    ]
+  },
+  {
+    "hash": "6E06FFB49156C5E6553046813E18EAC9",
+    "parentId": "multipicturelivewallpaper_13",
+    "methodType": "ContentResolver.query",
+    "componentName": "uri",
+    "action": "0",
+    "data": "0",
+    "mimetype": "0",
+    "categories": [
+      "0"
+    ]
+  },
+  {
+    "hash": "19B48DA46303B1C4D2D99ACE258174FE",
+    "parentId": "multipicturelivewallpaper_14",
+    "methodType": "ContentResolver.query",
+    "componentName": "MediaStore.Images.Media.EXTERNAL_CONTENT_URI.buildUpon().appendQueryParameter(\"distinct\",",
+    "action": "0",
+    "data": "0",
+    "mimetype": "0",
+    "categories": [
+      "0"
+    ]
+  },
+  {
+    "hash": "19B48DA46303B1C4D2D99ACE258174FE",
+    "parentId": "multipicturelivewallpaper_14",
+    "methodType": "ContentResolver.query",
+    "componentName": "\"true\").build();",
+    "action": "0",
+    "data": "0",
+    "mimetype": "0",
+    "categories": [
+      "0"
+    ]
+  },
+  {
+    "hash": "FA4F083C8B8067F0378A0FDA6184B1BD",
+    "parentId": "multipicturelivewallpaper_15",
+    "methodType": "ContentResolver.query",
+    "componentName": "uri",
+    "action": "0",
+    "data": "0",
+    "mimetype": "0",
+    "categories": [
+      "0"
+    ]
+  }
+]

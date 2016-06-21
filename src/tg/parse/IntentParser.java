@@ -16,7 +16,7 @@ public class IntentParser {
 			}
 			
 			for(IntentForResolution ifr : ifrs) {
-				HashGenerator.generateIFRHash(ifr);
+				ifr.setHash(HashGenerator.generateHashMD5(ifr.toStringLine()));
 			}
 			return ifrs;
 		} 
@@ -24,7 +24,7 @@ public class IntentParser {
 		ifrs.addAll(getMimeTypes(it, null, parentId));
 		
 		for(IntentForResolution ifr : ifrs) {
-			HashGenerator.generateIFRHash(ifr);
+			ifr.setHash(HashGenerator.generateHashMD5(ifr.toStringLine()));
 		}		
 		return ifrs;
 	}

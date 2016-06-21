@@ -1,0 +1,592 @@
+[
+  {
+    "hash": "957EB73A07066F3937E71413DEBA9F08",
+    "parentId": "bluezime_1",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "58E06DAFAF561279D3614F5B7F8306A0",
+    "parentId": "bluezime_2",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "8BB6F108E8E781130E9C83629643CCA6",
+    "parentId": "bluezime_3",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "26C45F9BF649AE57FE5E346BA28684A5",
+    "parentId": "bluezime_4",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "B7CDCDFE7DE69AC19697E57E79D1CE95",
+    "parentId": "bluezime_5",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "5A74AF778371952E30C20301A8A42D1C",
+    "parentId": "bluezime_6",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "06EA8ED79277E13CEA57F15D51BE4913",
+    "parentId": "bluezime_7",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3E0F29D38FA0CABF81861D9930CD2412",
+    "parentId": "bluezime_8",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "5A80149F3F5777FDDE153F46C9805143",
+    "parentId": "bluezime_9",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "46BA899204B16B04FA54D1EF55DFD430",
+    "parentId": "bluezime_10",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "63634F5F4CEA6531DCBC6D9AF24E1C93",
+    "parentId": "bluezime_11",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A180080564745B1F0912E10FFF58EB66",
+    "parentId": "bluezime_12",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9513C492CFE7171ED91B73B699525EB6",
+    "parentId": "bluezime_13",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.preferenceschanged",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "5E5DB248DA60EEFED03D959A677252CF",
+    "parentId": "bluezime_14",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.currentstate",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "26C16178756656DB5B5D97C4A0F0E285",
+    "parentId": "bluezime_15",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.config",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "8046E12445C09D299821C2EFC9E4DFB8",
+    "parentId": "bluezime_16",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.connecting",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "1B68C5703B32E607FE3A1DBB8F823414",
+    "parentId": "bluezime_17",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.error",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "595B2AFF5E212AD587B0DAE8CC5ADEEF",
+    "parentId": "bluezime_18",
+    "methodType": "startActivityForResult",
+    "componentName": "",
+    "action": "BluetoothAdapter.ACTION_REQUEST_ENABLE",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "A1FA5FDB86E3719A4C413620B3FFBF4E",
+    "parentId": "bluezime_19",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "http://code.google.com/p/android-bluez-ime/:8080",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "7C86D0824301B09DEBFBA61E4B22E35B",
+    "parentId": "bluezime_20",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "https://www.paypal.com/cgi-bin/webscr?cmd\u003d_xclick\u0026business\u003dpaypal%40hexad%2edk\u0026item_name\u003dBluezIME%20Donation\u0026no_shipping\u003d2\u0026no_note\u003d1\u0026tax\u003d0\u0026currency_code\u003dEUR\u0026bn\u003dPP%2dDonationsBF\u0026charset\u003dUTF%2d8",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "99C79EF8A341AADB456A2D43E04B621C",
+    "parentId": "bluezime_21",
+    "methodType": "startActivityForResult",
+    "componentName": "DeviceScanActivity.class",
+    "action": "",
+    "data": "content://com.example.project:200/folder/subfolder/etc",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "001DDA4A72B35CCE4054AD3EAF0E6EEC",
+    "parentId": "bluezime_22",
+    "methodType": "startService",
+    "componentName": "",
+    "action": "com.hexad.bluezime.getconfig",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "7B94C8ECDA92B6B7CA958003E64CF1B1",
+    "parentId": "bluezime_23",
+    "methodType": "startService",
+    "componentName": "BluezForegroundService.class",
+    "action": "com.hexad.bluezime.START_FG_SERVICE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "64141CD1F036852E8C4139AD4ABA39E8",
+    "parentId": "bluezime_24",
+    "methodType": "startService",
+    "componentName": "BluezForegroundService.class",
+    "action": "com.hexad.bluezime.STOP_FG_SERVICE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3C69B0E8BE4A35248D74DA0F3BFBBD18",
+    "parentId": "bluezime_25",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.connected",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "7627C45BA0BFA206B2EE5ADAE21534F9",
+    "parentId": "bluezime_26",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.disconnected",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "075F440438B94579CF28F2112E885161",
+    "parentId": "bluezime_27",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.error",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "D2D674ED43F9DB89AC58FA4A5A95AFF1",
+    "parentId": "bluezime_28",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "BluetoothAdapter.ACTION_REQUEST_ENABLE",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "80FDB432A2A221EA058C0B03457363BB",
+    "parentId": "bluezime_29",
+    "methodType": "startService",
+    "componentName": "BluezService.class",
+    "action": "com.hexad.bluezime.connect",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "FC4047C6AB86B44A6B14289A2B7F53B4",
+    "parentId": "bluezime_30",
+    "methodType": "startService",
+    "componentName": "BluezService.class",
+    "action": "com.hexad.bluezime.disconnect",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "C9874DFE10B36694ED73A17F72BE54FE",
+    "parentId": "bluezime_31",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "27267A1CBC584A0D538C1260D9FE4DCF",
+    "parentId": "bluezime_32",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "DDE4D11C1197FE33FB9C24A5DEBE923E",
+    "parentId": "bluezime_33",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9D9668EAC51A0EC36DDAB76D0F140377",
+    "parentId": "bluezime_34",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.directionalchange",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "7503B9FB5AAE0FB575D75B8B798F67A2",
+    "parentId": "bluezime_35",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "AD861AA4B70506B1E28E18507A13CEA9",
+    "parentId": "bluezime_36",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "4FE1FE26D1C65A0CBAD65A07AD29CB1B",
+    "parentId": "bluezime_37",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "39140FA86B1E43A1587E889959904AA9",
+    "parentId": "bluezime_38",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9A6F4E3F4CC16E88BE1DCF305D82FCEA",
+    "parentId": "bluezime_39",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "76DA195AA212BD5D64AFF9B4B8E9B977",
+    "parentId": "bluezime_40",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "394AEB76BB02A90092FC4F87AB6D72A8",
+    "parentId": "bluezime_41",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "361215B7FA3753EBC63B2201CE3812E2",
+    "parentId": "bluezime_42",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "41A532CE7DCDC6EC88793372ED6C5979",
+    "parentId": "bluezime_43",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.directionalchange",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3E911B12DF5171D9BADED58E5D1EB42F",
+    "parentId": "bluezime_44",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E1E2E980607B2F09A52D89A147D9F819",
+    "parentId": "bluezime_45",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A3F22466F37316B9A27A0432B5A26857",
+    "parentId": "bluezime_46",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.directionalchange",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E53E06401CF7E571046840C2E85BF4A9",
+    "parentId": "bluezime_47",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "907A0B84C832EC215C4CD4C26CB7EE1F",
+    "parentId": "bluezime_48",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "AB76FE248906B30DE2D17CD2D4EA223D",
+    "parentId": "bluezime_49",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "38549925C00ACC942221CB184D12E9DB",
+    "parentId": "bluezime_50",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.directionalchange",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3F112D383801A6910CCF065CC21A8012",
+    "parentId": "bluezime_51",
+    "methodType": "sendBroadcast",
+    "componentName": "0",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "0E27729864F0460A4F4BC21BA482E8EF",
+    "parentId": "bluezime_52",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "666EB39479BEC038A2463C56CBD0BDA1",
+    "parentId": "bluezime_53",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.accelerometerchange",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "373B51DE12D6E90C00B8EAAE6A35A91E",
+    "parentId": "bluezime_54",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.directionalchange",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F2D1A74DB97C7446A2B88F5C03C8DA94",
+    "parentId": "bluezime_55",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3BFB83682A8EE621D1BBC9532FA6AC48",
+    "parentId": "bluezime_56",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "C7959D8C969957319C774BA5D36A7376",
+    "parentId": "bluezime_57",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "4BB4B0D80F8EE3DDC28CBA14A014E17A",
+    "parentId": "bluezime_58",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "com.hexad.bluezime.keypress",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  }
+]

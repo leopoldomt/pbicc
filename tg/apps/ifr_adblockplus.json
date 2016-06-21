@@ -1,0 +1,302 @@
+[
+  {
+    "hash": "047299CE9CADB48775D650D323D158E7",
+    "parentId": "adblockplus_1",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "https://adblockplus.org/en/android-config#proxy",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "06D5BE49C8E7BB5FCC7C1AC5942A253F",
+    "parentId": "adblockplus_2",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "https://adblockplus.org/en/android-config",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "792B7F9C5A5EAEBDC1A306BA9F7C8B0C",
+    "parentId": "adblockplus_3",
+    "methodType": "startActivity",
+    "componentName": "AdvancedPreferences.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "13145A1AA2CD9AFCED9F7FCDCEBFB23F",
+    "parentId": "adblockplus_4",
+    "methodType": "startActivity",
+    "componentName": "ProxyConfigurationActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "9DF439CE23D78D47BE9EE7DC438F4F25",
+    "parentId": "adblockplus_5",
+    "methodType": "startService",
+    "componentName": "ProxyService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "1E28CFCAEC8317F3B4ABD94F4B37F927",
+    "parentId": "adblockplus_6",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.PROXY_STATE_CHANGED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "34D5B6B6878E41C0384FCF158D155C3B",
+    "parentId": "adblockplus_7",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.PROXY_STATE_CHANGED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "FE4CF5F4347E41766F1C8422E02C504E",
+    "parentId": "adblockplus_8",
+    "methodType": "pendingIntent",
+    "componentName": "ConfigurationActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "42CEC37E86C4477593B5070C6D831571",
+    "parentId": "adblockplus_9",
+    "methodType": "startActivity",
+    "componentName": "com.android.settings.InstalledAppDetails",
+    "action": "Settings.ACTION_APPLICATION_DETAILS_SETTINGS",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4866D53D61DB8198756E9D93DA0BE415",
+    "parentId": "adblockplus_9",
+    "methodType": "startActivity",
+    "componentName": "com.android.settings.InstalledAppDetails",
+    "action": "android.intent.action.VIEW",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "78DAB3231A93E3A46B4C27E01C92CFAB",
+    "parentId": "adblockplus_10",
+    "methodType": "startActivity",
+    "componentName": "CrashReportDialog.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F650B4068EF3702F3AD4A081CF7BF64C",
+    "parentId": "adblockplus_11",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.filtering.status",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "74E007CAF84484C3E37804420720559A",
+    "parentId": "adblockplus_12",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.PROXY_FAILURE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "52E293E7168A36067A873340D380E020",
+    "parentId": "adblockplus_13",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.PROXY_FAILURE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "96B05A9E9D41396F4B89F7E77C3B389A",
+    "parentId": "adblockplus_14",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.PROXY_FAILURE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "157080A90A6CE29DA1F5DC042F97C791",
+    "parentId": "adblockplus_15",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.PROXY_FAILURE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "22FFAB376EE1051C218F692660EDC1AB",
+    "parentId": "adblockplus_16",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.SERVICE_STATE_CHANGED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "16D85A0FCCE859EAF3DAC61F3AC13C64",
+    "parentId": "adblockplus_17",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.SERVICE_STATE_CHANGED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "78DC535B064F72CC1F49F14028F8E5B5",
+    "parentId": "adblockplus_18",
+    "methodType": "startService",
+    "componentName": "ProxyService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9C122DF118B18A505DB83B504D5C37C2",
+    "parentId": "adblockplus_19",
+    "methodType": "startService",
+    "componentName": "ProxyService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "426D82A237A6D7FC56C7D32582B1CDBE",
+    "parentId": "adblockplus_20",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.adblockplus.android.subscription.status",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "5D0555C674160435113548143710E52B",
+    "parentId": "adblockplus_21",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "Settings.ACTION_WIFI_SETTINGS",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "774B374C6644CD531C382622802F8A42",
+    "parentId": "adblockplus_22",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "uri",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B2619C4456D358684BCC9AD1FFBA7299",
+    "parentId": "adblockplus_23",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "Uri.fromFile(updateFile)",
+    "mimetype": "application/vnd.android.package-archive",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6031385C3E9067FC39502A36E87DAFD2",
+    "parentId": "adblockplus_24",
+    "methodType": "startService",
+    "componentName": "UpdaterService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "728E1CE91E695DB5711D6C1FF0614D7E",
+    "parentId": "adblockplus_25",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "android.net.wifi.LINK_CONFIGURATION_CHANGED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "BB8E16CEB52F798927F9FA4E24EDB9E7",
+    "parentId": "adblockplus_26",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "android.net.wifi.LINK_CONFIGURATION_CHANGED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "B04A3B244578612CE0CFBDFB91164FB7",
+    "parentId": "adblockplus_27",
+    "methodType": "bindService",
+    "componentName": "ProxyService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  }
+]

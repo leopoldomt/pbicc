@@ -1,0 +1,426 @@
+[
+  {
+    "hash": "D214E9323692BC46E29151EA60A7023A",
+    "parentId": "vlc_1",
+    "methodType": "query",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A77F759730D7990DF51A2192611994A6",
+    "parentId": "vlc_2",
+    "methodType": "query",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "B4797CF1E4E4F06A5594FE00FB021B95",
+    "parentId": "vlc_3",
+    "methodType": "insert",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3E88061BEBAD53C5B1EEA80BE793FCA9",
+    "parentId": "vlc_4",
+    "methodType": "insert",
+    "componentName": "MediaStore.Video.Media.EXTERNAL_CONTENT_URI,",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3E88061BEBAD53C5B1EEA80BE793FCA9",
+    "parentId": "vlc_4",
+    "methodType": "insert",
+    "componentName": "MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3E88061BEBAD53C5B1EEA80BE793FCA9",
+    "parentId": "vlc_4",
+    "methodType": "insert",
+    "componentName": "MediaStore.Images.Media.EXTERNAL_CONTENT_URI",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "7C66121E127564C09A1714712E6BCDB1",
+    "parentId": "vlc_5",
+    "methodType": "delete",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "7372506882F36A04109A89CFB409757B",
+    "parentId": "vlc_6",
+    "methodType": "delete",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "DB0B91EC32E19A758C6EAC046D2E5D0B",
+    "parentId": "vlc_7",
+    "methodType": "update",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9CA15FBB33266653709586174CAA5BAA",
+    "parentId": "vlc_8",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "uri",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F83D1271E818D3896A9B780FF94A1788",
+    "parentId": "vlc_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "geo:Double.toString(location.getLatitude())Double.toString(location.getLongitude())Uri.encode(placeName)",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "498C562C2393ECB3CD5D121DDF12788C",
+    "parentId": "vlc_10",
+    "methodType": "startActivityForResult",
+    "componentName": "SettingsActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "1C0F2D1F9824AE0626B879C4ED850518",
+    "parentId": "vlc_11",
+    "methodType": "startActivityForResult",
+    "componentName": "LoginActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "7F02E58F1AAD48446FE9423D86205A2E",
+    "parentId": "vlc_12",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "2E211D97E9A98CB66084E5387FF79017",
+    "parentId": "vlc_13",
+    "methodType": "sendBroadcast",
+    "componentName": "WidgetProviderFeaturedPage.class",
+    "action": "AppWidgetManager.ACTION_APPWIDGET_UPDATE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "300B5ED3E95144CA5C7212B554D93368",
+    "parentId": "vlc_14",
+    "methodType": "startActivity",
+    "componentName": "AboutActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "529980D62A247FE56FAD6CEE8EAB8083",
+    "parentId": "vlc_15",
+    "methodType": "startActivity",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "7C43F553BCB73F437D51FA87D372CEED",
+    "parentId": "vlc_16",
+    "methodType": "startActivity",
+    "componentName": "CrashReportActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "DB2983E05560E301450BFF2DB11D766F",
+    "parentId": "vlc_17",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "org.wikipedia.page_for_title",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4E899221A332B3A10B0A6475F776A16B",
+    "parentId": "vlc_18",
+    "methodType": "startActivityForResult",
+    "componentName": "EditSectionActivity.class",
+    "action": "org.wikipedia.edit_section",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "EE9900A15B1DA03D730C06D2F891415A",
+    "parentId": "vlc_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "Intent",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6E79604BAB8F4C71E2B9AB3D22149EEC",
+    "parentId": "vlc_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "intent",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "D171C804562DF540795E2FE93F955047",
+    "parentId": "vlc_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "\u003d",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6DECF98E23E725FE04527A27CFF1AA67",
+    "parentId": "vlc_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "new",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "AAE3D337A841BD562926417CB34BC1D7",
+    "parentId": "vlc_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "Intent(Intent.ACTION_GET_CONTENT);",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "D0810FA8FAE82B4E6F7210BBB05DC688",
+    "parentId": "vlc_20",
+    "methodType": "startActivity",
+    "componentName": "DeveloperSettingsActivity.class",
+    "action": "",
+    "data": "intent.setType(\"audio/*",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "55BBC2B3E7234A615FBCD787B673D047",
+    "parentId": "vlc_20",
+    "methodType": "startActivity",
+    "componentName": "DeveloperSettingsActivity.class",
+    "action": "",
+    "data": "video/*\");",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "5681490ADA2AAB6E3642DB16F25FE6DB",
+    "parentId": "vlc_21",
+    "methodType": "startActivityForResult",
+    "componentName": "LangLinksActivity.class",
+    "action": "org.wikipedia.langlinks_for_title",
+    "data": "startActivityForResult(intent,",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "9F6D03FAC331136DBDECEFD0BE322543",
+    "parentId": "vlc_21",
+    "methodType": "startActivityForResult",
+    "componentName": "LangLinksActivity.class",
+    "action": "org.wikipedia.langlinks_for_title",
+    "data": "ACTIVITY_RESULT_OPEN);",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "5E44EC93FDD7830FFDC7B4083DA0F559",
+    "parentId": "vlc_22",
+    "methodType": "startActivityForResult",
+    "componentName": "CreateAccountActivity.class",
+    "action": "",
+    "data": "mDrawerLayout.closeDrawer(mNavigationView);",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "968BFB90CCDE3CDCE5044D7BA82DED29",
+    "parentId": "vlc_23",
+    "methodType": "startActivityForResult",
+    "componentName": "LoginActivity.class",
+    "action": "",
+    "data": "return",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "92BF7493F73D61F41642DA0781AB7028",
+    "parentId": "vlc_23",
+    "methodType": "startActivityForResult",
+    "componentName": "LoginActivity.class",
+    "action": "",
+    "data": "true;",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E713CDA39E6AB578B166CE1295206C16",
+    "parentId": "vlc_24",
+    "methodType": "startActivity",
+    "componentName": "LoginActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "813167B7EBA6D1050620347CD682FD79",
+    "parentId": "vlc_25",
+    "methodType": "startActivityForResult",
+    "componentName": "GalleryActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "856BD2C3F2A5F69658EF3EC06F544ED1",
+    "parentId": "vlc_26",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "A911676800A03AA99F6B72894939FAE9",
+    "parentId": "vlc_27",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "image/jpeg",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6A01A36E5B0E6784D2ED6BDEB244A883",
+    "parentId": "vlc_28",
+    "methodType": "startActivity",
+    "componentName": "UserOptionRowActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  }
+]

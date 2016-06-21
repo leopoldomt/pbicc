@@ -1,0 +1,51 @@
+[
+  {
+    "hash": "82F84CF5E0FB4BD4348C1954C7FD7B91",
+    "parentId": "zooborns_1",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "entry.getUrl()",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "EAF82B4833FD66088887DB8BCDC106EE",
+    "parentId": "zooborns_2",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "image/jpg",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "56C70A924C60194D995284F5217D4003",
+    "parentId": "zooborns_2",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "0A8E23006F0D8878669A3C9956478591",
+    "parentId": "zooborns_3",
+    "methodType": "startActivity",
+    "componentName": "FullscreenImage.class",
+    "action": "",
+    "data": "that.imgCache.getImages().get(position).filesystemUri()",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.BROWSABLE",
+      "android.intent.category.DEFAULT"
+    ]
+  }
+]

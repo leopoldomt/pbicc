@@ -1,0 +1,68 @@
+[
+  {
+    "hash": "1B3D4DCF8B7888F129E23CA792A1492F",
+    "parentId": "primitive-ftpd_1",
+    "methodType": "startActivity",
+    "componentName": "FtpPrefsActivityThemeDark.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "1B3D4DCF8B7888F129E23CA792A1492F",
+    "parentId": "primitive-ftpd_1",
+    "methodType": "startActivity",
+    "componentName": "FtpPrefsActivityThemeLight.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "548B916C176C88623124CC1489AAEE01",
+    "parentId": "primitive-ftpd_2",
+    "methodType": "startActivity",
+    "componentName": "AboutActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F98A6AE7A375233D0C86BA61A2842E2B",
+    "parentId": "primitive-ftpd_3",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "org.primftpd.CouldNotStartServer",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "1DFFF5D1639660183C7000EEDDE01700",
+    "parentId": "primitive-ftpd_4",
+    "methodType": "startService",
+    "componentName": "SshServerService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "5833D624EA7CDEF0747E44CCA1887EE4",
+    "parentId": "primitive-ftpd_5",
+    "methodType": "startService",
+    "componentName": "FtpServerService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  }
+]

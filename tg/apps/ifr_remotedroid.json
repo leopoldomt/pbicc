@@ -1,0 +1,58 @@
+[
+  {
+    "hash": "989CEEC636E8791F4282591AFD891C77",
+    "parentId": "remotedroid_1",
+    "methodType": "startActivity",
+    "componentName": "ClientActivity",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E7DAAFEA78944B962878623D79FA34C0",
+    "parentId": "remotedroid_2",
+    "methodType": "startActivity",
+    "componentName": "SettingsActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "3DD109453F65121855CF27BFD71197DC",
+    "parentId": "remotedroid_3",
+    "methodType": "startActivityForResult",
+    "componentName": "",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "004B5DF8AC4076D4D7277FA4F9902811",
+    "parentId": "remotedroid_4",
+    "methodType": "startService",
+    "componentName": "ServerService.class",
+    "action": "START",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "C7EF512619C30C097D0BB927AA9641EA",
+    "parentId": "remotedroid_5",
+    "methodType": "startService",
+    "componentName": "ServerService.class",
+    "action": "START",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  }
+]

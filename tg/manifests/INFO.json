@@ -1,0 +1,12 @@
+{
+  "packages": [
+    {
+      "name": "com.fsck.k9",
+      "version": 3
+    },
+    {
+      "name": "package-x",
+      "version": 1
+    }
+  ]
+}

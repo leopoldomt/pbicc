@@ -1,0 +1,1812 @@
+[
+  {
+    "hash": "72229A971DA450DE99E420672613503C",
+    "parentId": "owncloud_1",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "7B9DD47DEB8A0A98C257853F145B04E1",
+    "parentId": "owncloud_2",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "95BC6AC70C52BA16B3A16C34EABDB5EA",
+    "parentId": "owncloud_3",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/dir/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "B8A3769C380BBEA698E42754FF1A24C7",
+    "parentId": "owncloud_4",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/dir/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3591402E18F4FB155B3F00C664ABE4D6",
+    "parentId": "owncloud_5",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "979149F867B8EDCFE30C0EACC8C9D2F5",
+    "parentId": "owncloud_6",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "63D865368FC7F74C4D738C87BD143533",
+    "parentId": "owncloud_7",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9B0FFE189FE824D44C98F8D4EC45D8A5",
+    "parentId": "owncloud_8",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "C6E080630AD64BE4BF57172B7D54F841",
+    "parentId": "owncloud_9",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E10FA7C409E1D2914DBD0F91304CE802",
+    "parentId": "owncloud_10",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "469FD17B33DB1AFAE0C227E76795DFFC",
+    "parentId": "owncloud_11",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "B64D48EB9DBF34C6B5491A882EC5551E",
+    "parentId": "owncloud_12",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "18D115D3E9B2AF099284C4710FE3065E",
+    "parentId": "owncloud_13",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E0D6CC22A309787D3EC665E2D815A987",
+    "parentId": "owncloud_14",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9645E8CF20EE1811A408723DF191C8AF",
+    "parentId": "owncloud_15",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "B18E693B0A181ACEFF0CF6A5EF2B9A8E",
+    "parentId": "owncloud_16",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "58B97D3DF85EDEB52F483028C935398C",
+    "parentId": "owncloud_17",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/capabilities",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "1C762F3AD497D7348F3062D19E211E1B",
+    "parentId": "owncloud_18",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/capabilities",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "333FB967B0C7CCED1834BE1E5DA1EA41",
+    "parentId": "owncloud_19",
+    "methodType": "query",
+    "componentName": "intent.getData()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "EED3DDCC1DB4DF2C18BE40006A03D6C3",
+    "parentId": "owncloud_20",
+    "methodType": "query",
+    "componentName": "intent.getData()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A2D1749CA5E2D907D25E98116BCC3D95",
+    "parentId": "owncloud_21",
+    "methodType": "query",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A0D3D33BC50BC563A263B62FB319F5FB",
+    "parentId": "owncloud_22",
+    "methodType": "query",
+    "componentName": "filepath",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F1C4DCB5EFADFBC9AABF8ED63BDD6F07",
+    "parentId": "owncloud_23",
+    "methodType": "query",
+    "componentName": "uri",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "721C6140300E89E862CCB758663B807C",
+    "parentId": "owncloud_24",
+    "methodType": "query",
+    "componentName": "uri",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "4D3C74A95D635CE853368AD2688C0A27",
+    "parentId": "owncloud_25",
+    "methodType": "query",
+    "componentName": "uri",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A292E116EC095288466BAF239D8A439F",
+    "parentId": "owncloud_26",
+    "methodType": "query",
+    "componentName": "uri",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "6FACA71975523701072BA2FEF26AFB66",
+    "parentId": "owncloud_27",
+    "methodType": "insert",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "62C6FDDDE0E4FF88E7F01CFB3174D87E",
+    "parentId": "owncloud_28",
+    "methodType": "insert",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "55FDE6C4177ABF34DDCC54ECF237D6D3",
+    "parentId": "owncloud_29",
+    "methodType": "insert",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "485508DEA2F977799DBC249A4D7BED5F",
+    "parentId": "owncloud_30",
+    "methodType": "insert",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "CFB8ECB0864AAA720D53AFF556D1F5B9",
+    "parentId": "owncloud_31",
+    "methodType": "insert",
+    "componentName": "content://org.owncloud/capabilities",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "67BBCDFA80FCB8620215EC4FBD849124",
+    "parentId": "owncloud_32",
+    "methodType": "insert",
+    "componentName": "content://org.owncloud/capabilities",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "8E49F56B5C6A74457F1831F8399F8044",
+    "parentId": "owncloud_33",
+    "methodType": "newInsert",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "747CBBF0BCC9F060E1D91CC38D7E6B26",
+    "parentId": "owncloud_34",
+    "methodType": "newInsert",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "D880A30A1AA091C1BBBD494F8ED6C7CF",
+    "parentId": "owncloud_35",
+    "methodType": "newInsert",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "039D74051A91F71752459036ECCD3F01",
+    "parentId": "owncloud_36",
+    "methodType": "newInsert",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "244581579647EF216BDD59835E3F5108",
+    "parentId": "owncloud_37",
+    "methodType": "delete",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "CAF7E6487F62702C5C678DF034CFD1A0",
+    "parentId": "owncloud_38",
+    "methodType": "delete",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3445CD67B7D2980CA50A2FBFE7F5FF08",
+    "parentId": "owncloud_39",
+    "methodType": "delete",
+    "componentName": "content://org.owncloud/dir/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A196CCCFFB0654E9C7EC73D42DD48634",
+    "parentId": "owncloud_40",
+    "methodType": "delete",
+    "componentName": "content://org.owncloud/dir/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "937947FC6DDF4AE9D6BFBAB6C46C4E23",
+    "parentId": "owncloud_41",
+    "methodType": "delete",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "33E1BF0DFE0E8148B85BD88DB37ECB3E",
+    "parentId": "owncloud_42",
+    "methodType": "delete",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "BFCBD440AF0F86C4FC6F41535D7DBA76",
+    "parentId": "owncloud_43",
+    "methodType": "delete",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "6BF02D6C8F724E0F29229D65855DE280",
+    "parentId": "owncloud_44",
+    "methodType": "delete",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "001154B187F38A768EE878B47B7EC925",
+    "parentId": "owncloud_45",
+    "methodType": "delete",
+    "componentName": "MediaStore.Images.Media.EXTERNAL_CONTENT_URI",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E66F8D7B6CD6616F92C78694861DEE1F",
+    "parentId": "owncloud_46",
+    "methodType": "delete",
+    "componentName": "MediaStore.Audio.Media.EXTERNAL_CONTENT_URI",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "94A0739F6C9C4298CC83982EFF127A57",
+    "parentId": "owncloud_47",
+    "methodType": "delete",
+    "componentName": "MediaStore.Video.Media.EXTERNAL_CONTENT_URI",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "8729A5FF6E8BCA2D4A41C04F848B295F",
+    "parentId": "owncloud_48",
+    "methodType": "delete",
+    "componentName": "MediaStore.Images.Media.EXTERNAL_CONTENT_URI",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "D0FEBF92DE440B7822B9DD710E36E36A",
+    "parentId": "owncloud_49",
+    "methodType": "delete",
+    "componentName": "MediaStore.Audio.Media.EXTERNAL_CONTENT_URI",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "724E07AE0C8B1A084BA1DDB7F8E54FEC",
+    "parentId": "owncloud_50",
+    "methodType": "delete",
+    "componentName": "MediaStore.Video.Media.EXTERNAL_CONTENT_URI",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "CFC15BE7097617A94DF3099DB1C49E1A",
+    "parentId": "owncloud_51",
+    "methodType": "newDelete",
+    "componentName": "content://org.owncloud/dir/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "399A0E24B413F29A30264D6A62ED7AC2",
+    "parentId": "owncloud_52",
+    "methodType": "newDelete",
+    "componentName": "content://org.owncloud/dir/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "40926933D7040F03ADBB40FD43041022",
+    "parentId": "owncloud_53",
+    "methodType": "newDelete",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "09D5B489C3B69AD35A3B00A9DBE6C313",
+    "parentId": "owncloud_54",
+    "methodType": "newDelete",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "34545C39EC9D2866400601A36C542CD5",
+    "parentId": "owncloud_55",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "1828429BC54D000516120C9D26BC0145",
+    "parentId": "owncloud_56",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "DEF04E1C92F653349F8DE06B6779C570",
+    "parentId": "owncloud_57",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "5C448DC70230D212A892E61AB4C5D3CF",
+    "parentId": "owncloud_58",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/shares",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "56E5924D95C805E690CCB0D26687E5DF",
+    "parentId": "owncloud_59",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "11BBA1676B8E66DA390AB4B8CD43F5ED",
+    "parentId": "owncloud_60",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "922B9F0ACE8351EEA624EB95E74F6771",
+    "parentId": "owncloud_61",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A7344E4841A3F1C5D1D3756CAA01EB8A",
+    "parentId": "owncloud_62",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "78CF9C7D4332FE8E603CF1D2E314A788",
+    "parentId": "owncloud_63",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "AA4241DFFF46881E9EF809F9A2330342",
+    "parentId": "owncloud_64",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A1CB4D4B9F91C8EA1CC41E897228609C",
+    "parentId": "owncloud_65",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "69726D7ED5D3BD123F2F376E2E4D9A15",
+    "parentId": "owncloud_66",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "2F1611FDC68E48247380D7619F8AEC90",
+    "parentId": "owncloud_67",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F0F181D21B09C0A2F272E05DCC1275B0",
+    "parentId": "owncloud_68",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "773FA91E2D2954265549920A70CA4CF3",
+    "parentId": "owncloud_69",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "2C2A84F45F1E82A2C068673AB45BE94E",
+    "parentId": "owncloud_70",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/file",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A7F52F09B5F66C07FA093C947AF949FA",
+    "parentId": "owncloud_71",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/capabilities",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "BFF82887A4A2C053DFACAF28FD27CFA4",
+    "parentId": "owncloud_72",
+    "methodType": "update",
+    "componentName": "content://org.owncloud/capabilities",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "ED4DB453E23108E09C49DE1338172D95",
+    "parentId": "owncloud_73",
+    "methodType": "newUpdate",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3EC08E317A1F567F11AE5BF281968202",
+    "parentId": "owncloud_74",
+    "methodType": "newUpdate",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E5965102CF3D8650E3BB6C3102C202BB",
+    "parentId": "owncloud_75",
+    "methodType": "newUpdate",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "D1630756560057C80A72192630C6EC35",
+    "parentId": "owncloud_76",
+    "methodType": "newUpdate",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "D5F16FE4F7B5CF968773CE78B554636B",
+    "parentId": "owncloud_77",
+    "methodType": "newUpdate",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "0EB65830242112215B106DA43D759F7E",
+    "parentId": "owncloud_78",
+    "methodType": "applyBatch",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "983D94FAE3FE922E7AF78D668692C889",
+    "parentId": "owncloud_79",
+    "methodType": "applyBatch",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "4BAF052C52031751C9BAA84669903998",
+    "parentId": "owncloud_80",
+    "methodType": "applyBatch",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "80AC8AB87B7A2898656CE9842C66919A",
+    "parentId": "owncloud_81",
+    "methodType": "applyBatch",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "75EAD20DCB69562628966BECF3BA312A",
+    "parentId": "owncloud_82",
+    "methodType": "applyBatch",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "990AEDBED4EB98E9A717CE4ED5454424",
+    "parentId": "owncloud_83",
+    "methodType": "applyBatch",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "59313BC545657FD1C86EF3308DEDAD0A",
+    "parentId": "owncloud_84",
+    "methodType": "applyBatch",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "4FFEA897A04D2EFF7DBADCA4AA65E0FF",
+    "parentId": "owncloud_85",
+    "methodType": "applyBatch",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "EC1377122940007922D989BAAB652B52",
+    "parentId": "owncloud_86",
+    "methodType": "applyBatch",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "09E9777477B381DE7C04FA51436B5E8B",
+    "parentId": "owncloud_87",
+    "methodType": "applyBatch",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E8D26EF73CDE659F1C16A1BA62F7C076",
+    "parentId": "owncloud_88",
+    "methodType": "applyBatch",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F53FC42555248C74009FB12807E161CE",
+    "parentId": "owncloud_89",
+    "methodType": "applyBatch",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A8E5D1C0664BB7F5E367ACE2997D97B5",
+    "parentId": "owncloud_90",
+    "methodType": "applyBatch",
+    "componentName": "content://org.owncloud/",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "4D7CC8C039B37E46AD2D48439CF5270C",
+    "parentId": "owncloud_91",
+    "methodType": "applyBatch",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "DC287BC842F28780075921091BD293BB",
+    "parentId": "owncloud_92",
+    "methodType": "startService",
+    "componentName": "FileObserverService.class",
+    "action": "com.owncloud.android.services.observer.FileObserverService.action.START_OBSERVATION",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "333289788E2A94F29EC437997C030BBE",
+    "parentId": "owncloud_93",
+    "methodType": "startService",
+    "componentName": "OperationsService.class",
+    "action": "SYNC_FOLDER",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "884CB8CBDE26E9FA617287DA2067891A",
+    "parentId": "owncloud_94",
+    "methodType": "startService",
+    "componentName": "FileObserverService.class",
+    "action": "com.owncloud.android.services.observer.FileObserverService.action.ADD_OBSERVED_FILE,",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "CC4DC4CC06697534B05DB37AD7BDF786",
+    "parentId": "owncloud_94",
+    "methodType": "startService",
+    "componentName": "FileObserverService.class",
+    "action": "com.owncloud.android.services.observer.FileObserverService.action.DEL_OBSERVED_FILE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "44AF0A9AA9620236EF27A1E00BA85BF4",
+    "parentId": "owncloud_95",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "CF04B1DB0F38876190CB97A76B32EE16",
+    "parentId": "owncloud_96",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "190437D1F5BEC53949CF1D788EAF781F",
+    "parentId": "owncloud_97",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "73CDE9EE8C2BC2E7591456F2B36D6ED6",
+    "parentId": "owncloud_98",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "95198F61927319D1CD8C63A7C09F67B3",
+    "parentId": "owncloud_99",
+    "methodType": "startService",
+    "componentName": "MediaService.class",
+    "action": "com.owncloud.android.media.action.PLAY_FILE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "520D6BD039A9D6A7422F265D7F610BA6",
+    "parentId": "owncloud_100",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "94C198C31247AA8A11CCBB18E22CA3AB",
+    "parentId": "owncloud_101",
+    "methodType": "startService",
+    "componentName": "FileDownloader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "8D24046490D752DE051506665E653C93",
+    "parentId": "owncloud_102",
+    "methodType": "startService",
+    "componentName": "FileDownloader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "7BA4F7B11CC64FED022513409DF35E6A",
+    "parentId": "owncloud_103",
+    "methodType": "startService",
+    "componentName": "OperationsService.class",
+    "action": "SYNC_FOLDER",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E0C11FF7B62C73CCE2C0C10E5B35CFE5",
+    "parentId": "owncloud_104",
+    "methodType": "startService",
+    "componentName": "OperationsService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "38E68814FA1504C5F3633126AA802555",
+    "parentId": "owncloud_105",
+    "methodType": "startService",
+    "componentName": "FileDownloader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "973C3926681B9667432EB1CC0418EA56",
+    "parentId": "owncloud_106",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "FB12DB51D738B44B62A440092209DFE8",
+    "parentId": "owncloud_107",
+    "methodType": "startService",
+    "componentName": "FileObserverService.class",
+    "action": "com.owncloud.android.services.observer.FileObserverService.action.START_OBSERVATION",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "6B941F0BD953D70B54E7DAC5E346F6CB",
+    "parentId": "owncloud_108",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "31B9265D5A767D9B3BE712D33B3CE939",
+    "parentId": "owncloud_109",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3077527E310C948E514033A33833BA32",
+    "parentId": "owncloud_110",
+    "methodType": "startService",
+    "componentName": "FileDownloader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "D171E165344CD21914513D504F08D355",
+    "parentId": "owncloud_111",
+    "methodType": "startService",
+    "componentName": "FileDownloader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "DE5FCED1F87477D9F995E5485ED471B5",
+    "parentId": "owncloud_112",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "71C50681D77352BC3DDCE93F4F4B9893",
+    "parentId": "owncloud_113",
+    "methodType": "startService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "07AA994CE4F2D89603A2E0D2A556D99C",
+    "parentId": "owncloud_114",
+    "methodType": "startService",
+    "componentName": "",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9D18B53B3A3066D382A13D19C7397574",
+    "parentId": "owncloud_115",
+    "methodType": "startService",
+    "componentName": "MediaService.class",
+    "action": "com.owncloud.android.media.action.STOP_ALL",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F2BBFCB1CE3BC44D224EC83C974F6C04",
+    "parentId": "owncloud_116",
+    "methodType": "bindService",
+    "componentName": "OperationsService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "BD259028E61181D06246CA513AA8B468",
+    "parentId": "owncloud_117",
+    "methodType": "bindService",
+    "componentName": "OperationsService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "BBFF45E5066C67228CBE4CF9B9A89939",
+    "parentId": "owncloud_118",
+    "methodType": "bindService",
+    "componentName": "FileDownloader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "724D670A119C30F85A88FFF880756F7A",
+    "parentId": "owncloud_119",
+    "methodType": "bindService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "DA6D984FAFA563B78D547A7AEDBB3A8C",
+    "parentId": "owncloud_120",
+    "methodType": "bindService",
+    "componentName": "FileDownloader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A3CC5F927323F91A4D9F876C5A0A920C",
+    "parentId": "owncloud_121",
+    "methodType": "bindService",
+    "componentName": "FileUploader.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "49AF9BFDD5BBD6E6C4060D3CC044EA82",
+    "parentId": "owncloud_122",
+    "methodType": "bindService",
+    "componentName": "MediaService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "7BF1B7E54D8E0BAE7328F9865F0A1450",
+    "parentId": "owncloud_123",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "FileDownloaderDOWNLOAD_FINISH",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "0E0F4AA506120ADB8D62F9CDCD05A76B",
+    "parentId": "owncloud_124",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "FileDownloaderDOWNLOAD_ADDED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "64970912EB3FD9BDE215F556E681CCD5",
+    "parentId": "owncloud_125",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "FileUploaderUPLOAD_FINISH",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "BDDB7A0DAF93113405CB1BBD96F597E5",
+    "parentId": "owncloud_126",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "event",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "0303010676AB320F747261F4308B6C67",
+    "parentId": "owncloud_127",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "OperationsService.OPERATION_ADDED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "A6B42AA06A40D4C7045D9384415BB12F",
+    "parentId": "owncloud_128",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "OperationsService.OPERATION_FINISHED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F4690BB229FD103261D7FF57254284F9",
+    "parentId": "owncloud_129",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "FileDownloaderDOWNLOAD_ADDED",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "9A7DEBE31C44149541188CA64AE77744",
+    "parentId": "owncloud_130",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "FileDownloaderDOWNLOAD_FINISH",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "B0FD6B731A2F8AFCBACFCB20C26B92EA",
+    "parentId": "owncloud_131",
+    "methodType": "sendStickyBroadcast",
+    "componentName": "",
+    "action": "event",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "BD003539CBD86A144218E345312D4020",
+    "parentId": "owncloud_132",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "Intent.ACTION_MEDIA_SCANNER_SCAN_FILE",
+    "data": "Uri.fromFile(new",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "6A0EEE3FBDE10966767863E41A8203DA",
+    "parentId": "owncloud_132",
+    "methodType": "sendBroadcast",
+    "componentName": "",
+    "action": "Intent.ACTION_MEDIA_SCANNER_SCAN_FILE",
+    "data": "File(path))",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "AC646BEDDA7AF12F9133018FFECC4AB6",
+    "parentId": "owncloud_133",
+    "methodType": "startActivityForResult",
+    "componentName": "PassCodeActivity.class",
+    "action": "ACTION_REQUEST_WITH_RESULT,",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E6087F3574DF659E0BFE3288771A57A1",
+    "parentId": "owncloud_133",
+    "methodType": "startActivityForResult",
+    "componentName": "PassCodeActivity.class",
+    "action": "ACTION_CHECK_WITH_RESULT",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B0669DDD72C21E46CA2D1BCF7B22553E",
+    "parentId": "owncloud_134",
+    "methodType": "startActivityForResult",
+    "componentName": "UploadPathActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E04A14E183601FD6CCF82662EEB15BA5",
+    "parentId": "owncloud_135",
+    "methodType": "startActivityForResult",
+    "componentName": "UploadPathActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "DAC0E4A3799855613187F57E1E0A450A",
+    "parentId": "owncloud_136",
+    "methodType": "startActivityForResult",
+    "componentName": "",
+    "action": "android.provider.Settings.ACTION_ADD_ACCOUNT",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "EF89D8774C63F8EA246AF454F9157BB6",
+    "parentId": "owncloud_137",
+    "methodType": "startActivityForResult",
+    "componentName": "AccountAuthenticator.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6C3D3DEEBF0DA16CEBCC81EAC856A350",
+    "parentId": "owncloud_138",
+    "methodType": "startActivityForResult",
+    "componentName": "UploadFilesActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "7799F33E0D91060F6C862FC3E4DBBE3D",
+    "parentId": "owncloud_139",
+    "methodType": "startActivityForResult",
+    "componentName": "UploadFilesActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E6E637408A98D18FA8407CAF7DE1B706",
+    "parentId": "owncloud_140",
+    "methodType": "startActivityForResult",
+    "componentName": "",
+    "action": "android.intent.action.GET_CONTENT",
+    "data": "",
+    "mimetype": "*/*",
+    "categories": [
+      "Intent.CATEGORY_OPENABLE",
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "D265C4F0CF7E2D0713303D9F8C6FCB8A",
+    "parentId": "owncloud_141",
+    "methodType": "startActivityForResult",
+    "componentName": "",
+    "action": "android.intent.action.GET_CONTENT",
+    "data": "",
+    "mimetype": "*/*",
+    "categories": [
+      "Intent.CATEGORY_OPENABLE",
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "5BD719BDEEDDE5DBDD979629A970D4CF",
+    "parentId": "owncloud_142",
+    "methodType": "startActivityForResult",
+    "componentName": "FolderPickerActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "5AD06450B81C6CD94DDCE8E7BDB316BE",
+    "parentId": "owncloud_143",
+    "methodType": "startActivityForResult",
+    "componentName": "FolderPickerActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "D72E0E4E6FCC01C635F2816714C2FF64",
+    "parentId": "owncloud_144",
+    "methodType": "startActivityForResult",
+    "componentName": "PreviewVideoActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B3EBE83F6AE0EBE6382CD4085F39DAF5",
+    "parentId": "owncloud_145",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "?",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "35991A254E3AA254F45E837B75A6AD30",
+    "parentId": "owncloud_146",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "https://owncloud.com/mobile/new",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "87E01FF39FF9DE93660050C47CE7E39C",
+    "parentId": "owncloud_147",
+    "methodType": "startActivity",
+    "componentName": "PassCodeActivity.class",
+    "action": "ACTION_CHECK",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E2CBF2EEB71B85B294136F18EC9FD2F4",
+    "parentId": "owncloud_148",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "file://\"+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "8DEE1FDC6F78E7F2F52926C3E8C49843",
+    "parentId": "owncloud_148",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "encodedStoragePath",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "D0C7145DD64A4910300CF50A470982A7",
+    "parentId": "owncloud_149",
+    "methodType": "startActivity",
+    "componentName": "ShareActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "2D9BE05B8A4675B6469C1EF31B90BFC6",
+    "parentId": "owncloud_150",
+    "methodType": "startActivity",
+    "componentName": "ConflictsResolveActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "8BC6B9DE039F316CC550B80A348C9DD7",
+    "parentId": "owncloud_151",
+    "methodType": "startActivity",
+    "componentName": "AuthenticatorActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "229B44EE20EDD66614E2BCF36DFB80BF",
+    "parentId": "owncloud_152",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "761583242FA78011A3D96033B37439C5",
+    "parentId": "owncloud_153",
+    "methodType": "startActivity",
+    "componentName": "ConflictsResolveActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B3E903825616DDCD436086B5437C6415",
+    "parentId": "owncloud_154",
+    "methodType": "startActivity",
+    "componentName": "FileDisplayActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "1EA0E652A9CBCC84AF9AA8383558FC32",
+    "parentId": "owncloud_155",
+    "methodType": "startActivity",
+    "componentName": "Preferences.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "D51F5CD44B510D4E1B541629DAFE678B",
+    "parentId": "owncloud_156",
+    "methodType": "startActivity",
+    "componentName": "LogHistoryActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4E2B4E9112E41F2190B5648480E30855",
+    "parentId": "owncloud_157",
+    "methodType": "startActivity",
+    "componentName": "PreviewImageActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "1CECD56A795AC8F40451CBD7936648F8",
+    "parentId": "owncloud_158",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "Intent.ACTION_SEND_MULTIPLE",
+    "data": "",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "457369005817B3ABAAACAB30CE28DBD6",
+    "parentId": "owncloud_159",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.content.Intent.ACTION_SEND",
+    "data": "",
+    "mimetype": "text/rtf",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "9569AA70F6B40B5486EC06055CCFABFA",
+    "parentId": "owncloud_160",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "531638B7FE8EF6AAFEB352A98E767313",
+    "parentId": "owncloud_161",
+    "methodType": "startActivity",
+    "componentName": "FileDisplayActivity.class",
+    "action": "com.owncloud.android.ui.activity.action.DETAILS",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "5FD74B4E9A21BC7309D19E3A2EBB3CCC",
+    "parentId": "owncloud_162",
+    "methodType": "startActivity",
+    "componentName": "AuthenticatorActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "FA16ADBE115F7A780481819B3DDAFB17",
+    "parentId": "owncloud_163",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "http://owncloud.com/mobile/help",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "C5BF667DF62B330CB8EABF1E7901E1C2",
+    "parentId": "owncloud_164",
+    "methodType": "startActivity",
+    "componentName": "LogHistoryActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4564ACF8D065549741E6693EBE3E758C",
+    "parentId": "owncloud_165",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SENDTO",
+    "data": "mailto:",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "997EB88C6D8E187384DEF27CD0DAFB62",
+    "parentId": "owncloud_166",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SENDTO",
+    "data": "mailto:apps@owncloud.com",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6DD416A6A57DB9E084D181F6CDD986FC",
+    "parentId": "owncloud_167",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "0",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "2A351118AC6AF7E4474AE21D1E541C7F",
+    "parentId": "owncloud_168",
+    "methodType": "startActivity",
+    "componentName": "FileDisplayActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E6923DA88A0DA8E7B0E8DEC8CABCA056",
+    "parentId": "owncloud_169",
+    "methodType": "startActivity",
+    "componentName": "FileDisplayActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  }
+]

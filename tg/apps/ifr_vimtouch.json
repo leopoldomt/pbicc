@@ -1,0 +1,261 @@
+[
+  {
+    "hash": "5B407AA53F78C61D749CDB167260FACD",
+    "parentId": "vimtouch_1",
+    "methodType": "startActivityForResult",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "file://\"",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "DD909C8DCA387B43CEA64ABBE35DB6F9",
+    "parentId": "vimtouch_1",
+    "methodType": "startActivityForResult",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "964C6B8DB065C0678F391794DADF4660",
+    "parentId": "vimtouch_1",
+    "methodType": "startActivityForResult",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "mLastDir",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "75242F605FF0F64CFED6EB94B42636BB",
+    "parentId": "vimtouch_2",
+    "methodType": "startActivityForResult",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "plugin://\"",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F20B046A32E77E1E62FC0C4DC4EEA44D",
+    "parentId": "vimtouch_2",
+    "methodType": "startActivityForResult",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "3163D7B3D8BEFDBBA380843CDAA80A76",
+    "parentId": "vimtouch_2",
+    "methodType": "startActivityForResult",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "addon.getId()",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "7F64D4651E3E47B003F954C149098F11",
+    "parentId": "vimtouch_3",
+    "methodType": "startActivityForResult",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "58374E7D4B53E5B03F67ACE819A87693",
+    "parentId": "vimtouch_4",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "9AC635E89C710717735B50C3BAB9F0AB",
+    "parentId": "vimtouch_5",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "market://search?q\u003dVimTouch",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "FEBC1C1C981AF67E61B5616B9C8C9CC7",
+    "parentId": "vimtouch_6",
+    "methodType": "startActivity",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "backup://\"",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "206121FC2872AF426A79EF5B662670C0",
+    "parentId": "vimtouch_6",
+    "methodType": "startActivity",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "172D6E4C0788D5E4EDF86EFCF0ED137B",
+    "parentId": "vimtouch_6",
+    "methodType": "startActivity",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "Environment.getExternalStorageDirectory()",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "206121FC2872AF426A79EF5B662670C0",
+    "parentId": "vimtouch_6",
+    "methodType": "startActivity",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "88242C2E4F4FDD95C36B836AAAA17327",
+    "parentId": "vimtouch_6",
+    "methodType": "startActivity",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "\"/\"",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "206121FC2872AF426A79EF5B662670C0",
+    "parentId": "vimtouch_6",
+    "methodType": "startActivity",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F7330B6D890EFF0B5C887672A9A8440F",
+    "parentId": "vimtouch_6",
+    "methodType": "startActivity",
+    "componentName": "InstallProgress.class",
+    "action": "",
+    "data": "\"VimTouchBackup.vrz",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "DA1FC8BBC75AB08569AE330101C89DC0",
+    "parentId": "vimtouch_7",
+    "methodType": "startActivity",
+    "componentName": "VimTouchPreferences.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F5AC19955A3B25C60424C74B6B9CA020",
+    "parentId": "vimtouch_8",
+    "methodType": "bindService",
+    "componentName": "VimTermService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E4D14BD528D9680C14516632294B746B",
+    "parentId": "vimtouch_9",
+    "methodType": "startService",
+    "componentName": "VimTermService.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "861DE566F2D693BB240E566E067056AC",
+    "parentId": "vimtouch_10",
+    "methodType": "startActivityForResult",
+    "componentName": "",
+    "action": "android.intent.action.GET_CONTENT",
+    "data": "",
+    "mimetype": "*/*",
+    "categories": [
+      "Intent.CATEGORY_OPENABLE",
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "395DC53A8A4B5108ABAC3DB4FA0C131A",
+    "parentId": "vimtouch_11",
+    "methodType": "startActivity",
+    "componentName": "VimTouch.class",
+    "action": "",
+    "data": "Uri.fromFile(file)",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "41094D954FA541C60E66BAE6CFDC6BF5",
+    "parentId": "vimtouch_12",
+    "methodType": "ContentResolver.query",
+    "componentName": "intent.getData()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  }
+]

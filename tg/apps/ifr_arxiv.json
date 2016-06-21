@@ -1,0 +1,266 @@
+[
+  {
+    "hash": "347448DC9730816DEDDA1F5444501626",
+    "parentId": "arxiv_1",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.content.Intent.ACTION_VIEW",
+    "data": "?",
+    "mimetype": "application/pdf",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "8A36DC9F128BB990F32CE050273421A0",
+    "parentId": "arxiv_2",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.content.Intent.ACTION_VIEW",
+    "data": "?",
+    "mimetype": "application/pdf",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "EFED0B1B06B1048936703B876D676B45",
+    "parentId": "arxiv_3",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.content.Intent.ACTION_SEND",
+    "data": "",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "14B64FB4DBE32A9430C75CD661B4607C",
+    "parentId": "arxiv_4",
+    "methodType": "startActivity",
+    "componentName": "SearchListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4620E1D2E5D30C1FB7D7C9D519FC63F6",
+    "parentId": "arxiv_5",
+    "methodType": "startActivity",
+    "componentName": "SearchListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "949F7093D4DDB171BA7F34C80635AC43",
+    "parentId": "arxiv_6",
+    "methodType": "startActivity",
+    "componentName": "PrintDialogActivity.class",
+    "action": "",
+    "data": "?",
+    "mimetype": "application/pdf",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "D7555C0E1A4EF9EBCB47B49AA68A1997",
+    "parentId": "arxiv_7",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "?",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "C9D992514191106172AB0513F9CA573F",
+    "parentId": "arxiv_8",
+    "methodType": "startActivityForResult",
+    "componentName": "",
+    "action": "com.google.zxing.client.android.SCAN",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4EE9A6A502C53E393C02B1131A4E9B4B",
+    "parentId": "arxiv_9",
+    "methodType": "startActivity",
+    "componentName": "SingleItemWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "35938CEA5D37C1823E4579BD81C870E4",
+    "parentId": "arxiv_10",
+    "methodType": "startActivity",
+    "componentName": "SingleItemWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "96DE4A008A25213FDB03D2EDEAAE5538",
+    "parentId": "arxiv_11",
+    "methodType": "startActivity",
+    "componentName": "HistoryWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6526E070F1EF2560723D6A6029AC6C38",
+    "parentId": "arxiv_12",
+    "methodType": "startActivity",
+    "componentName": "EditPreferences.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "5D9D6F765BA2C819E0F903E77863DED1",
+    "parentId": "arxiv_13",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "market://details?id\u003dcom.jd.android.arXiv",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B14A4738507F38743A7F9DD39FDE4224",
+    "parentId": "arxiv_14",
+    "methodType": "startActivity",
+    "componentName": "SearchListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "C7D799DE7E5CAD928BD2BACB68983EBC",
+    "parentId": "arxiv_15",
+    "methodType": "startActivity",
+    "componentName": "RSSListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F4CFE6A01161C74A1C76521DBA4CAAAB",
+    "parentId": "arxiv_16",
+    "methodType": "startActivity",
+    "componentName": "RSSListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "C4ACA64A8433889D8B064E429D281DD7",
+    "parentId": "arxiv_17",
+    "methodType": "startActivity",
+    "componentName": "SearchListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "0F5FF69BEF9E8B6E0A610EA9A4CF5C8B",
+    "parentId": "arxiv_18",
+    "methodType": "startActivity",
+    "componentName": "SubarXiv.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "DBD65CDCEE18BFA9AC8AAAF9549E14A4",
+    "parentId": "arxiv_19",
+    "methodType": "startActivity",
+    "componentName": "SearchListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "6C574391E40EFBB72441F8CB98696E55",
+    "parentId": "arxiv_20",
+    "methodType": "startActivity",
+    "componentName": "SearchListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4323B005B19E9F77944AE20D93326253",
+    "parentId": "arxiv_21",
+    "methodType": "startActivity",
+    "componentName": "RSSListWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "45F62C388A94AD51E422EEA76300E423",
+    "parentId": "arxiv_22",
+    "methodType": "startActivity",
+    "componentName": "SearchWindow.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  }
+]

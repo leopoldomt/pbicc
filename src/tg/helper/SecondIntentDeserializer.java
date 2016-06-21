@@ -19,6 +19,7 @@ public class SecondIntentDeserializer implements
 			JsonDeserializationContext context) throws JsonParseException {
 		IntentForResolution ifr = new IntentForResolution();
 		
+		String hash = json.getAsJsonObject().get("hash").getAsString();
 		String parentId = json.getAsJsonObject().get("parentId").getAsString();
 		String action = json.getAsJsonObject().get("action").getAsString();
 		String methodType = json.getAsJsonObject().get("methodType").getAsString();
@@ -27,6 +28,7 @@ public class SecondIntentDeserializer implements
 		String sData = json.getAsJsonObject().get("data").getAsString();
 		JsonArray sCategories = json.getAsJsonObject().get("categories").getAsJsonArray(); 
 		
+		ifr.setHash(hash);
 		ifr.setParentId(parentId);
 		ifr.setAction(action.isEmpty()?null:action);
 		ifr.setMethodType(methodType);

@@ -1,0 +1,52 @@
+[
+  {
+    "hash": "9C684A8879D799F04F169A2E0E711060",
+    "parentId": "test01_1",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "entry.getUrl()",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "194FB170763EB627E7D42F8A177A55FD",
+    "parentId": "test01_2",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "image/jpg",
+    "categories": [
+      "android.intent.category.BROWSABLE",
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B55C1D37DEBE2ABA70AA96D1733D6909",
+    "parentId": "test01_2",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.BROWSABLE",
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "D6F1D3130F333AEC10813CED6047E8A4",
+    "parentId": "test01_3",
+    "methodType": "startActivity",
+    "componentName": "FullscreenImage.class",
+    "action": "",
+    "data": "that.imgCache.getImages().get(position).filesystemUri()",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  }
+]

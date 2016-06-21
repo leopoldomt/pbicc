@@ -1,0 +1,14 @@
+[
+  {
+    "hash": "3342002A0ADA66EBCA451407B3C12139",
+    "parentId": "test02_1",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "entry.getUrl()",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  }
+]

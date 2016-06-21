@@ -1,0 +1,548 @@
+[
+  {
+    "hash": "27E1425686F05F7229970D68740D8E07",
+    "parentId": "wikipedia_1",
+    "methodType": "query",
+    "componentName": "uri()",
+    "action": "0",
+    "data": "0",
+    "mimetype": "0",
+    "categories": [
+      "0"
+    ]
+  },
+  {
+    "hash": "E2758BB78D218415C45878CE25E6AEAA",
+    "parentId": "wikipedia_2",
+    "methodType": "query",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "31A7F927A4081F173B14E1EF2B6EAF1C",
+    "parentId": "wikipedia_3",
+    "methodType": "insert",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F223CAB40F11E7709D1F1654E6C752CC",
+    "parentId": "wikipedia_4",
+    "methodType": "insert",
+    "componentName": "MediaStore.Video.Media.EXTERNAL_CONTENT_URI,",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F223CAB40F11E7709D1F1654E6C752CC",
+    "parentId": "wikipedia_4",
+    "methodType": "insert",
+    "componentName": "MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F223CAB40F11E7709D1F1654E6C752CC",
+    "parentId": "wikipedia_4",
+    "methodType": "insert",
+    "componentName": "MediaStore.Images.Media.EXTERNAL_CONTENT_URI",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "F752FFD327EF4122B5B634FA864A0D77",
+    "parentId": "wikipedia_5",
+    "methodType": "delete",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "3C2E0B9159CA60D130556F416025CA54",
+    "parentId": "wikipedia_6",
+    "methodType": "delete",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "12BC5B4302B2AAE448BCF1B749270ED4",
+    "parentId": "wikipedia_7",
+    "methodType": "update",
+    "componentName": "uri()",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "E81ADA7E581E43E31DE303D06AF245E9",
+    "parentId": "wikipedia_8",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "uri",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "83C7E6CE1CAF2279DDD098671A849548",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "geo:\"",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B1E62A7710BC84446719CA0269274771",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "BCB70FB63D434DE67E0A770935D57D8F",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "Double.toString(location.getLatitude())",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B1E62A7710BC84446719CA0269274771",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "2C64DD644B1B8BB24AD3C6F434394DBD",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "\",\"",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B1E62A7710BC84446719CA0269274771",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "3847385504A82A9B64F762210055603D",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "Double.toString(location.getLongitude())",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B1E62A7710BC84446719CA0269274771",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "26233028113E0FED603783E65FBFB9E8",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "\"?q\u003d\"",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B1E62A7710BC84446719CA0269274771",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "+",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4DD8562EAB4FF12E62E2F1C662FC137D",
+    "parentId": "wikipedia_9",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.VIEW",
+    "data": "Uri.encode(placeName)",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "CEEE9B4ED0679292A5CA410E764509F9",
+    "parentId": "wikipedia_10",
+    "methodType": "startActivityForResult",
+    "componentName": "SettingsActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "080E6230ECC4567EF12437AFC16C9587",
+    "parentId": "wikipedia_11",
+    "methodType": "startActivityForResult",
+    "componentName": "LoginActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "1D7A0B27931150209D3C64265FCC79D6",
+    "parentId": "wikipedia_12",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4995770EDE03822BEF454BB17EDA8C9A",
+    "parentId": "wikipedia_13",
+    "methodType": "sendBroadcast",
+    "componentName": "WidgetProviderFeaturedPage.class",
+    "action": "AppWidgetManager.ACTION_APPWIDGET_UPDATE",
+    "data": "",
+    "mimetype": "",
+    "categories": []
+  },
+  {
+    "hash": "D17A42955A85CDCA269C5F14219434D3",
+    "parentId": "wikipedia_14",
+    "methodType": "startActivity",
+    "componentName": "AboutActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "82BB3107BD8F05D44592C01AD2DAC913",
+    "parentId": "wikipedia_15",
+    "methodType": "startActivity",
+    "componentName": "?",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "FAF261DFB54A29CD2ECAE33C061C5FEA",
+    "parentId": "wikipedia_16",
+    "methodType": "startActivity",
+    "componentName": "CrashReportActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "92DE1CCB18CB4B10EDF6EC778DE3E913",
+    "parentId": "wikipedia_17",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "org.wikipedia.page_for_title",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B41BED05D80F2037A06EA28C4B8B4327",
+    "parentId": "wikipedia_18",
+    "methodType": "startActivityForResult",
+    "componentName": "EditSectionActivity.class",
+    "action": "org.wikipedia.edit_section",
+    "data": "0",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "2593762017C69DCD246390FE2E57DD26",
+    "parentId": "wikipedia_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "Intent",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E5D44E676F10E8F63D5BB5D8614BDD69",
+    "parentId": "wikipedia_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "intent",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "15B5A9F2F6340F2A99DBDB78C0A061F8",
+    "parentId": "wikipedia_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "\u003d",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "5BE3BC63E9735A2F87B01449F3FE6D02",
+    "parentId": "wikipedia_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "new",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "4E784D8B80C7F6F6968C64FCF1CD70E5",
+    "parentId": "wikipedia_19",
+    "methodType": "startActivity",
+    "componentName": "PageActivity.class",
+    "action": "android.intent.action.VIEW",
+    "data": "Intent(Intent.ACTION_GET_CONTENT);",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "A5120202F2CDB061C81B702D7FC806CA",
+    "parentId": "wikipedia_20",
+    "methodType": "startActivity",
+    "componentName": "DeveloperSettingsActivity.class",
+    "action": "",
+    "data": "intent.setType(\"audio/*",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "3B4510FC18E3FF4939A473A71AD3A71B",
+    "parentId": "wikipedia_20",
+    "methodType": "startActivity",
+    "componentName": "DeveloperSettingsActivity.class",
+    "action": "",
+    "data": "video/*\");",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "B85680D464C4AC11586160C27A8D50FF",
+    "parentId": "wikipedia_21",
+    "methodType": "startActivityForResult",
+    "componentName": "LangLinksActivity.class",
+    "action": "org.wikipedia.langlinks_for_title",
+    "data": "startActivityForResult(intent,",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "8F4FADA7656CE76D167CC627C8D78DD3",
+    "parentId": "wikipedia_21",
+    "methodType": "startActivityForResult",
+    "componentName": "LangLinksActivity.class",
+    "action": "org.wikipedia.langlinks_for_title",
+    "data": "ACTIVITY_RESULT_OPEN);",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "2DACF8304A1811F0306915675A862DB5",
+    "parentId": "wikipedia_22",
+    "methodType": "startActivityForResult",
+    "componentName": "CreateAccountActivity.class",
+    "action": "",
+    "data": "mDrawerLayout.closeDrawer(mNavigationView);",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "EA40C575D24EE45745590DF4D4A5C3BC",
+    "parentId": "wikipedia_23",
+    "methodType": "startActivityForResult",
+    "componentName": "LoginActivity.class",
+    "action": "",
+    "data": "return",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "F3BA455CEB5176694E03EAEA3E9FFCBB",
+    "parentId": "wikipedia_23",
+    "methodType": "startActivityForResult",
+    "componentName": "LoginActivity.class",
+    "action": "",
+    "data": "true;",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "54018C443A699B3C8F4E0C8904F40EA5",
+    "parentId": "wikipedia_24",
+    "methodType": "startActivity",
+    "componentName": "LoginActivity.class",
+    "action": "",
+    "data": "0",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "FE7FB38B4D7914DF92D9782D23C5BF2E",
+    "parentId": "wikipedia_25",
+    "methodType": "startActivityForResult",
+    "componentName": "GalleryActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "AB64D20590A220C5850E14B7E5F7F903",
+    "parentId": "wikipedia_26",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "text/plain",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "E00EDD5B8058D31ED49579787C1773CD",
+    "parentId": "wikipedia_27",
+    "methodType": "startActivity",
+    "componentName": "",
+    "action": "android.intent.action.SEND",
+    "data": "",
+    "mimetype": "image/jpeg",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  },
+  {
+    "hash": "8C22A4BEEB89ADEB2619855E0B67625A",
+    "parentId": "wikipedia_28",
+    "methodType": "startActivity",
+    "componentName": "UserOptionRowActivity.class",
+    "action": "",
+    "data": "",
+    "mimetype": "",
+    "categories": [
+      "android.intent.category.DEFAULT"
+    ]
+  }
+]

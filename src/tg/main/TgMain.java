@@ -1,4 +1,4 @@
-package tg;
+package tg.main;
 
 import icc.data.Component;
 import icc.parsing.AndroidManifestParser;
