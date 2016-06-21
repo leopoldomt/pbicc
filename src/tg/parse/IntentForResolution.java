@@ -6,6 +6,7 @@ import icc.data.IntentFilter;
 
 public class IntentForResolution {
 
+	private String hash;
 	private String parentId;
 	private String methodType;
 	private String componentName;
@@ -16,6 +17,14 @@ public class IntentForResolution {
 	public IntentForResolution() {
 		this.categories = new ArrayList<String>();
 		//this.datas = new ArrayList<IntentFilter.Data>();
+	}
+	
+	public String getHash() {
+		return hash;
+	}
+
+	public void setHash(String hash) {
+		this.hash = hash;
 	}
 
 	public void setParentId(String pid) {
