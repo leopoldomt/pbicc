@@ -1,0 +1,125 @@
+{
+  "app_hash": "WyNoYXNoOiA5QzY4NEE4ODc5RDc5OUYwNEYxNjlBMkUwRTcxMTA2MAojcGFyZW50SWQ6IHRlc3QwMV8xCiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5CiNjb21wb25lbnROYW1lOiBudWxsCiNhY3Rpb246IGFuZHJvaWQuaW50ZW50LmFjdGlvbi5WSUVXCiNkYXRhOiBlbnRyeS5nZXRVcmwoKQojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5ERUZBVUxUXQosICNoYXNoOiAxOTRGQjE3MDc2M0VCNjI3RTdENDJGOEExNzdBNTVGRAojcGFyZW50SWQ6IHRlc3QwMV8yCiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5CiNjb21wb25lbnROYW1lOiBudWxsCiNhY3Rpb246IGFuZHJvaWQuaW50ZW50LmFjdGlvbi5TRU5ECiNkYXRhOiAKI21pbWVUeXBlOiBpbWFnZS9qcGcKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5CUk9XU0FCTEUsIGFuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IEI1NUMxRDM3REVCRTJBQkE3MEFBOTZEMTczM0Q2OTA5CiNwYXJlbnRJZDogdGVzdDAxXzIKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IG51bGwKI2FjdGlvbjogYW5kcm9pZC5pbnRlbnQuYWN0aW9uLlNFTkQKI2RhdGE6IAojbWltZVR5cGU6IHRleHQvcGxhaW4KI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5CUk9XU0FCTEUsIGFuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IEQ2RjFEMzEzMEYzMzNBRUMxMDgxM0NFRDYwNDdFOEE0CiNwYXJlbnRJZDogdGVzdDAxXzMKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IEZ1bGxzY3JlZW5JbWFnZS5jbGFzcwojYWN0aW9uOiBudWxsCiNkYXRhOiB0aGF0LmltZ0NhY2hlLmdldEltYWdlcygpLmdldChwb3NpdGlvbikuZmlsZXN5c3RlbVVyaSgpCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCl0\u003d",
+  "manifest_packages": [
+    {
+      "package": "com.fsck.k9",
+      "version": 1
+    }
+  ],
+  "intent_hashes": [
+    "9C684A8879D799F04F169A2E0E711060",
+    "194FB170763EB627E7D42F8A177A55FD",
+    "B55C1D37DEBE2ABA70AA96D1733D6909",
+    "D6F1D3130F333AEC10813CED6047E8A4"
+  ],
+  "intent_results": [
+    {
+      "hash": "9C684A8879D799F04F169A2E0E711060",
+      "manifests": [
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": true
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "194FB170763EB627E7D42F8A177A55FD",
+      "manifests": [
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": true
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "B55C1D37DEBE2ABA70AA96D1733D6909",
+      "manifests": [
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": true
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "D6F1D3130F333AEC10813CED6047E8A4",
+      "manifests": [
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

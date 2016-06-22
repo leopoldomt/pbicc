@@ -2,11 +2,11 @@
   "packages": [
     {
       "name": "com.fsck.k9",
-      "version": 3
+      "version": 1
     },
     {
-      "name": "package-x",
-      "version": 1
+      "name": "com.github.pockethub",
+      "version": 2
     }
   ]
 }

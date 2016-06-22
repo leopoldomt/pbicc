@@ -3,7 +3,6 @@ package tg.main;
 import icc.data.Component;
 import icc.parsing.AndroidManifestParser;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,20 +14,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.Set;
-
-import org.hamcrest.MatcherAssert;
 
 import tg.helper.HashGenerator;
 import tg.helper.IntentJson;
+import tg.main.AppResults.IntentResult;
 import tg.main.AppResults.Manifest;
 import tg.main.AppResults.Match;
-import tg.main.AppResults.IntentResult;
 import tg.parse.IntentForResolution;
 import tg.resolution.IntentResolution;
 
@@ -102,16 +97,9 @@ public class MainResolution {
 		try {
 			String fileName = chooseFile(in);
 
-
 			System.out.println("choose = "+fileName);
 
-
 			resolve(fileName);
-
-
-
-			//System.out.println(HashGenerator.generateBase64Hash(Arrays.toString(ifr)));
-
 
 		} catch (JsonSyntaxException e) {
 			e.printStackTrace();
@@ -126,105 +114,145 @@ public class MainResolution {
 		IntentForResolution[] ifr = IntentJson.readForResolution(ROOT+APPS+"/"+appFileName);
 		IntentsApp app = IntentsApp.createIntentsApp(ifr);
 		AppResults lastAppResults = getLastAppResults(appFileName);
+
+
 		AppResults appResults = resolve(app, lastAppResults);
-		saveAppResults(appResults, appFileName);
+
+		if(appResults != null)
+			saveAppResults(appResults, appFileName);
+		else 
+			System.err.println("No changes and/or no new Manifest and/or no updated Manifest");
 
 	}
 
 	private static AppResults resolve(IntentsApp app, AppResults lastAppResults) {
-		System.out.println(">>"+lastAppResults);
+		//System.out.println(">>"+lastAppResults);
+		boolean appModified = false, newManifest = false, updatedManifest = false;
 
 		if (lastAppResults == null) {
 			// has no test before
 			return firstResolve(app);
 
-		} else {
+		}
 
-			//0. carregar manifests
-			Map<String, Integer> manifestsInfo = getManifestsInfo();
-			ArrayList<String> newManifests = new ArrayList<String>();
-			ArrayList<String> updatedManifests = new ArrayList<String>();
+		//0. carregar manifests
+		Map<String, Integer> manifestsInfo = getManifestsInfo();
+		Map<String, Integer> newManifests = new HashMap<String,Integer>();
+		ArrayList<String> newManifestsForResolution = new ArrayList<String>();
+		Map<String, Integer>  updatedManifests = new HashMap<String, Integer>();
+		ArrayList<String> updatedManifestsForResolution = new ArrayList<String>();
 
-			Set<String> packs_info = manifestsInfo.keySet();
+		//Set<String> packs_info = manifestsInfo.keySet();
 
-			for(String pack_info : packs_info) {
-				if(!lastAppResults.manifest_packages.containsKey(pack_info)){
-					//0.1 verificar novos manifests
-					newManifests.add(pack_info);
-				} else {
-					//0.2 verificar manifests atualizados
-					if(manifestsInfo.get(packs_info)>lastAppResults.manifest_packages.get(pack_info)){
-						updatedManifests.add(pack_info);
-					}
-				}
-			}	
-			
-			//1. testar se houve modificacao no app
-			String app_hash = HashGenerator.generateBase64Hash(Arrays.toString(app.all.toArray()));			
-			if (!app_hash.equals(lastAppResults.app_hash)){
-				//1.1 houve mudancas no app
-
-				//1.1.0 atualizo o app_hash
-				lastAppResults.app_hash = app_hash;
-				//1.1.1 removo do arquivo de resultados itents deletadas
-				boolean contain;
-				for (IntentResult result : lastAppResults.intent_results) {
-					contain = false;
-					for (int i=0; i< app.all.size(); i++) {
-						if (app.all.get(i).getHash().equals(result.hash)) {
-							contain = true;
-							i = app.all.size();
-						}
-					}
-					if(!contain){
-						lastAppResults.intent_results.remove(result);	
-					}
-				}
-				//1.1.2 seleciono as novas intents para serem testadas
-				ArrayList<IntentForResolution> newIntents = new ArrayList<IntentForResolution>();
-
-				for (IntentForResolution ifr : app.all) {
-					contain = false;
-					for (int i=0; i<lastAppResults.intent_results.size(); i++) {
-						if (lastAppResults.intent_results.get(i).hash.equals(ifr.getHash())) {
-							newIntents.add(ifr);
-							contain = true;
-							i = lastAppResults.intent_results.size();
-						}
-					}
-				}
-				//1.1.3 testo as novas intetns como todos os manifestos
-				System.out.println(">>>>>  0  <<<<<");
-				ArrayList<IntentResult> newIntentResults = resolve(newIntents, getAllManifestFileNames());
-				
-				
-				//1.1.4 testo intents antigas com novos manifestos e manifestos atualizados.
-				ArrayList<IntentResult> oldIntentResults = resolve(app.all, newManifests);
-				
-				
-				//1.1.5 adicionar novas intents ao lastIntentResults como novas intentResults
-				
-				//1.1.6 concatenar novos resultados das intents antigas ao 
-				//intentResult já existente no lastIntentResults
-				
-				// TODO manifests atualizados, oq fazer??????
-				
+		for(Entry<String,Integer> manifest : manifestsInfo.entrySet()) {
+			if(!lastAppResults.manifest_packages.containsKey(manifest.getKey())){
+				//0.1 verificar novos manifests
+				newManifests.put(manifest.getKey(),manifest.getValue());
+				newManifestsForResolution.add(ROOT+MANIFESTS_PACKAGES+"/"+manifest.getKey()+"/v"+manifest.getValue()+".xml");
 			} else {
+				//0.2 verificar manifests atualizados
+				if(manifest.getValue()>lastAppResults.manifest_packages.get(manifest.getKey())){
+					updatedManifests.put(manifest.getKey(), manifest.getValue());
+					updatedManifestsForResolution.add(ROOT+MANIFESTS_PACKAGES+"/"+manifest.getKey()+"/v"+manifest.getValue()+".xml"); 
+				}
+			}
+		}	
 
-				//1.1 se nao houve, 
-				//1.1.1 testo intents antigas com novos manifestos e manifestos atualizados.
+		//1. testar se houve modificacao no app
+		String app_hash = HashGenerator.generateBase64Hash(Arrays.toString(app.all.toArray()));			
+		if (!app_hash.equals(lastAppResults.app_hash)){
+			appModified = true;
+			//1.1 houve mudancas no app
+
+			//1.1.0 atualizo o app_hash
+			lastAppResults.app_hash = app_hash;
+			boolean contain;
+
+			//1.1.2 seleciono as novas intents para serem testadas
+			ArrayList<IntentForResolution> newIntents = new ArrayList<IntentForResolution>();
+
+			for (IntentForResolution ifr : app.all) {
+				contain = false;
+				for (int i=0; i<lastAppResults.intent_results.size(); i++) {
+					if (lastAppResults.intent_results.get(i).hash.equals(ifr.getHash())) {
+						contain = true;
+						i = lastAppResults.intent_results.size();
+					}
+				}
+				if(!contain) {
+					newIntents.add(ifr);
+				}
+			}
+			
+			//1.1.1 removo do arquivo de resultados itents deletadas
+			ArrayList<IntentResult> indexToRemove = new ArrayList<IntentResult>();
+			for (int j=0; j<lastAppResults.intent_results.size(); j++){
+			//for (IntentResult result : lastAppResults.intent_results) {
+				contain = false;
+				for (int i=0; i< app.all.size(); i++) {
+					if (app.all.get(i).getHash().equals(lastAppResults.intent_results.get(j).hash)) {
+						contain = true;
+						//indexToRemove.add(j);
+						i = app.all.size();
+					}
+				}
+				if(!contain){
+					//lastAppResults.intent_results.remove(result);
+					indexToRemove.add(lastAppResults.intent_results.get(j));
+				}
+			}
+			
+			for (IntentResult i : indexToRemove) {
+				lastAppResults.intent_results.remove(i);
+				lastAppResults.intent_hashes.remove(i.hash);
+			}
+			
+			
+			
+			//1.1.3 testo as novas intetns com os manifestos antigos; e,
+			//1.1.5 adicionar novas intents ao lastIntentResults como novas intentResults
+			if(!newIntents.isEmpty()){
+
+				ArrayList<String> oldmanifests = new ArrayList<String>();
+				for (Entry<String, Integer> entry : lastAppResults.manifest_packages.entrySet()) {
+					oldmanifests.add(ROOT+MANIFESTS_PACKAGES+"/"+entry.getKey()+"/v"+entry.getValue()+".xml");
+				}
+
+				//new intents
+				ArrayList<IntentResult> newIntentResults = resolve(newIntents, oldmanifests);
+				lastAppResults.addNewIntentResults(newIntentResults);
 
 			}
 
+			//1.1.4 testo intents antigas(+novas) com novos manifestos
+			//new manifests
 
 
-
-			//2. gravar resultados num novo arquivo de resultados
-			//3. aumentar o .version
-
+		} 
+		//1.1 se nao houve, 
+		//1.1.1 testo intents antigas com novos manifestos e manifestos atualizados.
+		if (!newManifestsForResolution.isEmpty()) {	
+			newManifest = true;
+			ArrayList<IntentResult> intentResultsForNewManifests = resolve(app.all, newManifestsForResolution);
+			lastAppResults.addNewManifestResults(intentResultsForNewManifests, newManifests);
 		}
 
-		return null;
+		//1.1.4 testo intents antigas(+novas) com manifestos atualizados.
+		if (!updatedManifestsForResolution.isEmpty()) {
+			updatedManifest = true;
+			ArrayList<IntentResult> intentResultsForUpdatedManifests = resolve(app.all, updatedManifestsForResolution);
+			lastAppResults.updateManifestResults(intentResultsForUpdatedManifests, updatedManifests);
+		}
+
+
+		//2. gravar resultados num novo arquivo de resultados
+		//3. aumentar o .version
+
+		if(appModified || newManifest || updatedManifest){
+			return lastAppResults;
+		} else {
+			return null;
+		}
 
 	}
 
@@ -245,8 +273,7 @@ public class MainResolution {
 			f = new File(manifestName);
 			appResults.manifest_packages.put(f.getParentFile().getName(), Integer.parseInt(f.getName().substring(1, 2)));	
 		}
-
-		appResults.version = 0;
+		appResults.version = 1;
 		return appResults;
 
 	}
@@ -259,12 +286,12 @@ public class MainResolution {
 		try {
 			//atualizar a versao do result file
 			updateVersion(appResultVersion, appResults.version+1);
-			
+
 			JsonObject appResultsJson = new JsonObject();
 
 			//adicionar o hash relativo ao arquivo do app avaliado
 			appResultsJson.addProperty("app_hash", appResults.app_hash);	
-			
+
 			//adicionar os packages do manifests testados como uma lista
 			JsonArray manifest_packages = new JsonArray();
 			JsonObject appJson;
@@ -283,29 +310,30 @@ public class MainResolution {
 			}
 			appResultsJson.add("intent_hashes", intent_hashes);
 
-			
+
 			//Adicionar os intent_results 
 			JsonArray intentResultsJson = new JsonArray();
-			
+
 			JsonObject json;
 			for (IntentResult iResult : appResults.intent_results) {
 				json = new JsonObject();
 				json.addProperty("hash", iResult.hash);
+
 				JsonArray manifestsJson = parseManifestToJson(iResult.manifests);
 				json.add("manifests", manifestsJson);
 				intentResultsJson.add(json);
 			}
 			appResultsJson.add("intent_results", intentResultsJson);
-			
+
 			System.out.println(appResultsJson.toString());
-			
-			
+
+
 			Gson gson = new GsonBuilder()
 			.setPrettyPrinting()
 			.create();
-			
+
 			String jsonString = gson.toJson(appResultsJson);
-			
+
 			File f = new File(appResultFolder.getAbsolutePath()+"/v"+appResults.version+".json");
 			FileWriter writer = new FileWriter(f);
 			writer.write(jsonString);
@@ -317,7 +345,7 @@ public class MainResolution {
 	}
 
 	private static void updateVersion(File versionFile, int newVersion) {
-		System.out.println("Updating Version");
+		System.out.println("Updating Version + - "+newVersion);
 		FileWriter writer;
 		try {
 			writer = new FileWriter(versionFile);
@@ -326,24 +354,24 @@ public class MainResolution {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
 
-	private static JsonArray parseManifestToJson(ArrayList<Manifest> manifests) {
+	private static JsonArray parseManifestToJson(Map<String, Manifest> manifests2) {
 
 		JsonArray manifestsJson = new JsonArray();
-		
-		for(Manifest manifest : manifests){
+
+		for(Manifest manifest : manifests2.values()){
 			JsonObject json = new JsonObject();
 			json.addProperty("package", manifest.pack);
 			json.addProperty("version", manifest.version);
-			
+
 			json.add("matches", getMatchesJson(manifest.matches));
-		
+
 			manifestsJson.add(json);
 		}
-		
+
 		return manifestsJson;
 	}
 
@@ -366,7 +394,6 @@ public class MainResolution {
 		AndroidManifestParser manifestParser;
 		IntentResolution.Result result;
 		ArrayList<Match> matches;
-		ArrayList<Manifest> manifests = new ArrayList<AppResults.Manifest>();
 		Match match = null;
 		Manifest manifest = null;
 		IntentResult intentResult;
@@ -390,12 +417,12 @@ public class MainResolution {
 					int index = manifestName.lastIndexOf("v");
 					manifest.version = Integer.parseInt(manifestName.substring(index+1, index+2));
 					manifest.matches.addAll(matches);
+					intentResult.manifests.put(manifest.pack, manifest);
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-			intentResult.manifests.add(manifest);
 			intentResult.hash = ifr.getHash();
 			intentResults.add(intentResult);
 		}
@@ -413,8 +440,8 @@ public class MainResolution {
 			System.out.println(manifestsPaths+" is directory");
 			for (File f : manifestsPaths.listFiles()) {
 				if (f.isDirectory()) {
-					int version = getVersionFromPath(f.getAbsolutePath());
-					manifestNames.add(f.getAbsolutePath()+"/v"+version+".xml");
+					int version = getVersion(f.getAbsolutePath());//getVersionFromPath(f.getAbsolutePath());
+					manifestNames.add(ROOT+MANIFESTS_PACKAGES+"/"+f.getName()+"/v"+version+".xml");
 					//System.out.println(f.getAbsolutePath()+"/v"+version+".xml foi adicionado!");
 				}
 			}
@@ -424,6 +451,8 @@ public class MainResolution {
 
 		return manifestNames;
 	}
+
+
 
 	private static int getVersionFromPath(String absolutePath) {
 
@@ -447,8 +476,8 @@ public class MainResolution {
 	private static AppResults getLastAppResults(String appFileName) {
 
 
-		File appResultVersion = new File(ROOT+RESULTS+"/"+appFileName.substring(0,appFileName.lastIndexOf("."))+"/.version");
-		File appResultFolder = appResultVersion.getParentFile();
+		//File appResultVersion = new File(ROOT+RESULTS+"/"+appFileName.substring(0,appFileName.lastIndexOf(".")));
+		File appResultFolder = new File(ROOT+RESULTS+"/"+appFileName.substring(0,appFileName.lastIndexOf(".")));
 
 		System.out.println("AppResultPath: "+appResultFolder.getAbsolutePath());
 		System.out.println("AppResultPath: "+appResultFolder.isDirectory());
@@ -456,15 +485,8 @@ public class MainResolution {
 		int version;
 		if (!appResultFolder.exists()) {
 			appResultFolder.mkdirs();
-			try {
-				version = 0;
-				FileWriter writer = new FileWriter(appResultVersion, false);
-				writer.write(""+version);
-				writer.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+			version = createVersionFile(appResultFolder.getPath());
+			System.out.println("getLastAppResults.createVersionFile() ==" + version);
 			return null;
 		}
 
@@ -474,13 +496,10 @@ public class MainResolution {
 
 			appResults = new AppResults();
 
-			BufferedReader reader = new BufferedReader(new FileReader(appResultVersion));
-			version = Integer.parseInt(reader.readLine());
-			reader.close();
-
+			version = getVersion(ROOT+RESULTS+"/"+appFileName.substring(0,appFileName.lastIndexOf(".")));			
 			appResults.version = version;
 
-			FileReader appResultsReader = new FileReader(appResultFolder.getAbsolutePath()+"/result_v"+version+".json");
+			FileReader appResultsReader = new FileReader(appResultFolder.getAbsolutePath()+"/v"+(version-1)+".json");
 			JsonParser parser = new JsonParser();
 
 			JsonObject jsonResult = (JsonObject) parser.parse(appResultsReader);
@@ -491,7 +510,9 @@ public class MainResolution {
 
 			JsonArray intent_hashes = jsonResult.getAsJsonArray("intent_hashes");
 
-			JsonArray results = jsonResult.getAsJsonArray("results");
+			JsonArray results = jsonResult.getAsJsonArray("intent_results");
+			appResults.app_hash = jsonResult.get("app_hash").getAsString();
+
 
 			String pack;
 			int pack_version;
@@ -529,7 +550,7 @@ public class MainResolution {
 						match.value = matchesJson.getAsJsonObject().get("value").getAsBoolean();
 						manifest.matches.add(match);
 					}
-					result.manifests.add(manifest);
+					result.manifests.put(manifest.pack, manifest);
 
 				}
 
@@ -542,13 +563,7 @@ public class MainResolution {
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-
-
-
 		return appResults;
 	}
 
@@ -562,10 +577,10 @@ public class MainResolution {
 			System.out.println(String.format("(%d) %s", index, app.getName()));
 			index++;
 		}
-		System.out.print(">>> ");
 		int input = Integer.parseInt(in.nextLine());
 		return apps.listFiles()[input-1].getName();
 	}
+
 
 	private static void parseNewManifests() {
 
@@ -628,6 +643,7 @@ public class MainResolution {
 
 	}
 
+
 	private static void updateInfo(Map<String, Integer> infos) {
 		try {
 			JsonObject json = new JsonObject();
@@ -663,24 +679,29 @@ public class MainResolution {
 		}
 	}
 
+
 	private static Map<String, Integer> getManifestsInfo() {
 		Map<String, Integer> infos = new HashMap<String, Integer>();
 		try {
-			FileReader infoFileReader = new FileReader(ROOT+MANIFESTS+"/INFO.json");
-			JsonParser parser = new JsonParser();
+			File file = new File(ROOT+MANIFESTS+"/INFO.json");
 
-			JsonElement infoJson = parser.parse(infoFileReader);
-			System.out.println(infoJson);
+			if(file.exists()) { 
 
-			JsonArray packages = infoJson.getAsJsonObject().getAsJsonArray("packages");
-			String name;
-			int version;
-			for(JsonElement pack : packages){
-				name = pack.getAsJsonObject().get("name").getAsString();
-				version = pack.getAsJsonObject().get("version").getAsInt();
-				infos.put(name, version);			
-			}
+				FileReader infoFileReader = new FileReader(file);
+				JsonParser parser = new JsonParser();
 
+				JsonElement infoJson = parser.parse(infoFileReader);
+				System.out.println(infoJson);
+
+				JsonArray packages = infoJson.getAsJsonObject().getAsJsonArray("packages");
+				String name;
+				int version;
+				for(JsonElement pack : packages){
+					name = pack.getAsJsonObject().get("name").getAsString();
+					version = pack.getAsJsonObject().get("version").getAsInt();
+					infos.put(name, version);			
+				}
+			} 
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -693,6 +714,7 @@ public class MainResolution {
 	private static void setup() {
 		setupFolders();
 	}
+
 
 	private static boolean setupFolders() {
 		boolean result = true;
@@ -713,4 +735,38 @@ public class MainResolution {
 		return result;
 	}
 
+	private static int getVersion (String path) {
+
+		File versionFile = new File(path);
+		if(versionFile.exists()){
+			try {
+				BufferedReader reader = new BufferedReader(new FileReader(path+"/.version"));
+				int result = Integer.parseInt(reader.readLine());
+				reader.close();
+				return result;
+			} catch (FileNotFoundException e) {
+				return createVersionFile(path);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			return createVersionFile(path);
+		}
+		return -1;
+	}
+
+	private static int createVersionFile(String path) {
+		try {
+			FileWriter writer = new FileWriter(new File(path+"/.version"));
+			writer.write(""+1);
+			writer.close();
+			return 1;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;
+	}
 }
