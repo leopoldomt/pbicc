@@ -97,7 +97,7 @@ public class IntentForResolution {
 		StringBuilder sb = new StringBuilder();
 		sb.append(String.format("_parentId_%s_", this.parentId));
 		sb.append(String.format("_methodType_%s_", this.methodType));
-		sb.append(String.format("_componentName_s_", this.componentName));
+		sb.append(String.format("_componentName_%s_", this.componentName));
 		sb.append(String.format("_action_%s_", this.action));
 		sb.append(String.format("_data_%s_", this.data.toString()));
 		sb.append(String.format("_mimeType_%s_", this.data.getType()));

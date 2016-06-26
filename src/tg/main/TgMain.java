@@ -22,11 +22,11 @@ import com.google.gson.JsonSyntaxException;
 
 
 public class TgMain {
-	static final String inputPath = "/home/jpttrindade/Mega/CIN/TCC/inputs/";
-	static final String ifrPath = "/home/jpttrindade/Mega/CIN/TCC/ifr/";
+	static final String inputPath = "/home/jpttrindade/Mega/CIN/TCC/inputs";
+	static final String ifrPath = "/home/jpttrindade/Mega/CIN/TCC/ifr";
 
 	static File inputFolder = new File(inputPath);
-	static File ifrFolder = new File(ifrPath);
+	static File ifrFolder = new File(ifrPath+"/");
 	static File manifestFolder = new File(inputFolder.getAbsolutePath()+"/manifests");	
 
 	static Scanner in = new Scanner(System.in);
@@ -37,12 +37,39 @@ public class TgMain {
 		System.out.println("### Start TgMain ###");
 
 		convertJsonToIntentForResolution();
-		getIntentsForResolutionFromFile();
-		resolve();
+		String choose = getIntentsForResolutionFromFile();
+		//resolve();
+		
+		if (choose != null) {
+			parseToIncrementalApp(choose);
+		}
+		
 
 		//first();
 		//second();
 		System.out.println("### End TgMain ###");
+	}
+
+
+	private static void parseToIncrementalApp(String appName) {
+		System.out.println("ifrs.size = "+ifrs.length);
+		ArrayList<IntentForResolution> ifrss;
+		for (int i=0; i < ifrs.length; i++) {
+			int j  = 0;
+			ifrss = new ArrayList<IntentForResolution>();
+			while (j <= i) {
+				ifrss.add(ifrs[j]);
+				j++;
+			}
+			try {
+				System.out.println("IFRSS.size = "+ifrss.size());
+				IntentJson.write(ifrss, ifrPath+"/tg_test/v"+(j<10?"0"+j:j)+"_"+appName);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
 
@@ -90,6 +117,9 @@ public class TgMain {
 
 	private static void convertJsonToIntentForResolution() {
 		System.out.println("> Iniciando conversão de Json para IntentResolution... ");
+		
+		IntentJson.convertJsonToIntentForResolution(inputFolder.getAbsolutePath(), ifrPath);
+		
 		for(File file : inputFolder.listFiles()){
 			if(file.isFile()){
 				//convertJsonToIntentForResolution(file);
@@ -103,7 +133,7 @@ public class TgMain {
 						i++;
 					}
 
-					String fileName = ifrPath+"ifr_"+file.getName();
+					String fileName = ifrPath+"/ifr_"+file.getName();
 					IntentJson.write(forResolutions, fileName);
 				} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 					e.printStackTrace();
@@ -117,7 +147,7 @@ public class TgMain {
 		System.out.println(">> Finalizando conversão de Json para IntentResolution. ");
 	}
 
-	private static void getIntentsForResolutionFromFile() {
+	private static String getIntentsForResolutionFromFile() {
 		try {
 			System.out.println("Choose a file (number):");
 			int index = 1;
@@ -131,7 +161,8 @@ public class TgMain {
 			ifrs = IntentJson.readForResolution(choose); 
 			for(IntentForResolution ifr:ifrs){
 				System.out.println(ifr.toString());
-			}			
+			}		
+			return ifrFolder.listFiles()[input-1].getName();
 		} catch (JsonSyntaxException e) {
 			e.printStackTrace();
 		} catch (JsonIOException e) {
@@ -139,6 +170,8 @@ public class TgMain {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
+		return null;
 	}
 
 	private static void second() {
