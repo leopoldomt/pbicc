@@ -1,0 +1,5871 @@
+{
+  "app_hash": "WyNoYXNoOiBEMjE0RTkzMjM2OTJCQzQ2RTI5MTUxRUE2MEE3MDIzQQojcGFyZW50SWQ6IHZsY18xCiNtZXRob2RUeXBlOiBxdWVyeQojY29tcG9uZW50TmFtZTogdXJpKCkKI2FjdGlvbjogbnVsbAojZGF0YTogCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW10KLCAjaGFzaDogQTc3Rjc1OTczMEQ3OTkwREY1MUEyMTkyNjExOTk0QTYKI3BhcmVudElkOiB2bGNfMgojbWV0aG9kVHlwZTogcXVlcnkKI2NvbXBvbmVudE5hbWU6IHVyaSgpCiNhY3Rpb246IG51bGwKI2RhdGE6IAojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFtdCiwgI2hhc2g6IEI0Nzk3Q0YxRTRFNEYwNkE1NTk0RkUwMEZCMDIxQjk1CiNwYXJlbnRJZDogdmxjXzMKI21ldGhvZFR5cGU6IGluc2VydAojY29tcG9uZW50TmFtZTogdXJpKCkKI2FjdGlvbjogbnVsbAojZGF0YTogCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW10KLCAjaGFzaDogM0U4ODA2MUJFQkFENTNDNUIxRUVBODBCRTc5M0ZDQTkKI3BhcmVudElkOiB2bGNfNAojbWV0aG9kVHlwZTogaW5zZXJ0CiNjb21wb25lbnROYW1lOiBNZWRpYVN0b3JlLlZpZGVvLk1lZGlhLkVYVEVSTkFMX0NPTlRFTlRfVVJJLAojYWN0aW9uOiBudWxsCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbXQosICNoYXNoOiAzRTg4MDYxQkVCQUQ1M0M1QjFFRUE4MEJFNzkzRkNBOQojcGFyZW50SWQ6IHZsY180CiNtZXRob2RUeXBlOiBpbnNlcnQKI2NvbXBvbmVudE5hbWU6IE1lZGlhU3RvcmUuQXVkaW8uTWVkaWEuRVhURVJOQUxfQ09OVEVOVF9VUkksCiNhY3Rpb246IG51bGwKI2RhdGE6IAojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFtdCiwgI2hhc2g6IDNFODgwNjFCRUJBRDUzQzVCMUVFQTgwQkU3OTNGQ0E5CiNwYXJlbnRJZDogdmxjXzQKI21ldGhvZFR5cGU6IGluc2VydAojY29tcG9uZW50TmFtZTogTWVkaWFTdG9yZS5JbWFnZXMuTWVkaWEuRVhURVJOQUxfQ09OVEVOVF9VUkkKI2FjdGlvbjogbnVsbAojZGF0YTogCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW10KLCAjaGFzaDogN0M2NjEyMUUxMjc1NjRDMDlBMTcxNDcxMkU2QkNEQjEKI3BhcmVudElkOiB2bGNfNQojbWV0aG9kVHlwZTogZGVsZXRlCiNjb21wb25lbnROYW1lOiB1cmkoKQojYWN0aW9uOiBudWxsCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbXQosICNoYXNoOiA3MzcyNTA2ODgyRjM2QTA0MTA5QTg5Q0ZCNDA5NzU3QgojcGFyZW50SWQ6IHZsY182CiNtZXRob2RUeXBlOiBkZWxldGUKI2NvbXBvbmVudE5hbWU6IHVyaSgpCiNhY3Rpb246IG51bGwKI2RhdGE6IAojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFtdCiwgI2hhc2g6IERCMEI5MUVDMzJFMTlBNzU4QzZFQUMwNDZEMkU1RDBCCiNwYXJlbnRJZDogdmxjXzcKI21ldGhvZFR5cGU6IHVwZGF0ZQojY29tcG9uZW50TmFtZTogdXJpKCkKI2FjdGlvbjogbnVsbAojZGF0YTogCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW10KLCAjaGFzaDogOUNBMTVGQkIzMzI2NjY1MzcwOTU4NjE3NENBQTVCQUEKI3BhcmVudElkOiB2bGNfOAojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eQojY29tcG9uZW50TmFtZTogbnVsbAojYWN0aW9uOiBhbmRyb2lkLmludGVudC5hY3Rpb24uVklFVwojZGF0YTogdXJpCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IEY4M0QxMjcxRTgxOEQzODk2QTlCNzgwRkY5NEExNzg4CiNwYXJlbnRJZDogdmxjXzkKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IG51bGwKI2FjdGlvbjogYW5kcm9pZC5pbnRlbnQuYWN0aW9uLlZJRVcKI2RhdGE6IGdlbzpEb3VibGUudG9TdHJpbmcobG9jYXRpb24uZ2V0TGF0aXR1ZGUoKSlEb3VibGUudG9TdHJpbmcobG9jYXRpb24uZ2V0TG9uZ2l0dWRlKCkpVXJpLmVuY29kZShwbGFjZU5hbWUpCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IDQ5OEM1NjJDMjM5M0VDQjNDRDVEMTIxRERGMTI3ODhDCiNwYXJlbnRJZDogdmxjXzEwCiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5Rm9yUmVzdWx0CiNjb21wb25lbnROYW1lOiBTZXR0aW5nc0FjdGl2aXR5LmNsYXNzCiNhY3Rpb246IG51bGwKI2RhdGE6IAojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5ERUZBVUxUXQosICNoYXNoOiAxQzBGMkQxRjk4MjRBRTA2MjZCODc5QzRFRDg1MDUxOAojcGFyZW50SWQ6IHZsY18xMQojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eUZvclJlc3VsdAojY29tcG9uZW50TmFtZTogTG9naW5BY3Rpdml0eS5jbGFzcwojYWN0aW9uOiBudWxsCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogN0YwMkU1OEYxQUFENDg0NDZGRTk0MjNEODYyMDVBMkUKI3BhcmVudElkOiB2bGNfMTIKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IG51bGwKI2FjdGlvbjogbnVsbAojZGF0YTogCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IDJFMjExRDk3RTlBOThDQjY2MDg0RTUzODdGRjc5MDE3CiNwYXJlbnRJZDogdmxjXzEzCiNtZXRob2RUeXBlOiBzZW5kQnJvYWRjYXN0CiNjb21wb25lbnROYW1lOiBXaWRnZXRQcm92aWRlckZlYXR1cmVkUGFnZS5jbGFzcwojYWN0aW9uOiBBcHBXaWRnZXRNYW5hZ2VyLkFDVElPTl9BUFBXSURHRVRfVVBEQVRFCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbXQosICNoYXNoOiAzMDBCNUVEM0U5NTE0NENBNUM3MjEyQjU1NEQ5MzM2OAojcGFyZW50SWQ6IHZsY18xNAojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eQojY29tcG9uZW50TmFtZTogQWJvdXRBY3Rpdml0eS5jbGFzcwojYWN0aW9uOiBhbmRyb2lkLmludGVudC5hY3Rpb24uVklFVwojZGF0YTogCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IDUyOTk4MEQ2MkEyNDdGRTU2RkFENkNFRThFQUI4MDgzCiNwYXJlbnRJZDogdmxjXzE1CiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5CiNjb21wb25lbnROYW1lOiA/CiNhY3Rpb246IG51bGwKI2RhdGE6IAojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5ERUZBVUxUXQosICNoYXNoOiA3QzQzRjU1M0JDQjczRjQzN0Q1MUZBODdEMzcyQ0VFRAojcGFyZW50SWQ6IHZsY18xNgojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eQojY29tcG9uZW50TmFtZTogQ3Jhc2hSZXBvcnRBY3Rpdml0eS5jbGFzcwojYWN0aW9uOiBudWxsCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogREIyOTgzRTA1NTYwRTMwMTQ1MEJGRjJEQjExRDc2NkYKI3BhcmVudElkOiB2bGNfMTcKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IFBhZ2VBY3Rpdml0eS5jbGFzcwojYWN0aW9uOiBvcmcud2lraXBlZGlhLnBhZ2VfZm9yX3RpdGxlCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogNEU4OTkyMjFBMzMyQjNBMTBCMEE2NDc1Rjc3NkExNkIKI3BhcmVudElkOiB2bGNfMTgKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHlGb3JSZXN1bHQKI2NvbXBvbmVudE5hbWU6IEVkaXRTZWN0aW9uQWN0aXZpdHkuY2xhc3MKI2FjdGlvbjogb3JnLndpa2lwZWRpYS5lZGl0X3NlY3Rpb24KI2RhdGE6IAojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5ERUZBVUxUXQosICNoYXNoOiBFRTk5MDBBMTVCMURBMDNENzMwQzA2RDJGODkxNDE1QQojcGFyZW50SWQ6IHZsY18xOQojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eQojY29tcG9uZW50TmFtZTogUGFnZUFjdGl2aXR5LmNsYXNzCiNhY3Rpb246IGFuZHJvaWQuaW50ZW50LmFjdGlvbi5WSUVXCiNkYXRhOiBJbnRlbnQKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogNkU3OTYwNEJBQjhGNEM3MUUyQjlBQjNEMjIxNDlFRUMKI3BhcmVudElkOiB2bGNfMTkKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IFBhZ2VBY3Rpdml0eS5jbGFzcwojYWN0aW9uOiBhbmRyb2lkLmludGVudC5hY3Rpb24uVklFVwojZGF0YTogaW50ZW50CiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IEQxNzFDODA0NTYyREY1NDA3OTVFMkZFOTNGOTU1MDQ3CiNwYXJlbnRJZDogdmxjXzE5CiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5CiNjb21wb25lbnROYW1lOiBQYWdlQWN0aXZpdHkuY2xhc3MKI2FjdGlvbjogYW5kcm9pZC5pbnRlbnQuYWN0aW9uLlZJRVcKI2RhdGE6ID0KI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogNkRFQ0Y5OEUyM0U3MjVGRTA0NTI3QTI3Q0ZGMUFBNjcKI3BhcmVudElkOiB2bGNfMTkKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IFBhZ2VBY3Rpdml0eS5jbGFzcwojYWN0aW9uOiBhbmRyb2lkLmludGVudC5hY3Rpb24uVklFVwojZGF0YTogbmV3CiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IEFBRTNEMzM3QTg0MUJENTYyOTI2NDE3Q0IzNEJDMUQ3CiNwYXJlbnRJZDogdmxjXzE5CiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5CiNjb21wb25lbnROYW1lOiBQYWdlQWN0aXZpdHkuY2xhc3MKI2FjdGlvbjogYW5kcm9pZC5pbnRlbnQuYWN0aW9uLlZJRVcKI2RhdGE6IEludGVudChJbnRlbnQuQUNUSU9OX0dFVF9DT05URU5UKTsKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogRDA4MTBGQThGQUU4MkI0RTZGNzIxMEJCQjA1REM2ODgKI3BhcmVudElkOiB2bGNfMjAKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IERldmVsb3BlclNldHRpbmdzQWN0aXZpdHkuY2xhc3MKI2FjdGlvbjogbnVsbAojZGF0YTogaW50ZW50LnNldFR5cGUoImF1ZGlvLyoKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogNTVCQkMyQjNFNzIzNEE2MTVGQkNENzg3QjY3M0QwNDcKI3BhcmVudElkOiB2bGNfMjAKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IERldmVsb3BlclNldHRpbmdzQWN0aXZpdHkuY2xhc3MKI2FjdGlvbjogbnVsbAojZGF0YTogdmlkZW8vKiIpOwojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5ERUZBVUxUXQosICNoYXNoOiA1NjgxNDkwQURBMkFBQjZFMzY0MkRCMTZGMjVGRTZEQgojcGFyZW50SWQ6IHZsY18yMQojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eUZvclJlc3VsdAojY29tcG9uZW50TmFtZTogTGFuZ0xpbmtzQWN0aXZpdHkuY2xhc3MKI2FjdGlvbjogb3JnLndpa2lwZWRpYS5sYW5nbGlua3NfZm9yX3RpdGxlCiNkYXRhOiBzdGFydEFjdGl2aXR5Rm9yUmVzdWx0KGludGVudCwKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogOUY2RDAzRkFDMzMxMTM2REJERUNFRkQwQkUzMjI1NDMKI3BhcmVudElkOiB2bGNfMjEKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHlGb3JSZXN1bHQKI2NvbXBvbmVudE5hbWU6IExhbmdMaW5rc0FjdGl2aXR5LmNsYXNzCiNhY3Rpb246IG9yZy53aWtpcGVkaWEubGFuZ2xpbmtzX2Zvcl90aXRsZQojZGF0YTogQUNUSVZJVFlfUkVTVUxUX09QRU4pOwojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5ERUZBVUxUXQosICNoYXNoOiA1RTQ0RUM5M0ZERDc4MzBGRkRDN0I0MDgzREEwRjU1OQojcGFyZW50SWQ6IHZsY18yMgojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eUZvclJlc3VsdAojY29tcG9uZW50TmFtZTogQ3JlYXRlQWNjb3VudEFjdGl2aXR5LmNsYXNzCiNhY3Rpb246IG51bGwKI2RhdGE6IG1EcmF3ZXJMYXlvdXQuY2xvc2VEcmF3ZXIobU5hdmlnYXRpb25WaWV3KTsKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogOTY4QkZCOTBDQ0RFM0NEQ0U1MDQ0RDdCQTgyREVEMjkKI3BhcmVudElkOiB2bGNfMjMKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHlGb3JSZXN1bHQKI2NvbXBvbmVudE5hbWU6IExvZ2luQWN0aXZpdHkuY2xhc3MKI2FjdGlvbjogbnVsbAojZGF0YTogcmV0dXJuCiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IDkyQkY3NDkzRjczRDYxRjQxNjQyREEwNzgxQUI3MDI4CiNwYXJlbnRJZDogdmxjXzIzCiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5Rm9yUmVzdWx0CiNjb21wb25lbnROYW1lOiBMb2dpbkFjdGl2aXR5LmNsYXNzCiNhY3Rpb246IG51bGwKI2RhdGE6IHRydWU7CiNtaW1lVHlwZTogbnVsbAojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IEU3MTNDREEzOUU2QUI1NzhCMTY2Q0UxMjk1MjA2QzE2CiNwYXJlbnRJZDogdmxjXzI0CiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5CiNjb21wb25lbnROYW1lOiBMb2dpbkFjdGl2aXR5LmNsYXNzCiNhY3Rpb246IG51bGwKI2RhdGE6IAojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5ERUZBVUxUXQosICNoYXNoOiA4MTMxNjdCN0VCQTZEMTA1MDYyMDM0N0NENjgyRkQ3OQojcGFyZW50SWQ6IHZsY18yNQojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eUZvclJlc3VsdAojY29tcG9uZW50TmFtZTogR2FsbGVyeUFjdGl2aXR5LmNsYXNzCiNhY3Rpb246IG51bGwKI2RhdGE6IAojbWltZVR5cGU6IG51bGwKI2NhdGVnb3JpZXM6IFthbmRyb2lkLmludGVudC5jYXRlZ29yeS5ERUZBVUxUXQosICNoYXNoOiA4NTZCRDJDM0YyQTVGNjk2NThFRjNFQzA2RjU0NEVEMQojcGFyZW50SWQ6IHZsY18yNgojbWV0aG9kVHlwZTogc3RhcnRBY3Rpdml0eQojY29tcG9uZW50TmFtZTogbnVsbAojYWN0aW9uOiBhbmRyb2lkLmludGVudC5hY3Rpb24uU0VORAojZGF0YTogCiNtaW1lVHlwZTogdGV4dC9wbGFpbgojY2F0ZWdvcmllczogW2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LkRFRkFVTFRdCiwgI2hhc2g6IEE5MTE2NzY4MDBBMDNBQTk5RjZCNzI4OTQ5MzlGQUU5CiNwYXJlbnRJZDogdmxjXzI3CiNtZXRob2RUeXBlOiBzdGFydEFjdGl2aXR5CiNjb21wb25lbnROYW1lOiBudWxsCiNhY3Rpb246IGFuZHJvaWQuaW50ZW50LmFjdGlvbi5TRU5ECiNkYXRhOiAKI21pbWVUeXBlOiBpbWFnZS9qcGVnCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KLCAjaGFzaDogNkEwMUEzNkU1QjBFNjc4NEQyRUQ2QkRFQjI0NEE4ODMKI3BhcmVudElkOiB2bGNfMjgKI21ldGhvZFR5cGU6IHN0YXJ0QWN0aXZpdHkKI2NvbXBvbmVudE5hbWU6IFVzZXJPcHRpb25Sb3dBY3Rpdml0eS5jbGFzcwojYWN0aW9uOiBudWxsCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbYW5kcm9pZC5pbnRlbnQuY2F0ZWdvcnkuREVGQVVMVF0KXQ\u003d\u003d",
+  "manifest_packages": [
+    {
+      "package": "google_android",
+      "version": 1
+    },
+    {
+      "package": "com.fsck.k9",
+      "version": 1
+    },
+    {
+      "package": "com.github.pockethub",
+      "version": 2
+    },
+    {
+      "package": "org.csploit.android",
+      "version": 1
+    }
+  ],
+  "intent_hashes": [
+    "D214E9323692BC46E29151EA60A7023A",
+    "A77F759730D7990DF51A2192611994A6",
+    "B4797CF1E4E4F06A5594FE00FB021B95",
+    "3E88061BEBAD53C5B1EEA80BE793FCA9",
+    "3E88061BEBAD53C5B1EEA80BE793FCA9",
+    "3E88061BEBAD53C5B1EEA80BE793FCA9",
+    "7C66121E127564C09A1714712E6BCDB1",
+    "7372506882F36A04109A89CFB409757B",
+    "DB0B91EC32E19A758C6EAC046D2E5D0B",
+    "9CA15FBB33266653709586174CAA5BAA",
+    "F83D1271E818D3896A9B780FF94A1788",
+    "498C562C2393ECB3CD5D121DDF12788C",
+    "1C0F2D1F9824AE0626B879C4ED850518",
+    "7F02E58F1AAD48446FE9423D86205A2E",
+    "2E211D97E9A98CB66084E5387FF79017",
+    "300B5ED3E95144CA5C7212B554D93368",
+    "529980D62A247FE56FAD6CEE8EAB8083",
+    "7C43F553BCB73F437D51FA87D372CEED",
+    "DB2983E05560E301450BFF2DB11D766F",
+    "4E899221A332B3A10B0A6475F776A16B",
+    "EE9900A15B1DA03D730C06D2F891415A",
+    "6E79604BAB8F4C71E2B9AB3D22149EEC",
+    "D171C804562DF540795E2FE93F955047",
+    "6DECF98E23E725FE04527A27CFF1AA67",
+    "AAE3D337A841BD562926417CB34BC1D7",
+    "D0810FA8FAE82B4E6F7210BBB05DC688",
+    "55BBC2B3E7234A615FBCD787B673D047",
+    "5681490ADA2AAB6E3642DB16F25FE6DB",
+    "9F6D03FAC331136DBDECEFD0BE322543",
+    "5E44EC93FDD7830FFDC7B4083DA0F559",
+    "968BFB90CCDE3CDCE5044D7BA82DED29",
+    "92BF7493F73D61F41642DA0781AB7028",
+    "E713CDA39E6AB578B166CE1295206C16",
+    "813167B7EBA6D1050620347CD682FD79",
+    "856BD2C3F2A5F69658EF3EC06F544ED1",
+    "A911676800A03AA99F6B72894939FAE9",
+    "6A01A36E5B0E6784D2ED6BDEB244A883"
+  ],
+  "intent_results": [
+    {
+      "hash": "D214E9323692BC46E29151EA60A7023A",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "A77F759730D7990DF51A2192611994A6",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "B4797CF1E4E4F06A5594FE00FB021B95",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "3E88061BEBAD53C5B1EEA80BE793FCA9",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "3E88061BEBAD53C5B1EEA80BE793FCA9",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "3E88061BEBAD53C5B1EEA80BE793FCA9",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "7C66121E127564C09A1714712E6BCDB1",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "7372506882F36A04109A89CFB409757B",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "DB0B91EC32E19A758C6EAC046D2E5D0B",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "9CA15FBB33266653709586174CAA5BAA",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": true
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": true
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "F83D1271E818D3896A9B780FF94A1788",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "498C562C2393ECB3CD5D121DDF12788C",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "1C0F2D1F9824AE0626B879C4ED850518",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "7F02E58F1AAD48446FE9423D86205A2E",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "2E211D97E9A98CB66084E5387FF79017",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "300B5ED3E95144CA5C7212B554D93368",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "529980D62A247FE56FAD6CEE8EAB8083",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "7C43F553BCB73F437D51FA87D372CEED",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "DB2983E05560E301450BFF2DB11D766F",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "4E899221A332B3A10B0A6475F776A16B",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "EE9900A15B1DA03D730C06D2F891415A",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "6E79604BAB8F4C71E2B9AB3D22149EEC",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "D171C804562DF540795E2FE93F955047",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "6DECF98E23E725FE04527A27CFF1AA67",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "AAE3D337A841BD562926417CB34BC1D7",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "D0810FA8FAE82B4E6F7210BBB05DC688",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "55BBC2B3E7234A615FBCD787B673D047",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "5681490ADA2AAB6E3642DB16F25FE6DB",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "9F6D03FAC331136DBDECEFD0BE322543",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "5E44EC93FDD7830FFDC7B4083DA0F559",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "968BFB90CCDE3CDCE5044D7BA82DED29",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "92BF7493F73D61F41642DA0781AB7028",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "E713CDA39E6AB578B166CE1295206C16",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "813167B7EBA6D1050620347CD682FD79",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "856BD2C3F2A5F69658EF3EC06F544ED1",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": true
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "A911676800A03AA99F6B72894939FAE9",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "6A01A36E5B0E6784D2ED6BDEB244A883",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "org.csploit.android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": ".MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "org.acra.CrashReportDialog",
+              "value": false
+            },
+            {
+              "component_name": ".services.UpdateService",
+              "value": false
+            },
+            {
+              "component_name": ".core.MultiAttackService",
+              "value": false
+            },
+            {
+              "component_name": ".WifiScannerActivity",
+              "value": false
+            },
+            {
+              "component_name": ".SettingsActivity",
+              "value": false
+            },
+            {
+              "component_name": ".gui.DirectoryPicker",
+              "value": false
+            },
+            {
+              "component_name": ".gui.MsfPreferences",
+              "value": false
+            },
+            {
+              "component_name": ".gui.Console",
+              "value": false
+            },
+            {
+              "component_name": ".ActionActivity",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.RouterPwn",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Traceroute",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PortScanner",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Inspector",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.Sessions",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.ExploitFinder",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.MITM",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.Sniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.PasswordSniffer",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.DNSSpoofing",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.Hijacker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.mitm.hijacker.HijackerWebView",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.LoginCracker",
+              "value": false
+            },
+            {
+              "component_name": ".plugins.PacketForger",
+              "value": false
+            },
+            {
+              "component_name": ".gui.FileEdit",
+              "value": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

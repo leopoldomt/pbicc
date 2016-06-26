@@ -28,7 +28,6 @@
         android:theme="@style/Theme.PocketHub"
         android:name=".PocketHub">
 
-        
         <activity
             android:name="com.github.pockethub.ui.ref.BranchFileViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
@@ -39,7 +38,7 @@
             </intent-filter>
         </activity>
 
-        
+       
     </application>
 
 </manifest>

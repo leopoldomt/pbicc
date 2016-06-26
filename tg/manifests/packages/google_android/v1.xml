@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="13000" android:versionName="3.512" package="com.fsck.k9">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="13000" android:versionName="3.512" package="google_android">
     <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="4"/>
     <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
 
     <application android:allowTaskReparenting="false" android:icon="@drawable/icon" android:label="@string/app_name" android:name="K9">
-    
+
         <activity android:configChanges="locale" android:label="@string/app_name" android:launchMode="singleInstance" android:name="com.fsck.k9.activity.Accounts">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -13,16 +13,39 @@
             </intent-filter>
         </activity>
 
-        <activity 
-            android:configChanges="locale" 
-            android:label="@string/prefs_title" 
+        <activity
+            android:configChanges="locale"
+            android:label="@string/prefs_title"
             android:name="com.fsck.k9.activity.setup.Prefs">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-    
+
+        <activity
+            android:configChanges="locale"
+            android:label="@string/prefs_title"
+            android:name="blabla">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="image/jpg"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:configChanges="locale"
+            android:label="@string/prefs_title"
+            android:name="blabla2">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
 </application>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.GET_TASKS"/>

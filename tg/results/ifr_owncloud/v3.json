@@ -1,0 +1,73 @@
+{
+  "app_hash": "WyNoYXNoOiA3MjIyOUE5NzFEQTQ1MERFOTlFNDIwNjcyNjEzNTAzQwojcGFyZW50SWQ6IG93bmNsb3VkXzEKI21ldGhvZFR5cGU6IHF1ZXJ5CiNjb21wb25lbnROYW1lOiBjb250ZW50Oi8vb3JnLm93bmNsb3VkLwojYWN0aW9uOiBudWxsCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbXQpd",
+  "manifest_packages": [
+    {
+      "package": "google_android",
+      "version": 1
+    },
+    {
+      "package": "com.fsck.k9",
+      "version": 1
+    },
+    {
+      "package": "com.github.pockethub",
+      "version": 2
+    }
+  ],
+  "intent_hashes": [
+    "72229A971DA450DE99E420672613503C"
+  ],
+  "intent_results": [
+    {
+      "hash": "72229A971DA450DE99E420672613503C",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 2,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

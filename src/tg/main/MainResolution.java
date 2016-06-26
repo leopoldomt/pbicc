@@ -46,11 +46,21 @@ public class MainResolution {
 	private static final String RESULTS = "/results";
 
 	public static void main(String[] args) {
+		
+		for(String arg : args) {
+			System.out.println(arg);
+		}
+		
+		
+		
 		Scanner in = new Scanner(System.in);
 		String input;
 		int choose = 1;
+		
+		int argCount = 0;
+		
 		StringBuilder sb;
-		while (choose > 0) {
+		while (argCount < args.length && choose > 0) {
 			try {
 				sb = new StringBuilder();
 				sb.append("Choose operation:\n")
@@ -58,12 +68,13 @@ public class MainResolution {
 				.append("(2) read news manifest.xml\n")
 				.append("(3) resolve 1 app\n")
 				.append("(4) resolve all apps\n")
-				.append("(5) \n")
-				.append("(6) \n")
+				.append("(5) slow resolve 1 app\n")
+				.append("(6) slow resolve all apps\n")
 				.append("(0) exit\n")
 				.append(">> ");
 				System.out.print(sb.toString());
-				input = in.nextLine();
+				//input = in.nextLine();
+				input = args[argCount];
 				choose = Integer.parseInt(input);
 
 				switch (choose) {
@@ -71,34 +82,112 @@ public class MainResolution {
 					//exit
 					break;
 				case 1:
-					setup();
+					//setup();
+					IncrementalResolution.setup();
 					break;
 				case 2:
-					parseNewManifests();
+					//parseNewManifests();
+					IncrementalResolution.parseNewManifests();
+					break;
 				case 3:
-					resolveOneApp(in);
+					String fileName = chooseFile(in);
+					//resolveOneApp(fileName);
+					try {
+						IncrementalResolution.resolveApp(fileName);
+					} catch (JsonSyntaxException e) {
+						e.printStackTrace();
+					} catch (JsonIOException e) {
+						e.printStackTrace();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
 					break;
 				case 4:
-
+					//resolveAllApps();
+					try {
+						IncrementalResolution.resolveAllApps();
+					} catch (JsonSyntaxException e) {
+						e.printStackTrace();
+					} catch (JsonIOException e) {
+						e.printStackTrace();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
+					break;
+				case 5:
+					String fileName2 = chooseFile(in);
+					try {
+						IncrementalResolution.slowResolveApp(fileName2);
+					} catch (JsonSyntaxException e) {
+						e.printStackTrace();
+					} catch (JsonIOException e) {
+						e.printStackTrace();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
+					break;
+				case 6:
+					try {
+						IncrementalResolution.slowResolveAllApps();
+					} catch (JsonSyntaxException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (JsonIOException e) {
+						e.printStackTrace();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
 					break;
 				default:
 				}
 
-
+				
 			} catch (NumberFormatException e) {
 				System.out.println(e.getMessage());
 			}
+			argCount++;
 		}
 
 		System.out.println("end!");
 	}
 
-	private static void resolveOneApp(Scanner in) {		
+	private static void slowResolveAllApps() {
+		
+	}
+
+	private static void slowResolveOneApp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void resolveAllApps() {
+		File appsPath = new File(ROOT+APPS);
+		if (appsPath.exists()) {
+			File[] files = appsPath.listFiles();
+			for (File file : files) {
+				try {
+					resolve(file.getName());
+				} catch (JsonSyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (JsonIOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	private static void resolveOneApp(String fileName) {		
 		try {
-			String fileName = chooseFile(in);
+			
 
 			System.out.println("choose = "+fileName);
-
+			
+			//IncrementalResolution.resolveApp(fileName);
 			resolve(fileName);
 
 		} catch (JsonSyntaxException e) {

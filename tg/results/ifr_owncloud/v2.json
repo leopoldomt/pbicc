@@ -1,0 +1,197 @@
+{
+  "app_hash": "WyNoYXNoOiA3MjIyOUE5NzFEQTQ1MERFOTlFNDIwNjcyNjEzNTAzQwojcGFyZW50SWQ6IG93bmNsb3VkXzEKI21ldGhvZFR5cGU6IHF1ZXJ5CiNjb21wb25lbnROYW1lOiBjb250ZW50Oi8vb3JnLm93bmNsb3VkLwojYWN0aW9uOiBudWxsCiNkYXRhOiAKI21pbWVUeXBlOiBudWxsCiNjYXRlZ29yaWVzOiBbXQpd",
+  "manifest_packages": [
+    {
+      "package": "google_android",
+      "version": 1
+    },
+    {
+      "package": "com.fsck.k9",
+      "version": 1
+    },
+    {
+      "package": "com.github.pockethub",
+      "version": 1
+    }
+  ],
+  "intent_hashes": [
+    "72229A971DA450DE99E420672613503C"
+  ],
+  "intent_results": [
+    {
+      "hash": "72229A971DA450DE99E420672613503C",
+      "manifests": [
+        {
+          "package": "google_android",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            },
+            {
+              "component_name": "blabla",
+              "value": false
+            },
+            {
+              "component_name": "blabla2",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.fsck.k9",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.fsck.k9.activity.Accounts",
+              "value": false
+            },
+            {
+              "component_name": "com.fsck.k9.activity.setup.Prefs",
+              "value": false
+            }
+          ]
+        },
+        {
+          "package": "com.github.pockethub",
+          "version": 1,
+          "matches": [
+            {
+              "component_name": "com.github.pockethub.ui.MainActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.gist.CreateGistActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.IssueBrowseActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.EditIssuesFilterActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.EditIssueActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.search.SearchActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.FiltersViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.gist.GistsViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.gist.GistFilesViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.CreateCommentActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.EditCommentActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.gist.CreateCommentActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.gist.EditCommentActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.commit.CreateCommentActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.repo.RepositoryViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.repo.RepositoryContributorsActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.user.UserViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.IssuesViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.accounts.AccountAuthenticatorService",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.accounts.LoginActivity",
+              "value": false
+            },
+            {
+              "component_name": ".ui.WelcomeActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.user.UriLauncherActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.IssueSearchActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.commit.CommitCompareViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.commit.CommitViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.commit.CommitFileViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.ref.BranchFileViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.accounts.LoginWebViewActivity",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.sync.SyncAdapterService",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.sync.ContentProviderAdapter",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.search.RepositorySearchSuggestionsProvider",
+              "value": false
+            },
+            {
+              "component_name": "com.github.pockethub.ui.issue.IssueSearchSuggestionsProvider",
+              "value": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
