@@ -121,7 +121,7 @@ public class IntentResolution {
 			if (it.getData().getType() != null && ifilter.data.getMimeTypes().isEmpty()) {
 				// i(+,+) 
 				// f(+,-)
-				System.out.println(it.getData().getType() + " _ "+ ifilter.data.getMimeTypes().isEmpty());
+				//System.out.println(it.getData().getType() + " _ "+ ifilter.data.getMimeTypes().isEmpty());
 				throw new DataTestException("intent has mimetype, ifilter hasn't mimetype.");
 			}
 			
@@ -411,8 +411,7 @@ public class IntentResolution {
 		//it.setData(dt);
 
 		for (Component c : androidManifest.components) {
-			System.out.println(String.format("%s - %s", c.name,
-					IntentResolution.resolve(it, c)));
+			//System.out.println(String.format("%s - %s", c.name, IntentResolution.resolve(it, c)));
 		}
 
 	}

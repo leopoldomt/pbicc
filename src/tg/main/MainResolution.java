@@ -48,7 +48,7 @@ public class MainResolution {
 	public static void main(String[] args) {
 		
 		for(String arg : args) {
-			System.out.println(arg);
+			////System.out.println(arg);
 		}
 		
 		
@@ -72,7 +72,7 @@ public class MainResolution {
 				.append("(6) slow resolve all apps\n")
 				.append("(0) exit\n")
 				.append(">> ");
-				System.out.print(sb.toString());
+				//System.out.print(sb.toString());
 				//input = in.nextLine();
 				input = args[argCount];
 				choose = Integer.parseInt(input);
@@ -143,12 +143,12 @@ public class MainResolution {
 
 				
 			} catch (NumberFormatException e) {
-				System.out.println(e.getMessage());
+				////System.out.println(e.getMessage());
 			}
 			argCount++;
 		}
 
-		System.out.println("end!");
+		////System.out.println("end!");
 	}
 
 	private static void slowResolveAllApps() {
@@ -185,7 +185,7 @@ public class MainResolution {
 		try {
 			
 
-			System.out.println("choose = "+fileName);
+			////System.out.println("choose = "+fileName);
 			
 			//IncrementalResolution.resolveApp(fileName);
 			resolve(fileName);
@@ -215,7 +215,7 @@ public class MainResolution {
 	}
 
 	private static AppResults resolve(IntentsApp app, AppResults lastAppResults) {
-		//System.out.println(">>"+lastAppResults);
+		////System.out.println(">>"+lastAppResults);
 		boolean appModified = false, newManifest = false, updatedManifest = false;
 
 		if (lastAppResults == null) {
@@ -346,7 +346,7 @@ public class MainResolution {
 	}
 
 	private static AppResults firstResolve(IntentsApp app) {
-		System.out.println("firstResolve");
+		//System.out.println("firstResolve");
 		//TODO 1. test app with all last manifest versions...	
 		ArrayList<String> manifestsFileName = getAllManifestFileNames();
 
@@ -368,7 +368,7 @@ public class MainResolution {
 	}
 
 	private static void saveAppResults(AppResults appResults, String appFileName) {
-		System.out.println("saveAppResults");
+		////System.out.println("saveAppResults");
 		File appResultVersion = new File(ROOT+RESULTS+"/"+appFileName.substring(0,appFileName.lastIndexOf("."))+"/.version");
 		File appResultFolder = appResultVersion.getParentFile();
 
@@ -414,7 +414,7 @@ public class MainResolution {
 			}
 			appResultsJson.add("intent_results", intentResultsJson);
 
-			System.out.println(appResultsJson.toString());
+			////System.out.println(appResultsJson.toString());
 
 
 			Gson gson = new GsonBuilder()
@@ -434,7 +434,7 @@ public class MainResolution {
 	}
 
 	private static void updateVersion(File versionFile, int newVersion) {
-		System.out.println("Updating Version + - "+newVersion);
+		////System.out.println("Updating Version + - "+newVersion);
 		FileWriter writer;
 		try {
 			writer = new FileWriter(versionFile);
@@ -520,22 +520,22 @@ public class MainResolution {
 	}
 
 	private static ArrayList<String> getAllManifestFileNames() {
-		System.out.println("getAllManifestFileNames");
+		////System.out.println("getAllManifestFileNames");
 
 		ArrayList<String> manifestNames = new ArrayList<String>();
 		File manifestsPaths = new File(ROOT+MANIFESTS_PACKAGES);
 
 		if (manifestsPaths.isDirectory()) {
-			System.out.println(manifestsPaths+" is directory");
+			////System.out.println(manifestsPaths+" is directory");
 			for (File f : manifestsPaths.listFiles()) {
 				if (f.isDirectory()) {
 					int version = getVersion(f.getAbsolutePath());//getVersionFromPath(f.getAbsolutePath());
 					manifestNames.add(ROOT+MANIFESTS_PACKAGES+"/"+f.getName()+"/v"+version+".xml");
-					//System.out.println(f.getAbsolutePath()+"/v"+version+".xml foi adicionado!");
+					//////System.out.println(f.getAbsolutePath()+"/v"+version+".xml foi adicionado!");
 				}
 			}
 		} else {
-			System.out.println("isnt directory");
+			////System.out.println("isnt directory");
 		}
 
 		return manifestNames;
@@ -568,14 +568,14 @@ public class MainResolution {
 		//File appResultVersion = new File(ROOT+RESULTS+"/"+appFileName.substring(0,appFileName.lastIndexOf(".")));
 		File appResultFolder = new File(ROOT+RESULTS+"/"+appFileName.substring(0,appFileName.lastIndexOf(".")));
 
-		System.out.println("AppResultPath: "+appResultFolder.getAbsolutePath());
-		System.out.println("AppResultPath: "+appResultFolder.isDirectory());
+		////System.out.println("AppResultPath: "+appResultFolder.getAbsolutePath());
+		////System.out.println("AppResultPath: "+appResultFolder.isDirectory());
 
 		int version;
 		if (!appResultFolder.exists()) {
 			appResultFolder.mkdirs();
 			version = createVersionFile(appResultFolder.getPath());
-			System.out.println("getLastAppResults.createVersionFile() ==" + version);
+			//System.out.println("getLastAppResults.createVersionFile() ==" + version);
 			return null;
 		}
 
@@ -658,12 +658,12 @@ public class MainResolution {
 
 
 	private static String chooseFile(Scanner in) {
-		System.out.println("Chosse a App (number):");
+		//System.out.println("Chosse a App (number):");
 		int index = 1;
 		File apps = new File(ROOT+APPS);
 
 		for(File app : apps .listFiles()){
-			System.out.println(String.format("(%d) %s", index, app.getName()));
+			//System.out.println(String.format("(%d) %s", index, app.getName()));
 			index++;
 		}
 		int input = Integer.parseInt(in.nextLine());
@@ -780,7 +780,7 @@ public class MainResolution {
 				JsonParser parser = new JsonParser();
 
 				JsonElement infoJson = parser.parse(infoFileReader);
-				System.out.println(infoJson);
+				//System.out.println(infoJson);
 
 				JsonArray packages = infoJson.getAsJsonObject().getAsJsonArray("packages");
 				String name;
@@ -817,9 +817,9 @@ public class MainResolution {
 		if(!f.exists()) result = result && f.mkdirs();
 
 		if (result) {
-			System.out.println("Folders created...");
+			//System.out.println("Folders created...");
 		} else {
-			System.out.println("Folders not created...");
+			//System.out.println("Folders not created...");
 		}
 		return result;
 	}

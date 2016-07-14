@@ -47,7 +47,7 @@ public class IntentJson {
 			list.add(gson.toJsonTree(ifrs.get(i)));
 		
 		String json =  gson.toJson(list);
-		//System.out.println(json);
+		////System.out.println(json);
 		
 		File file = new File(fileName);
 		FileWriter writer = new FileWriter(file, false);
@@ -64,7 +64,7 @@ public class IntentJson {
 		.setPrettyPrinting()
 		.create();
 		String json =  gson.toJson(ifr);
-		System.out.println(json);
+		////System.out.println(json);
 		
 		File file = new File(Files.ForResolution.path+fileName);
 		FileWriter writer = new FileWriter(file);
@@ -77,7 +77,7 @@ public class IntentJson {
 	
 	public static void convertJsonToIntentForResolution(String inputPath, String ifrPath) {
 		File inputFolder = new File(inputPath);
-		System.out.println("> Iniciando conversão de Json para IntentResolution... ");
+		////System.out.println("> Iniciando conversão de Json para IntentResolution... ");
 		for(File file : inputFolder.listFiles()){
 			if(file.isFile()){
 				//convertJsonToIntentForResolution(file);
@@ -102,7 +102,7 @@ public class IntentJson {
 			}
 
 		}
-		System.out.println(">> Finalizando conversão de Json para IntentResolution. ");
+		//System.out.println(">> Finalizando conversão de Json para IntentResolution. ");
 	}
 	
 	

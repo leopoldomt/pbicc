@@ -80,19 +80,19 @@ public class AppResults {
 
 	public void addNewManifestResults(
 			ArrayList<IntentResult> intentResultsForNewManifests, Map<String, Integer> newManifests) {
-		System.out.println(">>> addNewManifestResults");
+		////System.out.println(">>> addNewManifestResults");
 		manifest_packages.putAll(newManifests);
 		
 		
 		for (IntentResult ir : intent_results) {
-		System.out.println(">>> addNewManifestResults.ir = "+ir.hash);
+		////System.out.println(">>> addNewManifestResults.ir = "+ir.hash);
 			for (int i=0; i<intentResultsForNewManifests.size(); i++) {
-				System.out.println(">>> addNewManifestResults.irfnm = "+intentResultsForNewManifests.get(i).hash);
+				////System.out.println(">>> addNewManifestResults.irfnm = "+intentResultsForNewManifests.get(i).hash);
 				if (ir.hash.equals(intentResultsForNewManifests.get(i).hash)) {
-					System.out.println("ir.manifests.size b= "+ir.manifests.size());
+					////System.out.println("ir.manifests.size b= "+ir.manifests.size());
 					ir.manifests.putAll(intentResultsForNewManifests.get(i).manifests);
 					i = intentResultsForNewManifests.size();
-					System.out.println("ir.manifests.size a= "+ir.manifests.size());
+					////System.out.println("ir.manifests.size a= "+ir.manifests.size());
 				}
 			}
 		}

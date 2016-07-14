@@ -99,7 +99,7 @@ public class IncrementalResolution {
 		if (appResults != null) {
 			saveOrUpdateResults(appResults, appName);
 		} else {
-			System.err.println("No changes and/or no new Manifest and/or no updated Manifest");
+			//System.err.println("No changes and/or no new Manifest and/or no updated Manifest");
 
 		}
 	}
@@ -315,7 +315,7 @@ public class IncrementalResolution {
 				JsonParser parser = new JsonParser();
 
 				JsonElement infoJson = parser.parse(infoFileReader);
-				System.out.println(infoJson);
+				//System.out.println(infoJson);
 
 				JsonArray packages = infoJson.getAsJsonObject().getAsJsonArray("packages");
 				String name;
@@ -375,7 +375,7 @@ public class IncrementalResolution {
 		}
 		appResultsJson.add("intent_results", intentResultsJson);
 
-		System.out.println(appResultsJson.toString());
+		//System.out.println(appResultsJson.toString());
 
 
 		Gson gson = new GsonBuilder()
@@ -437,7 +437,7 @@ public class IncrementalResolution {
 		File manifestsPaths = new File(ROOT+MANIFESTS_PACKAGES);
 
 		if (manifestsPaths.isDirectory()) {
-			System.out.println(manifestsPaths+" is directory");
+			//System.out.println(manifestsPaths+" is directory");
 			for (File f : manifestsPaths.listFiles()) {
 				if (f.isDirectory()) {
 					int version = getVersion(f.getAbsolutePath());//getVersionFromPath(f.getAbsolutePath());
@@ -446,7 +446,7 @@ public class IncrementalResolution {
 				}
 			}
 		} else {
-			System.out.println("isnt directory");
+			//System.out.println("isnt directory");
 		}
 
 
@@ -675,9 +675,9 @@ public class IncrementalResolution {
 		if(!f.exists()) result = result && f.mkdirs();
 
 		if (result) {
-			System.out.println("Folders created...");
+			//System.out.println("Folders created...");
 		} else {
-			System.out.println("Folders not created...");
+			//System.out.println("Folders not created...");
 		}
 		return result;
 	}
